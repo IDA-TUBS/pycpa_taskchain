@@ -1,2 +1,2 @@
-__all__ = ["schedulers"]
+__all__ = ["schedulers", "path_analysis"]
 __version__ = "devel"

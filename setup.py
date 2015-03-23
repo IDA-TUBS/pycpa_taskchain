@@ -6,7 +6,8 @@ cmdclass = {}
 try:
     # try building the scheduler as shared object, if cython is installed
     from Cython.Distutils import build_ext
-    ext_modules = [Extension("schedulers", ["pycpa_taskchain/schedulers.py"])]
+    ext_modules = [Extension("schedulers", ["pycpa_taskchain/schedulers.py"]),
+            Extension("path_analysis", ["pycpa_taskchain/path_analysis.py"])]
     cmdclass = {'build_ext': build_ext}
     print "Cython available, building as CPython extension"
 except ImportError:
