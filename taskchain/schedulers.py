@@ -92,18 +92,39 @@ class SPPScheduler(analysis.Scheduler):
                     # task is not stalled
                     I.add(ti)
 
-        return [S,I,tail]
+        return [S,I,tail,min_prio]
+
+    def head(self, task, min_prio):
+        assert(task is not None)
+        if task.prev_task is None:
+            return set([task])
+        
+        # predecessor must be on the same resource
+        if task.prev_task.resource != task.resource:
+            return set([task])
+
+        # predecessor can not be scheduled
+        if not self.priority_cmp(task.prev_task.scheduling_parameter, min_prio):
+            return set([task])
+        
+        # else:
+        res = self.head(task.prev_task, min_prio)
+        res.add(task)
+        return res
 
     def compute_cet(self, task, q):
         # logging.debug("e: %d", q * task.wcet)
         return q * task.wcet
 
-    def compute_blocking(self, S, q, tail):
+    def compute_blocking(self, S, q, tail, min_prio):
         s = 0
         for ti in S:
-            n = ti.in_event_model.eta_plus_closed(0)
             if ti in tail:
-                n = min(q,n)
+                n = min(q,ti.in_event_model.eta_plus_closed(0))
+            else:
+                # task is either activated by buffered events at 0 or by its predecessor
+                n = max([tj.in_event_model.eta_plus_closed(0) for tj in self.head(ti, min_prio)])
+
             assert(n > 0)
             s += ti.wcet * n
             
@@ -132,8 +153,8 @@ class SPPScheduler(analysis.Scheduler):
 #            logging.debug("w: %d", w)
             s = 0
 
-            [S,I,tail] = self._build_sets(task)
-            w_new = self.compute_cet(task, q) + self.compute_blocking(S, q, tail) + self.compute_interference(I, w, q, tail)
+            [S,I,tail,min_prio] = self._build_sets(task)
+            w_new = self.compute_cet(task, q) + self.compute_blocking(S, q, tail, min_prio) + self.compute_interference(I, w, q, tail)
 
 #             print ("w_new: ", w_new)
             if w == w_new:
@@ -214,7 +235,7 @@ class ChainScheduler(SPPScheduler):
                     # task is not stalled
                     I.add(ti)
 
-        return [S,I,tail]
+        return [S,I,tail,min_prio]
 
     def compute_cet(self, tail, q):
         # logging.debug("e: %d", q * task.wcet)
@@ -224,11 +245,15 @@ class ChainScheduler(SPPScheduler):
 
         return s
 
-    def compute_blocking(self, S):
+    def compute_blocking(self, S, min_prio):
         s = 0
         for ti in S:
-            assert(ti.in_event_model.eta_plus_closed(0) > 0)
-            s += ti.wcet * ti.in_event_model.eta_plus_closed(0)
+            n = 0
+            for tj in self.head(ti, min_prio):
+                assert(tj.in_event_model.eta_plus_closed(0) > 0)
+                n = max(n, tj.in_event_model.eta_plus_closed(0))
+
+            s += ti.wcet * n
             
 #        logging.debug("S: %d", s)
         return s
@@ -252,8 +277,8 @@ class ChainScheduler(SPPScheduler):
 #            logging.debug("w: %d", w)
             s = 0
 
-            [S,I,tail] = self._build_sets(task)
-            w_new = self.compute_cet(tail, q) + self.compute_blocking(S) + self.compute_interference(I, w)
+            [S,I,tail,min_prio] = self._build_sets(task)
+            w_new = self.compute_cet(tail, q) + self.compute_blocking(S,min_prio) + self.compute_interference(I, w)
 
 #             print ("w_new: ", w_new)
             if w == w_new:
