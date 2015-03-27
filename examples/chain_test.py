@@ -23,7 +23,7 @@ from pycpa import schedulers as pycpaschedulers
 from taskchain import schedulers as taskchainschedulers
 from taskchain import path_analysis as taskchainpath_analysis
 
-def run(scheduler):
+def run(scheduler, priorities):
     # generate an new system
     s = model.System()
 
@@ -32,13 +32,13 @@ def run(scheduler):
     r1 = s.bind_resource(model.Resource("R1", scheduler))
 
     # create and bind tasks to r1
-    t11 = r1.bind_task(model.Task("T11", wcet=10, bcet=1, scheduling_parameter=6))
-    t21 = r1.bind_task(model.Task("T21", wcet=2, bcet=2, scheduling_parameter=2))
-    t31 = r1.bind_task(model.Task("T31", wcet=4, bcet=2, scheduling_parameter=3))
+    t11 = r1.bind_task(model.Task("T11", wcet=10, bcet=1, scheduling_parameter=priorities[0]))
+    t21 = r1.bind_task(model.Task("T21", wcet=2, bcet=2, scheduling_parameter=priorities[1]))
+    t31 = r1.bind_task(model.Task("T31", wcet=4, bcet=2, scheduling_parameter=priorities[2]))
 
-    t12 = r1.bind_task(model.Task("T12", wcet=3, bcet=1, scheduling_parameter=5))
-    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=4))
-    t32 = r1.bind_task(model.Task("T32", wcet=5, bcet=3, scheduling_parameter=1))
+    t12 = r1.bind_task(model.Task("T12", wcet=3, bcet=1, scheduling_parameter=priorities[3]))
+    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[4]))
+    t32 = r1.bind_task(model.Task("T32", wcet=5, bcet=3, scheduling_parameter=priorities[5]))
 
     # specify precedence constraints: T11 -> T21 -> T31; T12-> T22 -> T32
     t11.link_dependent_task(t21)
@@ -83,10 +83,12 @@ if __name__ == "__main__":
     # init pycpa and trigger command line parsing
     options.init_pycpa()
 
+#    priorities = [3, 4, 5, 6, 1, 2]
+    priorities = [4, 1, 5, 6, 3, 2]
     print("\n## Using simple taskchain scheduler ##")
-    [results1,paths1] = run(taskchainschedulers.SPPScheduler())
+    [results1,paths1] = run(taskchainschedulers.SPPScheduler(), priorities)
     print("\n## Using improved taskchain scheduler ##")
-    [results2,paths2] = run(taskchainschedulers.ChainScheduler())
+    [results2,paths2] = run(taskchainschedulers.ChainScheduler(), priorities)
 
     print("\n## Comparing e2e path results##")
     for i in range(0, len(paths1)):

@@ -23,9 +23,17 @@ def print_stats(filename, pathname):
         a2_better = 0
         a3_better_a1 = 0
         a3_better_a2 = 0
+        worst_inst = set()
         for row in reader:
             if row['Path'] != pathname:
                 continue
+
+            inst = str([int(row['P1']),
+                        int(row['P2']),
+                        int(row['P3']),
+                        int(row['P4']),
+                        int(row['P5']),
+                        int(row['P6'])])
             
             l1 = int(row['lat1'])
             l2 = int(row['lat2'])
@@ -40,10 +48,13 @@ def print_stats(filename, pathname):
 
             if l1 > 0 and l2 > l1:
                 a2_worse += 1
+                worst_inst.add(inst)
             if l1 > 0 and l3 > l1:
                 a3_worse_a1 += 1
+                worst_inst.add(inst)
             if l2 > 0 and l3 > l2:
                 a3_worse_a2 += 1
+                worst_inst.add(inst)
 
             if l2 > 0 and l2 < l1:
                 a2_better += 1
@@ -66,8 +77,14 @@ def print_stats(filename, pathname):
         print("A3 better than A1: %d times" % a3_better_a1)
         print("A3 better than A2: %d times" % a3_better_a2)
 
-print_stats(args.file, "S1")
+        return worst_inst
+
+worse_inst = print_stats(args.file, "S1")
 print("")
-print_stats(args.file, "S2")
+worse_inst.update(print_stats(args.file, "S2"))
+
+print("\nInstances that resulted in worse latency:")
+for inst in worse_inst:
+    print(inst)
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
