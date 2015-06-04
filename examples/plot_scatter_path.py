@@ -48,7 +48,7 @@ def parse_results(filename):
                 results[eid][axis] = 0
             else:
                 if args.relative:
-                    results[eid][axis] = float(orig-impr)/float(orig)
+                    results[eid][axis] = float(impr)/float(orig)
                 else:
                     results[eid][axis] = orig-impr
 

@@ -10,19 +10,18 @@
 Description
 -----------
 
-Simple Taskchain example
+Simple Taskchain e2e latency analysis example
 """
 
 from pycpa import model
 from pycpa import analysis
 from pycpa import path_analysis
-#from pycpa import schedulers
+from taskchain import path_analysis as taskchainpath_analysis
 from pycpa import graph
 from pycpa import options
-from pycpa import schedulers as pycpaschedulers
-from taskchain import schedulers as taskchainschedulers
+from pycpa import schedulers
 
-def simple_test(scheduler, priorities):
+def simple_test(priorities, scheduler=schedulers.SPPScheduler()):
     # generate an new system
     s = model.System()
 
@@ -68,32 +67,22 @@ def simple_test(scheduler, priorities):
             print("%s: wcrt=%d" % (t.name, task_results[t].wcrt))
             print("    b_wcrt=%s" % (task_results[t].b_wcrt_str()))
 
-    # print path latency for the three event
-    for n in range(1, 4):
-        best_case_latency, worst_case_latency = path_analysis.end_to_end_latency(s1, task_results, n)
-        print("stream S1 e2e latency. worst case: %d" % (worst_case_latency))
-
-    for n in range(1, 4):
-        best_case_latency, worst_case_latency = path_analysis.end_to_end_latency(s2, task_results, n)
-        print("stream S2 e2e latency. worst case: %d" % (worst_case_latency))
-
-    return task_results
+    return [task_results, [s1,s2]]
 
 if __name__ == "__main__":
     # init pycpa and trigger command line parsing
     options.init_pycpa()
 
-    priorities = [6, 2, 3, 5, 4, 1]
+#    priorities = [2, 1, 6, 4, 5, 3]
+    priorities = [1, 2, 3, 4, 6, 5]
 
-    print("\n## Using standard scheduler ##")
-    res1 = simple_test(pycpaschedulers.SPPScheduler(), priorities)
-    print("\n## Using simple taskchain scheduler ##")
-    res2 = simple_test(taskchainschedulers.SPPScheduler(), priorities)
+    print("\n## Running CPA ##")
+    [task_results, paths] = simple_test(priorities)
 
-    print("\n## Comparing WCRT results##")
-    for t1 in res1.keys():
-        for t2 in res2.keys():
-            if t1.name == t2.name:
-                diff = res1[t1].wcrt - res2[t2].wcrt
-                perc = float(diff) / float(res1[t1].wcrt) * 100
-                print("%s: improved wcrt by %d%% (%d)" % (t1.name, perc, diff))
+    for p in paths:
+        for n in range(1,10):
+            [tmp, l1] = path_analysis.end_to_end_latency(p, task_results, n)
+            [tmp, l2] = taskchainpath_analysis.end_to_end_latency(p, task_results, n)
+            diff = l1-l2
+            perc = float(diff) / float(l1) * 100
+            print("%s: %d - %d = %d (%d%%)" % (p.name, l1, l2, diff, perc))
