@@ -171,12 +171,12 @@ class SimpleChainScheduler(SPPScheduler):
         for task in tail:
             interferers.update(task.get_resource_interferers())
 
-            I = set()
-            for ti in task.get_resource_interferers():
-                assert(ti.scheduling_parameter != None)
-                assert(ti.resource == task.resource)
-                if self.priority_cmp(ti.scheduling_parameter, task.scheduling_parameter):
-                    I.add(ti)
+        I = set()
+        for ti in task.get_resource_interferers():
+            assert(ti.scheduling_parameter != None)
+            assert(ti.resource == task.resource)
+            if self.priority_cmp(ti.scheduling_parameter, task.scheduling_parameter):
+                I.add(ti)
 
         I.difference_update(tail)
 
