@@ -167,16 +167,13 @@ class SimpleChainScheduler(SPPScheduler):
         # compute minimum priority of the chain and tail
         [min_prio, tail] = self._get_min_prio_tail(task)
 
-        interferers = set()
-        for task in tail:
-            interferers.update(task.get_resource_interferers())
-
         I = set()
-        for ti in task.get_resource_interferers():
-            assert(ti.scheduling_parameter != None)
-            assert(ti.resource == task.resource)
-            if self.priority_cmp(ti.scheduling_parameter, task.scheduling_parameter):
-                I.add(ti)
+        for t in tail:
+            for ti in t.get_resource_interferers():
+                assert(ti.scheduling_parameter != None)
+                assert(ti.resource == t.resource)
+                if self.priority_cmp(ti.scheduling_parameter, t.scheduling_parameter):
+                    I.add(ti)
 
         I.difference_update(tail)
 
