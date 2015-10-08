@@ -189,4 +189,59 @@ class SPPSchedulerAsync(SPPSchedulerSimple):
 
         return [I,D]
 
+class SPPSchedulerSyncRefined(SPPSchedulerSimple):
+
+    def __init__(self):
+        SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
+
+    def _build_sets(self, task):
+
+        # compute minimum priority of the chain
+        min_prio = self._get_min_chain_prio(task)
+
+        I = set()
+        D = set()
+        for tc in task.resource.chains:
+            if tc is task.chain:
+                continue
+
+            deferred = False
+            H = set()
+            for t in tc.tasks:
+                assert(t.scheduling_parameter != None)
+                if self.priority_cmp(t.scheduling_parameter, min_prio):
+                    H.add(t)
+                else:
+                    deferred = True
+
+            if deferred:
+                # first shift task chain to the start of a deferred segment as the first task might
+                # be in the middle of such a segment
+                k = 0
+                for t in tc.tasks:
+                    k += 1
+                    if t not in H:
+                        shifted_list = tc.tasks[k::] + tc.tasks[:k:]
+                        break
+
+                # find the critical (i.e. longest) deferred segment
+                max_cet = 0
+                S = set()
+                S_crit = set()
+                for t in shifted_list:
+                    if t not in H:
+                        cur_cet = self._compute_deferred_load(S)
+                        if max_cet < cur_cet:
+                            S_crit = S
+                            S = set()
+                    else:
+                        S.add(t)
+
+                D.update(S_crit)
+            else:
+                I.update(H)
+
+        return [I,D]
+
+
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4

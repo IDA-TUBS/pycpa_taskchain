@@ -37,29 +37,29 @@ def taskchain_test(scheduler, priorities):
         synchronous_call=True))
     t13 = r1.bind_task(model.Task("T13", wcet=4, bcet=2, scheduling_parameter=priorities[2],
         synchronous_call=True))
+    t14 = r1.bind_task(model.Task("T14", wcet=5, bcet=3, scheduling_parameter=priorities[3],
+        synchronous_call=True))
 
-    t21 = r1.bind_task(model.Task("T21", wcet=3, bcet=1, scheduling_parameter=priorities[3],
+    t21 = r1.bind_task(model.Task("T21", wcet=3, bcet=1, scheduling_parameter=priorities[4],
         synchronous_call=False))
-    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[4],
-        synchronous_call=True))
-    t23 = r1.bind_task(model.Task("T23", wcet=5, bcet=3, scheduling_parameter=priorities[5],
+    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[5],
         synchronous_call=True))
 
-    # specify precedence constraints: T11 -> T21 -> T31; T12-> T22 -> T32
-    t11.link_dependent_task(t12).link_dependent_task(t13)
-    t21.link_dependent_task(t22).link_dependent_task(t23)
+    # specify precedence constraints
+    t11.link_dependent_task(t12).link_dependent_task(t13).link_dependent_task(t14)
+    t21.link_dependent_task(t22)
 
     # register a periodic with jitter event model for T11 and T12
-    t11.in_event_model = model.PJdEventModel(P=20, J=5)
+    t11.in_event_model = model.PJdEventModel(P=25, J=5)
     t21.in_event_model = model.PJdEventModel(P=100, J=0)
 
     # register task chains as a path
-    s1 = s.bind_path(model.Path("S1", [t11, t12, t13]))
-    s2 = s.bind_path(model.Path("S2", [t21, t22, t23]))
+    s1 = s.bind_path(model.Path("S1", [t11, t12, t13, t14]))
+    s2 = s.bind_path(model.Path("S2", [t21, t22]))
 
     # register task chains
-    c1 = r1.bind_taskchain(tc_model.Taskchain("C1", [t11, t12, t13]))
-    c2 = r1.bind_taskchain(tc_model.Taskchain("C2", [t21, t22, t23]))
+    c1 = r1.bind_taskchain(tc_model.Taskchain("C1", [t11, t12, t13, t14]))
+    c2 = r1.bind_taskchain(tc_model.Taskchain("C2", [t21, t22]))
 
     # perform the analysis
     print("Performing analysis")
@@ -78,9 +78,12 @@ def taskchain_test(scheduler, priorities):
 if __name__ == "__main__":
     # init pycpa and trigger command line parsing
     options.init_pycpa()
-    lat1, lat2 = taskchain_test(tc_schedulers.SPPSchedulerSync, [1,6,3,4,5,3])
-    assert (lat1 == 35)
-    assert (lat2 == 31)
-    lat1, lat2 = taskchain_test(tc_schedulers.SPPSchedulerAsync, [1,6,3,4,5,3])
-    assert (lat1 == 35)
-    assert (lat2 == 51)
+    lat1, lat2 = taskchain_test(tc_schedulers.SPPSchedulerSync, [1,6,3,5,4,3])
+    assert (lat1 == 34)
+    assert (lat2 == 26)
+    lat1, lat2 = taskchain_test(tc_schedulers.SPPSchedulerAsync, [1,6,3,5,4,3])
+    assert (lat1 == 34)
+    assert (lat2 == 36)
+    lat1, lat2 = taskchain_test(tc_schedulers.SPPSchedulerSyncRefined, [1,6,3,5,4,3])
+    assert (lat1 == 34)
+    assert (lat2 == 22)
