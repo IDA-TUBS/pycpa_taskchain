@@ -34,205 +34,159 @@ prio_low_wins_equal_fifo = lambda a, b : a <= b
 prio_high_wins_equal_domination = lambda a, b : a > b
 prio_low_wins_equal_domination = lambda a, b : a < b
 
-class SPPScheduler(analysis.Scheduler):
+class SPPSchedulerSimple(analysis.Scheduler):
     """ Improved Static-Priority-Preemptive Scheduler for task chains
 
     Priority is stored in task.scheduling_parameter,
     by default numerically lower numbers have a higher priority
 
     Policy for equal priority is FCFS (i.e. max. interference).
+
+    Computes busy window of an entire task chain.
+    Implements Eq. 7 resp. Eq. 12 of Schlatow/RTAS16 paper 
     """
 
-    # FIXME: BROKEN (not fully implemented/verified)
-
-    def __init__(self, priority_cmp=prio_low_wins_equal_fifo):
-        assert(False)
+    def __init__(self, priority_cmp=prio_low_wins_equal_fifo, build_sets=None):
         analysis.Scheduler.__init__(self)
 
         # # priority ordering
         self.priority_cmp = priority_cmp
 
-    def _get_min_prio_tail(self, task):
+        self._build_sets = build_sets
+
+    def _get_min_chain_prio(self, task):
         assert(task.scheduling_parameter != None)
 
         min_prio = task.scheduling_parameter
-        tail = set([task])
-        for ti in task.next_tasks:
-            if ti.resource != task.resource:
-                # skip tasks on other resources
-                continue
-            [subtree_min_prio, subtail] = self._get_min_prio_tail(ti)
-            if self.priority_cmp(min_prio, subtree_min_prio):
-                min_prio = subtree_min_prio
+        for t in task.chain.tasks:
+            if self.priority_cmp(min_prio, t.scheduling_parameter):
+                min_prio = t.scheduling_parameter
 
-            tail.update(subtail)
+        return min_prio
 
-        return [min_prio, tail]
+    def _compute_cet(self, task, q):
+        wcet = 0
+        for t in task.chain.tasks:
+            wcet += t.wcet
 
-    def _build_sets(self, task):
+        return q * wcet
 
-        # compute minimum priority of the chain
-        [min_prio, tail] = self._get_min_prio_tail(task)
-
-        I = set()
-        for ti in task.get_resource_interferers():
-            assert(ti.scheduling_parameter != None)
-            assert(ti.resource == task.resource)
-            if self.priority_cmp(ti.scheduling_parameter, task.scheduling_parameter):
-                I.add(ti)
-
-        return [I,tail,min_prio]
-
-    def head(self, task, min_prio):
-        assert(task is not None)
-        if task.prev_task is None:
-            return set([task])
-        
-        # predecessor must be on the same resource
-        if task.prev_task.resource != task.resource:
-            return set([task])
-
-        # predecessor can not be scheduled
-        if not self.priority_cmp(task.prev_task.scheduling_parameter, min_prio):
-            return set([task])
-        
-        # else:
-        res = self.head(task.prev_task, min_prio)
-        res.add(task)
-        return res
-
-    def compute_cet(self, task, q):
-        return q * task.wcet
-
-    def compute_interference(self, I, w, q, tail):
+    def _compute_interference(self, I, w):
         s = 0
-        for ti in I:
-            n = ti.in_event_model.eta_plus(w)
-            if ti in tail:
-                n = min(q,n)
-            s += ti.wcet * n
+        for t in I:
+            n = t.chain.tasks[0].in_event_model.eta_plus(w)
+            s += t.wcet * n
 
         return s
+
+    def _compute_deferred_load(self, D):
+        s = 0
+        for t in D:
+            s += t.wcet
+
+        return s
+
+    def b_min(self, task, q):
+        bcet = 0
+        for t in task.chain.tasks:
+            bcet += t.bcet
+
+        return q * bcet
+
 
     def b_plus(self, task, q, details=None):
         """ This corresponds to Equation ... TODO """
         assert(task.scheduling_parameter != None)
         assert(task.wcet >= 0)
 
-        w = q * task.wcet
+        w = self._compute_cet(task, q)
 
         while True:
             s = 0
 
-            [I,tail,min_prio] = self._build_sets(task)
-            w_new = self.compute_cet(task, q) + self.compute_interference(I, w, q, tail)
+            [I,D] = self._build_sets(task)
+            w_new = self._compute_cet(task, q) + \
+                    self._compute_interference(I, w) + \
+                    self._compute_deferred_load(D)
 
             if w == w_new:
                 assert(w >= q * task.wcet)
                 if details is not None:
-                    details['q*WCET'] = str(q) + '*' + str(task.wcet) + '=' + str(q * task.wcet)
-                    for ti in I:
-                        if ti in tail and q < ti.in_event_model.eta_plus(w):
-                            details[str(ti)+":q*WCET"]      = str(q) \
-                                                              + "*" + str(ti.wcet) + "=" \
-                                                              + str(q * ti.wcet)
-                        else:
-                            details[str(ti)+":eta*WCET"]    = str(ti.in_event_model.eta_plus(w)) \
-                                                              + "*" + str(ti.wcet) + "=" \
-                                                              + str(ti.in_event_model.eta_plus(w) * ti.wcet)
+                    for t in task.chain.tasks:
+                        details[str(t)+':q*WCET'] = str(q) + '*' + str(t.wcet) + '=' + str(q * t.wcet)
+
+                    for t in I:
+                        details[str(t)+":eta*WCET"]    = str(t.chain.tasks[0].in_event_model.eta_plus(w)) \
+                                                          + "*" + str(t.wcet) + "=" \
+                                                          + str(t.in_event_model.eta_plus(w) * t.wcet)
+
+                    for t in D:
+                        details[str(t)+":WCET"]        = str(t.wcet)
 
                 return w
 
             w = w_new
 
-class SimpleChainScheduler(SPPScheduler):
-    """ Static-Priority-Preemptive Scheduler for task chains
+class SPPSchedulerSync(SPPSchedulerSimple):
 
-    Priority is stored in task.scheduling_parameter,
-    by default numerically lower numbers have a higher priority
-
-    Policy for equal priority is FCFS (i.e. max. interference).
-
-    Computes busy window for the whole task chain.
-    """
-
-
-    def __init__(self, priority_cmp=prio_low_wins_equal_fifo):
-        analysis.Scheduler.__init__(self)
-
-        # # priority ordering
-        self.priority_cmp = priority_cmp
+    def __init__(self):
+        SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
     def _build_sets(self, task):
-        # compute minimum priority of the chain and tail
-        [min_prio, tail] = self._get_min_prio_tail(task)
+
+        # compute minimum priority of the chain
+        min_prio = self._get_min_chain_prio(task)
 
         I = set()
-        for t in tail:
-            for ti in t.get_resource_interferers():
-                assert(ti.scheduling_parameter != None)
-                assert(ti.resource == t.resource)
-                if self.priority_cmp(ti.scheduling_parameter, t.scheduling_parameter):
-                    I.add(ti)
+        D = set()
+        for tc in task.resource.chains:
+            if tc is task.chain:
+                continue
 
-        I.difference_update(tail)
+            deferred = False
+            H = set()
+            for t in tc.tasks:
+                assert(t.scheduling_parameter != None)
+                if self.priority_cmp(t.scheduling_parameter, min_prio):
+                    H.add(t)
+                else:
+                    deferred = True
 
-        return [I,tail,min_prio]
+            if deferred:
+                D.update(H)
+            else:
+                I.update(H)
 
-    def compute_cet(self, tail, q):
-        s = 0
-        for ti in tail:
-            s += q * ti.wcet
+        return [I,D]
 
-        return s
+class SPPSchedulerAsync(SPPSchedulerSimple):
 
-    def compute_interference(self, I, w):
-        s = 0
-        for ti in I:
-            s += ti.wcet * ti.in_event_model.eta_plus(w)
+    def __init__(self):
+        SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
-        return s
+    def _build_sets(self, task):
 
-    def b_min(self, task, q):
-        """ Minimum Busy-Time for q activations of a task and its predecessors.
+        # compute minimum priority of the chain
+        min_prio = self._get_min_chain_prio(task)
 
-        :param task: the analyzed task
-        :type task: model.Task
-        :param q: the number of activations
-        :type q: integer
-        :rtype: integer (max. busy-time for q activations)
-        """
+        I = set()
+        D = set()
+        for tc in task.resource.chains:
+            if tc is task.chain:
+                continue
 
-        [min_prio, tail] = self._get_min_prio_tail(task)
-        return self.compute_cet(tail, q)
+            deferred = False
+            # iterate list of tasks (in sequential order in the chain)
+            for t in tc.tasks:
+                assert(t.scheduling_parameter != None)
+                if self.priority_cmp(t.scheduling_parameter, min_prio):
+                    if deferred:
+                        D.add(t)
+                    else:
+                        I.add(t)
+                else:
+                    deferred = True
 
-    def b_plus(self, task, q, details=None):
-        """ This corresponds to Equation ... TODO (unpublished)"""
-        assert(task.scheduling_parameter != None)
-        assert(task.wcet >= 0)
-
-        w = q * task.wcet
-
-        while True:
-            s = 0
-
-            [I,tail,min_prio] = self._build_sets(task)
-            w_new = self.compute_cet(tail, q) + self.compute_interference(I, w)
-
-            if w == w_new:
-                assert(w >= q * task.wcet)
-                if details is not None:
-                    for ti in tail:
-                        details[str(ti)+":q*WCET"]      = str(q) \
-                                                          + "*" + str(ti.wcet) + "=" \
-                                                          + str(q * ti.wcet)
-                    for ti in I:
-                        details[str(ti)+":eta*WCET"]    = str(ti.in_event_model.eta_plus(w)) \
-                                                          + "*" + str(ti.wcet) + "=" \
-                                                          + str(ti.in_event_model.eta_plus(w) * ti.wcet)
-
-                return w
-
-            w = w_new
+        return [I,D]
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
