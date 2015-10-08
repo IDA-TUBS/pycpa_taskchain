@@ -19,49 +19,58 @@ from pycpa import path_analysis
 from pycpa import graph
 from pycpa import options
 from pycpa import schedulers 
-from taskchain import path_analysis as taskchainpath_analysis
+from taskchain import model as tc_model
+from taskchain import schedulers as tc_schedulers
 
 import csv
 import itertools
 
-def run(priorities, scheduler=schedulers.SPPScheduler()):
+def run(scheduler, priorities, create_chains=True):
     assert(len(priorities) >= 6)
     # generate an new system
     s = model.System()
 
     # add two resources (CPUs) to the system
     # and register the static priority preemptive scheduler
-    r1 = s.bind_resource(model.Resource("R1", scheduler))
+    r1 = s.bind_resource(tc_model.TaskchainResource("R1", scheduler()))
 
     # create and bind tasks to r1
-    t11 = r1.bind_task(model.Task("T11", wcet=10, bcet=1, scheduling_parameter=priorities[0]))
-    t21 = r1.bind_task(model.Task("T21", wcet=2, bcet=2, scheduling_parameter=priorities[1]))
-    t31 = r1.bind_task(model.Task("T31", wcet=4, bcet=2, scheduling_parameter=priorities[2]))
+    t11 = r1.bind_task(model.Task("T11", wcet=10, bcet=1, scheduling_parameter=priorities[0],
+        synchronous_call=False))
+    t12 = r1.bind_task(model.Task("T12", wcet=2, bcet=2, scheduling_parameter=priorities[1],
+        synchronous_call=True))
+    t13 = r1.bind_task(model.Task("T13", wcet=4, bcet=2, scheduling_parameter=priorities[2],
+        synchronous_call=True))
+    t14 = r1.bind_task(model.Task("T14", wcet=5, bcet=3, scheduling_parameter=priorities[3],
+        synchronous_call=True))
 
-    t12 = r1.bind_task(model.Task("T12", wcet=3, bcet=1, scheduling_parameter=priorities[3]))
-    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[4]))
-    t32 = r1.bind_task(model.Task("T32", wcet=5, bcet=3, scheduling_parameter=priorities[5]))
+    t21 = r1.bind_task(model.Task("T21", wcet=3, bcet=1, scheduling_parameter=priorities[4],
+        synchronous_call=False))
+    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[5],
+        synchronous_call=True))
 
-    # specify precedence constraints: T11 -> T21 -> T31; T12-> T22 -> T32
-    t11.link_dependent_task(t21)
-    t21.link_dependent_task(t31)
-
-    t12.link_dependent_task(t22)
-    t22.link_dependent_task(t32)
+    # specify precedence constraints
+    t11.link_dependent_task(t12).link_dependent_task(t13).link_dependent_task(t14)
+    t21.link_dependent_task(t22)
 
     # register a periodic with jitter event model for T11 and T12
-    t11.in_event_model = model.PJdEventModel(P=20, J=5)
-    t12.in_event_model = model.PJdEventModel(P=100, J=0)
+    t11.in_event_model = model.PJdEventModel(P=25, J=5)
+    t21.in_event_model = model.PJdEventModel(P=100, J=0)
 
-    # register a task chain as a stream
-    s1 = s.bind_path(model.Path("S1", [t11, t21, t31]))
-    s2 = s.bind_path(model.Path("S2", [t12, t22, t32]))
+    # register task chains as a path
+    s1 = s.bind_path(model.Path("S1", [t11, t12, t13, t14]))
+    s2 = s.bind_path(model.Path("S2", [t21, t22]))
+
+    if create_chains:
+        # register task chains
+        c1 = r1.bind_taskchain(tc_model.Taskchain("C1", [t11, t12, t13, t14]))
+        c2 = r1.bind_taskchain(tc_model.Taskchain("C2", [t21, t22]))
 
     # perform the analysis
     print("Performing analysis")
     task_results = analysis.analyze_system(s)
 
-    return [task_results, [s1, s2]]
+    return (task_results, [s1, s2])
 
 if __name__ == "__main__":
     # init pycpa and trigger command line parsing
@@ -69,33 +78,60 @@ if __name__ == "__main__":
 
     with open("path_report.csv", "wb") as csvfile:
         pathwriter = csv.writer(csvfile, delimiter='\t')
-        pathwriter.writerow(["Path", "P1", "P2", "P3", "P4", "P5", "P6", "lat1a", "lat1b", "lat2a",
-            "lat2b", "lat3a", "lat3b", "lat4a", "lat4b", "lat5a", "lat5b"])
+        pathwriter.writerow(["Path", "P1", "P2", "P3", "P4", "P5", "P6",
+                             "lat", "lat_sync", "lat_syncref", "lat_async"])
         pathnames = ["S1", "S2"]
 
         for priorities in itertools.permutations([1,2,3,4,5,6]):
             print("Running analyses for priorities %s" % str(priorities))
+            paths = None
+            paths_sync = None
+            paths_syncref = None
+            paths_async = None
+
             try:
-                [results,paths] = run(priorities)
+                [results,paths]                 = run(schedulers.SPPScheduler,        priorities, False)
             except analysis.NotSchedulableException as e:
                 print(e)
-                results = dict()
-                paths = None
+
+            try:
+                [results_sync,paths_sync]       = run(tc_schedulers.SPPSchedulerSync, priorities)
+            except analysis.NotSchedulableException as e:
+                print(e)
+
+            try:
+                [results_syncref,paths_syncref] = run(tc_schedulers.SPPSchedulerSyncRefined, priorities)
+            except analysis.NotSchedulableException as e:
+                print(e)
+
+            try:
+                [results_async,paths_async]     = run(tc_schedulers.SPPSchedulerAsync,       priorities)
+            except analysis.NotSchedulableException as e:
+                print(e)
 
             # Calculate e2e latency
             for i in range(0, len(pathnames)):
-                l_old = dict()
-                l_new = dict()
-                for n in range(0,5):
-                    if paths != None:
-                        [tmp, l_old[n]] = path_analysis.end_to_end_latency(paths[i], results, n)
-                        [tmp, l_new[n]] = taskchainpath_analysis.end_to_end_latency(paths[i], results, n)
-                    else:
-                        l_old[n] = 0
-                        l_new[n] = 0
+                l         = 0
+                l_sync    = 0
+                l_syncref = 0
+                l_async   = 0
+                n = 1
 
-                    if l_old[n] < l_new[n]:
-                        print("Warning: Improved latency result is actually worse!")
+                if paths != None:
+                    [tmp, l] = path_analysis.end_to_end_latency(paths[i], results, n)
+                if paths_sync != None:
+                    [tmp, l_sync] = path_analysis.end_to_end_latency(paths_sync[i], results_sync, n)
+                if paths_syncref != None:
+                    [tmp, l_syncref] = path_analysis.end_to_end_latency(paths_syncref[i], results_syncref, n)
+                if paths_async != None:
+                    [tmp, l_async] = path_analysis.end_to_end_latency(paths_async[i], results_async, n)
+
+                if l > 0 and l < l_sync:
+                    print("Warning: Improved (sync) latency result is actually worse!")
+                if l_sync > 0 and l_sync < l_syncref:
+                    print("Warning: Improved (refined) latency result is actually worse!")
+                if l > 0 and l < l_async:
+                    print("Warning: Improved (async) latency result is actually worse!")
 
                 pathwriter.writerow([pathnames[i], priorities[0],
                                                    priorities[1],
@@ -103,13 +139,7 @@ if __name__ == "__main__":
                                                    priorities[3],
                                                    priorities[4],
                                                    priorities[5],
-                                                   l_old[0],
-                                                   l_new[0],
-                                                   l_old[1],
-                                                   l_new[1],
-                                                   l_old[2],
-                                                   l_new[2],
-                                                   l_old[3],
-                                                   l_new[3],
-                                                   l_old[4],
-                                                   l_new[4]])
+                                                   l,
+                                                   l_sync,
+                                                   l_syncref,
+                                                   l_async])

@@ -14,8 +14,17 @@ def print_stats(filename, pathname):
     with open(filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=args.delimiter)
         num = 0
-        num_failed = 0
-        num_worse = 0
+        names = ["lat", "lat_async", "lat_sync", "lat_syncref"]
+        num_failed = dict()
+        num_worse = dict()
+        latencies = dict()
+        max_impr  = dict()
+
+        for name in names:
+            num_failed[name] = 0
+            num_worse[name]  = 0
+            max_impr[name]   = 0
+
         worst_inst = set()
         for row in reader:
             if row['Path'] != pathname:
@@ -28,34 +37,33 @@ def print_stats(filename, pathname):
                         int(row['P5']),
                         int(row['P6'])])
             
-            l_old = dict()
-            l_new = dict()
-            l_old[0] = int(row['lat1a'])
-            l_new[0] = int(row['lat1b'])
-            l_old[1] = int(row['lat2a'])
-            l_new[1] = int(row['lat2b'])
-            l_old[2] = int(row['lat3a'])
-            l_new[2] = int(row['lat3b'])
-            l_old[3] = int(row['lat4a'])
-            l_new[3] = int(row['lat4b'])
-            l_old[4] = int(row['lat5a'])
-            l_new[4] = int(row['lat5b'])
+            for name in names:
+                latencies[name] = int(row[name])
+                if latencies[name] == 0:
+                    num_failed[name] += 1
 
-            if l_old[0] == 0:
-                num_failed += 1
-
-            for n in range(0, 5):
-                if l_old[n] < l_new[n]:
-                    num_worse += 1
+            for i in zip(names[0:-1], names[1:]):
+                if latencies[i[0]] > 0 and latencies[i[0]] < latencies[i[1]]:
+                    num_worse[i[1]] += 1
                     worse_inst.add(inst)
+
+            for name in names[1:]:
+                if latencies[names[0]] == 0:
                     continue
+                impr = latencies[names[0]]-latencies[name]
+                if max_impr[name] < impr:
+                    max_impr[name] = impr
 
             num += 1
 
         print("Path Results Statistics for '%s':" % pathname)
         print("#Experiments:      %d" % num)
-        print("# failed:         %d times" % num_failed)
-        print("# worse:          %d times" % num_worse)
+        for name in names:
+            print(name+":")
+            print("  # failed:       %d times" % num_failed[name])
+            print("  # worse:        %d times" % num_worse[name])
+        for name in names[1:]:
+            print("Maximum improvement for %s:  %d" % (name, max_impr[name]))
 
         return worst_inst
 
