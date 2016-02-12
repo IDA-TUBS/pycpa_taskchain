@@ -79,6 +79,15 @@ class SPPSchedulerSimple(analysis.Scheduler):
 
         return s
 
+    def _compute_self_interference(self, H, w, q):
+        s = 0
+        for t in H:
+            n = t.chain.tasks[0].in_event_model.eta_plus(w)
+            n = max(n-q, 0)
+            s += t.wcet * n
+
+        return s
+
     def _compute_deferred_load(self, D):
         s = 0
         for t in D:
@@ -104,9 +113,10 @@ class SPPSchedulerSimple(analysis.Scheduler):
         while True:
             s = 0
 
-            [I,D] = self._build_sets(task)
+            [I,D,H] = self._build_sets(task)
             w_new = self._compute_cet(task, q) + \
                     self._compute_interference(I, w) + \
+                    self._compute_self_interference(H, w, q) + \
                     self._compute_deferred_load(D)
 
             if w == w_new:
@@ -117,6 +127,10 @@ class SPPSchedulerSimple(analysis.Scheduler):
 
                     for t in I:
                         details[str(t)+":eta*WCET"]    = str(t.chain.tasks[0].in_event_model.eta_plus(w)) \
+                                                          + "*" + str(t.wcet) + "=" \
+                                                          + str(t.in_event_model.eta_plus(w) * t.wcet)
+                    for t in H:
+                        details[str(t)+":eta*WCET"]    = str(max(t.chain.tasks[0].in_event_model.eta_plus(w)-q,0)) \
                                                           + "*" + str(t.wcet) + "=" \
                                                           + str(t.in_event_model.eta_plus(w) * t.wcet)
 
@@ -157,7 +171,7 @@ class SPPSchedulerSync(SPPSchedulerSimple):
             else:
                 I.update(H)
 
-        return [I,D]
+        return [I,D,set()]
 
 class SPPSchedulerAsync(SPPSchedulerSimple):
 
@@ -171,8 +185,14 @@ class SPPSchedulerAsync(SPPSchedulerSimple):
 
         I = set()
         D = set()
+        H = set()
         for tc in task.resource.chains:
             if tc is task.chain:
+                for t in tc.tasks:
+                    if t is not tc.tasks[-1]:
+                        assert(t.scheduling_parameter != None)
+                        if self.priority_cmp(t.scheduling_parameter, min_prio):
+                            H.add(t)
                 continue
 
             deferred = False
@@ -187,7 +207,7 @@ class SPPSchedulerAsync(SPPSchedulerSimple):
                 else:
                     deferred = True
 
-        return [I,D]
+        return [I,D,H]
 
 class SPPSchedulerSyncRefined(SPPSchedulerSimple):
 
@@ -241,7 +261,7 @@ class SPPSchedulerSyncRefined(SPPSchedulerSimple):
             else:
                 I.update(H)
 
-        return [I,D]
+        return [I,D,set()]
 
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
