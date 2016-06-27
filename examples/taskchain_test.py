@@ -82,7 +82,7 @@ if __name__ == "__main__":
     assert (lat1 == 34)
     assert (lat2 == 26)
     lat1, lat2 = taskchain_test(tc_schedulers.SPPSchedulerAsync, [1,6,3,5,4,3])
-    assert (lat1 == 34)
+    assert (lat1 == 70)
     assert (lat2 == 36)
     lat1, lat2 = taskchain_test(tc_schedulers.SPPSchedulerSyncRefined, [1,6,3,5,4,3])
     assert (lat1 == 34)
