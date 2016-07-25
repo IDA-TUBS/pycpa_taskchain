@@ -254,7 +254,8 @@ class SPPSchedulerSyncRefined(SPPSchedulerSimple):
                         if max_cet < cur_cet:
                             max_cet = cur_cet
                             S_crit = S
-                            S = set()
+                            
+                        S = set()
                     else:
                         S.add(t)
 
