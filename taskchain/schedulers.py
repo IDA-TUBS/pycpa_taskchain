@@ -252,6 +252,7 @@ class SPPSchedulerSyncRefined(SPPSchedulerSimple):
                     if t not in H:
                         cur_cet = self._compute_deferred_load(S)
                         if max_cet < cur_cet:
+                            max_cet = cur_cet
                             S_crit = S
                             S = set()
                     else:
