@@ -103,7 +103,7 @@ class SPPSchedulerSimple(analysis.Scheduler):
         return q * bcet
 
 
-    def b_plus(self, task, q, details=None):
+    def b_plus(self, task, q, details=None, **kwargs):
         """ This corresponds to Equation ... TODO """
         assert(task.scheduling_parameter != None)
         assert(task.wcet >= 0)

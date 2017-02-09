@@ -25,6 +25,7 @@ import warnings
 from pycpa import options
 from pycpa import util
 from pycpa import model
+from pycpa import propagation
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +54,8 @@ class Taskchain (object):
             return  # This is a fake path with just one task
         for i in zip(tasks[0:-1], tasks[1:]):
             assert(i[0].resource == i[1].resource)
-            i[0].no_propagation = True
+            i[0].skip_analysis = True
+            i[0].OutEventModelClass = None
 
     def __repr__(self):
         """ Return str representation """
