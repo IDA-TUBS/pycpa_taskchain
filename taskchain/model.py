@@ -130,11 +130,12 @@ class ResourceModel (object):
 
     def predecessors(self, task, strong=False, recursive=False):
         predecessors = set()
-        for t in self.tasks:
-            if strong:
+        if strong:
+            for t in self.tasklinks_strong.keys():
                 if task is self.tasklinks_strong[t]:
                     predecessors.add(t)
-            else:
+        else:
+            for t in self.tasklinks_weak.keys():
                 if task in self.tasklinks_weak[t]:
                     predecessors.add(t)
 
@@ -171,12 +172,16 @@ class ResourceModel (object):
 
         # there is at most one strong predecessor (and only if there is no weak predecessor)
         for t in self.tasks:
-            strong_pred = self.predecessor(t, strong=True)
-            weak_pred   = self.predecessor(t, strong=False)
+            strong_pred = len(self.predecessors(t, strong=True))
+            weak_pred   = len(self.predecessors(t, strong=False))
             assert strong_pred <= 1, \
                    "task %s has multiple strong predecessors" % t.name
             assert weak_pred == 0 or strong_pred == 0, \
                    "task %s has strong and weak predecessors" % t.name
+
+            # if task has non predecessor it must have an input event model
+            if strong_pred + weak_pred == 0:
+                assert(t.in_event_model is not None)
 
         ###########################
         # allocation graph checks #

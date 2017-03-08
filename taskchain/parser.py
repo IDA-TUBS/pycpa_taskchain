@@ -44,6 +44,18 @@ class Graphml(GraphMLParser):
         for n in g.nodes():
             if n['type'] == 'task':
                 objects[n] = m.add_task(pycpa_model.Task(n['id']))
+                if n['period'] != 0:
+                    objects[n].in_event_model = pycpa_model.PJdEventModel(P=n['period'], J=n['jitter'])
+
+                if n['wcet'] != 0:
+                    objects[n].wcet = n['wcet']
+
+                if n['bcet'] != 0:
+                    objects[n].bcet = n['bcet']
+
+                if 'scheduling_parameter' in n.attributes():
+                    objects[n].scheduling_parameter = n['scheduling_parameter']
+
             elif n['type'] == 'sched':
                 objects[n] = m.add_scheduling_context(model.SchedulingContext(n['id']))
             elif n['type'] == 'exec':

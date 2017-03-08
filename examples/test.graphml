@@ -6,6 +6,21 @@
 <key id="type" for="node" attr.name="node type" attr.type="string">
 	<default>task</default>
 </key>
+<key id="period" for="node" attr.name="activation period" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="jitter" for="node" attr.name="activation jitter" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="wcet" for="node" attr.name="worst case execution time" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="bcet" for="node" attr.name="best case execution time" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="scheduling_parameter" for="node" attr.name="scheduling priority" attr.type="integer">
+	<default>0</default>
+</key>
 <key id="acttype" for="edge" attr.name="activation type" attr.type="string">
 	<default>call</default>
 </key>
@@ -13,17 +28,46 @@
     <default></default>
 </key>
 <graph edgedefault="directed">
-	<node id="t11" />
-	<node id="t12" />
-	<node id="t13" />
+	<node id="t11">
+		<data key="period">10000</data>
+		<data key="jitter">2000</data>
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t12">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t13">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
 
-	<node id="t21" />
-	<node id="t22" />
-	<node id="t23" />
+	<node id="t21">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t22">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t23">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
 
-	<node id="t31" />
-	<node id="t32" />
-	<node id="t33" />
+	<node id="t31">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t32">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t33">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
 
 	<node id="ctx-a">
 		<data key="type">sched</data>
