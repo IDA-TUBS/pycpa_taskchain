@@ -39,13 +39,15 @@ class Taskchain (object):
         else:
             self.tasks = list()
 
-        # # create backlink to this chain from the tasks
-        # # so a task knows its Taskchain
-        for t in self.tasks:
-            t.chain = self
+        # # create backlink to this chain from its last task
+        self.tasks[-1].chain = self
 
         # # Name of Taskchain
         self.name = name
+
+    def resource(self):
+        # all tasks have the same resource
+        return self.tasks[0].resource
 
     def __create_chain(self, tasks):
         """ linking all tasks along the chain"""
@@ -127,6 +129,14 @@ class ResourceModel (object):
         assert(s in self.sched_ctxs)
 
         self.mappings[t] = s
+
+    def scheduled_tasks(self, s):
+        tasks = set()
+        for t in self.tasks:
+            if self.mappings[t] is s:
+                tasks.add(t)
+
+        return tasks
 
     def predecessors(self, task, strong=False, recursive=False):
         predecessors = set()
@@ -278,11 +288,33 @@ class TaskchainResource (model.Resource):
         """ CTOR """
         model.Resource.__init__(self, name, scheduler, **kwargs)
 
-        self.model = ResourceModel(name + "-model")
+        self.model = None
 
         self.chains = set() # task chains to be analysed
 
+    def build_from_model(self, model):
+        self.model = model
+        for t in self.model.tasks:
+            assert t.bcet > 0
+            assert t.wcet > 0
+            t.bind_resource(self)
+            if t in self.model.tasklinks_weak:
+                for ti in self.model.tasklinks_weak[t]:
+                    t.link_dependent_task(ti)
+
+            if t in self.model.tasklinks_strong:
+                t.link_dependent_task(self.model.tasklinks_strong[t])
+
     def bind_taskchain(self, chain):
+        for t in chain.tasks:
+            if t.resource is not None:
+                assert(t.resource is self)
+            else:
+                t.bind_resource(self)
+
+        for t in chain.tasks[:-1]:
+            t.skip_analysis = True
+
         self.chains.add(chain)
 
         # NOTE how to use the same analysis result for every task in the chain
@@ -292,10 +324,13 @@ class TaskchainResource (model.Resource):
     def create_taskchains(self):
         # TODO automatically find and create task chains
 
+        chained_tasks = set()
+        for c in self.chains:
+            chained_tasks.add(c.tasks)
+
         # add remaining tasks as single-task "chains"
-        for t in self.tasks:
-            if not hasattr(t, 'chain'):
-                self.bind_taskchain(Taskchain(t.name, [t]))
+        for t in self.tasks - chained_tasks:
+            self.bind_taskchain(Taskchain(t.name, [t]))
 
         return self.chains
 
