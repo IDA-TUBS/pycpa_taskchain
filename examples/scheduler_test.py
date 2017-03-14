@@ -16,9 +16,21 @@ Description
 from pycpa import options
 from pycpa import analysis
 from pycpa import model
+from pycpa import schedulers
 from taskchain import model as tc_model
 from taskchain import schedulers as tc_schedulers
 from taskchain import parser 
+
+def analyze(m, scheduler):
+    s = model.System("System")
+    r = s.bind_resource(tc_model.TaskchainResource("R1", scheduler=scheduler))
+    r.build_from_model(m)
+    r.create_taskchains()
+
+    task_results = analysis.analyze_system(s)
+
+    for t in task_results:
+        print("%s WCRT: %d" % (t, task_results[t].wcrt))
 
 if __name__ == "__main__":
     # init pycpa and trigger command line parsing
@@ -29,9 +41,15 @@ if __name__ == "__main__":
     assert(m.check())
     m.write_dot('test.dot')
 
-    s = model.System("System")
-    r = s.bind_resource(tc_model.TaskchainResource("R1", scheduler=tc_schedulers.SPPScheduler()))
-    r.build_from_model(m)
-    r.create_taskchains()
+    priorities = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    i = 0
+    for s in m.sched_ctxs: 
+        s.priority = priorities[i]
+        m.update_scheduling_parameters(s)
+        i += 1
 
-    analysis.analyze_system(s)
+    print("Performing taskchain analysis")
+    analyze(m, tc_schedulers.SPPScheduler())
+
+    print("Performing standard analysis")
+    analyze(m, schedulers.SPPScheduler())

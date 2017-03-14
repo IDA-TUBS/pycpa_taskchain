@@ -275,24 +275,26 @@ class TaskChainBusyWindow(object):
 
     class EventCountBound(Bound):
         def __init__(self):
-            return
-
-        def events(self):
-            return float('inf')
-
-    class StaticEventCountBound(EventCountBound):
-        def __init__(self, n):
-            self.n = n
-            return
+            self.n = float('inf')
 
         def events(self):
             return self.n
 
+    class StaticEventCountBound(EventCountBound):
+        def __init__(self, n):
+            TaskChainBusyWindow.EventCountBound.__init__(self)
+            self.n = n
+
+        def __str__(self):
+            return str(self.n)
+
     class DependentEventCountBound(EventCountBound):
-        def __init__(self, ec_bound, multiplier=1, offset=0):
+        def __init__(self, ec_bound, multiplier=1, offset=0, recursive_refresh=True):
+            TaskChainBusyWindow.EventCountBound.__init__(self)
             self.ec_bound = ec_bound
             self.multiplier = multiplier
             self.offset = offset
+            self.recursive_refresh = recursive_refresh
 
             self._calculate()
 
@@ -300,16 +302,53 @@ class TaskChainBusyWindow(object):
             self.n = self.ec_bound.events() * self.multiplier + self.offset
 
         def refresh(self, **kwargs):
-            if self.ec_bound.refresh(**kwargs):
+            if self.recursive_refresh and self.ec_bound.refresh(**kwargs):
                 self._calculate()
                 return True
 
+            self._calculate()
             return False
+
+        def __str__(self):
+            return '%s=%s*%d+%d' % (self.n, str(self.ec_bound), self.multiplier, self.offset)
+
+    class BinaryEventCountBound(EventCountBound):
+        def __init__(self, ec_bound, if_non_zero=None, if_zero=None):
+            TaskChainBusyWindow.EventCountBound.__init__(self)
+            self.ec_bound = ec_bound
+
+            if if_zero is None:
+                self.if_zero = TaskChainBusyWindow.StaticEventCountBound(float('inf'))
+            else:
+                assert(isinstance(if_zero, TaskChainBusyWindow.EventCountBound))
+                self.if_zero = if_zero
+
+            if if_non_zero is None:
+                self.if_non_zero = TaskChainBusyWindow.StaticEventCountBound(float('inf'))
+            else:
+                assert(isinstance(if_non_zero, TaskChainBusyWindow.EventCountBound))
+                self.if_non_zero = if_non_zero
+
+            self._calculate()
+
+        def _calculate(self):
+            if self.ec_bound.events() == 0:
+                self.n = self.if_zero.events()
+            else:
+                self.n = self.if_non_zero.events()
+
+        def refresh(self, **kwargs):
+            result = self.ec_bound.refresh(**kwargs)
+            result = result or self.if_zero.refresh(**kwargs)
+            result = result or self.if_non_zero.refresh(**kwargs)
+
+            self._calculate()
+            return result
 
     class ArrivalEventCountBound(EventCountBound):
         def __init__(self, eventmodel):
+            TaskChainBusyWindow.EventCountBound.__init__(self)
             self.em = eventmodel
-            self.n = float('inf')
 
         def refresh(self, **kwargs):
             new = self.em.eta_plus(kwargs['window'])
@@ -319,38 +358,77 @@ class TaskChainBusyWindow(object):
 
             return False
 
-    class OptimumEventCountBound(EventCountBound):
-        def __init__(self, bounds=set(), func=min):
+        def __str__(self):
+            return '%s(eta)' % (self.n)
+
+    class CombinedEventCountBound(EventCountBound):
+        def __init__(self, bounds=None, func=sum, recursive_refresh=True):
+            TaskChainBusyWindow.EventCountBound.__init__(self)
             self.func = func
-            self.bounds = bounds
+            self.recursive_refresh = recursive_refresh
+            if bounds is None:
+                self.bounds = set()
+            else:
+                self.bounds = bounds
 
         def _calculate(self):
             self.n = self.func([b.events() for b in self.bounds])
 
-
         def refresh(self, **kwargs):
             result = False
-            for b in self.bounds:
-                if b.refresh(**kwargs):
-                    result = True
+            if self.recursive_refresh:
+                for b in self.bounds:
+                    if b.refresh(**kwargs):
+                        result = True
 
-            if result:
-                self._calculate()
+            self._calculate()
 
             return result
 
         def add_bound(self, bound):
             self.bounds.add(bound)
+            self._calculate()
+
+        def __str__(self):
+            if self.func is sum:
+                res = ""
+                for b in self.bounds:
+                    if len(res) > 0:
+                        res = res + ' + '
+
+                    res = res + '[' + str(b) + ']'
+
+                return res
+            else:
+                best_b = None
+                for b in self.bounds:
+                    if best_b is None:
+                        best_b = b
+                    else:
+                        best_val = best_b.events()
+                        cur_val  = b.events()
+                        if self.func([best_val, cur_val]) != best_val:
+                            best_b = b
+
+                return str(best_b)
+
+    class OptimumEventCountBound(CombinedEventCountBound):
+        def __init__(self, bounds=None, func=min):
+            TaskChainBusyWindow.CombinedEventCountBound.__init__(self, bounds, func=func)
 
     class WorkloadBound(Bound):
         def __init__(self, **kwargs):
-            return
+            self.value = float('inf')
 
         def workload(self):
-            return float('inf')
+            return self.value
+
+        def __str__(self):
+            return '%s' % self.value
 
     class SimpleWorkloadBound(WorkloadBound):
         def __init__(self, ec_bound, cet):
+            TaskChainBusyWindow.WorkloadBound.__init__(self)
             self.event_count = ec_bound
             self.cet = cet
 
@@ -364,16 +442,31 @@ class TaskChainBusyWindow(object):
                 self._calculate()
                 return True
 
+            self._calculate()
             return False
+
+        def __str__(self):
+            return '%s=%s*%d' % (self.value, str(self.event_count), self.cet)
+
+        def __repr__(self):
+            return '<%s: ec_bound=%s cet=%d>' % (type(self), repr(self.event_count), self.cet)
 
     class StaticWorkloadBound(WorkloadBound):
         def __init__(self, workload):
+            TaskChainBusyWindow.WorkloadBound.__init__(self)
             self.value = workload
 
+        def __repr__(self):
+            return '<%s: workload=%s>' % (type(self), self.value)
+
     class CombinedWorkloadBound(WorkloadBound):
-        def __init__(self, bounds=set(), func=sum):
+        def __init__(self, bounds=None, func=sum):
+            TaskChainBusyWindow.WorkloadBound.__init__(self)
             self.func=func
-            self.bounds = bounds
+            if bounds is None:
+                self.bounds = set()
+            else:
+                self.bounds = bounds
 
             if len(self.bounds) > 0:
                 self._calculate()
@@ -387,8 +480,7 @@ class TaskChainBusyWindow(object):
                 if b.refresh(**kwargs):
                     result = True
 
-            if result:
-                self._calculate()
+            self._calculate()
 
             return result
 
@@ -396,12 +488,38 @@ class TaskChainBusyWindow(object):
             self.bounds.add(bound)
             self._calculate()
 
+        def __str__(self):
+            if self.func is sum:
+                res = ""
+                for b in self.bounds:
+                    if len(res) > 0:
+                        res = res + ' + '
+
+                    res = res + '[' + str(b) + ']'
+
+                return res
+            else:
+                best_b = None
+                for b in self.bounds:
+                    if best_b is None:
+                        best_b = b
+                    else:
+                        best_val = best_b.workload()
+                        cur_val  = b.workload()
+                        if self.func([best_val, cur_val]) != best_val:
+                            best_b = b
+
+                return str(best_b)
+
+        def __repr__(self):
+            return '<%s: func=%s of \n {%s}>' % (type(self), self.func, self.bounds)
+
     class OptimumWorkloadBound(CombinedWorkloadBound):
-        def __init__(self, bounds=set(), func=min):
+        def __init__(self, bounds=None, func=min):
             TaskChainBusyWindow.CombinedWorkloadBound.__init__(self, bounds, func=func)
 
         def workload(self):
-            if len(self.bounds()) == 0:
+            if len(self.bounds) == 0:
                 return float('inf')
 
             return TaskChainBusyWindow.CombinedWorkloadBound.workload(self)
@@ -425,7 +543,9 @@ class TaskChainBusyWindow(object):
 
     def _refresh(self, window):
         modified = False
+        print("refreshing for w=%d" % window)
         while True:
+            modified = False
             for b in self.upper_bounds.values():
                 if b.refresh(window=window):
                     modified = True
@@ -440,16 +560,27 @@ class TaskChainBusyWindow(object):
             w += b.workload()
 
         while True:
-            w_new = w
             self._refresh(w)
 
+            w_new = 0
             for b in self.upper_bounds.values():
+                if b.workload() == float('inf'):
+                    print(b)
                 assert(b.workload() != float('inf'))
+                print("%d += %s" % (w_new, b.workload()))
+                assert(b.workload() == b.workload())
                 w_new += b.workload()
+                assert(w_new == w_new)
 
             if w_new == w:
                 return w
+            elif w_new < w:
+                print("%d < %d" % (w_new, w))
+            else:
+                print(w_new)
 
+            assert(w_new == w_new)
+            assert(w_new > w)
             w = w_new
 
 # TODO implement candidate search mechanism
@@ -480,7 +611,7 @@ class SPPScheduler(analysis.Scheduler):
 
         return bw
 
-    def _build_bounds(self, bw):
+    def _build_bounds(self, bw, q):
         # fill TaskChainBusyWindow with bounds
         taskchain = bw.taskchain
         resource = taskchain.resource()
@@ -488,7 +619,8 @@ class SPPScheduler(analysis.Scheduler):
         # event count bounds per task
         task_ec_bounds = dict()
         # workload bounds per task
-        task_wl_bounds = dict()
+        self.task_wl_bounds = dict()
+        task_wl_bounds = self.task_wl_bounds
 
         # lets be conservative and add an infinite upper bound
         inf = TaskChainBusyWindow.StaticEventCountBound(float('inf'))
@@ -502,13 +634,71 @@ class SPPScheduler(analysis.Scheduler):
             if t is t.chain.tasks[0]:
                 task_ec_bounds[t].add_bound(TaskChainBusyWindow.ArrivalEventCountBound(t.in_event_model))
 
-        # TODO create dependent event count bounds from precedence constraints
+        # tasks can only interfere as often as first task of the chain (assumption: no joins)
+        for tc in resource.chains:
+            chain_bound = task_ec_bounds[tc.tasks[0]]
+            for t in tc.tasks[1:]:
+                task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
+                        chain_bound, multiplier=1, offset=0))
 
-        # TODO exclude lower priority tasks if they cannot block
+        # a task can only interfere as often as its predecessor + 1
+        for t in resource.model.tasks:
+            predecessors = resource.model.predecessors(t, strong=False)
+            predecessors.update(resource.model.predecessors(t, strong=True))
+            for pred in predecessors:
+                task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
+                        task_ec_bounds[pred], multiplier=1, offset=1))
+
+        # for the chain under analysis, we can add q as an upper bound for the last chain task (FIFO assumption)
+        last_chain_task = bw.taskchain.tasks[-1]
+        task_ec_bounds[last_chain_task].add_bound(TaskChainBusyWindow.StaticEventCountBound(q))
+
+        # for strong precedence: a task can only interfere as often as its successor + 1
+        for t in resource.model.tasks:
+            successors = resource.model.successors(t, strong=True)
+            for succ in successors:
+                task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
+                        task_ec_bounds[succ], multiplier=1, offset=1, recursive_refresh=False))
+
+
+        # build prio->task map
+        prio_map = dict()
+        for t in resource.model.tasks:
+            prio = t.scheduling_parameter
+            if prio not in prio_map:
+                prio_map[prio] = set()
+            prio_map[prio].add(t)
+
+        # build set of own scheduling contexts
+        tc_contexts = set()
+        for t in taskchain.tasks:
+            tc_contexts.add(resource.model.allocations[t][0])
+
+        # FIXME does it matter whether the execution context is blocking or non-blocking?
+
+        # exclude lower priority tasks if they cannot block
         # idea: the lowest prio tasks cannot interfere (if not in the taskchain and not sharing an execution context)
-        #       the second lowest prio task (not blocking or in the chain) can only interfere if no lower prio task can
+        #       the second lowest prio task (not blocking or in the chain) can only interfere if a lower prio task can
         #       interfere
-        # pseudo-code for bound: DependentEventCountBound(CombinedWorkloadBound(bounds=lp_bounds), multiplier=float('inf'))
+        lp_bounds = set()
+        reverse = self.priority_cmp(1, 2)
+        for p in sorted(prio_map.keys(), reverse=reverse):
+            for t in prio_map[p]:
+                if t not in taskchain.tasks:
+                    if resource.model.allocations[t][0] not in tc_contexts:
+                        if len(lp_bounds) == 0:
+                            task_ec_bounds[t].add_bound(TaskChainBusyWindow.StaticEventCountBound(0))
+                        else:
+                            # if sum of lower priority activations is zero, this is also zero
+                            task_ec_bounds[t].add_bound(TaskChainBusyWindow.BinaryEventCountBound(\
+                                    TaskChainBusyWindow.CombinedEventCountBound(\
+                                        bounds=lp_bounds.copy(), func=sum, recursive_refresh=False),
+                                    if_zero=TaskChainBusyWindow.StaticEventCountBound(0)))
+
+            # FIXME we must still account for same priority blocking
+            # we assume same priority tasks can interfere with each other
+            # but only lower priority tasks are relevant for the BinaryEventCountBound used above
+            lp_bounds.update([task_ec_bounds[t] for t in prio_map[p]])
 
         # convert event count bounds into workload bounds using WCET
         for t, ecb in task_ec_bounds.items():
@@ -517,6 +707,7 @@ class SPPScheduler(analysis.Scheduler):
         # now we can combine the tasks' workload bounds
         for s in resource.model.sched_ctxs:
             combined = TaskChainBusyWindow.CombinedWorkloadBound(func=sum)
+            assert(len(combined.bounds) == 0)
             for t in resource.model.scheduled_tasks(s):
                 combined.add_bound(task_wl_bounds[t])
 
@@ -540,8 +731,15 @@ class SPPScheduler(analysis.Scheduler):
 
         bw = self._create_busywindow(taskchain, q)
 
-        self._build_bounds(bw)
+        self._build_bounds(bw, q)
 
-        return bw.calculate()
+        print("calculating b_plus(%s, q=%d)" % (task, q))
+        w = bw.calculate()
+#        for t, wlb in self.task_wl_bounds.items():
+#            print("%s: %s" % (t, wlb))
+#        for s, b in bw.upper_bounds.items():
+#            print("%s: %s" % (s, b))
+        return w
+
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4

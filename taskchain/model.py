@@ -71,6 +71,10 @@ class SchedulingContext (object):
     def __init__(self, name):
         # identifier
         self.name = name
+        self.priority = 1
+
+    def get_scheduling_parameter(self, task):
+        return self.priority
 
 class ExecutionContext (object):
     def __init__(self, name):
@@ -129,6 +133,7 @@ class ResourceModel (object):
         assert(s in self.sched_ctxs)
 
         self.mappings[t] = s
+        t.scheduling_parameter = s.get_scheduling_parameter(t)
 
     def scheduled_tasks(self, s):
         tasks = set()
@@ -137,6 +142,19 @@ class ResourceModel (object):
                 tasks.add(t)
 
         return tasks
+
+    def allocating_tasks(self, e):
+        tasks = set()
+        for t in self.tasks:
+            if self.allocations[t][0] is e and self.allocations[t][1]:
+                tasks.add(t)
+
+        return tasks
+
+    def update_scheduling_parameters(self, s):
+        for t in self.tasks:
+            if self.mappings[t] is s:
+                t.scheduling_parameter = s.get_scheduling_parameter(t)
 
     def predecessors(self, task, strong=False, recursive=False):
         predecessors = set()
@@ -156,12 +174,13 @@ class ResourceModel (object):
 
         return result
 
-    def successors(self, strong=False, recursive=False):
+    def successors(self, task, strong=False, recursive=False):
         successors = set()
         if strong:
-            successors.add(self.tasklinks_strong[t])
+            if task in self.tasklinks_strong:
+                successors.add(self.tasklinks_strong[task])
         else:
-            successors.update(self.tasklinks_weak[t])
+            successors.update(self.tasklinks_weak[task])
 
         result = set(successors)
         if recursive:
