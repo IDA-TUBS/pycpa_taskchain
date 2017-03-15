@@ -186,6 +186,14 @@ class ResourceModel (object):
 
         return False
 
+    def get_mutex_interferers(self, task):
+        interferers = set()
+        for e in self.allocations[task]:
+            interferers.update(self.allocating_tasks(e))
+
+        interferers.remove(task)
+        return interferers
+
     def check(self):
         #####################
         # task graph checks #
@@ -357,16 +365,19 @@ class TaskchainResource (model.Resource):
 
         return chain
 
-    def create_taskchains(self):
+    def create_taskchains(self, single=False):
         # TODO automatically find and create task chains
 
         chained_tasks = set()
         for c in self.chains:
             chained_tasks.add(c.tasks)
 
-        # add remaining tasks as single-task "chains"
-        for t in self.tasks - chained_tasks:
-            self.bind_taskchain(Taskchain(t.name, [t]))
+        if single:
+            # add remaining tasks as single-task "chains"
+            for t in self.tasks - chained_tasks:
+                self.bind_taskchain(Taskchain(t.name, [t]))
+        else:
+            raise Exception("not implemented")
 
         return self.chains
 

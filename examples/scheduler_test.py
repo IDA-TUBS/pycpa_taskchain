@@ -21,16 +21,19 @@ from taskchain import model as tc_model
 from taskchain import schedulers as tc_schedulers
 from taskchain import parser 
 
+def print_results(task_results, details=True):
+    for t in task_results:
+        print("%s: wcrt=%d" % (t, task_results[t].wcrt))
+        if details:
+            print("    b_wcrt=%s" % (task_results[t].b_wcrt_str()))
+
 def analyze(m, scheduler):
     s = model.System("System")
     r = s.bind_resource(tc_model.TaskchainResource("R1", scheduler=scheduler))
     r.build_from_model(m)
-    r.create_taskchains()
+    r.create_taskchains(single=True)
 
-    task_results = analysis.analyze_system(s)
-
-    for t in task_results:
-        print("%s WCRT: %d" % (t, task_results[t].wcrt))
+    return analysis.analyze_system(s)
 
 if __name__ == "__main__":
     # init pycpa and trigger command line parsing
@@ -49,7 +52,19 @@ if __name__ == "__main__":
         i += 1
 
     print("Performing taskchain analysis")
-    analyze(m, tc_schedulers.SPPScheduler())
+    tc_results = analyze(m, tc_schedulers.SPPScheduler())
+    print_results(tc_results)
 
     print("Performing standard analysis")
-    analyze(m, schedulers.SPPScheduler())
+    std_results = analyze(m, schedulers.SPPScheduler())
+    print_results(std_results)
+
+    # compare results
+    print("Comparing results")
+    print("Task: \tTC\tSTD\tdiff")
+    for t in tc_results:
+        std_wcrt = std_results[t].wcrt
+        for b in m.get_mutex_interferers(t):
+            if b.scheduling_parameter > t.scheduling_parameter:
+                std_wcrt += b.wcet
+        print("%s: \t%d\t%d\t%d" % (t.name, tc_results[t].wcrt, std_wcrt, tc_results[t].wcrt - std_wcrt))

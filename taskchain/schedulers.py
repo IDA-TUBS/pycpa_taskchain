@@ -310,7 +310,7 @@ class TaskChainBusyWindow(object):
             return False
 
         def __str__(self):
-            return '%s=%s*%d+%d' % (self.n, str(self.ec_bound), self.multiplier, self.offset)
+            return '%s*%d+%d=%s' % (str(self.ec_bound), self.multiplier, self.offset, self.n)
 
     class BinaryEventCountBound(EventCountBound):
         def __init__(self, ec_bound, if_non_zero=None, if_zero=None):
@@ -344,6 +344,12 @@ class TaskChainBusyWindow(object):
 
             self._calculate()
             return result
+
+        def __str__(self):
+            if self.ec_bound.events() == 0:
+                return str(self.if_zero)
+            else:
+                return str(self.if_non_zero)
 
     class ArrivalEventCountBound(EventCountBound):
         def __init__(self, eventmodel):
@@ -446,7 +452,7 @@ class TaskChainBusyWindow(object):
             return False
 
         def __str__(self):
-            return '%s=%s*%d' % (self.value, str(self.event_count), self.cet)
+            return '%s*%d=%s' % (str(self.event_count), self.cet, self.value)
 
         def __repr__(self):
             return '<%s: ec_bound=%s cet=%d>' % (type(self), repr(self.event_count), self.cet)
@@ -564,20 +570,13 @@ class TaskChainBusyWindow(object):
 
             w_new = 0
             for b in self.upper_bounds.values():
-                if b.workload() == float('inf'):
-                    print(b)
                 assert(b.workload() != float('inf'))
-                print("%d += %s" % (w_new, b.workload()))
                 assert(b.workload() == b.workload())
                 w_new += b.workload()
                 assert(w_new == w_new)
 
             if w_new == w:
                 return w
-            elif w_new < w:
-                print("%d < %d" % (w_new, w))
-            else:
-                print(w_new)
 
             assert(w_new == w_new)
             assert(w_new > w)
@@ -643,8 +642,7 @@ class SPPScheduler(analysis.Scheduler):
 
         # a task can only interfere as often as its predecessor + 1
         for t in resource.model.tasks:
-            predecessors = resource.model.predecessors(t, strong=False)
-            predecessors.update(resource.model.predecessors(t, strong=True))
+            predecessors = resource.model.predecessors(t)
             for pred in predecessors:
                 task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
                         task_ec_bounds[pred], multiplier=1, offset=1))
@@ -655,10 +653,11 @@ class SPPScheduler(analysis.Scheduler):
 
         # for strong precedence: a task can only interfere as often as its successor + 1
         for t in resource.model.tasks:
-            successors = resource.model.successors(t, strong=True)
+            successors = resource.model.successors(t)
             for succ in successors:
-                task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
-                        task_ec_bounds[succ], multiplier=1, offset=1, recursive_refresh=False))
+                if resource.model.is_strong_precedence(t, succ):
+                    task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
+                            task_ec_bounds[succ], multiplier=1, offset=1, recursive_refresh=False))
 
 
         # build prio->task map
@@ -669,23 +668,39 @@ class SPPScheduler(analysis.Scheduler):
                 prio_map[prio] = set()
             prio_map[prio].add(t)
 
-        # build set of own scheduling contexts
+        # build set of own execution contexts
         tc_contexts = set()
         for t in taskchain.tasks:
-            tc_contexts.add(resource.model.allocations[t][0])
+            tc_contexts.update(resource.model.allocations[t].keys())
 
-        # FIXME does it matter whether the execution context is blocking or non-blocking?
 
         # exclude lower priority tasks if they cannot block
-        # idea: the lowest prio tasks cannot interfere (if not in the taskchain and not sharing an execution context)
-        #       the second lowest prio task (not blocking or in the chain) can only interfere if a lower prio task can
-        #       interfere
+        # (a scheduling context cannot execute if its on a lower priority and not blocking)
+        # idea: a lower prio task can only interfere if an even lower prio task can interfere
+        #       otherwise its scheduling context will never be scheduled
+
         lp_bounds = set()
         reverse = self.priority_cmp(1, 2)
         for p in sorted(prio_map.keys(), reverse=reverse):
+            # can priority interfere?
+            interferes = False
+            for t in taskchain.tasks:
+                if self.priority_cmp(p, t.scheduling_parameter):
+                    interferes = True
+                    break
+
+            if interferes:
+                break
+
             for t in prio_map[p]:
                 if t not in taskchain.tasks:
-                    if resource.model.allocations[t][0] not in tc_contexts:
+                    # does t share an execution context with our taskchain?
+                    blocking = False
+                    for e in tc_contexts:
+                        if e in resource.model.allocations[t]:
+                            blocking = True
+
+                    if not blocking:
                         if len(lp_bounds) == 0:
                             task_ec_bounds[t].add_bound(TaskChainBusyWindow.StaticEventCountBound(0))
                         else:
@@ -695,10 +710,12 @@ class SPPScheduler(analysis.Scheduler):
                                         bounds=lp_bounds.copy(), func=sum, recursive_refresh=False),
                                     if_zero=TaskChainBusyWindow.StaticEventCountBound(0)))
 
-            # FIXME we must still account for same priority blocking
             # we assume same priority tasks can interfere with each other
             # but only lower priority tasks are relevant for the BinaryEventCountBound used above
             lp_bounds.update([task_ec_bounds[t] for t in prio_map[p]])
+
+        # TODO (?) restrict blocking
+        #   requires candidate search (blockers are mutually exclusive)
 
         # convert event count bounds into workload bounds using WCET
         for t, ecb in task_ec_bounds.items():
@@ -735,6 +752,10 @@ class SPPScheduler(analysis.Scheduler):
 
         print("calculating b_plus(%s, q=%d)" % (task, q))
         w = bw.calculate()
+        if details is not None:
+            for t, wlb in self.task_wl_bounds.items():
+                details[str(t)] = str(wlb)
+
 #        for t, wlb in self.task_wl_bounds.items():
 #            print("%s: %s" % (t, wlb))
 #        for s, b in bw.upper_bounds.items():
