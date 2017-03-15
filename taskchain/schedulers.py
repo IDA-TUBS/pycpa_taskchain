@@ -560,6 +560,7 @@ class TaskChainBusyWindow(object):
                 break
 
     def calculate(self):
+        print("calc")
         w = 0
         for b in self.lower_bounds.values():
             assert(b.workload() != float('inf'))
@@ -579,10 +580,110 @@ class TaskChainBusyWindow(object):
                 return w
 
             assert(w_new == w_new)
+            if w_new <= w:
+                print("%d <= %d" % (w_new, w))
             assert(w_new > w)
             w = w_new
 
-# TODO implement candidate search mechanism
+class CandidateSearch(object):
+
+    class SelectableEventCountBound(TaskChainBusyWindow.EventCountBound):
+        def __init__(self, if_selected=float('inf'), if_not_selected=float('inf')):
+            TaskChainBusyWindow.EventCountBound.__init__(self)
+
+            if isinstance(if_selected, TaskChainBusyWindow.EventCountBound):
+                self.if_selected = if_selected
+            else:
+                self.if_selected = TaskChainBusyWindow.StaticEventCountBound(if_selected)
+
+            if isinstance(if_not_selected, TaskChainBusyWindow.EventCountBound):
+                self.if_not_selected = if_not_selected
+            else:
+                self.if_not_selected = TaskChainBusyWindow.StaticEventCountBound(if_not_selected)
+
+            self.selected = True
+
+            self._calculate()
+
+        def _calculate(self):
+            if self.selected:
+                self.n = self.if_selected.events()
+            else:
+                self.n = self.if_not_selected.events()
+
+        def refresh(self, **kwargs):
+            if self.selected:
+                result = self.if_selected.refresh(**kwargs)
+            else:
+                result = self.if_not_selected.refresh(**kwargs)
+
+            self._calculate()
+
+            return result
+
+        def select(self):
+            self.selected = True
+
+        def unselect(self):
+            self.selected = False
+
+    class AlternativeBounds(object):
+
+        def __init__(self):
+            self.bounds = list()
+            self.selection = 0
+
+        def add_bound(self, bound):
+            assert(isinstance(bound, TaskChainBusyWindow.Bound))
+            self.bounds.append(bound)
+
+        def choices(self):
+            return len(self.bounds)
+
+        def choose(self, choice):
+            assert(choice < len(self.bounds))
+            self.selection = choice
+
+            for i in range(len(self.bounds)):
+                if i == self.selection:
+                    self.bounds[i].select()
+                else:
+                    self.bounds[i].unselect()
+
+            for b in self.bounds:
+                b.refresh()
+
+    def __init__(self, busy_window, func=max):
+        assert(isinstance(busy_window, TaskChainBusyWindow))
+        self.busy_window = busy_window
+        self.func = func
+
+        self.alternatives = list()
+
+    def add_alternative(self, alternative):
+        assert(isinstance(alternative, CandidateSearch.AlternativeBounds))
+        self.alternatives.append(alternative)
+
+    def search(self):
+        if len(self.alternatives) == 0:
+            return self.busy_window.calculate()
+
+        possibilities = list()
+        for alt in self.alternatives:
+            possibilities.append(range(alt.choices()))
+
+        value = None
+        for selection in itertools.product(*possibilities):
+            for i in range(len(selection)):
+                self.alternatives[i].choose(selection[i])
+
+            cur_value = self.busy_window.calculate()
+            if value is None:
+                value = cur_value
+            else:
+                value = self.func(value, cur_value)
+
+        return value
 
 class SPPScheduler(analysis.Scheduler):
     """ Improved Static-Priority-Preemptive Scheduler for task chains
@@ -595,11 +696,14 @@ class SPPScheduler(analysis.Scheduler):
     Computes busy window of an entire task chain.
     """
 
-    def __init__(self, priority_cmp=prio_low_wins_equal_fifo):
+    def __init__(self, priority_cmp=prio_low_wins_equal_fifo, candidate_search=False):
         analysis.Scheduler.__init__(self)
 
         # # priority ordering
         self.priority_cmp = priority_cmp
+
+        self.perform_candidate_search = candidate_search
+        self.candidates = None
 
     def _create_busywindow(self, taskchain, q):
         bw = TaskChainBusyWindow(taskchain, q)
@@ -680,6 +784,7 @@ class SPPScheduler(analysis.Scheduler):
         #       otherwise its scheduling context will never be scheduled
 
         lp_bounds = set()
+        possible_lp_blockers = set()
         reverse = self.priority_cmp(1, 2)
         for p in sorted(prio_map.keys(), reverse=reverse):
             # can priority interfere?
@@ -693,6 +798,7 @@ class SPPScheduler(analysis.Scheduler):
                 break
 
             for t in prio_map[p]:
+                assert(t not in taskchain.tasks) # t should never be in the task chain
                 if t not in taskchain.tasks:
                     # does t share an execution context with our taskchain?
                     blocking = False
@@ -709,13 +815,40 @@ class SPPScheduler(analysis.Scheduler):
                                     TaskChainBusyWindow.CombinedEventCountBound(\
                                         bounds=lp_bounds.copy(), func=sum, recursive_refresh=False),
                                     if_zero=TaskChainBusyWindow.StaticEventCountBound(0)))
+                    else:
+                        # remember blockers for later use
+                        possible_lp_blockers.add(t)
 
             # we assume same priority tasks can interfere with each other
             # but only lower priority tasks are relevant for the BinaryEventCountBound used above
             lp_bounds.update([task_ec_bounds[t] for t in prio_map[p]])
 
-        # TODO (?) restrict blocking
+        # find blockers and restrict blocking to one execution (of a blocking segment)
         #   requires candidate search (blockers are mutually exclusive)
+        if self.candidates is not None:
+            for ctx in tc_contexts:
+                # for each execution context, we only need to account for one blocker
+                alternatives = CandidateSearch.AlternativeBounds()
+                for t in possible_lp_blockers:
+                    # find lower priority tasks that release this execution context
+                    if ctx in resource.model.allocations[t] and resource.model.allocations[t][ctx] == False:
+                        segment = resource.model.get_blocking_segment(t, ctx)
+                        bound = CandidateSearch.SelectableEventCountBound(if_not_selected=0)
+
+                        chain_segment = False
+                        for ti in segment:
+                            if ti in taskchain.tasks:
+                                chain_segment = True
+                                break
+
+                        if not chain_segment:
+                            for ti in segment:
+                                task_ec_bounds[ti].add_bound(bound)
+
+                            alternatives.add_bound(bound)
+
+                if alternatives.choices() > 1:
+                    self.candidates.add_alternative(alternatives)
 
         # convert event count bounds into workload bounds using WCET
         for t, ecb in task_ec_bounds.items():
@@ -748,10 +881,17 @@ class SPPScheduler(analysis.Scheduler):
 
         bw = self._create_busywindow(taskchain, q)
 
+        if self.perform_candidate_search:
+            self.candidates = CandidateSearch(bw)
+
         self._build_bounds(bw, q)
 
         print("calculating b_plus(%s, q=%d)" % (task, q))
-        w = bw.calculate()
+        if self.candidates is not None:
+            w = self.candidates.search()
+        else:
+            w = bw.calculate()
+
         if details is not None:
             for t, wlb in self.task_wl_bounds.items():
                 details[str(t)] = str(wlb)

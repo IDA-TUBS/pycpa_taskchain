@@ -194,6 +194,32 @@ class ResourceModel (object):
         interferers.remove(task)
         return interferers
 
+    def get_blocking_segment(self, task, e):
+
+        # perform forward search to find releasing task
+        last_task = task
+        while self.allocations[last_task][e]:
+            for succ in self.successors(last_task):
+                if e in self.allocations[succ]:
+                    last_task = succ
+
+        # perform backward search and add tasks to segment
+        cur_task = last_task
+        segment = [cur_task]
+        done = False
+        while not done:
+            done = True
+            for pred in self.predecessors(cur_task):
+                if e in self.allocations[pred]:
+                    if self.allocations[pred]:
+                        done = False
+                        segment.append(pred)
+                        cur_task = pred
+                        break
+
+        segment.reverse()
+        return segment
+
     def check(self):
         #####################
         # task graph checks #

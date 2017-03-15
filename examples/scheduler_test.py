@@ -52,7 +52,7 @@ if __name__ == "__main__":
         i += 1
 
     print("Performing taskchain analysis")
-    tc_results = analyze(m, tc_schedulers.SPPScheduler())
+    tc_results = analyze(m, tc_schedulers.SPPScheduler(candidate_search=True))
     print_results(tc_results)
 
     print("Performing standard analysis")
