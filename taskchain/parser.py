@@ -69,11 +69,7 @@ class Graphml(GraphMLParser):
                 edgetype = e.target()['type']
 
             if edgetype == "task":
-                strong = True
-                if e['acttype'] == 'signal':
-                    strong = False
-
-                m.link_tasks(objects[e.source()], objects[e.target()], strong=strong)
+                m.link_tasks(objects[e.source()], objects[e.target()])
             elif edgetype == "sched":
                 m.assign_scheduling_context(objects[e.source()], objects[e.target()])
             elif edgetype == "exec":

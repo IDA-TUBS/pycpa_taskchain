@@ -140,14 +140,17 @@
 
 	<edge id="e11cb" source="t11" target="C" />
 	<edge id="e12pr" target="t12" source="P" />
+	<edge id="e12cb" source="t12" target="C" />
 	<edge id="e13cr" target="t13" source="C" />
 
 	<edge id="e21sb" source="t21" target="S1" />
 	<edge id="e22pr" target="t22" source="P" />
+	<edge id="e22sb" source="t22" target="S1" />
 	<edge id="e23sr" target="t23" source="S1" />
 
 	<edge id="e31sb" source="t31" target="S2" />
 	<edge id="e32pr" target="t32" source="P" />
+	<edge id="e32sb" source="t32" target="S2" />
 	<edge id="e33sr" target="t33" source="S2" />
 
 </graph>
