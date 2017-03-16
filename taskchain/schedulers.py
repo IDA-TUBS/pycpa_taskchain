@@ -558,7 +558,6 @@ class TaskChainBusyWindow(object):
 
     def _refresh(self, window):
         modified = False
-        print("refreshing for w=%d" % window)
         while True:
             modified = False
             for b in self.upper_bounds.values():
@@ -569,7 +568,6 @@ class TaskChainBusyWindow(object):
                 break
 
     def calculate(self):
-        print("calc")
         w = 0
         for b in self.lower_bounds.values():
             assert(b.workload() != float('inf'))
@@ -633,6 +631,12 @@ class CandidateSearch(object):
 
         def unselect(self):
             self.selected = False
+
+        def __str__(self):
+            if self.selected:
+                return str(self.if_selected)
+            else:
+                return str(self.if_not_selected)
 
     class AlternativeBounds(object):
 
@@ -741,8 +745,9 @@ class SPPScheduler(analysis.Scheduler):
         # add event count bounds based on input event models
         for t in resource.model.tasks:
             # t is head of chain
-            if t is t.chain.tasks[0]:
-                task_ec_bounds[t].add_bound(TaskChainBusyWindow.ArrivalEventCountBound(t.in_event_model))
+            for c in resource.chains:
+                if t is c.tasks[0]:
+                    task_ec_bounds[t].add_bound(TaskChainBusyWindow.ArrivalEventCountBound(t.in_event_model))
 
         # tasks can only interfere as often as first task of the chain (assumption: no joins)
         for tc in resource.chains:
@@ -893,7 +898,6 @@ class SPPScheduler(analysis.Scheduler):
 
         self._build_bounds(bw, q)
 
-        print("calculating b_plus(%s, q=%d)" % (task, q))
         if self.candidates is not None:
             w = self.candidates.search()
         else:
@@ -903,10 +907,6 @@ class SPPScheduler(analysis.Scheduler):
             for t, wlb in self.task_wl_bounds.items():
                 details[str(t)] = str(wlb)
 
-#        for t, wlb in self.task_wl_bounds.items():
-#            print("%s: %s" % (t, wlb))
-#        for s, b in bw.upper_bounds.items():
-#            print("%s: %s" % (s, b))
         return w
 
 

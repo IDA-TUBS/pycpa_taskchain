@@ -87,8 +87,8 @@ class ResourceModel (object):
         self.name = name
 
         self.tasks            = set()  # set of tasks 
-        self.exec_ctxs        = set()  # set of execution contexts
-        self.sched_ctxs       = set()  # set of scheduling contexts
+        self.exec_ctxs        = list()  # set of execution contexts
+        self.sched_ctxs       = list()  # set of scheduling contexts
 #        self.tasklinks_strong = dict() # set of strong precedence relations (arcs in task graph)
         self.tasklinks        = dict() # set of precedence relations (arcs in task graph)
         self.allocations      = dict() # arcs between tasks and execution context
@@ -102,12 +102,12 @@ class ResourceModel (object):
 
     def add_scheduling_context(self, s):
         assert(isinstance(s, SchedulingContext))
-        self.sched_ctxs.add(s)
+        self.sched_ctxs.append(s)
         return s
 
     def add_execution_context(self, e):
         assert(isinstance(e, ExecutionContext))
-        self.exec_ctxs.add(e)
+        self.exec_ctxs.append(e)
         return e
 
     def link_tasks(self, src, dst):
@@ -160,7 +160,7 @@ class ResourceModel (object):
             if task in self.tasklinks[t]:
                 predecessors.add(t)
 
-        result = set(predecessors)
+        result = predecessors.copy()
         if recursive:
             for t in predecessors:
                 result.update(self.predecessors(t, recursive))
@@ -219,6 +219,29 @@ class ResourceModel (object):
 
         segment.reverse()
         return segment
+
+    def paths(self, root):
+        paths = list()
+        cur_path = [root]
+
+        successors = self.successors(root)
+        if len(successors) == 0:
+            paths.append(cur_path)
+        else:
+            for t in successors:
+                for sub_path in self.paths(t):
+                    path = cur_path.copy()
+                    path += sub_path
+                    paths.append(path)
+
+        return paths
+
+    def dfs(self, root):
+        tasks = [root]
+        for t in root.successors():
+            tasks += self._dfs(t)
+
+        return tasks
 
     def check(self):
         #####################
@@ -382,6 +405,7 @@ class TaskchainResource (model.Resource):
             else:
                 t.bind_resource(self)
 
+        # skip analysis for all but the last task
         for t in chain.tasks[:-1]:
             t.skip_analysis = True
 
@@ -392,8 +416,6 @@ class TaskchainResource (model.Resource):
         return chain
 
     def create_taskchains(self, single=False):
-        # TODO automatically find and create task chains
-
         chained_tasks = set()
         for c in self.chains:
             chained_tasks.add(c.tasks)
@@ -403,7 +425,20 @@ class TaskchainResource (model.Resource):
             for t in self.tasks - chained_tasks:
                 self.bind_taskchain(Taskchain(t.name, [t]))
         else:
-            raise Exception("not implemented")
+            # assumption: task graph has no joins -> task graph is a forest
+            # task chains are paths from a root to a leaf
+            roots = set()
+            for t in self.tasks:
+                if len(self.model.predecessors(t)) == 0:
+                    roots.add(t)
+
+            # perform a DFS
+            paths = list()
+            for r in roots - chained_tasks:
+                paths += self.model.paths(r)
+
+            for p in paths:
+                self.bind_taskchain(Taskchain(p[0].name + "-" + p[-1].name, p))
 
         return self.chains
 
