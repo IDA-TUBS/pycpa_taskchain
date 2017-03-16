@@ -277,6 +277,14 @@ class TaskChainBusyWindow(object):
         def __init__(self):
             self.n = float('inf')
 
+        def calculate(self):
+            old_value = self.n
+            self._calculate()
+            if self.n != old_value:
+                return True
+
+            return False
+
         def events(self):
             return self.n
 
@@ -306,8 +314,7 @@ class TaskChainBusyWindow(object):
                 self._calculate()
                 return True
 
-            self._calculate()
-            return False
+            return self.calculate()
 
         def __str__(self):
             return '%s*%d+%d=%s' % (str(self.ec_bound), self.multiplier, self.offset, self.n)
@@ -339,11 +346,10 @@ class TaskChainBusyWindow(object):
 
         def refresh(self, **kwargs):
             result = self.ec_bound.refresh(**kwargs)
-            result = result or self.if_zero.refresh(**kwargs)
-            result = result or self.if_non_zero.refresh(**kwargs)
+            result = self.if_zero.refresh(**kwargs) or result
+            result = self.if_non_zero.refresh(**kwargs) or result
 
-            self._calculate()
-            return result
+            return self.calculate() or result
 
         def __str__(self):
             if self.ec_bound.events() == 0:
@@ -387,9 +393,7 @@ class TaskChainBusyWindow(object):
                     if b.refresh(**kwargs):
                         result = True
 
-            self._calculate()
-
-            return result
+            return self.calculate() or result
 
         def add_bound(self, bound):
             self.bounds.add(bound)
@@ -429,6 +433,14 @@ class TaskChainBusyWindow(object):
         def workload(self):
             return self.value
 
+        def calculate(self):
+            old_value = self.value
+            self._calculate()
+            if old_value != self.value:
+                return True
+
+            return False
+
         def __str__(self):
             return '%s' % self.value
 
@@ -448,8 +460,7 @@ class TaskChainBusyWindow(object):
                 self._calculate()
                 return True
 
-            self._calculate()
-            return False
+            return self.calculate()
 
         def __str__(self):
             return '%s*%d=%s' % (str(self.event_count), self.cet, self.value)
@@ -486,9 +497,7 @@ class TaskChainBusyWindow(object):
                 if b.refresh(**kwargs):
                     result = True
 
-            self._calculate()
-
-            return result
+            return self.calculate() or result
 
         def add_bound(self, bound):
             self.bounds.add(bound)
@@ -617,9 +626,7 @@ class CandidateSearch(object):
             else:
                 result = self.if_not_selected.refresh(**kwargs)
 
-            self._calculate()
-
-            return result
+            return self.calculate() or result
 
         def select(self):
             self.selected = True
