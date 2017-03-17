@@ -129,7 +129,7 @@ class Experiment(object):
         self.name = name
         self.scheduler = scheduler
         self.resource_model = resource_model
-        self.results = None
+        self.results = dict()
         self.task_results = None
         self.build_chains = build_chains
         self.add_blocking = add_blocking

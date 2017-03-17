@@ -387,6 +387,7 @@ class TaskchainResource (model.Resource):
     def build_from_model(self, model):
         self.model = model
         for t in self.model.tasks:
+            t.chain = None
             assert t.bcet > 0
             assert t.wcet > 0
             t.bind_resource(self)

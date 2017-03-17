@@ -54,35 +54,33 @@ class SPPSchedulerSimple(analysis.Scheduler):
 
         self._build_sets = build_sets
 
-    def _get_min_chain_prio(self, task):
-        assert(task.scheduling_parameter != None)
-
-        min_prio = task.scheduling_parameter
-        for t in task.chain.tasks:
+    def _get_min_chain_prio(self, taskchain):
+        min_prio = taskchain.tasks[0].scheduling_parameter
+        for t in taskchain.tasks:
             if self.priority_cmp(min_prio, t.scheduling_parameter):
                 min_prio = t.scheduling_parameter
 
         return min_prio
 
-    def _compute_cet(self, task, q):
+    def _compute_cet(self, taskchain, q):
         wcet = 0
-        for t in task.chain.tasks:
+        for t in taskchain.tasks:
             wcet += t.wcet
 
         return q * wcet
 
-    def _compute_interference(self, I, w):
+    def _compute_interference(self, taskchain, I, w):
         s = 0
         for t in I:
-            n = t.chain.tasks[0].in_event_model.eta_plus(w)
+            n = taskchain.tasks[0].in_event_model.eta_plus(w)
             s += t.wcet * n
 
         return s
 
-    def _compute_self_interference(self, H, w, q):
+    def _compute_self_interference(self, taskchain, H, w, q):
         s = 0
         for t in H:
-            n = t.chain.tasks[0].in_event_model.eta_plus(w)
+            n = taskchain.tasks[0].in_event_model.eta_plus(w)
             n = max(n-q, 0)
             s += t.wcet * n
 
@@ -108,29 +106,33 @@ class SPPSchedulerSimple(analysis.Scheduler):
         assert(task.scheduling_parameter != None)
         assert(task.wcet >= 0)
 
-        w = self._compute_cet(task, q)
+        assert hasattr(task, 'chain'), "b_plus called on the wrong task"
+
+        taskchain = task.chain
+
+        w = self._compute_cet(taskchain, q)
 
         while True:
             s = 0
 
-            [I,D,H] = self._build_sets(task)
-            w_new = self._compute_cet(task, q) + \
-                    self._compute_interference(I, w) + \
-                    self._compute_self_interference(H, w, q) + \
+            [I,D,H] = self._build_sets(taskchain)
+            w_new = self._compute_cet(taskchain, q) + \
+                    self._compute_interference(taskchain, I, w) + \
+                    self._compute_self_interference(taskchain, H, w, q) + \
                     self._compute_deferred_load(D)
 
             if w == w_new:
                 assert(w >= q * task.wcet)
                 if details is not None:
-                    for t in task.chain.tasks:
+                    for t in taskchain.tasks:
                         details[str(t)+':q*WCET'] = str(q) + '*' + str(t.wcet) + '=' + str(q * t.wcet)
 
                     for t in I:
-                        details[str(t)+":eta*WCET"]    = str(t.chain.tasks[0].in_event_model.eta_plus(w)) \
+                        details[str(t)+":eta*WCET"]    = str(taskchain.tasks[0].in_event_model.eta_plus(w)) \
                                                           + "*" + str(t.wcet) + "=" \
                                                           + str(t.in_event_model.eta_plus(w) * t.wcet)
                     for t in H:
-                        details[str(t)+":eta*WCET"]    = str(max(t.chain.tasks[0].in_event_model.eta_plus(w)-q,0)) \
+                        details[str(t)+":eta*WCET"]    = str(max(taskchain.tasks[0].in_event_model.eta_plus(w)-q,0)) \
                                                           + "*" + str(t.wcet) + "=" \
                                                           + str(t.in_event_model.eta_plus(w) * t.wcet)
 
@@ -146,15 +148,15 @@ class SPPSchedulerSync(SPPSchedulerSimple):
     def __init__(self):
         SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
-    def _build_sets(self, task):
+    def _build_sets(self, taskchain):
 
         # compute minimum priority of the chain
-        min_prio = self._get_min_chain_prio(task)
+        min_prio = self._get_min_chain_prio(taskchain)
 
         I = set()
         D = set()
-        for tc in task.resource.chains:
-            if tc is task.chain:
+        for tc in taskchain.tasks[0].resource.chains:
+            if tc is taskchain:
                 continue
 
             deferred = False
@@ -178,16 +180,16 @@ class SPPSchedulerAsync(SPPSchedulerSimple):
     def __init__(self):
         SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
-    def _build_sets(self, task):
+    def _build_sets(self, taskchain):
 
         # compute minimum priority of the chain
-        min_prio = self._get_min_chain_prio(task)
+        min_prio = self._get_min_chain_prio(taskchain)
 
         I = set()
         D = set()
         H = set()
-        for tc in task.resource.chains:
-            if tc is task.chain:
+        for tc in taskchain.tasks[0].resource.chains:
+            if tc is taskchain:
                 for t in tc.tasks:
                     if t is not tc.tasks[-1]:
                         assert(t.scheduling_parameter != None)
@@ -214,15 +216,15 @@ class SPPSchedulerSyncRefined(SPPSchedulerSimple):
     def __init__(self):
         SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
-    def _build_sets(self, task):
+    def _build_sets(self, taskchain):
 
         # compute minimum priority of the chain
-        min_prio = self._get_min_chain_prio(task)
+        min_prio = self._get_min_chain_prio(taskchain)
 
         I = set()
         D = set()
-        for tc in task.resource.chains:
-            if tc is task.chain:
+        for tc in taskchain.tasks[0].resource.chains:
+            if tc is taskchain:
                 continue
 
             deferred = False
@@ -426,6 +428,19 @@ class TaskChainBusyWindow(object):
         def __init__(self, bounds=None, func=min):
             TaskChainBusyWindow.CombinedEventCountBound.__init__(self, bounds, func=func)
 
+    class MinMaxEventCountBound(CombinedEventCountBound):
+        def __init__(self, lower_bounds=None, upper_bounds=None):
+            TaskChainBusyWindow.CombinedEventCountBound.__init__(self, lower_bounds, func=max)
+
+            self.upper_bound = TaskChainBusyWindow.CombinedEventCountBound(upper_bounds, func=min)
+            self.add_bound(self.upper_bound)
+
+        def add_upper_bound(self, bound):
+            self.upper_bound.add_bound(bound)
+
+        def add_lower_bound(self, bound):
+            self.add_bound(bound)
+
     class WorkloadBound(Bound):
         def __init__(self, **kwargs):
             self.value = float('inf')
@@ -541,12 +556,14 @@ class TaskChainBusyWindow(object):
 
     def __init__(self, taskchain, q):
         self.lower_bounds = dict()
+        self.lower_ec_bounds = dict()
         self.upper_bounds = dict()
         self.taskchain = taskchain
         self.q = q
 
         for t in self.taskchain.tasks:
-            self.lower_bounds[t] = self.SimpleWorkloadBound(self.StaticEventCountBound(q), t.wcet)
+            self.lower_ec_bounds[t] = self.StaticEventCountBound(q)
+            self.lower_bounds[t] = self.SimpleWorkloadBound(self.lower_ec_bounds[t], t.wcet)
 
     def add_interferer(self, intf):
         self.upper_bounds[intf] = self.OptimumWorkloadBound()
@@ -740,39 +757,42 @@ class SPPScheduler(analysis.Scheduler):
         inf = TaskChainBusyWindow.StaticEventCountBound(float('inf'))
         for t in resource.model.tasks:
             # build the minimum of any bound added later
-            task_ec_bounds[t] = TaskChainBusyWindow.OptimumEventCountBound(bounds=set([inf]), func=min)
+            task_ec_bounds[t] = TaskChainBusyWindow.MinMaxEventCountBound(upper_bounds=set([inf]))
+            if t in bw.lower_ec_bounds:
+                # if there is a lower bound (i.e. q-events for the chain's tasks), add min/max bound
+                task_ec_bounds[t].add_lower_bound(bw.lower_ec_bounds[t])
 
         # add event count bounds based on input event models
         for t in resource.model.tasks:
             # t is head of chain
             for c in resource.chains:
                 if t is c.tasks[0]:
-                    task_ec_bounds[t].add_bound(TaskChainBusyWindow.ArrivalEventCountBound(t.in_event_model))
+                    task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.ArrivalEventCountBound(t.in_event_model))
 
         # tasks can only interfere as often as first task of the chain (assumption: no joins)
         for tc in resource.chains:
             chain_bound = task_ec_bounds[tc.tasks[0]]
             for t in tc.tasks[1:]:
-                task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
+                task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(\
                         chain_bound, multiplier=1, offset=0))
 
         # a task can only interfere as often as its predecessor + 1
         for t in resource.model.tasks:
             predecessors = resource.model.predecessors(t)
             for pred in predecessors:
-                task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
+                task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(\
                         task_ec_bounds[pred], multiplier=1, offset=1))
 
         # for the chain under analysis, we can add q as an upper bound for the last chain task (FIFO assumption)
         last_chain_task = bw.taskchain.tasks[-1]
-        task_ec_bounds[last_chain_task].add_bound(TaskChainBusyWindow.StaticEventCountBound(q))
+        task_ec_bounds[last_chain_task].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(q))
 
         # for strong precedence: a task can only interfere as often as its successor + 1
         for t in resource.model.tasks:
             successors = resource.model.successors(t)
             for succ in successors:
                 if resource.model.is_strong_precedence(t, succ):
-                    task_ec_bounds[t].add_bound(TaskChainBusyWindow.DependentEventCountBound(\
+                    task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(\
                             task_ec_bounds[succ], multiplier=1, offset=1, recursive_refresh=False))
 
 
@@ -820,10 +840,10 @@ class SPPScheduler(analysis.Scheduler):
 
                     if not blocking:
                         if len(lp_bounds) == 0:
-                            task_ec_bounds[t].add_bound(TaskChainBusyWindow.StaticEventCountBound(0))
+                            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(0))
                         else:
                             # if sum of lower priority activations is zero, this is also zero
-                            task_ec_bounds[t].add_bound(TaskChainBusyWindow.BinaryEventCountBound(\
+                            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.BinaryEventCountBound(\
                                     TaskChainBusyWindow.CombinedEventCountBound(\
                                         bounds=lp_bounds.copy(), func=sum, recursive_refresh=False),
                                     if_zero=TaskChainBusyWindow.StaticEventCountBound(0)))
@@ -855,7 +875,7 @@ class SPPScheduler(analysis.Scheduler):
 
                         if not chain_segment:
                             for ti in segment:
-                                task_ec_bounds[ti].add_bound(bound)
+                                task_ec_bounds[ti].add_upper_bound(bound)
 
                             alternatives.add_bound(bound)
 
