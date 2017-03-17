@@ -54,10 +54,6 @@ class Taskchain (object):
         assert len(tasks) > 0
         if len(tasks) == 1:
             return  # This is a fake path with just one task
-        for i in zip(tasks[0:-1], tasks[1:]):
-            assert(i[0].resource == i[1].resource)
-            i[0].skip_analysis = True
-            i[0].OutEventModelClass = None
 
     def __repr__(self):
         """ Return str representation """
@@ -408,6 +404,10 @@ class TaskchainResource (model.Resource):
         # skip analysis for all but the last task
         for t in chain.tasks[:-1]:
             t.skip_analysis = True
+            t.OutEventModelClass = None
+
+        chain.tasks[-1].skip_analysis = False
+        chain.tasks[-1].OutEventModelClass = propagation.BusyWindowPropagationEventModel
 
         self.chains.add(chain)
 

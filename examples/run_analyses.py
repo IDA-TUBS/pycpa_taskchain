@@ -40,6 +40,12 @@ options.parser.add_argument('--build_chains', action='store_true',
         help="Automatically builds task chains.")
 options.parser.add_argument('--run_cpa', action='store_true',
         help="Perform classic CPA.")
+options.parser.add_argument('--run_sync', action='store_true',
+        help="Perform analysis on synchronous independent task chains.")
+options.parser.add_argument('--run_sync_refined', action='store_true',
+        help="Perform refined analysis on synchronous independent task chains.")
+options.parser.add_argument('--run_async', action='store_true',
+        help="Perform analysis on asynchronous independent task chains.")
 options.parser.add_argument('--run_new', action='store_true',
         help="Perform new task chain analysis.")
 options.parser.add_argument('--add_mutex_blocking', action='store_true',
@@ -51,19 +57,13 @@ options.parser.add_argument('--print_differing', action='store_true',
 options.parser.add_argument('--calculate_difference', action='store_true',
         help="Calculate difference of results (only if two experiments are executed).")
 
-def print_results(task_results, details=True):
-    for t in task_results:
-        print("%s: wcrt=%d" % (t, task_results[t].wcrt))
-        if details:
-            print("    b_wcrt=%s" % (task_results[t].b_wcrt_str()))
-
-def write_header(num_priorities, experiment_names):
+def write_header(contexts, experiment_names):
     if options.get_opt('output'):
         with open(options.get_opt('output'), "w") as csvfile:
             writer = csv.writer(csvfile, delimiter='\t')
             header = ["Chain"]
-            for i in range(num_priorities):
-                header += ["P" + str(i+1)]
+            for c in contexts:
+                header += [c.name]
             header += experiment_names
 
             if options.get_opt('calculate_difference'):
@@ -72,9 +72,9 @@ def write_header(num_priorities, experiment_names):
 
             writer.writerow(header)
 
-def write_results(priorities, experiments, paths):
+def write_results(contexts, experiments, paths):
     if options.get_opt('print'):
-        print("\nResults for priority assignment: %s" % str(priorities))
+        print("\nResults for priority assignment: %s" % str([c.priority for c in contexts]))
         print("Path\t%s" % "\t".join([e.name for e in experiments]))
 
         for path in paths:
@@ -85,8 +85,8 @@ def write_results(priorities, experiments, paths):
             writer = csv.writer(csvfile, delimiter='\t')
 
             prio_list = list()
-            for p in priorities:
-                prio_list += [str(p)]
+            for c in contexts:
+                prio_list += [str(c.priority)]
 
             for path in paths:
                 row = [path.name] + prio_list
@@ -99,11 +99,16 @@ def write_results(priorities, experiments, paths):
 
                 writer.writerow(row)
 
-def print_differing(priorities, experiments, tasks):
+def print_differing(experiments, tasks):
+    if not options.get_opt('print_differing'):
+        return
+
     differing = dict()
     for t in tasks:
         for e1 in experiments:
             for e2 in experiments:
+                if t not in e1.task_results or t not in e2.task_results:
+                    continue
                 if e1.task_results[t].wcrt != e2.task_results[t].wcrt:
                     if t not in differing:
                         differing[t] = set()
@@ -135,6 +140,12 @@ class Experiment(object):
         for p in paths:
             self.results[p] = path_analysis.end_to_end_latency(p, self.task_results, 1)[1]
 
+    def clear_results(self, paths):
+        for p in paths:
+            self.results[p] = 0
+
+        self.task_results = None
+
     def run(self, priorities, paths):
         assert(len(priorities) >= len(m.sched_ctxs))
 
@@ -150,7 +161,7 @@ class Experiment(object):
 
         if self.build_chains:
             for path in paths:
-                r.bind_taskchain(Taskchain(path.name, path.tasks))
+                r.bind_taskchain(tc_model.Taskchain(path.name, path.tasks))
         else:
             r.create_taskchains(single=True)
 
@@ -205,21 +216,60 @@ if __name__ == "__main__":
             add_blocking=False,
             build_chains=options.get_opt('build_chains')))
 
-    # TODO create old chain analysis
-#    if options.get_opt('run_old_sync'):
-#        experiments.append(Experiment('lat_sync', scheduler=schedulers.SPPScheduler(), resource_model=m))
+    if options.get_opt('run_async'):
+        # check whether analysis can be applied
+        for src, dsts in m.tasklinks.items():
+            for dst in dsts:
+                assert not m.is_strong_precedence(src, dst),\
+                        "cannot apply asynchronous chain analysis to a task graph with strong precedence"
+
+        experiments.append(Experiment('ASYNC', 
+            scheduler=tc_schedulers.SPPSchedulerAsync(), 
+            resource_model=m,
+            add_blocking=False,
+            build_chains=options.get_opt('build_chains')))
+
+    if options.get_opt('run_sync'):
+        # check whether analysis can be applied
+        for src, dsts in m.tasklinks.items():
+            for dst in dsts:
+                assert m.is_strong_precedence(src, dst),\
+                        "cannot apply synchronous chain analysis to a task graph with weak precedence"
+
+        experiments.append(Experiment('SYNC', 
+            scheduler=tc_schedulers.SPPSchedulerSync(), 
+            resource_model=m,
+            add_blocking=False,
+            build_chains=options.get_opt('build_chains')))
+
+    if options.get_opt('run_sync_refined'):
+        # check whether analysis can be applied
+        for src, dsts in m.tasklinks.items():
+            for dst in dsts:
+                assert m.is_strong_precedence(src, dst),\
+                        "cannot apply synchronous chain analysis to a task graph with weak precedence"
+
+        experiments.append(Experiment('SYNCREF', 
+            scheduler=tc_schedulers.SPPSchedulerSyncRefined(), 
+            resource_model=m,
+            add_blocking=False,
+            build_chains=options.get_opt('build_chains')))
 
     # start output file
     num_priorities = len(m.sched_ctxs)
-    write_header(num_priorities, [e.name for e in experiments])
+    write_header(m.sched_ctxs, [e.name for e in experiments])
 
     if options.get_opt('all_priorities') or len(options.get_opt('priorities')) == 0:
         for priorities in itertools.permutations(range(1, num_priorities+1)):
             for e in experiments:
-                e.run(priorities, paths)
+                try:
+                    e.run(priorities, paths)
+                except analysis.NotSchedulableException as ex:
+                    e.clear_results(paths)
+                    print(ex)
 
-            write_results(priorities, experiments, paths)
-            print_differing(priorities, experiments, m.tasks)
+            write_results(m.sched_ctxs, experiments, paths)
+            print_differing([e for e in experiments if e.task_results is not None], m.tasks)
 
         # TODO optionally also use itertools.product() with repeat=n and n-1, n-2, ... priorities
 
@@ -229,6 +279,6 @@ if __name__ == "__main__":
         for e in experiments:
             e.run(priorities, paths)
 
-        write_results(priorities, experiments, paths)
-        print_differing(priorities, experiments, m.tasks)
+        write_results(m.sched_ctxs, experiments, paths)
+        print_differing(experiments, m.tasks)
 
