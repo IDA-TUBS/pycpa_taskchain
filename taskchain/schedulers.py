@@ -72,8 +72,10 @@ class SPPSchedulerSimple(analysis.Scheduler):
     def _compute_interference(self, taskchain, I, w):
         s = 0
         for t in I:
-            n = taskchain.tasks[0].in_event_model.eta_plus(w)
-            s += t.wcet * n
+            for tc in taskchain.tasks[0].resource.chains:
+                if t in tc.tasks:
+                    n = tc.tasks[0].in_event_model.eta_plus(w)
+                    s += t.wcet * n
 
         return s
 

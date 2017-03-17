@@ -277,7 +277,11 @@ if __name__ == "__main__":
         priorities = options.get_opt('priorities')
         assert(not options.get_opt('all_priorities'))
         for e in experiments:
-            e.run(priorities, paths)
+            try:
+                e.run(priorities, paths)
+            except analysis.NotSchedulableException as ex:
+                e.clear_results(paths)
+                print(ex)
 
         write_results(m.sched_ctxs, experiments, paths)
         print_differing(experiments, m.tasks)
