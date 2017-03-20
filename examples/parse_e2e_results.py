@@ -47,8 +47,12 @@ def print_stats(filename, pathname, experiments, wdetails, bdetails):
             num_better[e]  = 0
 
         for row in reader:
-            if row['Path'] != pathname:
-                continue
+            if 'Chain' in row:
+                if row['Chain'] != pathname:
+                    continue
+            else:
+                if row['Path'] != pathname:
+                    continue
 
             # heuristically filter out not relevant columns
             inst_cols = dict()
