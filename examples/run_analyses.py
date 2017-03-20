@@ -171,7 +171,8 @@ class Experiment(object):
         if self.add_blocking:
             for t in self.task_results:
                 for b in self.resource_model.get_mutex_interferers(t):
-                    if b.scheduling_parameter > t.scheduling_parameter:
+                    # b is not interfering
+                    if not self.scheduler.priority_cmp(b.scheduling_parameter, t.scheduling_parameter):
                         self.task_results[t].wcrt += b.wcet
 
         self._calculate_latencies(paths)
