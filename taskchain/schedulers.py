@@ -764,23 +764,14 @@ class SPPScheduler(analysis.Scheduler):
                 # if there is a lower bound (i.e. q-events for the chain's tasks), add min/max bound
                 task_ec_bounds[t].add_lower_bound(bw.lower_ec_bounds[t])
 
-        # add event count bounds based on input event models
-        for t in resource.model.tasks:
-            # t is head of chain
-            for c in resource.chains:
-                if t is c.tasks[0]:
-                    task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.ArrivalEventCountBound(t.in_event_model))
+        # add event count bounds based on input event models of chains
+        for c in resource.chains:
+            for t in c.tasks:
+                task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.ArrivalEventCountBound(c.tasks[0].in_event_model))
 
-        # tasks can only interfere as often as first task of the chain (assumption: no joins)
-        for tc in resource.chains:
-            chain_bound = task_ec_bounds[tc.tasks[0]]
-            for t in tc.tasks[1:]:
-                task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(\
-                        chain_bound, multiplier=1, offset=0))
-
-        # a task can only interfere as often as its predecessor + 1
+        # a task can only interfere as often as its any predecessor + 1
         for t in resource.model.tasks:
-            predecessors = resource.model.predecessors(t)
+            predecessors = resource.model.predecessors(t, recursive=True)
             for pred in predecessors:
                 task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(\
                         task_ec_bounds[pred], multiplier=1, offset=1))
