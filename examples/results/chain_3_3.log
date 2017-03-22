@@ -204,7 +204,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 2, 4, 5, 3, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	2327	173	113	113
-t13	286	28	26	26
+t13	286	47	26	26
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -221,7 +221,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 2, 4, 5, 6, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	1606	173	113	113
-t13	232	28	22	22
+t13	232	34	22	22
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -239,7 +239,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 2, 4, 6, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -257,7 +257,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 2, 4, 6, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -343,7 +343,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 2, 5, 6, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -361,7 +361,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 2, 5, 6, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -619,7 +619,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 3, 4, 5, 2, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -637,7 +637,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 3, 4, 5, 6, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -655,7 +655,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 3, 4, 6, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -673,7 +673,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 3, 4, 6, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -759,7 +759,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 3, 5, 6, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -777,7 +777,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 3, 5, 6, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -931,7 +931,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 2, 5, 3, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -949,7 +949,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 2, 5, 6, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -967,7 +967,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 2, 6, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -985,7 +985,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 2, 6, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -1037,7 +1037,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 3, 5, 2, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1055,7 +1055,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 3, 5, 6, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1073,7 +1073,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 3, 6, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1091,7 +1091,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 3, 6, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -1177,7 +1177,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 5, 6, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1195,7 +1195,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 4, 5, 6, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -1387,7 +1387,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 5, 2, 6, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1405,7 +1405,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 5, 2, 6, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1495,7 +1495,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 5, 3, 6, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1513,7 +1513,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 5, 3, 6, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1603,7 +1603,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 5, 4, 6, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -1621,7 +1621,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [1, 5, 4, 6, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -2310,7 +2310,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 1, 4, 5, 3, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	2327	173	113	113
-t13	282	28	26	26
+t13	282	47	26	26
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -2327,7 +2327,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 1, 4, 5, 6, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	1606	173	113	113
-t13	226	28	22	22
+t13	226	34	22	22
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -2345,7 +2345,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 1, 4, 6, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -2363,7 +2363,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 1, 4, 6, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -2449,7 +2449,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 1, 5, 6, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -2467,7 +2467,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 1, 5, 6, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -2725,7 +2725,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 3, 4, 5, 1, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -2743,7 +2743,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 3, 4, 5, 6, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -2761,7 +2761,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 3, 4, 6, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -2779,7 +2779,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 3, 4, 6, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -2865,7 +2865,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 3, 5, 6, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -2883,7 +2883,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 3, 5, 6, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -3037,7 +3037,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 1, 5, 3, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3055,7 +3055,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 1, 5, 6, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3073,7 +3073,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 1, 6, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3091,7 +3091,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 1, 6, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -3143,7 +3143,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 3, 5, 1, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3161,7 +3161,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 3, 5, 6, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3179,7 +3179,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 3, 6, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3197,7 +3197,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 3, 6, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -3283,7 +3283,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 5, 6, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3301,7 +3301,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 4, 5, 6, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -3493,7 +3493,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 5, 1, 6, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3511,7 +3511,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 5, 1, 6, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3601,7 +3601,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 5, 3, 6, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3619,7 +3619,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 5, 3, 6, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3709,7 +3709,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 5, 4, 6, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -3727,7 +3727,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [2, 5, 4, 6, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -4417,7 +4417,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 1, 4, 5, 2, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4435,7 +4435,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 1, 4, 5, 6, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4453,7 +4453,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 1, 4, 6, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4471,7 +4471,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 1, 4, 6, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -4557,7 +4557,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 1, 5, 6, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4575,7 +4575,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 1, 5, 6, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -4833,7 +4833,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 2, 4, 5, 1, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4851,7 +4851,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 2, 4, 5, 6, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4869,7 +4869,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 2, 4, 6, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4887,7 +4887,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 2, 4, 6, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -4973,7 +4973,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 2, 5, 6, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -4991,7 +4991,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 2, 5, 6, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -5147,7 +5147,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 1, 5, 2, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5165,7 +5165,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 1, 5, 6, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5183,7 +5183,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 1, 6, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5201,7 +5201,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 1, 6, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5255,7 +5255,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 2, 5, 1, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5273,7 +5273,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 2, 5, 6, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5291,7 +5291,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 2, 6, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5309,7 +5309,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 2, 6, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -5395,7 +5395,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 5, 6, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5413,7 +5413,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 4, 5, 6, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -5605,7 +5605,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 5, 1, 6, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5623,7 +5623,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 5, 1, 6, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5713,7 +5713,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 5, 2, 6, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5731,7 +5731,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 5, 2, 6, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5821,7 +5821,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 5, 4, 6, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -5839,7 +5839,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [3, 5, 4, 6, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -6425,7 +6425,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 2, 5, 3, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6443,7 +6443,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 2, 5, 6, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6461,7 +6461,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 2, 6, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6479,7 +6479,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 2, 6, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -6531,7 +6531,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 3, 5, 2, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6549,7 +6549,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 3, 5, 6, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6567,7 +6567,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 3, 6, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6585,7 +6585,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 3, 6, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -6671,7 +6671,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 5, 6, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6689,7 +6689,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 1, 5, 6, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -6843,7 +6843,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 1, 5, 3, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6861,7 +6861,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 1, 5, 6, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6879,7 +6879,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 1, 6, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6897,7 +6897,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 1, 6, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -6949,7 +6949,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 3, 5, 1, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t22 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6967,7 +6967,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 3, 5, 6, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -6985,7 +6985,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 3, 6, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7003,7 +7003,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 3, 6, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -7089,7 +7089,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 5, 6, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7107,7 +7107,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 2, 5, 6, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -7261,7 +7261,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 1, 5, 2, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7279,7 +7279,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 1, 5, 6, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7297,7 +7297,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 1, 6, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7315,7 +7315,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 1, 6, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -7367,7 +7367,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 2, 5, 1, 6]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7385,7 +7385,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 2, 5, 6, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7403,7 +7403,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 2, 6, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	26	26
+t13	0	47	26	26
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7421,7 +7421,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 2, 6, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	22	22
+t13	0	34	22	22
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -7507,7 +7507,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 5, 6, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7525,7 +7525,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 3, 5, 6, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -7717,7 +7717,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 5, 1, 6, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7735,7 +7735,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 5, 1, 6, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7825,7 +7825,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 5, 2, 6, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7843,7 +7843,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 5, 2, 6, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7933,7 +7933,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 5, 3, 6, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -7951,7 +7951,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [4, 5, 3, 6, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -8571,7 +8571,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 1, 2, 6, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8589,7 +8589,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 1, 2, 6, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -8675,7 +8675,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 1, 3, 6, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8693,7 +8693,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 1, 3, 6, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -8779,7 +8779,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 1, 4, 6, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8797,7 +8797,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 1, 4, 6, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -8813,7 +8813,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 1, 6, 2, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	52	17	19	19
+t23	52	19	19	19
 t13	169	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8830,7 +8830,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 1, 6, 2, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	48	17	19	19
+t23	48	19	19	19
 t13	169	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8847,7 +8847,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 1, 6, 3, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	58	17	19	19
+t23	58	19	19	19
 t13	173	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8864,7 +8864,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 1, 6, 3, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	50	17	19	19
+t23	50	19	19	19
 t13	173	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8881,7 +8881,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 1, 6, 4, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	60	17	19	19
+t23	60	19	19	19
 t13	173	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8898,7 +8898,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 1, 6, 4, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	56	17	19	19
+t23	56	19	19	19
 t13	173	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -8987,7 +8987,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 2, 1, 6, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9005,7 +9005,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 2, 1, 6, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -9092,7 +9092,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 2, 3, 6, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9110,7 +9110,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 2, 3, 6, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -9197,7 +9197,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 2, 4, 6, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9215,7 +9215,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 2, 4, 6, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -9231,7 +9231,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 2, 6, 1, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	46	17	19	19
+t23	46	19	19	19
 t13	174	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9248,7 +9248,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 2, 6, 1, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	42	17	19	19
+t23	42	19	19	19
 t13	174	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9265,7 +9265,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 2, 6, 3, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	52	17	19	19
+t23	52	19	19	19
 t13	187	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9282,7 +9282,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 2, 6, 3, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	44	17	19	19
+t23	44	19	19	19
 t13	183	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9299,7 +9299,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 2, 6, 4, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	54	17	19	19
+t23	54	19	19	19
 t13	191	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9316,7 +9316,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 2, 6, 4, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	50	17	19	19
+t23	50	19	19	19
 t13	183	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9405,7 +9405,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 3, 1, 6, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9423,7 +9423,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 3, 1, 6, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -9511,7 +9511,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 3, 2, 6, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9529,7 +9529,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 3, 2, 6, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -9616,7 +9616,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 3, 4, 6, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9634,7 +9634,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 3, 4, 6, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -9650,7 +9650,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 3, 6, 1, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	40	17	19	19
+t23	40	19	19	19
 t13	192	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9667,7 +9667,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 3, 6, 1, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	36	17	19	19
+t23	36	19	19	19
 t13	184	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9684,7 +9684,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 3, 6, 2, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	46	17	19	19
+t23	46	19	19	19
 t13	193	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9701,7 +9701,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 3, 6, 2, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	38	17	19	19
+t23	38	19	19	19
 t13	185	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9718,7 +9718,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 3, 6, 4, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	48	17	19	19
+t23	48	19	19	19
 t13	201	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9735,7 +9735,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 3, 6, 4, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	44	17	19	19
+t23	44	19	19	19
 t13	201	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9824,7 +9824,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 4, 1, 6, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9842,7 +9842,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 4, 1, 6, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -9930,7 +9930,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 4, 2, 6, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -9948,7 +9948,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 4, 2, 6, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -10036,7 +10036,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 4, 3, 6, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10054,7 +10054,7 @@ Warning: no task_results for task t12
 Results for priority assignment: [5, 4, 3, 6, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
 t23	0	173	113	113
-t13	0	28	31	31
+t13	0	53	31	31
 Warning: no task_results for task t21
 Warning: no task_results for task t22
 Warning: no task_results for task t11
@@ -10173,7 +10173,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 1, 2, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10191,7 +10191,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 1, 2, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10209,7 +10209,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 1, 3, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10227,7 +10227,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 1, 3, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10245,7 +10245,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 1, 4, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10263,7 +10263,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 1, 4, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10281,7 +10281,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 2, 1, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10299,7 +10299,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 2, 1, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10317,7 +10317,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 2, 3, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10335,7 +10335,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 2, 3, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10353,7 +10353,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 2, 4, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10371,7 +10371,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 2, 4, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10389,7 +10389,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 3, 1, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10407,7 +10407,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 3, 1, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10425,7 +10425,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 3, 2, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10443,7 +10443,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 3, 2, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10461,7 +10461,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 3, 4, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10479,7 +10479,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [5, 6, 3, 4, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -10604,7 +10604,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 2, 3, 4, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	306	17	23	23
+t23	306	23	23	23
 t13	227	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10621,7 +10621,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 2, 3, 5, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	321	17	23	23
+t23	321	23	23	23
 t13	242	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10638,7 +10638,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 2, 4, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	393	17	23	23
+t23	393	23	23	23
 t13	267	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10655,7 +10655,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 2, 4, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	378	17	23	23
+t23	378	23	23	23
 t13	267	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10672,7 +10672,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 2, 5, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	576	17	23	23
+t23	576	23	23	23
 t13	344	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10689,7 +10689,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 2, 5, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	590	17	23	23
+t23	590	23	23	23
 t13	372	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10706,7 +10706,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 3, 2, 4, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	170	17	23	23
+t23	170	23	23	23
 t13	167	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10723,7 +10723,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 3, 2, 5, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	182	17	23	23
+t23	182	23	23	23
 t13	182	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10740,7 +10740,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 3, 4, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	294	17	23	23
+t23	294	23	23	23
 t13	269	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10757,7 +10757,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 3, 4, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	306	17	23	23
+t23	306	23	23	23
 t13	289	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10774,7 +10774,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 3, 5, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	379	17	23	23
+t23	379	23	23	23
 t13	310	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10791,7 +10791,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 3, 5, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	492	17	23	23
+t23	492	23	23	23
 t13	404	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10808,7 +10808,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 4, 2, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	122	17	23	23
+t23	122	23	23	23
 t13	172	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10825,7 +10825,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 4, 2, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	134	17	23	23
+t23	134	23	23	23
 t13	192	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10842,7 +10842,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 4, 3, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	145	17	23	23
+t23	145	23	23	23
 t13	173	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10859,7 +10859,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 4, 3, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	154	17	23	23
+t23	154	23	23	23
 t13	202	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10876,7 +10876,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 4, 5, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	286	17	23	23
+t23	286	23	23	23
 t13	343	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10893,7 +10893,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 4, 5, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	305	17	23	23
+t23	305	23	23	23
 t13	366	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10910,7 +10910,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 5, 2, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	78	17	19	19
+t23	78	19	19	19
 t13	184	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10927,7 +10927,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 5, 2, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	74	17	19	19
+t23	74	19	19	19
 t13	184	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10944,7 +10944,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 5, 3, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	86	17	19	19
+t23	86	19	19	19
 t13	192	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10961,7 +10961,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 5, 3, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	76	17	19	19
+t23	76	19	19	19
 t13	185	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10978,7 +10978,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 5, 4, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	88	17	19	19
+t23	88	19	19	19
 t13	200	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -10995,7 +10995,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 1, 5, 4, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	84	17	19	19
+t23	84	19	19	19
 t13	200	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11012,7 +11012,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 1, 3, 4, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	814	17	23	23
+t23	814	23	23	23
 t13	635	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11029,7 +11029,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 1, 3, 5, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	842	17	23	23
+t23	842	23	23	23
 t13	677	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11046,7 +11046,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 1, 4, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	1332	17	23	23
+t23	1332	23	23	23
 t13	957	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11063,7 +11063,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 1, 4, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	1553	17	23	23
+t23	1553	23	23	23
 t13	1159	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11081,7 +11081,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 1, 5, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11099,7 +11099,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 1, 5, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11116,7 +11116,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 3, 1, 4, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	164	17	23	23
+t23	164	23	23	23
 t13	178	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11133,7 +11133,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 3, 1, 5, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	171	17	23	23
+t23	171	23	23	23
 t13	188	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11150,7 +11150,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 3, 4, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	304	17	23	23
+t23	304	23	23	23
 t13	317	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11167,7 +11167,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 3, 4, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	332	17	23	23
+t23	332	23	23	23
 t13	360	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11184,7 +11184,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 3, 5, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	460	17	23	23
+t23	460	23	23	23
 t13	426	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11201,7 +11201,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 3, 5, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	681	17	23	23
+t23	681	23	23	23
 t13	619	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11218,7 +11218,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 4, 1, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	106	17	23	23
+t23	106	23	23	23
 t13	167	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11235,7 +11235,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 4, 1, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	123	17	23	23
+t23	123	23	23	23
 t13	200	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11252,7 +11252,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 4, 3, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	135	17	23	23
+t23	135	23	23	23
 t13	192	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11269,7 +11269,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 4, 3, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	153	17	23	23
+t23	153	23	23	23
 t13	240	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11286,7 +11286,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 4, 5, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	335	17	23	23
+t23	335	23	23	23
 t13	464	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11303,7 +11303,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 4, 5, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	307	17	23	23
+t23	307	23	23	23
 t13	434	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11320,7 +11320,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 5, 1, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	62	17	19	19
+t23	62	19	19	19
 t13	172	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11337,7 +11337,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 5, 1, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	58	17	19	19
+t23	58	19	19	19
 t13	172	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11354,7 +11354,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 5, 3, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	70	17	19	19
+t23	70	19	19	19
 t13	213	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11371,7 +11371,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 5, 3, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	62	17	19	19
+t23	62	19	19	19
 t13	198	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11388,7 +11388,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 5, 4, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	76	17	19	19
+t23	76	19	19	19
 t13	222	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11405,7 +11405,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 2, 5, 4, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	70	17	19	19
+t23	70	19	19	19
 t13	213	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11422,7 +11422,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 1, 2, 4, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	584	17	23	23
+t23	584	23	23	23
 t13	520	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11439,7 +11439,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 1, 2, 5, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	583	17	23	23
+t23	583	23	23	23
 t13	521	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11457,7 +11457,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 1, 4, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11475,7 +11475,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 1, 4, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11493,7 +11493,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 1, 5, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11511,7 +11511,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 1, 5, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11528,7 +11528,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 2, 1, 4, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	280	17	23	23
+t23	280	23	23	23
 t13	315	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11545,7 +11545,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 2, 1, 5, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	275	17	23	23
+t23	275	23	23	23
 t13	315	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11563,7 +11563,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 2, 4, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11581,7 +11581,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 2, 4, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11599,7 +11599,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 2, 5, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11617,7 +11617,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 2, 5, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11634,7 +11634,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 4, 1, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	102	17	23	23
+t23	102	23	23	23
 t13	194	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11651,7 +11651,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 4, 1, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	110	17	23	23
+t23	110	23	23	23
 t13	216	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11668,7 +11668,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 4, 2, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	108	17	23	23
+t23	108	23	23	23
 t13	194	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11685,7 +11685,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 4, 2, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	133	17	23	23
+t23	133	23	23	23
 t13	235	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11702,7 +11702,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 4, 5, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	296	17	23	23
+t23	296	23	23	23
 t13	508	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11719,7 +11719,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 4, 5, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	355	17	23	23
+t23	355	23	23	23
 t13	608	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11736,7 +11736,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 5, 1, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	48	17	19	19
+t23	48	19	19	19
 t13	199	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11753,7 +11753,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 5, 1, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	44	17	19	19
+t23	44	19	19	19
 t13	195	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11770,7 +11770,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 5, 2, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	54	17	19	19
+t23	54	19	19	19
 t13	199	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11787,7 +11787,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 5, 2, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	46	17	19	19
+t23	46	19	19	19
 t13	200	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11804,7 +11804,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 5, 4, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	58	17	19	19
+t23	58	19	19	19
 t13	230	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11821,7 +11821,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 3, 5, 4, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	54	17	19	19
+t23	54	19	19	19
 t13	230	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11838,7 +11838,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 1, 2, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	716	17	23	23
+t23	716	23	23	23
 t13	762	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11855,7 +11855,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 1, 2, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	956	17	23	23
+t23	956	23	23	23
 t13	1034	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11872,7 +11872,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 1, 3, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	1186	17	23	23
+t23	1186	23	23	23
 t13	1175	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11889,7 +11889,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 1, 3, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	1947	17	23	23
+t23	1947	23	23	23
 t13	1987	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11907,7 +11907,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 1, 5, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -11925,7 +11925,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 1, 5, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11942,7 +11942,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 2, 1, 3, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	244	17	23	23
+t23	244	23	23	23
 t13	356	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11959,7 +11959,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 2, 1, 5, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	345	17	23	23
+t23	345	23	23	23
 t13	480	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11976,7 +11976,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 2, 3, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	649	17	23	23
+t23	649	23	23	23
 t13	872	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -11993,7 +11993,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 2, 3, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	1503	17	23	23
+t23	1503	23	23	23
 t13	2082	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12011,7 +12011,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 2, 5, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12029,7 +12029,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 2, 5, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12046,7 +12046,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 3, 1, 2, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	156	17	23	23
+t23	156	23	23	23
 t13	326	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12063,7 +12063,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 3, 1, 5, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	234	17	23	23
+t23	234	23	23	23
 t13	503	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12080,7 +12080,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 3, 2, 1, 5]
 Path	STD	TC	SYNC	SYNCREF
-t23	168	17	23	23
+t23	168	23	23	23
 t13	349	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12097,7 +12097,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 3, 2, 5, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	252	17	23	23
+t23	252	23	23	23
 t13	526	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12115,7 +12115,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 3, 5, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12133,7 +12133,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 4, 3, 5, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	23	23
+t23	0	23	23	23
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12253,7 +12253,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 1, 2, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12271,7 +12271,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 1, 2, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12289,7 +12289,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 1, 3, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12307,7 +12307,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 1, 3, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12325,7 +12325,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 1, 4, 2, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12343,7 +12343,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 1, 4, 3, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12360,7 +12360,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 2, 1, 3, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	276	17	21	21
+t23	276	21	21	21
 t13	528	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12377,7 +12377,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 2, 1, 4, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	277	17	21	21
+t23	277	21	21	21
 t13	532	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12394,7 +12394,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 2, 3, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	1182	17	21	21
+t23	1182	21	21	21
 t13	2045	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12412,7 +12412,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 2, 3, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12430,7 +12430,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 2, 4, 1, 3]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12448,7 +12448,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 2, 4, 3, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12465,7 +12465,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 3, 1, 2, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	144	17	21	21
+t23	144	21	21	21
 t13	446	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12482,7 +12482,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 3, 1, 4, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	158	17	21	21
+t23	158	21	21	21
 t13	547	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12499,7 +12499,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 3, 2, 1, 4]
 Path	STD	TC	SYNC	SYNCREF
-t23	150	17	21	21
+t23	150	21	21	21
 t13	457	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22
@@ -12516,7 +12516,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 3, 2, 4, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	182	17	21	21
+t23	182	21	21	21
 t13	600	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12534,7 +12534,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 3, 4, 1, 2]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 'max_iterations for t11 reached, tasks (likely) not schedulable!'
 Warning: no task_results for task t21
@@ -12552,7 +12552,7 @@ Warning: no task_results for task t12
 
 Results for priority assignment: [6, 5, 3, 4, 2, 1]
 Path	STD	TC	SYNC	SYNCREF
-t23	0	17	21	21
+t23	0	21	21	21
 t13	0	61	35	35
 Warning: no task_results for task t21
 Warning: no task_results for task t22

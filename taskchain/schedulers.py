@@ -781,12 +781,14 @@ class SPPScheduler(analysis.Scheduler):
         task_ec_bounds[last_chain_task].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(q))
 
         # for strong precedence: a task can only interfere as often as its successor + 1
+        # TODO can be applied recursively to all strong successors
         for t in resource.model.tasks:
             successors = resource.model.successors(t)
             for succ in successors:
                 if resource.model.is_strong_precedence(t, succ):
                     task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(\
                             task_ec_bounds[succ], multiplier=1, offset=1, recursive_refresh=False))
+
 
 
         # build prio->task map

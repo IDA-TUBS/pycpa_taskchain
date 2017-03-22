@@ -3,8 +3,18 @@
     <key attr.name="type" attr.type="str" for="node" id="type">
         <default>task</default>
     </key>
-    <key attr.name="wcet" attr.type="int" for="node" id="wcet"/>
-    <key attr.name="bcet" attr.type="int" for="node" id="bcet"/>
+    <key id="period" for="node" attr.name="activation period" attr.type="integer">
+        <default>0</default>
+    </key>
+    <key id="jitter" for="node" attr.name="activation jitter" attr.type="integer">
+        <default>0</default>
+    </key>
+	 <key attr.name="wcet" attr.type="int" for="node" id="wcet">
+        <default>0</default>
+	  </key>
+	  <key attr.name="bcet" attr.type="int" for="node" id="bcet">
+        <default>0</default>
+	  </key>
     <key attr.name="acttype" attr.type="str" for="edge" id="acttype"/>
     <key attr.name="label" attr.type="str" for="edge" id="label">
         <default></default>
@@ -49,6 +59,8 @@
         <node id="P::1">
             <data key="wcet">3</data>
             <data key="bcet">1</data>
+            <data key="period">200</data>
+            <data key="jitter">5</data>
         </node>
         <node id="P-TC::1">
             <data key="wcet">3</data>
@@ -69,6 +81,8 @@
         <node id="LA::1">
             <data key="wcet">3</data>
             <data key="bcet">1</data>
+            <data key="period">100</data>
+            <data key="jitter">5</data>
         </node>
         <node id="LA-O1OR::1">
             <data key="wcet">10</data>
