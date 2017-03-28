@@ -163,11 +163,15 @@ class ResourceModel (object):
 
         return result
 
-    def successors(self, task, recursive=False):
+    def successors(self, task, only_strong=False, recursive=False):
         successors = set()
         successors.update(self.tasklinks[task])
 
-        result = set(successors)
+        if only_strong:
+            result = set([s for s in successors if self.is_strong_precedence(task, s)])
+        else:
+            result = set(successors)
+
         if recursive:
             for t in successors:
                 result.update(self.successors(t, recursive))
