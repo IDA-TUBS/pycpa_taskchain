@@ -305,11 +305,13 @@ if __name__ == "__main__":
             assert(len(analysed_paths) == len(paths))
             for p in paths:
                 assert(p.name in analysed_paths)
+    else:
+        analysed_priorities = None
 
     if options.get_opt('all_priorities') or len(options.get_opt('priorities')) == 0:
 
         for priorities in itertools.permutations(range(1, num_priorities+1)):
-            if analysed_priorities:
+            if analysed_priorities is not None:
                 skip = False
                 for analysed in analysed_priorities:
                     match = True
