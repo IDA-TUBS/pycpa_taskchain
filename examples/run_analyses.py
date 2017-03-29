@@ -52,6 +52,8 @@ options.parser.add_argument('--add_mutex_blocking', action='store_true',
         help="Add mutex blocking to classic CPA results.")
 options.parser.add_argument('--print', action='store_true',
         help="Print analysis results.")
+options.parser.add_argument('--resume', action='store_true',
+        help="Continue a previous run of experiments (DOES NOT CHECK THE SETTINGS).")
 options.parser.add_argument('--print_differing', action='store_true',
         help="Print details of differing WCRT results.")
 options.parser.add_argument('--calculate_difference', action='store_true',
@@ -59,18 +61,28 @@ options.parser.add_argument('--calculate_difference', action='store_true',
 
 def write_header(contexts, experiment_names):
     if options.get_opt('output'):
-        with open(options.get_opt('output'), "w") as csvfile:
-            writer = csv.writer(csvfile, delimiter='\t')
-            header = ["Chain"]
-            for c in contexts:
-                header += [c.name]
-            header += experiment_names
+        header = ["Chain"]
+        for c in contexts:
+            header += [c.name]
+        header += experiment_names
 
-            if options.get_opt('calculate_difference'):
-                assert(len(experiment_names) == 2)
-                header.append('diff')
+        if options.get_opt('calculate_difference'):
+            assert(len(experiment_names) == 2)
+            header.append('diff')
 
-            writer.writerow(header)
+        if options.get_opt('resume'):
+            # read file header
+            with open(options.get_opt('output'), 'r') as csvfile:
+                reader = csv.DictReader(csvfile, delimiter='\t')
+
+                # assert that headers are present and in correct order
+                assert(len(reader.fieldnames) == len(header))
+                for i in range(len(reader.fieldnames)):
+                    assert(reader.fieldnames[i] == header[i])
+        else:
+            with open(options.get_opt('output'), "w") as csvfile:
+                writer = csv.writer(csvfile, delimiter='\t')
+                writer.writerow(header)
 
 def write_results(contexts, experiments, paths):
     if options.get_opt('print'):
@@ -98,6 +110,30 @@ def write_results(contexts, experiments, paths):
                     row.append(experiments[0].results[path] - experiments[1].results[path])
 
                 writer.writerow(row)
+
+def parse_existing_results(contexts, experiments):
+    if options.get_opt('output'):
+        analysed_paths = set()
+        analysed_priorities = list()
+
+        with open(options.get_opt('output'), 'r') as csvfile:
+            reader = csv.DictReader(csvfile, delimiter='\t')
+
+            last_prio_list = list()
+            for row in reader:
+                prio_list = list()
+                for c in contexts:
+                    prio_list += [row[c.name]]
+
+                analysed_paths.add(row['Chain'])
+                if last_prio_list != prio_list:
+                    analysed_priorities.append(prio_list)
+
+                last_prio_list = prio_list
+
+        return analysed_paths, analysed_priorities
+    else:
+        return None, None
 
 def print_differing(experiments, tasks):
     if not options.get_opt('print_differing'):
@@ -260,8 +296,33 @@ if __name__ == "__main__":
     num_priorities = len(m.sched_ctxs)
     write_header(m.sched_ctxs, [e.name for e in experiments])
 
+    if options.get_opt('resume'):
+        # read analysed priorities and paths from existing output file
+        analysed_paths, analysed_priorities = parse_existing_results(m.sched_ctxs, experiments)
+
+        # check that we analyse the same paths
+        if analysed_paths is not None:
+            assert(len(analysed_paths) == len(paths))
+            for p in paths:
+                assert(p.name in analysed_paths)
+
     if options.get_opt('all_priorities') or len(options.get_opt('priorities')) == 0:
+
         for priorities in itertools.permutations(range(1, num_priorities+1)):
+            if analysed_priorities:
+                skip = False
+                for analysed in analysed_priorities:
+                    match = True
+                    for i in range(len(analysed)):
+                        if int(analysed[i]) != priorities[i]:
+                            match = False
+
+                    if match:
+                        skip = True
+                if skip:
+                    print("Skipping %s" % str(priorities))
+                    continue
+
             for e in experiments:
                 try:
                     e.run(priorities, paths)
