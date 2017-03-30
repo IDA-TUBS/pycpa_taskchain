@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 | Copyright (C) 2015 Johannes Schlatow
 | TU Braunschweig, Germany
@@ -88,7 +89,7 @@ if __name__ == "__main__":
     # init pycpa and trigger command line parsing
     options.init_pycpa()
 
-    with open("path_report_parkassist.csv", "wb") as csvfile:
+    with open("path_report_parkassist.csv", "w") as csvfile:
         pathwriter = csv.writer(csvfile, delimiter='\t')
         pathwriter.writerow(["Path", "P1", "P2", "P3", "P4", "P5", "P6", "P7",
                              "lat", "lat_sync", "lat_syncref", "lat_async"])

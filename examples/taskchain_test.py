@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 | Copyright (C) 2015 Johannes Schlatow
 | TU Braunschweig, Germany

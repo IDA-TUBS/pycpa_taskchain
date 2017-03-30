@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 | Copyright (C) 2015 Johannes Schlatow
 | TU Braunschweig, Germany
@@ -43,28 +44,27 @@ def run(scheduler, priorities, create_chains=True):
         synchronous_call=True))
     t14 = r1.bind_task(model.Task("T14", wcet=5, bcet=3, scheduling_parameter=priorities[3],
         synchronous_call=True))
-
-    t21 = r1.bind_task(model.Task("T21", wcet=3, bcet=1, scheduling_parameter=priorities[4],
-        synchronous_call=False))
-    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[5],
+    t15 = r1.bind_task(model.Task("T15", wcet=9, bcet=4, scheduling_parameter=priorities[4],
         synchronous_call=True))
 
+    t21 = r1.bind_task(model.Task("T21", wcet=3, bcet=1, scheduling_parameter=priorities[5],
+        synchronous_call=False))
+
     # specify precedence constraints
-    t11.link_dependent_task(t12).link_dependent_task(t13).link_dependent_task(t14)
-    t21.link_dependent_task(t22)
+    t11.link_dependent_task(t12).link_dependent_task(t13).link_dependent_task(t14).link_dependent_task(t15)
 
     # register a periodic with jitter event model for T11 and T12
-    t11.in_event_model = model.PJdEventModel(P=25, J=5)
+    t11.in_event_model = model.PJdEventModel(P=40, J=5)
     t21.in_event_model = model.PJdEventModel(P=100, J=0)
 
     # register task chains as a path
-    s1 = s.bind_path(model.Path("S1", [t11, t12, t13, t14]))
-    s2 = s.bind_path(model.Path("S2", [t21, t22]))
+    s1 = s.bind_path(model.Path("S1", [t11, t12, t13, t14, t15]))
+    s2 = s.bind_path(model.Path("S2", [t21]))
 
     if create_chains:
         # register task chains
-        c1 = r1.bind_taskchain(tc_model.Taskchain("C1", [t11, t12, t13, t14]))
-        c2 = r1.bind_taskchain(tc_model.Taskchain("C2", [t21, t22]))
+        c1 = r1.bind_taskchain(tc_model.Taskchain("C1", [t11, t12, t13, t14, t15]))
+        c2 = r1.bind_taskchain(tc_model.Taskchain("C2", [t21]))
 
     # perform the analysis
     print("Performing analysis")
@@ -76,7 +76,7 @@ if __name__ == "__main__":
     # init pycpa and trigger command line parsing
     options.init_pycpa()
 
-    with open("path_report.csv", "w") as csvfile:
+    with open("benchmark_5_1_report.csv", "w") as csvfile:
         pathwriter = csv.writer(csvfile, delimiter='\t')
         pathwriter.writerow(["Path", "P1", "P2", "P3", "P4", "P5", "P6",
                              "lat", "lat_sync", "lat_syncref", "lat_async"])
