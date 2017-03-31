@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 | Copyright (C) 2015 Johannes Schlatow
 | TU Braunschweig, Germany
@@ -54,7 +55,7 @@ def run(scheduler, priorities, create_chains=True):
     t21.link_dependent_task(t22)
 
     # register a periodic with jitter event model for T11 and T12
-    t11.in_event_model = model.PJdEventModel(P=25, J=5)
+    t11.in_event_model = model.PJdEventModel(P=30, J=5)
     t21.in_event_model = model.PJdEventModel(P=100, J=0)
 
     # register task chains as a path
@@ -76,7 +77,7 @@ if __name__ == "__main__":
     # init pycpa and trigger command line parsing
     options.init_pycpa()
 
-    with open("path_report.csv", "w") as csvfile:
+    with open("benchmark_4_2_report.csv", "w") as csvfile:
         pathwriter = csv.writer(csvfile, delimiter='\t')
         pathwriter.writerow(["Path", "P1", "P2", "P3", "P4", "P5", "P6",
                              "lat", "lat_sync", "lat_syncref", "lat_async"])
