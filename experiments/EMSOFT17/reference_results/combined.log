@@ -21,7 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-invoked via: run_analyses.py --input models/test.graphml --print --run_cpa --add_mutex_blocking --run_new --candidate_search --output results/combined.csv --calculate_difference --print_differing --build_chains
+invoked via: run_analyses.py --input models/combined.graphml --print --run_cpa --add_mutex_blocking --run_new --candidate_search --output results/combined.csv --calculate_difference --print_differing --build_chains
 
 add_mutex_blocking   :                 True 
 all_priorities       :                False 
