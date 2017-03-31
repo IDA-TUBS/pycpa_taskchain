@@ -22,6 +22,6 @@ if __name__ == "__main__":
     options.init_pycpa()
 
     p = parser.Graphml()
-    m = p.model_from_file("models/test.graphml")
+    m = p.model_from_file("models/park_assist_shared_pip.graphml")
     assert(m.check())
     m.write_dot('test.dot')
