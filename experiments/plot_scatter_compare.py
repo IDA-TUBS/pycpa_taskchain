@@ -25,6 +25,7 @@ parser.add_argument('--xlim', default=0, type=float,
         help='x-axis limit')
 parser.add_argument('--ylim', default=0, type=float,
         help='y-axis limit')
+parser.add_argument('--priority_cols', type=str, nargs='+', required=True)
 parser.add_argument('--relative', action='store_true',
         help='Use relative improvement')
 
@@ -35,17 +36,24 @@ def parse_results(filename):
     with open(filename, 'r') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=args.delimiter)
         for row in reader:
-            eid = row['P1'] + row['P2'] + row['P3'] + row['P4'] + row['P5'] + row['P6']
+            eid = ""
+            for col in args.priority_cols:
+                eid += row[col]
 
             if eid not in results:
                 results[eid] = dict()
 
             orig = int(row[args.original])
             impr = int(row[args.improved])
+
+            if 'Path' in row:
+                name = row['Path']
+            else:
+                name = row['Chain']
             
-            if row['Path'] == args.xpath:
+            if name == args.xpath:
                 axis = 'x'
-            elif row['Path'] == args.ypath:
+            elif name == args.ypath:
                 axis = 'y'
             else:
                 continue
