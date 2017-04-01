@@ -29,4 +29,4 @@ python run_analyses.py --input models/park_assist_shared_pip.graphml --print --r
 # run use case #
 ################
 
-python run_analyses.py --input models/combined.graphml --print --run_cpa --add_mutex_blocking --run_new --candidate_search --output $RESULT_DIR/combined.csv --calculate_difference --print_differing --build_chains > $RESULT_DIR/combined.log
+python run_analyses.py --input models/combined.graphml --print --run_cpa --run_new --candidate_search --output $RESULT_DIR/combined.csv --calculate_difference --print_differing --build_chains > $RESULT_DIR/combined.log

@@ -21,189 +21,189 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-invoked via: run_analyses.py --input models/combined.graphml --print --run_cpa --add_mutex_blocking --run_new --candidate_search --output results/combined.csv --calculate_difference --print_differing --build_chains
+invoked via: run_analyses.py --input models/combined.graphml --print --run_cpa --run_new --candidate_search --output reference_results/combined.csv --calculate_difference --print_differing --build_chains
 
-add_mutex_blocking   :                 True 
-all_priorities       :                False 
-build_chains         :                 True 
-calculate_difference :                 True 
-candidate_search     :                 True 
-check_violations     :                False 
-debug                :                False 
-e2e_improved         :                False 
-input                :  models/test.graphml 
-max_iterations       :                 1000 
-max_wcrt             :                  inf 
-nocaching            :                False 
-output               : results/combined.csv 
-print                :                 True 
-print_differing      :                 True 
-priorities           :                   [] 
-propagation          :          busy_window 
-resume               :                False 
-run_async            :                False 
-run_cpa              :                 True 
-run_new              :                 True 
-run_sync             :                False 
-run_sync_refined     :                False 
-show                 :                False 
-verbose              :                False 
+add_mutex_blocking   :                          False 
+all_priorities       :                          False 
+build_chains         :                           True 
+calculate_difference :                           True 
+candidate_search     :                           True 
+check_violations     :                          False 
+debug                :                          False 
+e2e_improved         :                          False 
+input                :        models/combined.graphml 
+max_iterations       :                           1000 
+max_wcrt             :                            inf 
+nocaching            :                          False 
+output               : reference_results/combined.csv 
+print                :                           True 
+print_differing      :                           True 
+priorities           :                             [] 
+propagation          :                    busy_window 
+resume               :                          False 
+run_async            :                          False 
+run_cpa              :                           True 
+run_new              :                           True 
+run_sync             :                          False 
+run_sync_refined     :                          False 
+show                 :                          False 
+verbose              :                          False 
 
 
 
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+Warning: no task_results for task t21
+Warning: no task_results for task t22
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t31
 Warning: no task_results for task t32
 Warning: no task_results for task t11
 Warning: no task_results for task t12
-Warning: no task_results for task t11
-Warning: no task_results for task t12
-Warning: no task_results for task t21
-Warning: no task_results for task t22
 
 Results for priority assignment: [1, 2, 3]
 Path	STD	TC
-t33	350	90
-t13	110	60
-t23	270	70
+t23	240	70
+t33	330	90
+t13	90	60
 
 The following WCRT results are differing:
 
-Task t23:
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1*10=10, t31:0*10=0, t32:1*10=10, t33:0*10=0
-[STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t13:eta*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
-
 Task t13:
-[TC]	wcrt=60	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:0*10=0, t23:1(eta)*10=10, t31:0*10=0, t32:1(eta)*10=10, t33:0*10=0
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10
+[TC]	wcrt=60	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1*10=10, t21:1(eta)*10=10, t22:0*10=0, t23:1*10=10, t31:0*10=0, t32:1*10=10, t33:0*10=0
+
+Task t23:
+[STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t13:eta*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:0*10=0, t32:1(eta)*10=10, t33:0*10=0
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+Warning: no task_results for task t21
+Warning: no task_results for task t22
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t31
 Warning: no task_results for task t32
 Warning: no task_results for task t11
 Warning: no task_results for task t12
-Warning: no task_results for task t11
-Warning: no task_results for task t12
-Warning: no task_results for task t21
-Warning: no task_results for task t22
 
 Results for priority assignment: [1, 3, 2]
 Path	STD	TC
-t33	270	70
-t13	110	60
-t23	350	90
+t23	330	90
+t33	240	70
+t13	90	60
 
 The following WCRT results are differing:
 
 Task t33:
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1(eta)*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1*10=10, t33:1*10=10
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t13:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1(eta)*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1*10=10
 
 Task t13:
-[TC]	wcrt=60	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1*10=10, t21:0*10=0, t22:0*10=0, t23:0*10=0, t31:0*10=0, t32:1*10=10, t33:0*10=0
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10
+[TC]	wcrt=60	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1*10=10, t21:0*10=0, t22:0*10=0, t23:0*10=0, t31:0*10=0, t32:1*10=10, t33:0*10=0
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+Warning: no task_results for task t21
+Warning: no task_results for task t22
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t31
 Warning: no task_results for task t32
 Warning: no task_results for task t11
 Warning: no task_results for task t12
-Warning: no task_results for task t11
-Warning: no task_results for task t12
-Warning: no task_results for task t21
-Warning: no task_results for task t22
 
 Results for priority assignment: [2, 1, 3]
 Path	STD	TC
-t33	400	90
-t13	190	70
-t23	240	70
+t23	210	70
+t33	390	90
+t13	180	70
 
 The following WCRT results are differing:
 
-Task t23:
-[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1*10=10, t23:1(eta)*10=10, t31:0*10=0, t32:1(eta)*10=10, t33:0*10=0
-[STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
-
 Task t13:
-[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:0*10=0, t32:1*10=10, t33:0*10=0
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10, t23:eta*WCET:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:0*10=0, t32:1(eta)*10=10, t33:0*10=0
+
+Task t23:
+[STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1(eta)*10=10, t23:1*10=10, t31:0*10=0, t32:1*10=10, t33:0*10=0
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+Warning: no task_results for task t21
+Warning: no task_results for task t22
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t31
 Warning: no task_results for task t32
 Warning: no task_results for task t11
 Warning: no task_results for task t12
-Warning: no task_results for task t11
-Warning: no task_results for task t12
-Warning: no task_results for task t21
-Warning: no task_results for task t22
 
 Results for priority assignment: [2, 3, 1]
 Path	STD	TC
-t33	240	70
-t13	190	70
-t23	400	90
+t23	390	90
+t33	210	70
+t13	180	70
 
 The following WCRT results are differing:
 
 Task t33:
-[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1*10=10, t33:1*10=10
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1(eta)*10=10, t23:0*10=0, t31:1*10=10, t32:1*10=10, t33:1(eta)*10=10
 
 Task t13:
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10, t33:eta*WCET:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1(eta)*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+Warning: no task_results for task t21
+Warning: no task_results for task t22
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t31
 Warning: no task_results for task t32
 Warning: no task_results for task t11
 Warning: no task_results for task t12
-Warning: no task_results for task t11
-Warning: no task_results for task t12
-Warning: no task_results for task t21
-Warning: no task_results for task t22
 
 Results for priority assignment: [3, 1, 2]
 Path	STD	TC
-t33	370	90
+t23	270	90
+t33	360	90
 t13	270	90
-t23	290	90
 
 The following WCRT results are differing:
 
-Task t23:
-[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
-[STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
-
 Task t33:
-[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1*10=10
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10, t23:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
+[TC]	wcrt=90	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1*10=10, t32:1*10=10, t33:1*10=10
+
+Task t23:
+[STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
+[TC]	wcrt=90	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1*10=10, t23:1(eta)*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+Warning: no task_results for task t21
+Warning: no task_results for task t22
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t31
 Warning: no task_results for task t32
 Warning: no task_results for task t11
 Warning: no task_results for task t12
-Warning: no task_results for task t11
-Warning: no task_results for task t12
-Warning: no task_results for task t21
-Warning: no task_results for task t22
 
 Results for priority assignment: [3, 2, 1]
 Path	STD	TC
-t33	290	90
+t23	360	90
+t33	270	90
 t13	270	90
-t23	370	90
 
 The following WCRT results are differing:
 
-Task t23:
-[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
-[STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10, t33:eta*WCET:1*10=10
-
 Task t33:
-[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1*10=10
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
+[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1*10=10, t32:1(eta)*10=10, t33:1*10=10
+
+Task t23:
+[STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10, t33:eta*WCET:1*10=10
+[TC]	wcrt=90	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
