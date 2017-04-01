@@ -887,12 +887,21 @@ class SPPScheduler(analysis.Scheduler):
             # but only lower priority tasks are relevant for the BinaryEventCountBound used above
             lp_bounds.update([task_ec_bounds[t] for t in prio_map[p]])
 
-        # we limit ec for possible_lp_blockers to 1
-        for t in possible_lp_blockers:
-            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(1))
+#        # we limit ec for possible_lp_blockers to 1
+#        for t in possible_lp_blockers:
+#            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(1))
+
+        # FIXME what if we have a higher-priority interferer that allocates one of our contexts multiple times so that
+        #       the lower-priority predecessors must execute multiple times as well
+        # idea:
+        #   - define blocking segment and its priority
+        #   - if segment is lower-priority, bound = 1
+        #   - if segment is higher-priority
+        #      - bounded by number of releases of this context within our chain
 
         # find blockers and restrict blocking to one execution (of a blocking segment)
         #   requires candidate search (blockers are mutually exclusive)
+        #   TODO consider mutual exclusive (circular) segments
         if self.candidates is not None:
             for ctx in tc_contexts:
                 # for each execution context, we only need to account for one blocker
