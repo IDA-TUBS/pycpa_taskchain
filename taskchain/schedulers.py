@@ -833,6 +833,14 @@ class SPPScheduler(analysis.Scheduler):
         for t in taskchain.tasks:
             tc_contexts.update(resource.model.allocations[t].keys())
 
+        # extend to set of potentially blocked execution contexts
+        cur_len = len(tc_contexts)
+        while cur_len < len(tc_contexts):
+            for t in resource.model.tasks:
+                if t not in taskchain.tasks:
+                    for ctx in resource.model.allocations[t]:
+                        if ctx in tc_contexts:
+                            tc_contexts.update(resource.model.allocations[t].keys())
 
         # exclude lower priority tasks if they cannot block
         # (a scheduling context cannot execute if its on a lower priority and not blocking)
@@ -878,6 +886,10 @@ class SPPScheduler(analysis.Scheduler):
             # we assume same priority tasks can interfere with each other
             # but only lower priority tasks are relevant for the BinaryEventCountBound used above
             lp_bounds.update([task_ec_bounds[t] for t in prio_map[p]])
+
+        # we limit ec for possible_lp_blockers to 1
+        for t in possible_lp_blockers:
+            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(1))
 
         # find blockers and restrict blocking to one execution (of a blocking segment)
         #   requires candidate search (blockers are mutually exclusive)
