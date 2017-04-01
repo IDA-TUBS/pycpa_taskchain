@@ -150,16 +150,17 @@ class ResourceModel (object):
             if self.mappings[t] is s:
                 t.scheduling_parameter = s.get_scheduling_parameter(t)
 
-    def predecessors(self, task, recursive=False):
+    def predecessors(self, task, only_strong=False, recursive=False):
         predecessors = set()
         for t in self.tasklinks.keys():
             if task in self.tasklinks[t]:
-                predecessors.add(t)
+                if not only_strong or self.is_strong_precedence(t, task):
+                    predecessors.add(t)
 
         result = predecessors.copy()
         if recursive:
             for t in predecessors:
-                result.update(self.predecessors(t, recursive))
+                result.update(self.predecessors(t, only_strong=only_strong, recursive=recursive))
 
         return result
 
@@ -174,7 +175,7 @@ class ResourceModel (object):
 
         if recursive:
             for t in successors:
-                result.update(self.successors(t, recursive))
+                result.update(self.successors(t, only_strong=only_strong, recursive=recursive))
 
         return result
 

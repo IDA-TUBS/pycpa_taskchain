@@ -321,7 +321,10 @@ class TaskChainBusyWindow(object):
             return self.calculate()
 
         def __str__(self):
-            return '%s*%d+%d=%s' % (str(self.ec_bound), self.multiplier, self.offset, self.n)
+            if self.recursive_refresh:
+                return '%s*%d+%d=%s' % (str(self.ec_bound), self.multiplier, self.offset, self.n)
+            else:
+                return 'X*%d+%d=%s' % (self.multiplier, self.offset, self.n)
 
     class BinaryEventCountBound(EventCountBound):
         def __init__(self, ec_bound, if_non_zero=None, if_zero=None, recursive_refresh=True):
@@ -357,7 +360,7 @@ class TaskChainBusyWindow(object):
 
                 return self.calculate() or result
             else:
-                return False
+                return self.calculate()
 
         def __str__(self):
             if self.ec_bound.events() == 0:
@@ -774,18 +777,40 @@ class SPPScheduler(analysis.Scheduler):
             for t in c.tasks:
                 task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.ArrivalEventCountBound(c.tasks[0].in_event_model))
 
-        # a task can only interfere as often as its any predecessor + 1
+        # a task can only interfere as once if there is a lower-priority or strong predecessor that cannot execute at all
         for t in resource.model.tasks:
-            predecessors = resource.model.predecessors(t, recursive=True)
+            predecessors = resource.model.predecessors(t, only_strong=True, recursive=True)
             for pred in predecessors:
                 task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.BinaryEventCountBound(\
                         task_ec_bounds[pred], if_zero=TaskChainBusyWindow.StaticEventCountBound(1)))
 
-        # for the chain under analysis, we can add q as an upper bound for the last chain task (FIFO assumption)
+            predecessors = resource.model.predecessors(t, only_strong=False, recursive=True)
+            for pred in predecessors:
+                if self.priority_cmp(t.scheduling_parameter, pred.scheduling_parameter):
+                    task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.BinaryEventCountBound(\
+                            task_ec_bounds[pred], if_zero=TaskChainBusyWindow.StaticEventCountBound(1)))
+
+        # for the chain under analysis, we can add q as an upper bound for the last chain task (FIFO assumption) and any strong predecessor
         last_chain_task = bw.taskchain.tasks[-1]
         task_ec_bounds[last_chain_task].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(q))
 
-        # for strong precedence: a task can only interfere as often as its successor + 1
+        for t in resource.model.predecessors(last_chain_task, recursive=True, only_strong=True):
+            if t in bw.taskchain.tasks:
+                task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(q))
+
+#        # for the chain under analysis, any task can only execute as often as its predecessor
+#        # (and vice versa for strong precedence)
+#        for t in bw.taskchain.tasks:
+#            for succ in resource.model.successors(t, recursive=False):
+#                if succ in bw.taskchain.tasks:
+#                    task_ec_bounds[succ].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(task_ec_bounds[t],
+#                        offset=0, multiplier=1, recursive_refresh=True))
+#                    if resource.model.is_strong_precedence(t, succ):
+#                        task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.DependentEventCountBound(task_ec_bounds[succ],
+#                            offset=0, multiplier=1, recursive_refresh=False))
+
+
+        # for strong precedence: a task can only interfere once if there is any successor that cannot execute at all
         # can be applied recursively to all strong successors
         for t in resource.model.tasks:
             successors = resource.model.successors(t, recursive=True, only_strong=True)
