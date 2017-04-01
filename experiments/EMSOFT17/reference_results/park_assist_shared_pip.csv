@@ -1,5 +1,5 @@
-Chain	S_P	S_LA	STD	TC	SYNC
-LA::4	1	2	0	76	76
-P::2	1	2	0	36	26
-LA::4	2	1	0	60	50
-P::2	2	1	0	76	76
+Chain	S_P	S_LA	TC
+LA::4	1	2	76
+P::2	1	2	36
+LA::4	2	1	60
+P::2	2	1	76

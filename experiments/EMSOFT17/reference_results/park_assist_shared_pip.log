@@ -21,7 +21,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-invoked via: run_analyses.py --input models/park_assist_shared_pip.graphml --print --run_cpa --add_mutex_blocking --run_sync --run_new --candidate_search --output results/park_assist_shared_pip.csv --build_chains --max_iterations 100
+invoked via: run_analyses.py --input models/park_assist_shared_pip.graphml --print --add_mutex_blocking --run_new --candidate_search --output results/park_assist_shared_pip.csv --build_chains --max_iterations 100
 
 add_mutex_blocking   :                                  True 
 all_priorities       :                                 False 
@@ -42,26 +42,15 @@ priorities           :                                    []
 propagation          :                           busy_window 
 resume               :                                 False 
 run_async            :                                 False 
-run_cpa              :                                  True 
+run_cpa              :                                 False 
 run_new              :                                  True 
-run_sync             :                                  True 
+run_sync             :                                 False 
 run_sync_refined     :                                 False 
 show                 :                                 False 
 verbose              :                                 False 
 
 
 
-'max_iterations for LA-OM::1 reached, tasks (likely) not schedulable!'
-Warning: no task_results for task LA::1
-Warning: no task_results for task LA-O1OR::1
-Warning: no task_results for task LA::2
-Warning: no task_results for task LA-OM::1
-Warning: no task_results for task LA::3
-Warning: no task_results for task LA-S::1
-Warning: no task_results for task P::1
-Warning: no task_results for task P-TC::1
-Warning: no task_results for task P-O1OR::1
-Warning: no task_results for task P-TC::2
 Warning: no task_results for task LA::1
 Warning: no task_results for task LA-O1OR::1
 Warning: no task_results for task LA::2
@@ -74,20 +63,9 @@ Warning: no task_results for task P-O1OR::1
 Warning: no task_results for task P-TC::2
 
 Results for priority assignment: [1, 2]
-Path	STD	TC	SYNC
-LA::4	0	76	76
-P::2	0	36	26
-'max_iterations for LA-S::1 reached, tasks (likely) not schedulable!'
-Warning: no task_results for task LA::1
-Warning: no task_results for task LA-O1OR::1
-Warning: no task_results for task LA::2
-Warning: no task_results for task LA-OM::1
-Warning: no task_results for task LA::3
-Warning: no task_results for task LA-S::1
-Warning: no task_results for task P::1
-Warning: no task_results for task P-TC::1
-Warning: no task_results for task P-O1OR::1
-Warning: no task_results for task P-TC::2
+Path	TC
+LA::4	76
+P::2	36
 Warning: no task_results for task LA::1
 Warning: no task_results for task LA-O1OR::1
 Warning: no task_results for task LA::2
@@ -100,6 +78,6 @@ Warning: no task_results for task P-O1OR::1
 Warning: no task_results for task P-TC::2
 
 Results for priority assignment: [2, 1]
-Path	STD	TC	SYNC
-LA::4	0	60	50
-P::2	0	76	76
+Path	TC
+LA::4	60
+P::2	76
