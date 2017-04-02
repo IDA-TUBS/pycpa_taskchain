@@ -21,18 +21,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-invoked via: run_analyses.py --input models/park_assist_shared.graphml --print --add_mutex_blocking --run_new --candidate_search --output results/park_assist_shared.csv --build_chains --max_iterations 100
+invoked via: run_analyses.py --input models/park_assist_shared.graphml --print --add_mutex_blocking --run_new --output results/park_assist_shared.csv --build_chains --max_iterations 200
 
 add_mutex_blocking   :                              True 
 all_priorities       :                             False 
 build_chains         :                              True 
 calculate_difference :                             False 
-candidate_search     :                              True 
+candidate_search     :                             False 
 check_violations     :                             False 
 debug                :                             False 
 e2e_improved         :                             False 
 input                : models/park_assist_shared.graphml 
-max_iterations       :                               100 
+max_iterations       :                               200 
 max_wcrt             :                               inf 
 nocaching            :                             False 
 output               :    results/park_assist_shared.csv 

@@ -21,18 +21,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-invoked via: run_analyses.py --input models/chains_async_3_3.graphml --print --run_cpa --run_new --candidate_search --output results/chain_async_3_3-single.csv --calculate_difference
+invoked via: run_analyses.py --input models/chains_async_3_3.graphml --print --run_new --output results/chain_async_3_3-single.csv --max_iterations 200
 
 add_mutex_blocking   :                              False 
 all_priorities       :                              False 
 build_chains         :                              False 
-calculate_difference :                               True 
-candidate_search     :                               True 
+calculate_difference :                              False 
+candidate_search     :                              False 
 check_violations     :                              False 
 debug                :                              False 
 e2e_improved         :                              False 
 input                :    models/chains_async_3_3.graphml 
-max_iterations       :                               1000 
+max_iterations       :                                200 
 max_wcrt             :                                inf 
 nocaching            :                              False 
 output               : results/chain_async_3_3-single.csv 
@@ -40,8 +40,9 @@ print                :                               True
 print_differing      :                              False 
 priorities           :                                 [] 
 propagation          :                        busy_window 
+resume               :                              False 
 run_async            :                              False 
-run_cpa              :                               True 
+run_cpa              :                              False 
 run_new              :                               True 
 run_sync             :                              False 
 run_sync_refined     :                              False 
@@ -52,7612 +53,6745 @@ verbose              :                              False
 
 
 Results for priority assignment: [1, 2, 3, 4, 5, 6]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	34	34
-t21	73	73
-t22	146	146
-t23	466	466
+Path	TC
+t11	10
+t12	12
+t13	34
+t21	73
+t22	146
+t23	466
 
 Results for priority assignment: [1, 2, 3, 4, 6, 5]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	34	34
-t21	73	73
-t22	424	424
-t23	216	216
+Path	TC
+t11	10
+t12	12
+t13	34
+t21	73
+t22	424
+t23	216
 
 Results for priority assignment: [1, 2, 3, 5, 4, 6]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	34	34
-t21	695	695
-t22	407	407
-t23	1462	1462
+Path	TC
+t11	10
+t12	12
+t13	34
+t21	695
+t22	407
+t23	1462
 
 Results for priority assignment: [1, 2, 3, 5, 6, 4]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	34	34
-t21	473	94
-t22	1007	445
-t23	310	159
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	12
+t13	34
+t21	94
+t22	445
+t23	159
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 2, 3, 6, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 2, 3, 6, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 2, 4, 3, 5, 6]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	47	47
-t21	29	29
-t22	133	133
-t23	390	390
+Path	TC
+t11	10
+t12	12
+t13	47
+t21	29
+t22	133
+t23	390
 
 Results for priority assignment: [1, 2, 4, 3, 6, 5]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	47	47
-t21	29	29
-t22	343	343
-t23	190	190
+Path	TC
+t11	10
+t12	12
+t13	47
+t21	29
+t22	343
+t23	190
 
 Results for priority assignment: [1, 2, 4, 5, 3, 6]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	264	55
-t21	695	695
-t22	187	187
-t23	1445	1445
+Path	TC
+t11	10
+t12	12
+t13	55
+t21	695
+t22	187
+t23	1445
 
 Results for priority assignment: [1, 2, 4, 5, 6, 3]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	210	49
-t21	473	94
-t22	1007	445
-t23	126	59
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	12
+t13	49
+t21	94
+t22	445
+t23	59
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 2, 4, 6, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 2, 4, 6, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 2, 5, 3, 4, 6]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	79	79
-t21	29	29
-t22	50	50
-t23	326	326
+Path	TC
+t11	10
+t12	12
+t13	79
+t21	29
+t22	50
+t23	326
 
 Results for priority assignment: [1, 2, 5, 3, 6, 4]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	113	54
-t21	29	29
-t22	343	343
-t23	61	61
+Path	TC
+t11	10
+t12	12
+t13	54
+t21	29
+t22	343
+t23	61
 
 Results for priority assignment: [1, 2, 5, 4, 3, 6]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	89	89
-t21	50	50
-t22	35	35
-t23	373	373
+Path	TC
+t11	10
+t12	12
+t13	89
+t21	50
+t22	35
+t23	373
 
 Results for priority assignment: [1, 2, 5, 4, 6, 3]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	128	54
-t21	95	34
-t22	446	348
-t23	59	58
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	12
+t13	54
+t21	34
+t22	348
+t23	58
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 2, 5, 6, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 2, 5, 6, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 2, 6, 3, 4, 5]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	133	133
-t21	29	29
-t22	50	50
-t23	55	55
+Path	TC
+t11	10
+t12	12
+t13	133
+t21	29
+t22	50
+t23	55
 
 Results for priority assignment: [1, 2, 6, 3, 5, 4]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	134	134
-t21	29	29
-t22	72	72
-t23	47	47
+Path	TC
+t11	10
+t12	12
+t13	134
+t21	29
+t22	72
+t23	47
 
 Results for priority assignment: [1, 2, 6, 4, 3, 5]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	138	138
-t21	50	50
-t22	35	35
-t23	86	86
+Path	TC
+t11	10
+t12	12
+t13	138
+t21	50
+t22	35
+t23	86
 
 Results for priority assignment: [1, 2, 6, 4, 5, 3]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	139	134
-t21	51	34
-t22	72	72
-t23	42	42
+Path	TC
+t11	10
+t12	12
+t13	134
+t21	34
+t22	72
+t23	42
 
 Results for priority assignment: [1, 2, 6, 5, 3, 4]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	195	195
-t21	131	131
-t22	65	65
-t23	107	65
+Path	TC
+t11	10
+t12	12
+t13	195
+t21	131
+t22	65
+t23	65
 
 Results for priority assignment: [1, 2, 6, 5, 4, 3]
-Path	STD	TC
-t11	10	10
-t12	12	12
-t13	210	210
-t21	146	146
-t22	111	72
-t23	45	45
+Path	TC
+t11	10
+t12	12
+t13	210
+t21	146
+t22	72
+t23	45
 
 Results for priority assignment: [1, 3, 2, 4, 5, 6]
-Path	STD	TC
-t11	10	10
-t12	84	84
-t13	42	42
-t21	133	133
-t22	252	252
-t23	753	753
+Path	TC
+t11	10
+t12	84
+t13	42
+t21	133
+t22	252
+t23	753
 
 Results for priority assignment: [1, 3, 2, 4, 6, 5]
-Path	STD	TC
-t11	10	10
-t12	84	84
-t13	42	42
-t21	133	133
-t22	684	684
-t23	346	346
+Path	TC
+t11	10
+t12	84
+t13	42
+t21	133
+t22	684
+t23	346
 
 Results for priority assignment: [1, 3, 2, 5, 4, 6]
-Path	STD	TC
-t11	10	10
-t12	84	84
-t13	42	42
-t21	1393	1393
-t22	779	779
-t23	2909	2909
+Path	TC
+t11	10
+t12	84
+t13	42
+t21	1393
+t22	779
+t23	2909
 
 Results for priority assignment: [1, 3, 2, 5, 6, 4]
-Path	STD	TC
-t11	10	10
-t12	84	84
-t13	42	42
-t21	812	154
-t22	1682	705
-t23	538	286
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	84
+t13	42
+t21	154
+t22	705
+t23	286
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 3, 2, 6, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 3, 2, 6, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 3, 4, 2, 5, 6]
-Path	STD	TC
-t11	10	10
-t12	21	21
-t13	47	47
-t21	13	13
-t22	133	133
-t23	348	348
+Path	TC
+t11	10
+t12	21
+t13	47
+t21	13
+t22	133
+t23	348
 
 Results for priority assignment: [1, 3, 4, 2, 6, 5]
-Path	STD	TC
-t11	10	10
-t12	21	21
-t13	47	47
-t21	13	13
-t22	371	371
-t23	211	211
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	21
+t13	47
+t21	13
+t22	371
+t23	211
 
 Results for priority assignment: [1, 3, 4, 5, 2, 6]
-Path	STD	TC
-t11	0	10
-t12	0	31
-t13	0	67
-t21	0	895
-t22	0	181
-t23	0	1837
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	31
+t13	67
+t21	895
+t22	181
+t23	1837
 
 Results for priority assignment: [1, 3, 4, 5, 6, 2]
-Path	STD	TC
-t11	0	10
-t12	0	27
-t13	0	51
-t21	0	114
-t22	0	553
-t23	0	51
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	27
+t13	51
+t21	114
+t22	553
+t23	51
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 3, 4, 6, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 3, 4, 6, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 3, 5, 2, 4, 6]
-Path	STD	TC
-t11	10	10
-t12	21	21
-t13	81	81
-t21	13	13
-t22	50	50
-t23	310	310
+Path	TC
+t11	10
+t12	21
+t13	81
+t21	13
+t22	50
+t23	310
 
 Results for priority assignment: [1, 3, 5, 2, 6, 4]
-Path	STD	TC
-t11	10	10
-t12	21	21
-t13	121	57
-t21	13	13
-t22	371	371
-t23	69	69
+Path	TC
+t11	10
+t12	21
+t13	57
+t21	13
+t22	371
+t23	69
 
 Results for priority assignment: [1, 3, 5, 4, 2, 6]
-Path	STD	TC
-t11	10	10
-t12	31	31
-t13	97	97
-t21	50	50
-t22	29	29
-t23	406	406
+Path	TC
+t11	10
+t12	31
+t13	97
+t21	50
+t22	29
+t23	406
 
 Results for priority assignment: [1, 3, 5, 4, 6, 2]
-Path	STD	TC
-t11	10	10
-t12	112	27
-t13	238	66
-t21	151	34
-t22	803	405
-t23	63	39
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	27
+t13	66
+t21	34
+t22	405
+t23	39
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 3, 5, 6, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 3, 5, 6, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 3, 6, 2, 4, 5]
-Path	STD	TC
-t11	10	10
-t12	21	21
-t13	124	124
-t21	13	13
-t22	50	50
-t23	55	55
+Path	TC
+t11	10
+t12	21
+t13	124
+t21	13
+t22	50
+t23	55
 
 Results for priority assignment: [1, 3, 6, 2, 5, 4]
-Path	STD	TC
-t11	10	10
-t12	21	21
-t13	136	136
-t21	13	13
-t22	72	72
-t23	34	34
+Path	TC
+t11	10
+t12	21
+t13	136
+t21	13
+t22	72
+t23	34
 
 Results for priority assignment: [1, 3, 6, 4, 2, 5]
-Path	STD	TC
-t11	10	10
-t12	31	31
-t13	157	157
-t21	50	50
-t22	29	29
-t23	86	86
+Path	TC
+t11	10
+t12	31
+t13	157
+t21	50
+t22	29
+t23	86
 
 Results for priority assignment: [1, 3, 6, 4, 5, 2]
-Path	STD	TC
-t11	10	10
-t12	32	27
-t13	159	149
-t21	51	34
-t22	72	72
-t23	26	26
+Path	TC
+t11	10
+t12	27
+t13	149
+t21	34
+t22	72
+t23	26
 
 Results for priority assignment: [1, 3, 6, 5, 2, 4]
-Path	STD	TC
-t11	10	10
-t12	50	31
-t13	215	207
-t21	131	131
-t22	47	47
-t23	107	65
+Path	TC
+t11	10
+t12	31
+t13	207
+t21	131
+t22	47
+t23	65
 
 Results for priority assignment: [1, 3, 6, 5, 4, 2]
-Path	STD	TC
-t11	10	10
-t12	47	27
-t13	233	222
-t21	146	146
-t22	111	72
-t23	27	27
+Path	TC
+t11	10
+t12	27
+t13	222
+t21	146
+t22	72
+t23	27
 
 Results for priority assignment: [1, 4, 2, 3, 5, 6]
-Path	STD	TC
-t11	10	10
-t12	144	144
-t13	70	70
-t21	129	27
-t22	331	272
-t23	936	745
+Path	TC
+t11	10
+t12	144
+t13	70
+t21	27
+t22	272
+t23	745
 
 Results for priority assignment: [1, 4, 2, 3, 6, 5]
-Path	STD	TC
-t11	10	10
-t12	144	144
-t13	70	70
-t21	129	27
-t22	852	697
-t23	478	425
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	144
+t13	70
+t21	27
+t22	697
+t23	425
 
 Results for priority assignment: [1, 4, 2, 5, 3, 6]
-Path	STD	TC
-t11	0	10
-t12	0	173
-t13	0	74
-t21	0	2295
-t22	0	427
-t23	0	4598
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	173
+t13	74
+t21	2295
+t22	427
+t23	4598
 
 Results for priority assignment: [1, 4, 2, 5, 6, 3]
-Path	STD	TC
-t11	0	10
-t12	0	133
-t13	0	70
-t21	0	214
-t22	0	965
-t23	0	89
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	133
+t13	70
+t21	214
+t22	965
+t23	89
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 4, 2, 6, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 4, 2, 6, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 4, 3, 2, 5, 6]
-Path	STD	TC
-t11	10	10
-t12	144	144
-t13	73	73
-t21	13	13
-t22	272	272
-t23	734	734
+Path	TC
+t11	10
+t12	144
+t13	73
+t21	13
+t22	272
+t23	734
 
 Results for priority assignment: [1, 4, 3, 2, 6, 5]
-Path	STD	TC
-t11	10	10
-t12	144	144
-t13	73	73
-t21	13	13
-t22	683	683
-t23	425	425
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	144
+t13	73
+t21	13
+t22	683
+t23	425
 
 Results for priority assignment: [1, 4, 3, 5, 2, 6]
-Path	STD	TC
-t11	0	10
-t12	0	173
-t13	0	93
-t21	0	2295
-t22	0	423
-t23	0	4598
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	173
+t13	93
+t21	2295
+t22	423
+t23	4598
 
 Results for priority assignment: [1, 4, 3, 5, 6, 2]
-Path	STD	TC
-t11	0	10
-t12	0	133
-t13	0	75
-t21	0	214
-t22	0	965
-t23	0	75
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	133
+t13	75
+t21	214
+t22	965
+t23	75
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 4, 3, 6, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 4, 3, 6, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 4, 5, 2, 3, 6]
-Path	STD	TC
-t11	10	10
-t12	40	40
-t13	100	100
-t21	13	13
-t22	32	32
-t23	351	351
+Path	TC
+t11	10
+t12	40
+t13	100
+t21	13
+t22	32
+t23	351
 
 Results for priority assignment: [1, 4, 5, 2, 6, 3]
-Path	STD	TC
-t11	10	10
-t12	81	30
-t13	163	66
-t21	13	13
-t22	492	384
-t23	53	51
+Path	TC
+t11	10
+t12	30
+t13	66
+t21	13
+t22	384
+t23	51
 
 Results for priority assignment: [1, 4, 5, 3, 2, 6]
-Path	STD	TC
-t11	10	10
-t12	40	40
-t13	100	100
-t21	32	32
-t22	29	29
-t23	388	388
+Path	TC
+t11	10
+t12	40
+t13	100
+t21	32
+t22	29
+t23	388
 
 Results for priority assignment: [1, 4, 5, 3, 6, 2]
-Path	STD	TC
-t11	10	10
-t12	113	30
-t13	239	66
-t21	108	28
-t22	771	399
-t23	63	39
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	30
+t13	66
+t21	28
+t22	399
+t23	39
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 4, 5, 6, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 4, 5, 6, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 4, 6, 2, 3, 5]
-Path	STD	TC
-t11	10	10
-t12	40	40
-t13	139	139
-t21	13	13
-t22	32	32
-t23	55	55
+Path	TC
+t11	10
+t12	40
+t13	139
+t21	13
+t22	32
+t23	55
 
 Results for priority assignment: [1, 4, 6, 2, 5, 3]
-Path	STD	TC
-t11	10	10
-t12	41	30
-t13	145	145
-t21	13	13
-t22	72	72
-t23	28	28
+Path	TC
+t11	10
+t12	30
+t13	145
+t21	13
+t22	72
+t23	28
 
 Results for priority assignment: [1, 4, 6, 3, 2, 5]
-Path	STD	TC
-t11	10	10
-t12	40	40
-t13	140	140
-t21	32	32
-t22	29	29
-t23	55	55
+Path	TC
+t11	10
+t12	40
+t13	140
+t21	32
+t22	29
+t23	55
 
 Results for priority assignment: [1, 4, 6, 3, 5, 2]
-Path	STD	TC
-t11	10	10
-t12	41	30
-t13	157	152
-t21	33	28
-t22	72	72
-t23	26	25
+Path	TC
+t11	10
+t12	30
+t13	152
+t21	28
+t22	72
+t23	25
 
 Results for priority assignment: [1, 4, 6, 5, 2, 3]
-Path	STD	TC
-t11	10	10
-t12	100	46
-t13	259	211
-t21	131	131
-t22	47	47
-t23	64	45
+Path	TC
+t11	10
+t12	46
+t13	211
+t21	131
+t22	47
+t23	45
 
 Results for priority assignment: [1, 4, 6, 5, 3, 2]
-Path	STD	TC
-t11	10	10
-t12	105	46
-t13	275	211
-t21	146	131
-t22	72	52
-t23	27	26
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	46
+t13	211
+t21	131
+t22	52
+t23	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 2, 3, 4, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 5, 2, 3, 6, 4]
-Path	STD	TC
-t11	0	10
-t12	0	193
-t13	0	86
-t21	0	27
-t22	0	858
-t23	0	87
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	193
+t13	86
+t21	27
+t22	858
+t23	87
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 2, 4, 3, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 5, 2, 4, 6, 3]
-Path	STD	TC
-t11	0	10
-t12	0	193
-t13	0	86
-t21	0	32
-t22	0	863
-t23	0	77
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	193
+t13	86
+t21	32
+t22	863
+t23	77
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 2, 6, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 2, 6, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 3, 2, 4, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 5, 3, 2, 6, 4]
-Path	STD	TC
-t11	0	10
-t12	0	193
-t13	0	93
-t21	0	13
-t22	0	804
-t23	0	83
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	193
+t13	93
+t21	13
+t22	804
+t23	83
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 3, 4, 2, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 5, 3, 4, 6, 2]
-Path	STD	TC
-t11	0	10
-t12	0	193
-t13	0	92
-t21	0	32
-t22	0	863
-t23	0	72
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	193
+t13	92
+t21	32
+t22	863
+t23	72
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 3, 6, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 3, 6, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 4, 2, 3, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 5, 4, 2, 6, 3]
-Path	STD	TC
-t11	0	10
-t12	0	193
-t13	0	107
-t21	0	13
-t22	0	804
-t23	0	79
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	193
+t13	107
+t21	13
+t22	804
+t23	79
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 4, 3, 2, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 5, 4, 3, 6, 2]
-Path	STD	TC
-t11	0	10
-t12	0	193
-t13	0	107
-t21	0	28
-t22	0	859
-t23	0	68
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	193
+t13	107
+t21	28
+t22	859
+t23	68
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 4, 6, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 5, 4, 6, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [1, 5, 6, 2, 3, 4]
-Path	STD	TC
-t11	10	10
-t12	49	49
-t13	154	154
-t21	13	13
-t22	32	32
-t23	47	47
+Path	TC
+t11	10
+t12	49
+t13	154
+t21	13
+t22	32
+t23	47
 
 Results for priority assignment: [1, 5, 6, 2, 4, 3]
-Path	STD	TC
-t11	10	10
-t12	60	60
-t13	159	159
-t21	13	13
-t22	52	52
-t23	28	28
+Path	TC
+t11	10
+t12	60
+t13	159
+t21	13
+t22	52
+t23	28
 
 Results for priority assignment: [1, 5, 6, 3, 2, 4]
-Path	STD	TC
-t11	10	10
-t12	60	60
-t13	160	160
-t21	32	32
-t22	29	29
-t23	47	47
+Path	TC
+t11	10
+t12	60
+t13	160
+t21	32
+t22	29
+t23	47
 
 Results for priority assignment: [1, 5, 6, 3, 4, 2]
-Path	STD	TC
-t11	10	10
-t12	60	60
-t13	176	160
-t21	33	28
-t22	52	52
-t23	15	15
+Path	TC
+t11	10
+t12	60
+t13	160
+t21	28
+t22	52
+t23	15
 
 Results for priority assignment: [1, 5, 6, 4, 2, 3]
-Path	STD	TC
-t11	10	10
-t12	73	73
-t13	200	200
-t21	71	71
-t22	29	29
-t23	63	44
+Path	TC
+t11	10
+t12	73
+t13	200
+t21	71
+t22	29
+t23	44
 
 Results for priority assignment: [1, 5, 6, 4, 3, 2]
-Path	STD	TC
-t11	10	10
-t12	73	73
-t13	200	200
-t21	71	71
-t22	49	34
-t23	26	26
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	10
+t12	73
+t13	200
+t21	71
+t22	34
+t23	26
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 2, 3, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 2, 3, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 2, 4, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 2, 4, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 2, 5, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 2, 5, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 3, 2, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 3, 2, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 3, 4, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 3, 4, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 3, 5, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 3, 5, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 4, 2, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 4, 2, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 4, 3, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 4, 3, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 4, 5, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 4, 5, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 5, 2, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 5, 2, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 5, 3, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 5, 3, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 5, 4, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [1, 6, 5, 4, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 1, 3, 4, 5, 6]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	32	32
-t21	73	73
-t22	146	146
-t23	466	466
+Path	TC
+t11	14
+t12	2
+t13	32
+t21	73
+t22	146
+t23	466
 
 Results for priority assignment: [2, 1, 3, 4, 6, 5]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	32	32
-t21	73	73
-t22	424	424
-t23	216	216
+Path	TC
+t11	14
+t12	2
+t13	32
+t21	73
+t22	424
+t23	216
 
 Results for priority assignment: [2, 1, 3, 5, 4, 6]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	32	32
-t21	695	695
-t22	407	407
-t23	1462	1462
+Path	TC
+t11	14
+t12	2
+t13	32
+t21	695
+t22	407
+t23	1462
 
 Results for priority assignment: [2, 1, 3, 5, 6, 4]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	32	32
-t21	473	94
-t22	1007	445
-t23	310	159
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	2
+t13	32
+t21	94
+t22	445
+t23	159
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 1, 3, 6, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 1, 3, 6, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 1, 4, 3, 5, 6]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	47	47
-t21	29	29
-t22	133	133
-t23	390	390
+Path	TC
+t11	14
+t12	2
+t13	47
+t21	29
+t22	133
+t23	390
 
 Results for priority assignment: [2, 1, 4, 3, 6, 5]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	47	47
-t21	29	29
-t22	343	343
-t23	190	190
+Path	TC
+t11	14
+t12	2
+t13	47
+t21	29
+t22	343
+t23	190
 
 Results for priority assignment: [2, 1, 4, 5, 3, 6]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	266	53
-t21	695	695
-t22	187	187
-t23	1445	1445
+Path	TC
+t11	14
+t12	2
+t13	53
+t21	695
+t22	187
+t23	1445
 
 Results for priority assignment: [2, 1, 4, 5, 6, 3]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	210	49
-t21	473	94
-t22	1007	445
-t23	126	59
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	2
+t13	49
+t21	94
+t22	445
+t23	59
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 1, 4, 6, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 1, 4, 6, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 1, 5, 3, 4, 6]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	73	73
-t21	29	29
-t22	50	50
-t23	326	326
+Path	TC
+t11	14
+t12	2
+t13	73
+t21	29
+t22	50
+t23	326
 
 Results for priority assignment: [2, 1, 5, 3, 6, 4]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	111	52
-t21	29	29
-t22	343	343
-t23	61	61
+Path	TC
+t11	14
+t12	2
+t13	52
+t21	29
+t22	343
+t23	61
 
 Results for priority assignment: [2, 1, 5, 4, 3, 6]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	89	89
-t21	50	50
-t22	35	35
-t23	373	373
+Path	TC
+t11	14
+t12	2
+t13	89
+t21	50
+t22	35
+t23	373
 
 Results for priority assignment: [2, 1, 5, 4, 6, 3]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	128	52
-t21	95	34
-t22	446	348
-t23	59	58
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	2
+t13	52
+t21	34
+t22	348
+t23	58
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 1, 5, 6, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 1, 5, 6, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 1, 6, 3, 4, 5]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	131	131
-t21	29	29
-t22	50	50
-t23	55	55
+Path	TC
+t11	14
+t12	2
+t13	131
+t21	29
+t22	50
+t23	55
 
 Results for priority assignment: [2, 1, 6, 3, 5, 4]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	131	131
-t21	29	29
-t22	72	72
-t23	47	47
+Path	TC
+t11	14
+t12	2
+t13	131
+t21	29
+t22	72
+t23	47
 
 Results for priority assignment: [2, 1, 6, 4, 3, 5]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	132	132
-t21	50	50
-t22	35	35
-t23	88	88
+Path	TC
+t11	14
+t12	2
+t13	132
+t21	50
+t22	35
+t23	88
 
 Results for priority assignment: [2, 1, 6, 4, 5, 3]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	133	131
-t21	51	34
-t22	72	72
-t23	44	44
+Path	TC
+t11	14
+t12	2
+t13	131
+t21	34
+t22	72
+t23	44
 
 Results for priority assignment: [2, 1, 6, 5, 3, 4]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	190	190
-t21	131	131
-t22	67	67
-t23	107	65
+Path	TC
+t11	14
+t12	2
+t13	190
+t21	131
+t22	67
+t23	65
 
 Results for priority assignment: [2, 1, 6, 5, 4, 3]
-Path	STD	TC
-t11	14	14
-t12	2	2
-t13	210	206
-t21	148	148
-t22	111	72
-t23	45	45
+Path	TC
+t11	14
+t12	2
+t13	206
+t21	148
+t22	72
+t23	45
 
 Results for priority assignment: [2, 3, 1, 4, 5, 6]
-Path	STD	TC
-t11	110	14
-t12	308	106
-t13	46	16
-t21	491	169
-t22	863	317
-t23	2474	896
+Path	TC
+t11	14
+t12	106
+t13	16
+t21	169
+t22	317
+t23	896
 
 Results for priority assignment: [2, 3, 1, 4, 6, 5]
-Path	STD	TC
-t11	110	14
-t12	308	106
-t13	46	16
-t21	491	169
-t22	2223	838
-t23	1196	427
+Path	TC
+t11	14
+t12	106
+t13	16
+t21	169
+t22	838
+t23	427
 
 Results for priority assignment: [2, 3, 1, 5, 4, 6]
-Path	STD	TC
-t11	110	14
-t12	308	106
-t13	46	16
-t21	4893	1650
-t22	2665	901
-t23	10072	3454
+Path	TC
+t11	14
+t12	106
+t13	16
+t21	1650
+t22	901
+t23	3454
 
 Results for priority assignment: [2, 3, 1, 5, 6, 4]
-Path	STD	TC
-t11	110	14
-t12	308	106
-t13	46	16
-t21	2654	190
-t22	5385	859
-t23	1803	356
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	106
+t13	16
+t21	190
+t22	859
+t23	356
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 3, 1, 6, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 3, 1, 6, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 3, 4, 1, 5, 6]
-Path	STD	TC
-t11	13	13
-t12	24	24
-t13	47	47
-t21	3	3
-t22	149	149
-t23	364	364
+Path	TC
+t11	13
+t12	24
+t13	47
+t21	3
+t22	149
+t23	364
 
 Results for priority assignment: [2, 3, 4, 1, 6, 5]
-Path	STD	TC
-t11	13	13
-t12	24	24
-t13	47	47
-t21	3	3
-t22	350	350
-t23	203	203
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	13
+t12	24
+t13	47
+t21	3
+t22	350
+t23	203
 
 Results for priority assignment: [2, 3, 4, 5, 1, 6]
-Path	STD	TC
-t11	0	19
-t12	0	32
-t13	0	67
-t21	0	1095
-t22	0	97
-t23	0	2229
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	19
+t12	32
+t13	67
+t21	1095
+t22	97
+t23	2229
 
 Results for priority assignment: [2, 3, 4, 5, 6, 1]
-Path	STD	TC
-t11	0	15
-t12	0	28
-t13	0	55
-t21	0	114
-t22	0	553
-t23	0	11
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	28
+t13	55
+t21	114
+t22	553
+t23	11
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 3, 4, 6, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 3, 4, 6, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 3, 5, 1, 4, 6]
-Path	STD	TC
-t11	13	13
-t12	24	24
-t13	68	68
-t21	3	3
-t22	50	50
-t23	316	316
+Path	TC
+t11	13
+t12	24
+t13	68
+t21	3
+t22	50
+t23	316
 
 Results for priority assignment: [2, 3, 5, 1, 6, 4]
-Path	STD	TC
-t11	13	13
-t12	24	24
-t13	119	60
-t21	3	3
-t22	350	350
-t23	61	61
+Path	TC
+t11	13
+t12	24
+t13	60
+t21	3
+t22	350
+t23	61
 
 Results for priority assignment: [2, 3, 5, 4, 1, 6]
-Path	STD	TC
-t11	19	19
-t12	32	32
-t13	106	106
-t21	50	50
-t22	9	9
-t23	415	415
+Path	TC
+t11	19
+t12	32
+t13	106
+t21	50
+t22	9
+t23	415
 
 Results for priority assignment: [2, 3, 5, 4, 6, 1]
-Path	STD	TC
-t11	130	15
-t12	299	28
-t13	668	66
-t21	375	34
-t22	2127	405
-t23	28	9
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	28
+t13	66
+t21	34
+t22	405
+t23	9
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 3, 5, 6, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 3, 5, 6, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 3, 6, 1, 4, 5]
-Path	STD	TC
-t11	13	13
-t12	24	24
-t13	122	122
-t21	3	3
-t22	50	50
-t23	55	55
+Path	TC
+t11	13
+t12	24
+t13	122
+t21	3
+t22	50
+t23	55
 
 Results for priority assignment: [2, 3, 6, 1, 5, 4]
-Path	STD	TC
-t11	13	13
-t12	24	24
-t13	139	139
-t21	3	3
-t22	72	72
-t23	34	34
+Path	TC
+t11	13
+t12	24
+t13	139
+t21	3
+t22	72
+t23	34
 
 Results for priority assignment: [2, 3, 6, 4, 1, 5]
-Path	STD	TC
-t11	19	19
-t12	32	32
-t13	166	166
-t21	50	50
-t22	9	9
-t23	88	88
+Path	TC
+t11	19
+t12	32
+t13	166
+t21	50
+t22	9
+t23	88
 
 Results for priority assignment: [2, 3, 6, 4, 5, 1]
-Path	STD	TC
-t11	20	15
-t12	33	28
-t13	169	154
-t21	51	34
-t22	72	72
-t23	6	6
+Path	TC
+t11	15
+t12	28
+t13	154
+t21	34
+t22	72
+t23	6
 
 Results for priority assignment: [2, 3, 6, 5, 1, 4]
-Path	STD	TC
-t11	28	19
-t12	51	32
-t13	227	183
-t21	95	93
-t22	12	10
-t23	88	65
+Path	TC
+t11	19
+t12	32
+t13	183
+t21	93
+t22	10
+t23	65
 
 Results for priority assignment: [2, 3, 6, 5, 4, 1]
-Path	STD	TC
-t11	25	15
-t12	48	28
-t13	264	224
-t21	148	148
-t22	113	72
-t23	7	7
+Path	TC
+t11	15
+t12	28
+t13	224
+t21	148
+t22	72
+t23	7
 
 Results for priority assignment: [2, 4, 1, 3, 5, 6]
-Path	STD	TC
-t11	950	14
-t12	3122	166
-t13	420	22
-t21	2529	27
-t22	6362	292
-t23	18211	838
+Path	TC
+t11	14
+t12	166
+t13	22
+t21	27
+t22	292
+t23	838
 
 Results for priority assignment: [2, 4, 1, 3, 6, 5]
-Path	STD	TC
-t11	950	14
-t12	3122	166
-t13	420	22
-t21	2529	27
-t22	16002	778
-t23	9440	497
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	166
+t13	22
+t21	27
+t22	778
+t23	497
 
 Results for priority assignment: [2, 4, 1, 5, 3, 6]
-Path	STD	TC
-t11	0	14
-t12	0	191
-t13	0	26
-t21	0	2593
-t22	0	481
-t23	0	5194
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	191
+t13	26
+t21	2593
+t22	481
+t23	5194
 
 Results for priority assignment: [2, 4, 1, 5, 6, 3]
-Path	STD	TC
-t11	0	14
-t12	0	151
-t13	0	22
-t21	0	250
-t22	0	1119
-t23	0	101
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	151
+t13	22
+t21	250
+t22	1119
+t23	101
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 4, 1, 6, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 4, 1, 6, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 4, 3, 1, 5, 6]
-Path	STD	TC
-t11	13	13
-t12	165	165
-t13	77	77
-t21	3	3
-t22	292	292
-t23	778	778
+Path	TC
+t11	13
+t12	165
+t13	77
+t21	3
+t22	292
+t23	778
 
 Results for priority assignment: [2, 4, 3, 1, 6, 5]
-Path	STD	TC
-t11	13	13
-t12	165	165
-t13	77	77
-t21	3	3
-t22	750	750
-t23	461	461
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	13
+t12	165
+t13	77
+t21	3
+t22	750
+t23	461
 
 Results for priority assignment: [2, 4, 3, 5, 1, 6]
-Path	STD	TC
-t11	0	19
-t12	0	210
-t13	0	107
-t21	0	2695
-t22	0	225
-t23	0	5382
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	19
+t12	210
+t13	107
+t21	2695
+t22	225
+t23	5382
 
 Results for priority assignment: [2, 4, 3, 5, 6, 1]
-Path	STD	TC
-t11	0	15
-t12	0	166
-t13	0	77
-t21	0	250
-t22	0	1119
-t23	0	17
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	166
+t13	77
+t21	250
+t22	1119
+t23	17
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 4, 3, 6, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 4, 3, 6, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 4, 5, 1, 3, 6]
-Path	STD	TC
-t11	13	13
-t12	43	43
-t13	83	83
-t21	3	3
-t22	32	32
-t23	318	318
+Path	TC
+t11	13
+t12	43
+t13	83
+t21	3
+t22	32
+t23	318
 
 Results for priority assignment: [2, 4, 5, 1, 6, 3]
-Path	STD	TC
-t11	13	13
-t12	90	30
-t13	196	66
-t21	3	3
-t22	573	375
-t23	59	41
+Path	TC
+t11	13
+t12	30
+t13	66
+t21	3
+t22	375
+t23	41
 
 Results for priority assignment: [2, 4, 5, 3, 1, 6]
-Path	STD	TC
-t11	19	19
-t12	45	45
-t13	108	108
-t21	32	32
-t22	9	9
-t23	388	388
+Path	TC
+t11	19
+t12	45
+t13	108
+t21	32
+t22	9
+t23	388
 
 Results for priority assignment: [2, 4, 5, 3, 6, 1]
-Path	STD	TC
-t11	90	15
-t12	225	31
-t13	459	66
-t21	188	28
-t22	1459	431
-t23	20	9
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	31
+t13	66
+t21	28
+t22	431
+t23	9
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 4, 5, 6, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 4, 5, 6, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 4, 6, 1, 3, 5]
-Path	STD	TC
-t11	13	13
-t12	43	43
-t13	137	137
-t21	3	3
-t22	32	32
-t23	55	55
+Path	TC
+t11	13
+t12	43
+t13	137
+t21	3
+t22	32
+t23	55
 
 Results for priority assignment: [2, 4, 6, 1, 5, 3]
-Path	STD	TC
-t11	13	13
-t12	44	30
-t13	145	145
-t21	3	3
-t22	72	72
-t23	28	28
+Path	TC
+t11	13
+t12	30
+t13	145
+t21	3
+t22	72
+t23	28
 
 Results for priority assignment: [2, 4, 6, 3, 1, 5]
-Path	STD	TC
-t11	19	19
-t12	45	45
-t13	149	149
-t21	32	32
-t22	9	9
-t23	55	55
+Path	TC
+t11	19
+t12	45
+t13	149
+t21	32
+t22	9
+t23	55
 
 Results for priority assignment: [2, 4, 6, 3, 5, 1]
-Path	STD	TC
-t11	20	15
-t12	46	31
-t13	167	157
-t21	33	28
-t22	72	72
-t23	6	5
+Path	TC
+t11	15
+t12	31
+t13	157
+t21	28
+t22	72
+t23	5
 
 Results for priority assignment: [2, 4, 6, 5, 1, 3]
-Path	STD	TC
-t11	28	19
-t12	71	47
-t13	237	198
-t21	95	93
-t22	12	10
-t23	64	45
+Path	TC
+t11	19
+t12	47
+t13	198
+t21	93
+t22	10
+t23	45
 
 Results for priority assignment: [2, 4, 6, 5, 3, 1]
-Path	STD	TC
-t11	25	15
-t12	110	47
-t13	290	216
-t21	148	131
-t22	72	52
-t23	7	6
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	47
+t13	216
+t21	131
+t22	52
+t23	6
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 1, 3, 4, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 5, 1, 3, 6, 4]
-Path	STD	TC
-t11	0	14
-t12	0	246
-t13	0	30
-t21	0	27
-t22	0	996
-t23	0	95
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	246
+t13	30
+t21	27
+t22	996
+t23	95
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 1, 4, 3, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 5, 1, 4, 6, 3]
-Path	STD	TC
-t11	0	14
-t12	0	246
-t13	0	30
-t21	0	32
-t22	0	1029
-t23	0	90
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	14
+t12	246
+t13	30
+t21	32
+t22	1029
+t23	90
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 1, 6, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 1, 6, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 3, 1, 4, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 5, 3, 1, 6, 4]
-Path	STD	TC
-t11	0	13
-t12	0	245
-t13	0	113
-t21	0	3
-t22	0	973
-t23	0	95
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	13
+t12	245
+t13	113
+t21	3
+t22	973
+t23	95
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 3, 4, 1, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 5, 3, 4, 6, 1]
-Path	STD	TC
-t11	0	15
-t12	0	251
-t13	0	116
-t21	0	32
-t22	0	1061
-t23	0	16
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	251
+t13	116
+t21	32
+t22	1061
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 3, 6, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 3, 6, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 4, 1, 3, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 5, 4, 1, 6, 3]
-Path	STD	TC
-t11	0	13
-t12	0	245
-t13	0	121
-t21	0	3
-t22	0	973
-t23	0	91
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	13
+t12	245
+t13	121
+t21	3
+t22	973
+t23	91
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 4, 3, 1, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 5, 4, 3, 6, 1]
-Path	STD	TC
-t11	0	15
-t12	0	251
-t13	0	123
-t21	0	28
-t22	0	1057
-t23	0	16
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	251
+t13	123
+t21	28
+t22	1057
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 4, 6, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 5, 4, 6, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [2, 5, 6, 1, 3, 4]
-Path	STD	TC
-t11	13	13
-t12	49	49
-t13	142	142
-t21	3	3
-t22	32	32
-t23	47	47
+Path	TC
+t11	13
+t12	49
+t13	142
+t21	3
+t22	32
+t23	47
 
 Results for priority assignment: [2, 5, 6, 1, 4, 3]
-Path	STD	TC
-t11	13	13
-t12	49	49
-t13	142	142
-t21	3	3
-t22	47	47
-t23	28	28
+Path	TC
+t11	13
+t12	49
+t13	142
+t21	3
+t22	47
+t23	28
 
 Results for priority assignment: [2, 5, 6, 3, 1, 4]
-Path	STD	TC
-t11	19	19
-t12	50	50
-t13	164	164
-t21	32	32
-t22	9	9
-t23	47	47
+Path	TC
+t11	19
+t12	50
+t13	164
+t21	32
+t22	9
+t23	47
 
 Results for priority assignment: [2, 5, 6, 3, 4, 1]
-Path	STD	TC
-t11	15	15
-t12	65	65
-t13	181	165
-t21	33	28
-t22	52	52
-t23	5	5
+Path	TC
+t11	15
+t12	65
+t13	165
+t21	28
+t22	52
+t23	5
 
 Results for priority assignment: [2, 5, 6, 4, 1, 3]
-Path	STD	TC
-t11	19	19
-t12	74	74
-t13	182	182
-t21	47	47
-t22	9	9
-t23	34	34
+Path	TC
+t11	19
+t12	74
+t13	182
+t21	47
+t22	9
+t23	34
 
 Results for priority assignment: [2, 5, 6, 4, 3, 1]
-Path	STD	TC
-t11	20	15
-t12	76	74
-t13	210	205
-t21	71	71
-t22	49	34
-t23	6	6
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	15
+t12	74
+t13	205
+t21	71
+t22	34
+t23	6
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 1, 3, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 1, 3, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 1, 4, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 1, 4, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 1, 5, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 1, 5, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 3, 1, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 3, 1, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 3, 4, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 3, 4, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 3, 5, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 3, 5, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 4, 1, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 4, 1, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 4, 3, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 4, 3, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 4, 5, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 4, 5, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 5, 1, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 5, 1, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 5, 3, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 5, 3, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 5, 4, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [2, 6, 5, 4, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 1, 2, 4, 5, 6]
-Path	STD	TC
-t11	29	29
-t12	3	3
-t13	12	8
-t21	95	95
-t22	209	209
-t23	558	558
+Path	TC
+t11	29
+t12	3
+t13	8
+t21	95
+t22	209
+t23	558
 
 Results for priority assignment: [3, 1, 2, 4, 6, 5]
-Path	STD	TC
-t11	29	29
-t12	3	3
-t13	12	8
-t21	95	95
-t22	529	529
-t23	255	255
+Path	TC
+t11	29
+t12	3
+t13	8
+t21	95
+t22	529
+t23	255
 
 Results for priority assignment: [3, 1, 2, 5, 4, 6]
-Path	STD	TC
-t11	29	29
-t12	3	3
-t13	12	8
-t21	948	948
-t22	522	522
-t23	2003	2003
+Path	TC
+t11	29
+t12	3
+t13	8
+t21	948
+t22	522
+t23	2003
 
 Results for priority assignment: [3, 1, 2, 5, 6, 4]
-Path	STD	TC
-t11	29	29
-t12	3	3
-t13	12	8
-t21	568	126
-t22	1213	572
-t23	386	231
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	29
+t12	3
+t13	8
+t21	126
+t22	572
+t23	231
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 1, 2, 6, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 1, 2, 6, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 1, 4, 2, 5, 6]
-Path	STD	TC
-t11	17	17
-t12	3	3
-t13	47	47
-t21	7	5
-t22	133	133
-t23	308	306
+Path	TC
+t11	17
+t12	3
+t13	47
+t21	5
+t22	133
+t23	306
 
 Results for priority assignment: [3, 1, 4, 2, 6, 5]
-Path	STD	TC
-t11	17	17
-t12	3	3
-t13	47	47
-t21	7	5
-t22	294	294
-t23	180	180
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	3
+t13	47
+t21	5
+t22	294
+t23	180
 
 Results for priority assignment: [3, 1, 4, 5, 2, 6]
-Path	STD	TC
-t11	0	25
-t12	0	3
-t13	0	65
-t21	0	850
-t22	0	75
-t23	0	1784
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	25
+t12	3
+t13	65
+t21	850
+t22	75
+t23	1784
 
 Results for priority assignment: [3, 1, 4, 5, 6, 2]
-Path	STD	TC
-t11	0	21
-t12	0	3
-t13	0	49
-t21	0	94
-t22	0	445
-t23	0	11
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	21
+t12	3
+t13	49
+t21	94
+t22	445
+t23	11
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 1, 4, 6, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 1, 4, 6, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 1, 5, 2, 4, 6]
-Path	STD	TC
-t11	17	17
-t12	3	3
-t13	68	68
-t21	7	5
-t22	50	50
-t23	255	242
+Path	TC
+t11	17
+t12	3
+t13	68
+t21	5
+t22	50
+t23	242
 
 Results for priority assignment: [3, 1, 5, 2, 6, 4]
-Path	STD	TC
-t11	17	17
-t12	3	3
-t13	110	52
-t21	7	5
-t22	294	294
-t23	61	61
+Path	TC
+t11	17
+t12	3
+t13	52
+t21	5
+t22	294
+t23	61
 
 Results for priority assignment: [3, 1, 5, 4, 2, 6]
-Path	STD	TC
-t11	25	25
-t12	3	3
-t13	99	99
-t21	50	50
-t22	15	11
-t23	388	384
+Path	TC
+t11	25
+t12	3
+t13	99
+t21	50
+t22	11
+t23	384
 
 Results for priority assignment: [3, 1, 5, 4, 6, 2]
-Path	STD	TC
-t11	76	21
-t12	6	3
-t13	249	55
-t21	174	34
-t22	808	348
-t23	29	10
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	21
+t12	3
+t13	55
+t21	34
+t22	348
+t23	10
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 1, 5, 6, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 1, 5, 6, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 1, 6, 2, 4, 5]
-Path	STD	TC
-t11	17	17
-t12	3	3
-t13	113	113
-t21	7	5
-t22	50	50
-t23	55	55
+Path	TC
+t11	17
+t12	3
+t13	113
+t21	5
+t22	50
+t23	55
 
 Results for priority assignment: [3, 1, 6, 2, 5, 4]
-Path	STD	TC
-t11	17	17
-t12	3	3
-t13	130	130
-t21	7	5
-t22	72	72
-t23	34	34
+Path	TC
+t11	17
+t12	3
+t13	130
+t21	5
+t22	72
+t23	34
 
 Results for priority assignment: [3, 1, 6, 4, 2, 5]
-Path	STD	TC
-t11	25	25
-t12	3	3
-t13	155	155
-t21	50	50
-t22	15	11
-t23	88	88
+Path	TC
+t11	25
+t12	3
+t13	155
+t21	50
+t22	11
+t23	88
 
 Results for priority assignment: [3, 1, 6, 4, 5, 2]
-Path	STD	TC
-t11	26	21
-t12	3	3
-t13	163	135
-t21	53	34
-t22	74	72
-t23	12	8
+Path	TC
+t11	21
+t12	3
+t13	135
+t21	34
+t22	72
+t23	8
 
 Results for priority assignment: [3, 1, 6, 5, 2, 4]
-Path	STD	TC
-t11	36	25
-t12	4	3
-t13	189	176
-t21	95	95
-t22	20	14
-t23	88	65
+Path	TC
+t11	25
+t12	3
+t13	176
+t21	95
+t22	14
+t23	65
 
 Results for priority assignment: [3, 1, 6, 5, 4, 2]
-Path	STD	TC
-t11	33	21
-t12	3	3
-t13	229	213
-t21	150	148
-t22	113	72
-t23	13	9
+Path	TC
+t11	21
+t12	3
+t13	213
+t21	148
+t22	72
+t23	9
 
 Results for priority assignment: [3, 2, 1, 4, 5, 6]
-Path	STD	TC
-t11	39	35
-t12	20	8
-t13	10	8
-t21	115	95
-t22	234	209
-t23	658	564
+Path	TC
+t11	35
+t12	8
+t13	8
+t21	95
+t22	209
+t23	564
 
 Results for priority assignment: [3, 2, 1, 4, 6, 5]
-Path	STD	TC
-t11	39	35
-t12	20	8
-t13	10	8
-t21	115	95
-t22	591	529
-t23	311	259
+Path	TC
+t11	35
+t12	8
+t13	8
+t21	95
+t22	529
+t23	259
 
 Results for priority assignment: [3, 2, 1, 5, 4, 6]
-Path	STD	TC
-t11	39	35
-t12	20	8
-t13	10	8
-t21	1195	995
-t22	681	565
-t23	2518	2098
+Path	TC
+t11	35
+t12	8
+t13	8
+t21	995
+t22	565
+t23	2098
 
 Results for priority assignment: [3, 2, 1, 5, 6, 4]
-Path	STD	TC
-t11	39	35
-t12	20	8
-t13	10	8
-t21	715	132
-t22	1488	584
-t23	486	231
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	35
+t12	8
+t13	8
+t21	132
+t22	584
+t23	231
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 2, 1, 6, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 2, 1, 6, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 2, 4, 1, 5, 6]
-Path	STD	TC
-t11	17	17
-t12	6	6
-t13	47	47
-t21	3	3
-t22	133	133
-t23	304	304
+Path	TC
+t11	17
+t12	6
+t13	47
+t21	3
+t22	133
+t23	304
 
 Results for priority assignment: [3, 2, 4, 1, 6, 5]
-Path	STD	TC
-t11	17	17
-t12	6	6
-t13	47	47
-t21	3	3
-t22	294	294
-t23	180	180
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	6
+t13	47
+t21	3
+t22	294
+t23	180
 
 Results for priority assignment: [3, 2, 4, 5, 1, 6]
-Path	STD	TC
-t11	0	25
-t12	0	12
-t13	0	67
-t21	0	995
-t22	0	89
-t23	0	2031
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	25
+t12	12
+t13	67
+t21	995
+t22	89
+t23	2031
 
 Results for priority assignment: [3, 2, 4, 5, 6, 1]
-Path	STD	TC
-t11	0	21
-t12	0	8
-t13	0	49
-t21	0	110
-t22	0	549
-t23	0	10
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	21
+t12	8
+t13	49
+t21	110
+t22	549
+t23	10
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 2, 4, 6, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 2, 4, 6, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 2, 5, 1, 4, 6]
-Path	STD	TC
-t11	17	17
-t12	6	6
-t13	68	68
-t21	3	3
-t22	50	50
-t23	240	240
+Path	TC
+t11	17
+t12	6
+t13	68
+t21	3
+t22	50
+t23	240
 
 Results for priority assignment: [3, 2, 5, 1, 6, 4]
-Path	STD	TC
-t11	17	17
-t12	6	6
-t13	113	54
-t21	3	3
-t22	294	294
-t23	61	61
+Path	TC
+t11	17
+t12	6
+t13	54
+t21	3
+t22	294
+t23	61
 
 Results for priority assignment: [3, 2, 5, 4, 1, 6]
-Path	STD	TC
-t11	25	25
-t12	12	12
-t13	106	106
-t21	50	50
-t22	9	9
-t23	388	388
+Path	TC
+t11	25
+t12	12
+t13	106
+t21	50
+t22	9
+t23	388
 
 Results for priority assignment: [3, 2, 5, 4, 6, 1]
-Path	STD	TC
-t11	95	21
-t12	72	8
-t13	352	60
-t21	215	34
-t22	1151	401
-t23	17	9
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	21
+t12	8
+t13	60
+t21	34
+t22	401
+t23	9
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 2, 5, 6, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 2, 5, 6, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 2, 6, 1, 4, 5]
-Path	STD	TC
-t11	17	17
-t12	6	6
-t13	116	116
-t21	3	3
-t22	50	50
-t23	55	55
+Path	TC
+t11	17
+t12	6
+t13	116
+t21	3
+t22	50
+t23	55
 
 Results for priority assignment: [3, 2, 6, 1, 5, 4]
-Path	STD	TC
-t11	17	17
-t12	6	6
-t13	133	133
-t21	3	3
-t22	72	72
-t23	34	34
+Path	TC
+t11	17
+t12	6
+t13	133
+t21	3
+t22	72
+t23	34
 
 Results for priority assignment: [3, 2, 6, 4, 1, 5]
-Path	STD	TC
-t11	25	25
-t12	12	12
-t13	164	164
-t21	50	50
-t22	9	9
-t23	88	88
+Path	TC
+t11	25
+t12	12
+t13	164
+t21	50
+t22	9
+t23	88
 
 Results for priority assignment: [3, 2, 6, 4, 5, 1]
-Path	STD	TC
-t11	26	21
-t12	13	8
-t13	173	140
-t21	53	34
-t22	74	72
-t23	6	6
+Path	TC
+t11	21
+t12	8
+t13	140
+t21	34
+t22	72
+t23	6
 
 Results for priority assignment: [3, 2, 6, 5, 1, 4]
-Path	STD	TC
-t11	36	25
-t12	22	12
-t13	207	185
-t21	95	95
-t22	12	12
-t23	88	65
+Path	TC
+t11	25
+t12	12
+t13	185
+t21	95
+t22	12
+t23	65
 
 Results for priority assignment: [3, 2, 6, 5, 4, 1]
-Path	STD	TC
-t11	33	21
-t12	18	8
-t13	244	218
-t21	150	148
-t22	113	72
-t23	7	7
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	21
+t12	8
+t13	218
+t21	148
+t22	72
+t23	7
 
 Results for priority assignment: [3, 4, 1, 2, 5, 6]
-Path	STD	TC
-t11	0	17
-t12	0	185
-t13	0	24
-t21	0	7
-t22	0	331
-t23	0	858
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	185
+t13	24
+t21	7
+t22	331
+t23	858
 
 Results for priority assignment: [3, 4, 1, 2, 6, 5]
-Path	STD	TC
-t11	0	17
-t12	0	185
-t13	0	24
-t21	0	7
-t22	0	794
-t23	0	517
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	185
+t13	24
+t21	7
+t22	794
+t23	517
 
 Results for priority assignment: [3, 4, 1, 5, 2, 6]
-Path	STD	TC
-t11	0	23
-t12	0	210
-t13	0	28
-t21	0	2793
-t22	0	237
-t23	0	5576
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	23
+t12	210
+t13	28
+t21	2793
+t22	237
+t23	5576
 
 Results for priority assignment: [3, 4, 1, 5, 6, 2]
-Path	STD	TC
-t11	0	19
-t12	0	170
-t13	0	22
-t21	0	254
-t22	0	1127
-t23	0	21
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	19
+t12	170
+t13	22
+t21	254
+t22	1127
+t23	21
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 4, 1, 6, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 4, 1, 6, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 4, 2, 1, 5, 6]
-Path	STD	TC
-t11	0	17
-t12	0	185
-t13	0	27
-t21	0	3
-t22	0	331
-t23	0	858
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	185
+t13	27
+t21	3
+t22	331
+t23	858
 
 Results for priority assignment: [3, 4, 2, 1, 6, 5]
-Path	STD	TC
-t11	0	17
-t12	0	185
-t13	0	27
-t21	0	3
-t22	0	791
-t23	0	517
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	185
+t13	27
+t21	3
+t22	791
+t23	517
 
 Results for priority assignment: [3, 4, 2, 5, 1, 6]
-Path	STD	TC
-t11	0	23
-t12	0	210
-t13	0	37
-t21	0	2793
-t22	0	233
-t23	0	5576
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	23
+t12	210
+t13	37
+t21	2793
+t22	233
+t23	5576
 
 Results for priority assignment: [3, 4, 2, 5, 6, 1]
-Path	STD	TC
-t11	0	19
-t12	0	170
-t13	0	27
-t21	0	254
-t22	0	1127
-t23	0	17
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	19
+t12	170
+t13	27
+t21	254
+t22	1127
+t23	17
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 4, 2, 6, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 4, 2, 6, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 4, 5, 1, 2, 6]
-Path	STD	TC
-t11	22	22
-t12	45	45
-t13	92	92
-t21	3	3
-t22	12	12
-t23	371	371
+Path	TC
+t11	22
+t12	45
+t13	92
+t21	3
+t22	12
+t23	371
 
 Results for priority assignment: [3, 4, 5, 1, 6, 2]
-Path	STD	TC
-t11	63	18
-t12	146	31
-t13	325	66
-t21	3	3
-t22	892	395
-t23	17	12
+Path	TC
+t11	18
+t12	31
+t13	66
+t21	3
+t22	395
+t23	12
 
 Results for priority assignment: [3, 4, 5, 2, 1, 6]
-Path	STD	TC
-t11	22	22
-t12	45	45
-t13	108	108
-t21	12	12
-t22	9	9
-t23	371	371
+Path	TC
+t11	22
+t12	45
+t13	108
+t21	12
+t22	9
+t23	371
 
 Results for priority assignment: [3, 4, 5, 2, 6, 1]
-Path	STD	TC
-t11	73	18
-t12	167	31
-t13	379	66
-t21	63	8
-t22	1111	395
-t23	16	9
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	18
+t12	31
+t13	66
+t21	8
+t22	395
+t23	9
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 4, 5, 6, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 4, 5, 6, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 4, 6, 1, 2, 5]
-Path	STD	TC
-t11	22	22
-t12	45	45
-t13	142	142
-t21	3	3
-t22	12	12
-t23	67	67
+Path	TC
+t11	22
+t12	45
+t13	142
+t21	3
+t22	12
+t23	67
 
 Results for priority assignment: [3, 4, 6, 1, 5, 2]
-Path	STD	TC
-t11	18	18
-t12	46	31
-t13	145	145
-t21	3	3
-t22	72	72
-t23	8	8
+Path	TC
+t11	18
+t12	31
+t13	145
+t21	3
+t22	72
+t23	8
 
 Results for priority assignment: [3, 4, 6, 2, 1, 5]
-Path	STD	TC
-t11	22	22
-t12	45	45
-t13	147	147
-t21	12	12
-t22	9	9
-t23	67	67
+Path	TC
+t11	22
+t12	45
+t13	147
+t21	12
+t22	9
+t23	67
 
 Results for priority assignment: [3, 4, 6, 2, 5, 1]
-Path	STD	TC
-t11	18	18
-t12	46	31
-t13	147	145
-t21	8	8
-t22	72	72
-t23	5	5
+Path	TC
+t11	18
+t12	31
+t13	145
+t21	8
+t22	72
+t23	5
 
 Results for priority assignment: [3, 4, 6, 5, 1, 2]
-Path	STD	TC
-t11	38	24
-t12	72	47
-t13	241	219
-t21	95	95
-t22	12	12
-t23	24	15
+Path	TC
+t11	24
+t12	47
+t13	219
+t21	95
+t22	12
+t23	15
 
 Results for priority assignment: [3, 4, 6, 5, 2, 1]
-Path	STD	TC
-t11	38	24
-t12	106	47
-t13	288	219
-t21	133	95
-t22	27	17
-t23	6	6
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	24
+t12	47
+t13	219
+t21	95
+t22	17
+t23	6
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 1, 2, 4, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 5, 1, 2, 6, 4]
-Path	STD	TC
-t11	0	17
-t12	0	265
-t13	0	33
-t21	0	7
-t22	0	1049
-t23	0	101
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	265
+t13	33
+t21	7
+t22	1049
+t23	101
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 1, 4, 2, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 5, 1, 4, 6, 2]
-Path	STD	TC
-t11	0	19
-t12	0	269
-t13	0	34
-t21	0	32
-t22	0	1086
-t23	0	20
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	19
+t12	269
+t13	34
+t21	32
+t22	1086
+t23	20
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 1, 6, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 1, 6, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 2, 1, 4, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 5, 2, 1, 6, 4]
-Path	STD	TC
-t11	0	17
-t12	0	265
-t13	0	36
-t21	0	3
-t22	0	1049
-t23	0	97
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	17
+t12	265
+t13	36
+t21	3
+t22	1049
+t23	97
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 2, 4, 1, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 5, 2, 4, 6, 1]
-Path	STD	TC
-t11	0	19
-t12	0	269
-t13	0	39
-t21	0	32
-t22	0	1086
-t23	0	16
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	19
+t12	269
+t13	39
+t21	32
+t22	1086
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 2, 6, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 2, 6, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 4, 1, 2, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 5, 4, 1, 6, 2]
-Path	STD	TC
-t11	0	18
-t12	0	265
-t13	0	125
-t21	0	3
-t22	0	1049
-t23	0	18
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	18
+t12	265
+t13	125
+t21	3
+t22	1049
+t23	18
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 4, 2, 1, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 5, 4, 2, 6, 1]
-Path	STD	TC
-t11	0	18
-t12	0	265
-t13	0	125
-t21	0	8
-t22	0	1070
-t23	0	16
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	18
+t12	265
+t13	125
+t21	8
+t22	1070
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 4, 6, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 5, 4, 6, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [3, 5, 6, 1, 2, 4]
-Path	STD	TC
-t11	22	22
-t12	50	50
-t13	146	146
-t21	3	3
-t22	12	12
-t23	47	47
+Path	TC
+t11	22
+t12	50
+t13	146
+t21	3
+t22	12
+t23	47
 
 Results for priority assignment: [3, 5, 6, 1, 4, 2]
-Path	STD	TC
-t11	18	18
-t12	50	50
-t13	142	142
-t21	3	3
-t22	47	47
-t23	8	8
+Path	TC
+t11	18
+t12	50
+t13	142
+t21	3
+t22	47
+t23	8
 
 Results for priority assignment: [3, 5, 6, 2, 1, 4]
-Path	STD	TC
-t11	22	22
-t12	50	50
-t13	162	162
-t21	12	12
-t22	9	9
-t23	47	47
+Path	TC
+t11	22
+t12	50
+t13	162
+t21	12
+t22	9
+t23	47
 
 Results for priority assignment: [3, 5, 6, 2, 4, 1]
-Path	STD	TC
-t11	18	18
-t12	65	65
-t13	158	158
-t21	8	8
-t22	47	47
-t23	5	5
+Path	TC
+t11	18
+t12	65
+t13	158
+t21	8
+t22	47
+t23	5
 
 Results for priority assignment: [3, 5, 6, 4, 1, 2]
-Path	STD	TC
-t11	24	24
-t12	75	75
-t13	190	190
-t21	47	47
-t22	9	9
-t23	14	14
+Path	TC
+t11	24
+t12	75
+t13	190
+t21	47
+t22	9
+t23	14
 
 Results for priority assignment: [3, 5, 6, 4, 2, 1]
-Path	STD	TC
-t11	33	24
-t12	80	75
-t13	231	226
-t21	71	71
-t22	14	14
-t23	5	5
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	24
+t12	75
+t13	226
+t21	71
+t22	14
+t23	5
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 1, 2, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 1, 2, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 1, 4, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 1, 4, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 1, 5, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 1, 5, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 2, 1, 4, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 2, 1, 5, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 2, 4, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 2, 4, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 2, 5, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 2, 5, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 4, 1, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 4, 1, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 4, 2, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 4, 2, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 4, 5, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 4, 5, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 5, 1, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 5, 1, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 5, 2, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 5, 2, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 5, 4, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [3, 6, 5, 4, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 1, 2, 3, 5, 6]
-Path	STD	TC
-t11	38	38
-t12	4	4
-t13	14	10
-t21	27	9
-t22	155	155
-t23	432	414
+Path	TC
+t11	38
+t12	4
+t13	10
+t21	9
+t22	155
+t23	414
 
 Results for priority assignment: [4, 1, 2, 3, 6, 5]
-Path	STD	TC
-t11	38	38
-t12	4	4
-t13	14	10
-t21	27	9
-t22	433	393
-t23	238	238
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	38
+t12	4
+t13	10
+t21	9
+t22	393
+t23	238
 
 Results for priority assignment: [4, 1, 2, 5, 3, 6]
-Path	STD	TC
-t11	0	56
-t12	0	5
-t13	0	12
-t21	0	1295
-t22	0	119
-t23	0	2621
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	56
+t12	5
+t13	12
+t21	1295
+t22	119
+t23	2621
 
 Results for priority assignment: [4, 1, 2, 5, 6, 3]
-Path	STD	TC
-t11	0	46
-t12	0	4
-t13	0	10
-t21	0	148
-t22	0	677
-t23	0	18
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	46
+t12	4
+t13	10
+t21	148
+t22	677
+t23	18
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 1, 2, 6, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 1, 2, 6, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 1, 3, 2, 5, 6]
-Path	STD	TC
-t11	38	38
-t12	4	4
-t13	19	13
-t21	9	5
-t22	155	155
-t23	414	370
+Path	TC
+t11	38
+t12	4
+t13	13
+t21	5
+t22	155
+t23	370
 
 Results for priority assignment: [4, 1, 3, 2, 6, 5]
-Path	STD	TC
-t11	38	38
-t12	4	4
-t13	19	13
-t21	9	5
-t22	393	393
-t23	238	238
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	38
+t12	4
+t13	13
+t21	5
+t22	393
+t23	238
 
 Results for priority assignment: [4, 1, 3, 5, 2, 6]
-Path	STD	TC
-t11	0	56
-t12	0	5
-t13	0	21
-t21	0	1295
-t22	0	115
-t23	0	2621
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	56
+t12	5
+t13	21
+t21	1295
+t22	115
+t23	2621
 
 Results for priority assignment: [4, 1, 3, 5, 6, 2]
-Path	STD	TC
-t11	0	46
-t12	0	4
-t13	0	15
-t21	0	148
-t22	0	677
-t23	0	14
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	46
+t12	4
+t13	15
+t21	148
+t22	677
+t23	14
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 1, 3, 6, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 1, 3, 6, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 1, 5, 2, 3, 6]
-Path	STD	TC
-t11	28	28
-t12	3	3
-t13	84	84
-t21	7	5
-t22	18	14
-t23	288	287
+Path	TC
+t11	28
+t12	3
+t13	84
+t21	5
+t22	14
+t23	287
 
 Results for priority assignment: [4, 1, 5, 2, 6, 3]
-Path	STD	TC
-t11	55	24
-t12	5	3
-t13	165	64
-t21	11	5
-t22	492	350
-t23	25	13
+Path	TC
+t11	24
+t12	3
+t13	64
+t21	5
+t22	350
+t23	13
 
 Results for priority assignment: [4, 1, 5, 3, 2, 6]
-Path	STD	TC
-t11	28	28
-t12	3	3
-t13	104	98
-t21	18	14
-t22	15	11
-t23	347	288
+Path	TC
+t11	28
+t12	3
+t13	98
+t21	14
+t22	11
+t23	288
 
 Results for priority assignment: [4, 1, 5, 3, 6, 2]
-Path	STD	TC
-t11	62	24
-t12	5	3
-t13	194	64
-t21	50	10
-t22	553	371
-t23	23	10
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	24
+t12	3
+t13	64
+t21	10
+t22	371
+t23	10
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 1, 5, 6, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 1, 5, 6, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 1, 6, 2, 3, 5]
-Path	STD	TC
-t11	28	28
-t12	3	3
-t13	126	126
-t21	7	5
-t22	18	14
-t23	67	67
+Path	TC
+t11	28
+t12	3
+t13	126
+t21	5
+t22	14
+t23	67
 
 Results for priority assignment: [4, 1, 6, 2, 5, 3]
-Path	STD	TC
-t11	26	24
-t12	3	3
-t13	137	137
-t21	7	5
-t22	72	72
-t23	12	10
+Path	TC
+t11	24
+t12	3
+t13	137
+t21	5
+t22	72
+t23	10
 
 Results for priority assignment: [4, 1, 6, 3, 2, 5]
-Path	STD	TC
-t11	28	28
-t12	3	3
-t13	127	126
-t21	18	14
-t22	15	11
-t23	67	67
+Path	TC
+t11	28
+t12	3
+t13	126
+t21	14
+t22	11
+t23	67
 
 Results for priority assignment: [4, 1, 6, 3, 5, 2]
-Path	STD	TC
-t11	31	24
-t12	3	3
-t13	146	137
-t21	14	10
-t22	74	72
-t23	11	7
+Path	TC
+t11	24
+t12	3
+t13	137
+t21	10
+t22	72
+t23	7
 
 Results for priority assignment: [4, 1, 6, 5, 2, 3]
-Path	STD	TC
-t11	51	32
-t12	4	3
-t13	225	185
-t21	135	95
-t22	25	14
-t23	34	17
+Path	TC
+t11	32
+t12	3
+t13	185
+t21	95
+t22	14
+t23	17
 
 Results for priority assignment: [4, 1, 6, 5, 3, 2]
-Path	STD	TC
-t11	61	32
-t12	5	3
-t13	249	209
-t21	135	133
-t22	37	24
-t23	14	8
+Path	TC
+t11	32
+t12	3
+t13	209
+t21	133
+t22	24
+t23	8
 
 Results for priority assignment: [4, 2, 1, 3, 5, 6]
-Path	STD	TC
-t11	48	44
-t12	24	8
-t13	11	8
-t21	37	9
-t22	226	187
-t23	619	478
+Path	TC
+t11	44
+t12	8
+t13	8
+t21	9
+t22	187
+t23	478
 
 Results for priority assignment: [4, 2, 1, 3, 6, 5]
-Path	STD	TC
-t11	48	44
-t12	24	8
-t13	11	8
-t21	37	9
-t22	584	486
-t23	343	306
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	44
+t12	8
+t13	8
+t21	9
+t22	486
+t23	306
 
 Results for priority assignment: [4, 2, 1, 5, 3, 6]
-Path	STD	TC
-t11	0	56
-t12	0	9
-t13	0	10
-t21	0	1295
-t22	0	119
-t23	0	2621
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	56
+t12	9
+t13	10
+t21	1295
+t22	119
+t23	2621
 
 Results for priority assignment: [4, 2, 1, 5, 6, 3]
-Path	STD	TC
-t11	0	46
-t12	0	8
-t13	0	9
-t21	0	154
-t22	0	699
-t23	0	18
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	46
+t12	8
+t13	9
+t21	154
+t22	699
+t23	18
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 2, 1, 6, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 2, 1, 6, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 2, 3, 1, 5, 6]
-Path	STD	TC
-t11	44	44
-t12	7	7
-t13	19	13
-t21	3	3
-t22	187	187
-t23	472	472
+Path	TC
+t11	44
+t12	7
+t13	13
+t21	3
+t22	187
+t23	472
 
 Results for priority assignment: [4, 2, 3, 1, 6, 5]
-Path	STD	TC
-t11	44	44
-t12	7	7
-t13	19	13
-t21	3	3
-t22	449	449
-t23	257	257
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	44
+t12	7
+t13	13
+t21	3
+t22	449
+t23	257
 
 Results for priority assignment: [4, 2, 3, 5, 1, 6]
-Path	STD	TC
-t11	0	61
-t12	0	14
-t13	0	23
-t21	0	1495
-t22	0	129
-t23	0	3013
-'max_iterations for t22 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	61
+t12	14
+t13	23
+t21	1495
+t22	129
+t23	3013
 
 Results for priority assignment: [4, 2, 3, 5, 6, 1]
-Path	STD	TC
-t11	0	46
-t12	0	9
-t13	0	17
-t21	0	154
-t22	0	699
-t23	0	12
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	46
+t12	9
+t13	17
+t21	154
+t22	699
+t23	12
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 2, 3, 6, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 2, 3, 6, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 2, 5, 1, 3, 6]
-Path	STD	TC
-t11	28	28
-t12	6	6
-t13	87	87
-t21	3	3
-t22	18	14
-t23	293	293
+Path	TC
+t11	28
+t12	6
+t13	87
+t21	3
+t22	14
+t23	293
 
 Results for priority assignment: [4, 2, 5, 1, 6, 3]
-Path	STD	TC
-t11	55	24
-t12	8	6
-t13	165	64
-t21	3	3
-t22	492	387
-t23	25	14
+Path	TC
+t11	24
+t12	6
+t13	64
+t21	3
+t22	387
+t23	14
 
 Results for priority assignment: [4, 2, 5, 3, 1, 6]
-Path	STD	TC
-t11	28	28
-t12	12	12
-t13	108	107
-t21	18	14
-t22	9	9
-t23	353	353
+Path	TC
+t11	28
+t12	12
+t13	107
+t21	14
+t22	9
+t23	353
 
 Results for priority assignment: [4, 2, 5, 3, 6, 1]
-Path	STD	TC
-t11	74	24
-t12	51	8
-t13	256	64
-t21	62	10
-t22	795	387
-t23	13	9
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	24
+t12	8
+t13	64
+t21	10
+t22	387
+t23	9
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 2, 5, 6, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 2, 5, 6, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 2, 6, 1, 3, 5]
-Path	STD	TC
-t11	28	28
-t12	6	6
-t13	129	129
-t21	3	3
-t22	18	14
-t23	67	67
+Path	TC
+t11	28
+t12	6
+t13	129
+t21	3
+t22	14
+t23	67
 
 Results for priority assignment: [4, 2, 6, 1, 5, 3]
-Path	STD	TC
-t11	26	24
-t12	6	6
-t13	140	140
-t21	3	3
-t22	72	72
-t23	12	10
+Path	TC
+t11	24
+t12	6
+t13	140
+t21	3
+t22	72
+t23	10
 
 Results for priority assignment: [4, 2, 6, 3, 1, 5]
-Path	STD	TC
-t11	28	28
-t12	12	12
-t13	132	132
-t21	18	14
-t22	9	9
-t23	67	67
+Path	TC
+t11	28
+t12	12
+t13	132
+t21	14
+t22	9
+t23	67
 
 Results for priority assignment: [4, 2, 6, 3, 5, 1]
-Path	STD	TC
-t11	31	24
-t12	8	8
-t13	148	142
-t21	14	10
-t22	74	72
-t23	5	5
+Path	TC
+t11	24
+t12	8
+t13	142
+t21	10
+t22	72
+t23	5
 
 Results for priority assignment: [4, 2, 6, 5, 1, 3]
-Path	STD	TC
-t11	51	32
-t12	22	12
-t13	242	194
-t21	135	95
-t22	17	12
-t23	34	17
+Path	TC
+t11	32
+t12	12
+t13	194
+t21	95
+t22	12
+t23	17
 
 Results for priority assignment: [4, 2, 6, 5, 3, 1]
-Path	STD	TC
-t11	61	32
-t12	15	8
-t13	259	210
-t21	135	133
-t22	37	24
-t23	6	6
+Path	TC
+t11	32
+t12	8
+t13	210
+t21	133
+t22	24
+t23	6
 
 Results for priority assignment: [4, 3, 1, 2, 5, 6]
-Path	STD	TC
-t11	54	44
-t12	32	11
-t13	12	10
-t21	27	7
-t22	232	191
-t23	608	483
+Path	TC
+t11	44
+t12	11
+t13	10
+t21	7
+t22	191
+t23	483
 
 Results for priority assignment: [4, 3, 1, 2, 6, 5]
-Path	STD	TC
-t11	54	44
-t12	32	11
-t13	12	10
-t21	27	7
-t22	580	486
-t23	349	306
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	44
+t12	11
+t13	10
+t21	7
+t22	486
+t23	306
 
 Results for priority assignment: [4, 3, 1, 5, 2, 6]
-Path	STD	TC
-t11	0	61
-t12	0	18
-t13	0	12
-t21	0	1495
-t22	0	133
-t23	0	3013
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	61
+t12	18
+t13	12
+t21	1495
+t22	133
+t23	3013
 
 Results for priority assignment: [4, 3, 1, 5, 6, 2]
-Path	STD	TC
-t11	0	51
-t12	0	13
-t13	0	10
-t21	0	154
-t22	0	705
-t23	0	16
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	51
+t12	13
+t13	10
+t21	154
+t22	705
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 3, 1, 6, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 3, 1, 6, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 3, 2, 1, 5, 6]
-Path	STD	TC
-t11	54	44
-t12	32	11
-t13	15	13
-t21	3	3
-t22	232	191
-t23	565	480
+Path	TC
+t11	44
+t12	11
+t13	13
+t21	3
+t22	191
+t23	480
 
 Results for priority assignment: [4, 3, 2, 1, 6, 5]
-Path	STD	TC
-t11	54	44
-t12	32	11
-t13	15	13
-t21	3	3
-t22	573	486
-t23	344	306
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	44
+t12	11
+t13	13
+t21	3
+t22	486
+t23	306
 
 Results for priority assignment: [4, 3, 2, 5, 1, 6]
-Path	STD	TC
-t11	0	61
-t12	0	18
-t13	0	21
-t21	0	1495
-t22	0	129
-t23	0	3013
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	61
+t12	18
+t13	21
+t21	1495
+t22	129
+t23	3013
 
 Results for priority assignment: [4, 3, 2, 5, 6, 1]
-Path	STD	TC
-t11	0	51
-t12	0	13
-t13	0	15
-t21	0	154
-t22	0	705
-t23	0	12
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	51
+t12	13
+t13	15
+t21	154
+t22	705
+t23	12
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 3, 2, 6, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 3, 2, 6, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 3, 5, 1, 2, 6]
-Path	STD	TC
-t11	28	28
-t12	15	15
-t13	96	96
-t21	3	3
-t22	12	12
-t23	293	293
+Path	TC
+t11	28
+t12	15
+t13	96
+t21	3
+t22	12
+t23	293
 
 Results for priority assignment: [4, 3, 5, 1, 6, 2]
-Path	STD	TC
-t11	62	24
-t12	43	11
-t13	218	66
-t21	3	3
-t22	593	391
-t23	14	12
+Path	TC
+t11	24
+t12	11
+t13	66
+t21	3
+t22	391
+t23	12
 
 Results for priority assignment: [4, 3, 5, 2, 1, 6]
-Path	STD	TC
-t11	28	28
-t12	15	15
-t13	110	110
-t21	12	12
-t22	9	9
-t23	353	353
+Path	TC
+t11	28
+t12	15
+t13	110
+t21	12
+t22	9
+t23	353
 
 Results for priority assignment: [4, 3, 5, 2, 6, 1]
-Path	STD	TC
-t11	74	24
-t12	54	11
-t13	258	66
-t21	48	8
-t22	753	391
-t23	13	9
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	24
+t12	11
+t13	66
+t21	8
+t22	391
+t23	9
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 3, 5, 6, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t21 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 3, 5, 6, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 3, 6, 1, 2, 5]
-Path	STD	TC
-t11	28	28
-t12	15	15
-t13	132	132
-t21	3	3
-t22	12	12
-t23	67	67
+Path	TC
+t11	28
+t12	15
+t13	132
+t21	3
+t22	12
+t23	67
 
 Results for priority assignment: [4, 3, 6, 1, 5, 2]
-Path	STD	TC
-t11	26	24
-t12	11	11
-t13	145	145
-t21	3	3
-t22	72	72
-t23	8	8
+Path	TC
+t11	24
+t12	11
+t13	145
+t21	3
+t22	72
+t23	8
 
 Results for priority assignment: [4, 3, 6, 2, 1, 5]
-Path	STD	TC
-t11	28	28
-t12	15	15
-t13	135	135
-t21	12	12
-t22	9	9
-t23	67	67
+Path	TC
+t11	28
+t12	15
+t13	135
+t21	12
+t22	9
+t23	67
 
 Results for priority assignment: [4, 3, 6, 2, 5, 1]
-Path	STD	TC
-t11	26	24
-t12	11	11
-t13	145	145
-t21	8	8
-t22	72	72
-t23	5	5
+Path	TC
+t11	24
+t12	11
+t13	145
+t21	8
+t22	72
+t23	5
 
 Results for priority assignment: [4, 3, 6, 5, 1, 2]
-Path	STD	TC
-t11	51	32
-t12	32	17
-t13	252	199
-t21	135	95
-t22	17	12
-t23	24	15
+Path	TC
+t11	32
+t12	17
+t13	199
+t21	95
+t22	12
+t23	15
 
 Results for priority assignment: [4, 3, 6, 5, 2, 1]
-Path	STD	TC
-t11	51	32
-t12	32	17
-t13	253	199
-t21	135	95
-t22	27	17
-t23	6	6
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	32
+t12	17
+t13	199
+t21	95
+t22	17
+t23	6
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 1, 2, 3, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 5, 1, 2, 6, 3]
-Path	STD	TC
-t11	0	22
-t12	0	269
-t13	0	34
-t21	0	7
-t22	0	1077
-t23	0	23
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	22
+t12	269
+t13	34
+t21	7
+t22	1077
+t23	23
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 1, 3, 2, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 5, 1, 3, 6, 2]
-Path	STD	TC
-t11	0	22
-t12	0	269
-t13	0	34
-t21	0	12
-t22	0	1082
-t23	0	20
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	22
+t12	269
+t13	34
+t21	12
+t22	1082
+t23	20
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 1, 6, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 1, 6, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 2, 1, 3, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 5, 2, 1, 6, 3]
-Path	STD	TC
-t11	0	22
-t12	0	269
-t13	0	37
-t21	0	3
-t22	0	1074
-t23	0	23
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	22
+t12	269
+t13	37
+t21	3
+t22	1074
+t23	23
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 2, 3, 1, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 5, 2, 3, 6, 1]
-Path	STD	TC
-t11	0	22
-t12	0	269
-t13	0	39
-t21	0	12
-t22	0	1082
-t23	0	16
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	22
+t12	269
+t13	39
+t21	12
+t22	1082
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 2, 6, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 2, 6, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 3, 1, 2, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 5, 3, 1, 6, 2]
-Path	STD	TC
-t11	0	22
-t12	0	269
-t13	0	42
-t21	0	3
-t22	0	1074
-t23	0	19
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	22
+t12	269
+t13	42
+t21	3
+t22	1074
+t23	19
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 3, 2, 1, 6]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 5, 3, 2, 6, 1]
-Path	STD	TC
-t11	0	22
-t12	0	269
-t13	0	42
-t21	0	8
-t22	0	1078
-t23	0	16
-pyCPA - Compositional Performance Analysis in Python.
-
-Version devel
-Copyright (C) 2010-2017, TU Braunschweig, Germany. All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-
-invoked via: run_analyses.py --input models/chains_async_3_3.graphml --print --run_cpa --run_new --candidate_search --output results/chain_async_3_3-single.csv --calculate_difference --resume
-
-add_mutex_blocking   :                              False 
-all_priorities       :                              False 
-build_chains         :                              False 
-calculate_difference :                               True 
-candidate_search     :                               True 
-check_violations     :                              False 
-debug                :                              False 
-e2e_improved         :                              False 
-input                :    models/chains_async_3_3.graphml 
-max_iterations       :                               1000 
-max_wcrt             :                                inf 
-nocaching            :                              False 
-output               : results/chain_async_3_3-single.csv 
-print                :                               True 
-print_differing      :                              False 
-priorities           :                                 [] 
-propagation          :                        busy_window 
-resume               :                               True 
-run_async            :                              False 
-run_cpa              :                               True 
-run_new              :                               True 
-run_sync             :                              False 
-run_sync_refined     :                              False 
-show                 :                              False 
-verbose              :                              False 
-
-
-
-Skipping (1, 2, 3, 4, 5, 6)
-Skipping (1, 2, 3, 4, 6, 5)
-Skipping (1, 2, 3, 5, 4, 6)
-Skipping (1, 2, 3, 5, 6, 4)
-Skipping (1, 2, 3, 6, 4, 5)
-Skipping (1, 2, 3, 6, 5, 4)
-Skipping (1, 2, 4, 3, 5, 6)
-Skipping (1, 2, 4, 3, 6, 5)
-Skipping (1, 2, 4, 5, 3, 6)
-Skipping (1, 2, 4, 5, 6, 3)
-Skipping (1, 2, 4, 6, 3, 5)
-Skipping (1, 2, 4, 6, 5, 3)
-Skipping (1, 2, 5, 3, 4, 6)
-Skipping (1, 2, 5, 3, 6, 4)
-Skipping (1, 2, 5, 4, 3, 6)
-Skipping (1, 2, 5, 4, 6, 3)
-Skipping (1, 2, 5, 6, 3, 4)
-Skipping (1, 2, 5, 6, 4, 3)
-Skipping (1, 2, 6, 3, 4, 5)
-Skipping (1, 2, 6, 3, 5, 4)
-Skipping (1, 2, 6, 4, 3, 5)
-Skipping (1, 2, 6, 4, 5, 3)
-Skipping (1, 2, 6, 5, 3, 4)
-Skipping (1, 2, 6, 5, 4, 3)
-Skipping (1, 3, 2, 4, 5, 6)
-Skipping (1, 3, 2, 4, 6, 5)
-Skipping (1, 3, 2, 5, 4, 6)
-Skipping (1, 3, 2, 5, 6, 4)
-Skipping (1, 3, 2, 6, 4, 5)
-Skipping (1, 3, 2, 6, 5, 4)
-Skipping (1, 3, 4, 2, 5, 6)
-Skipping (1, 3, 4, 2, 6, 5)
-Skipping (1, 3, 4, 5, 2, 6)
-Skipping (1, 3, 4, 5, 6, 2)
-Skipping (1, 3, 4, 6, 2, 5)
-Skipping (1, 3, 4, 6, 5, 2)
-Skipping (1, 3, 5, 2, 4, 6)
-Skipping (1, 3, 5, 2, 6, 4)
-Skipping (1, 3, 5, 4, 2, 6)
-Skipping (1, 3, 5, 4, 6, 2)
-Skipping (1, 3, 5, 6, 2, 4)
-Skipping (1, 3, 5, 6, 4, 2)
-Skipping (1, 3, 6, 2, 4, 5)
-Skipping (1, 3, 6, 2, 5, 4)
-Skipping (1, 3, 6, 4, 2, 5)
-Skipping (1, 3, 6, 4, 5, 2)
-Skipping (1, 3, 6, 5, 2, 4)
-Skipping (1, 3, 6, 5, 4, 2)
-Skipping (1, 4, 2, 3, 5, 6)
-Skipping (1, 4, 2, 3, 6, 5)
-Skipping (1, 4, 2, 5, 3, 6)
-Skipping (1, 4, 2, 5, 6, 3)
-Skipping (1, 4, 2, 6, 3, 5)
-Skipping (1, 4, 2, 6, 5, 3)
-Skipping (1, 4, 3, 2, 5, 6)
-Skipping (1, 4, 3, 2, 6, 5)
-Skipping (1, 4, 3, 5, 2, 6)
-Skipping (1, 4, 3, 5, 6, 2)
-Skipping (1, 4, 3, 6, 2, 5)
-Skipping (1, 4, 3, 6, 5, 2)
-Skipping (1, 4, 5, 2, 3, 6)
-Skipping (1, 4, 5, 2, 6, 3)
-Skipping (1, 4, 5, 3, 2, 6)
-Skipping (1, 4, 5, 3, 6, 2)
-Skipping (1, 4, 5, 6, 2, 3)
-Skipping (1, 4, 5, 6, 3, 2)
-Skipping (1, 4, 6, 2, 3, 5)
-Skipping (1, 4, 6, 2, 5, 3)
-Skipping (1, 4, 6, 3, 2, 5)
-Skipping (1, 4, 6, 3, 5, 2)
-Skipping (1, 4, 6, 5, 2, 3)
-Skipping (1, 4, 6, 5, 3, 2)
-Skipping (1, 5, 2, 3, 4, 6)
-Skipping (1, 5, 2, 3, 6, 4)
-Skipping (1, 5, 2, 4, 3, 6)
-Skipping (1, 5, 2, 4, 6, 3)
-Skipping (1, 5, 2, 6, 3, 4)
-Skipping (1, 5, 2, 6, 4, 3)
-Skipping (1, 5, 3, 2, 4, 6)
-Skipping (1, 5, 3, 2, 6, 4)
-Skipping (1, 5, 3, 4, 2, 6)
-Skipping (1, 5, 3, 4, 6, 2)
-Skipping (1, 5, 3, 6, 2, 4)
-Skipping (1, 5, 3, 6, 4, 2)
-Skipping (1, 5, 4, 2, 3, 6)
-Skipping (1, 5, 4, 2, 6, 3)
-Skipping (1, 5, 4, 3, 2, 6)
-Skipping (1, 5, 4, 3, 6, 2)
-Skipping (1, 5, 4, 6, 2, 3)
-Skipping (1, 5, 4, 6, 3, 2)
-Skipping (1, 5, 6, 2, 3, 4)
-Skipping (1, 5, 6, 2, 4, 3)
-Skipping (1, 5, 6, 3, 2, 4)
-Skipping (1, 5, 6, 3, 4, 2)
-Skipping (1, 5, 6, 4, 2, 3)
-Skipping (1, 5, 6, 4, 3, 2)
-Skipping (1, 6, 2, 3, 4, 5)
-Skipping (1, 6, 2, 3, 5, 4)
-Skipping (1, 6, 2, 4, 3, 5)
-Skipping (1, 6, 2, 4, 5, 3)
-Skipping (1, 6, 2, 5, 3, 4)
-Skipping (1, 6, 2, 5, 4, 3)
-Skipping (1, 6, 3, 2, 4, 5)
-Skipping (1, 6, 3, 2, 5, 4)
-Skipping (1, 6, 3, 4, 2, 5)
-Skipping (1, 6, 3, 4, 5, 2)
-Skipping (1, 6, 3, 5, 2, 4)
-Skipping (1, 6, 3, 5, 4, 2)
-Skipping (1, 6, 4, 2, 3, 5)
-Skipping (1, 6, 4, 2, 5, 3)
-Skipping (1, 6, 4, 3, 2, 5)
-Skipping (1, 6, 4, 3, 5, 2)
-Skipping (1, 6, 4, 5, 2, 3)
-Skipping (1, 6, 4, 5, 3, 2)
-Skipping (1, 6, 5, 2, 3, 4)
-Skipping (1, 6, 5, 2, 4, 3)
-Skipping (1, 6, 5, 3, 2, 4)
-Skipping (1, 6, 5, 3, 4, 2)
-Skipping (1, 6, 5, 4, 2, 3)
-Skipping (1, 6, 5, 4, 3, 2)
-Skipping (2, 1, 3, 4, 5, 6)
-Skipping (2, 1, 3, 4, 6, 5)
-Skipping (2, 1, 3, 5, 4, 6)
-Skipping (2, 1, 3, 5, 6, 4)
-Skipping (2, 1, 3, 6, 4, 5)
-Skipping (2, 1, 3, 6, 5, 4)
-Skipping (2, 1, 4, 3, 5, 6)
-Skipping (2, 1, 4, 3, 6, 5)
-Skipping (2, 1, 4, 5, 3, 6)
-Skipping (2, 1, 4, 5, 6, 3)
-Skipping (2, 1, 4, 6, 3, 5)
-Skipping (2, 1, 4, 6, 5, 3)
-Skipping (2, 1, 5, 3, 4, 6)
-Skipping (2, 1, 5, 3, 6, 4)
-Skipping (2, 1, 5, 4, 3, 6)
-Skipping (2, 1, 5, 4, 6, 3)
-Skipping (2, 1, 5, 6, 3, 4)
-Skipping (2, 1, 5, 6, 4, 3)
-Skipping (2, 1, 6, 3, 4, 5)
-Skipping (2, 1, 6, 3, 5, 4)
-Skipping (2, 1, 6, 4, 3, 5)
-Skipping (2, 1, 6, 4, 5, 3)
-Skipping (2, 1, 6, 5, 3, 4)
-Skipping (2, 1, 6, 5, 4, 3)
-Skipping (2, 3, 1, 4, 5, 6)
-Skipping (2, 3, 1, 4, 6, 5)
-Skipping (2, 3, 1, 5, 4, 6)
-Skipping (2, 3, 1, 5, 6, 4)
-Skipping (2, 3, 1, 6, 4, 5)
-Skipping (2, 3, 1, 6, 5, 4)
-Skipping (2, 3, 4, 1, 5, 6)
-Skipping (2, 3, 4, 1, 6, 5)
-Skipping (2, 3, 4, 5, 1, 6)
-Skipping (2, 3, 4, 5, 6, 1)
-Skipping (2, 3, 4, 6, 1, 5)
-Skipping (2, 3, 4, 6, 5, 1)
-Skipping (2, 3, 5, 1, 4, 6)
-Skipping (2, 3, 5, 1, 6, 4)
-Skipping (2, 3, 5, 4, 1, 6)
-Skipping (2, 3, 5, 4, 6, 1)
-Skipping (2, 3, 5, 6, 1, 4)
-Skipping (2, 3, 5, 6, 4, 1)
-Skipping (2, 3, 6, 1, 4, 5)
-Skipping (2, 3, 6, 1, 5, 4)
-Skipping (2, 3, 6, 4, 1, 5)
-Skipping (2, 3, 6, 4, 5, 1)
-Skipping (2, 3, 6, 5, 1, 4)
-Skipping (2, 3, 6, 5, 4, 1)
-Skipping (2, 4, 1, 3, 5, 6)
-Skipping (2, 4, 1, 3, 6, 5)
-Skipping (2, 4, 1, 5, 3, 6)
-Skipping (2, 4, 1, 5, 6, 3)
-Skipping (2, 4, 1, 6, 3, 5)
-Skipping (2, 4, 1, 6, 5, 3)
-Skipping (2, 4, 3, 1, 5, 6)
-Skipping (2, 4, 3, 1, 6, 5)
-Skipping (2, 4, 3, 5, 1, 6)
-Skipping (2, 4, 3, 5, 6, 1)
-Skipping (2, 4, 3, 6, 1, 5)
-Skipping (2, 4, 3, 6, 5, 1)
-Skipping (2, 4, 5, 1, 3, 6)
-Skipping (2, 4, 5, 1, 6, 3)
-Skipping (2, 4, 5, 3, 1, 6)
-Skipping (2, 4, 5, 3, 6, 1)
-Skipping (2, 4, 5, 6, 1, 3)
-Skipping (2, 4, 5, 6, 3, 1)
-Skipping (2, 4, 6, 1, 3, 5)
-Skipping (2, 4, 6, 1, 5, 3)
-Skipping (2, 4, 6, 3, 1, 5)
-Skipping (2, 4, 6, 3, 5, 1)
-Skipping (2, 4, 6, 5, 1, 3)
-Skipping (2, 4, 6, 5, 3, 1)
-Skipping (2, 5, 1, 3, 4, 6)
-Skipping (2, 5, 1, 3, 6, 4)
-Skipping (2, 5, 1, 4, 3, 6)
-Skipping (2, 5, 1, 4, 6, 3)
-Skipping (2, 5, 1, 6, 3, 4)
-Skipping (2, 5, 1, 6, 4, 3)
-Skipping (2, 5, 3, 1, 4, 6)
-Skipping (2, 5, 3, 1, 6, 4)
-Skipping (2, 5, 3, 4, 1, 6)
-Skipping (2, 5, 3, 4, 6, 1)
-Skipping (2, 5, 3, 6, 1, 4)
-Skipping (2, 5, 3, 6, 4, 1)
-Skipping (2, 5, 4, 1, 3, 6)
-Skipping (2, 5, 4, 1, 6, 3)
-Skipping (2, 5, 4, 3, 1, 6)
-Skipping (2, 5, 4, 3, 6, 1)
-Skipping (2, 5, 4, 6, 1, 3)
-Skipping (2, 5, 4, 6, 3, 1)
-Skipping (2, 5, 6, 1, 3, 4)
-Skipping (2, 5, 6, 1, 4, 3)
-Skipping (2, 5, 6, 3, 1, 4)
-Skipping (2, 5, 6, 3, 4, 1)
-Skipping (2, 5, 6, 4, 1, 3)
-Skipping (2, 5, 6, 4, 3, 1)
-Skipping (2, 6, 1, 3, 4, 5)
-Skipping (2, 6, 1, 3, 5, 4)
-Skipping (2, 6, 1, 4, 3, 5)
-Skipping (2, 6, 1, 4, 5, 3)
-Skipping (2, 6, 1, 5, 3, 4)
-Skipping (2, 6, 1, 5, 4, 3)
-Skipping (2, 6, 3, 1, 4, 5)
-Skipping (2, 6, 3, 1, 5, 4)
-Skipping (2, 6, 3, 4, 1, 5)
-Skipping (2, 6, 3, 4, 5, 1)
-Skipping (2, 6, 3, 5, 1, 4)
-Skipping (2, 6, 3, 5, 4, 1)
-Skipping (2, 6, 4, 1, 3, 5)
-Skipping (2, 6, 4, 1, 5, 3)
-Skipping (2, 6, 4, 3, 1, 5)
-Skipping (2, 6, 4, 3, 5, 1)
-Skipping (2, 6, 4, 5, 1, 3)
-Skipping (2, 6, 4, 5, 3, 1)
-Skipping (2, 6, 5, 1, 3, 4)
-Skipping (2, 6, 5, 1, 4, 3)
-Skipping (2, 6, 5, 3, 1, 4)
-Skipping (2, 6, 5, 3, 4, 1)
-Skipping (2, 6, 5, 4, 1, 3)
-Skipping (2, 6, 5, 4, 3, 1)
-Skipping (3, 1, 2, 4, 5, 6)
-Skipping (3, 1, 2, 4, 6, 5)
-Skipping (3, 1, 2, 5, 4, 6)
-Skipping (3, 1, 2, 5, 6, 4)
-Skipping (3, 1, 2, 6, 4, 5)
-Skipping (3, 1, 2, 6, 5, 4)
-Skipping (3, 1, 4, 2, 5, 6)
-Skipping (3, 1, 4, 2, 6, 5)
-Skipping (3, 1, 4, 5, 2, 6)
-Skipping (3, 1, 4, 5, 6, 2)
-Skipping (3, 1, 4, 6, 2, 5)
-Skipping (3, 1, 4, 6, 5, 2)
-Skipping (3, 1, 5, 2, 4, 6)
-Skipping (3, 1, 5, 2, 6, 4)
-Skipping (3, 1, 5, 4, 2, 6)
-Skipping (3, 1, 5, 4, 6, 2)
-Skipping (3, 1, 5, 6, 2, 4)
-Skipping (3, 1, 5, 6, 4, 2)
-Skipping (3, 1, 6, 2, 4, 5)
-Skipping (3, 1, 6, 2, 5, 4)
-Skipping (3, 1, 6, 4, 2, 5)
-Skipping (3, 1, 6, 4, 5, 2)
-Skipping (3, 1, 6, 5, 2, 4)
-Skipping (3, 1, 6, 5, 4, 2)
-Skipping (3, 2, 1, 4, 5, 6)
-Skipping (3, 2, 1, 4, 6, 5)
-Skipping (3, 2, 1, 5, 4, 6)
-Skipping (3, 2, 1, 5, 6, 4)
-Skipping (3, 2, 1, 6, 4, 5)
-Skipping (3, 2, 1, 6, 5, 4)
-Skipping (3, 2, 4, 1, 5, 6)
-Skipping (3, 2, 4, 1, 6, 5)
-Skipping (3, 2, 4, 5, 1, 6)
-Skipping (3, 2, 4, 5, 6, 1)
-Skipping (3, 2, 4, 6, 1, 5)
-Skipping (3, 2, 4, 6, 5, 1)
-Skipping (3, 2, 5, 1, 4, 6)
-Skipping (3, 2, 5, 1, 6, 4)
-Skipping (3, 2, 5, 4, 1, 6)
-Skipping (3, 2, 5, 4, 6, 1)
-Skipping (3, 2, 5, 6, 1, 4)
-Skipping (3, 2, 5, 6, 4, 1)
-Skipping (3, 2, 6, 1, 4, 5)
-Skipping (3, 2, 6, 1, 5, 4)
-Skipping (3, 2, 6, 4, 1, 5)
-Skipping (3, 2, 6, 4, 5, 1)
-Skipping (3, 2, 6, 5, 1, 4)
-Skipping (3, 2, 6, 5, 4, 1)
-Skipping (3, 4, 1, 2, 5, 6)
-Skipping (3, 4, 1, 2, 6, 5)
-Skipping (3, 4, 1, 5, 2, 6)
-Skipping (3, 4, 1, 5, 6, 2)
-Skipping (3, 4, 1, 6, 2, 5)
-Skipping (3, 4, 1, 6, 5, 2)
-Skipping (3, 4, 2, 1, 5, 6)
-Skipping (3, 4, 2, 1, 6, 5)
-Skipping (3, 4, 2, 5, 1, 6)
-Skipping (3, 4, 2, 5, 6, 1)
-Skipping (3, 4, 2, 6, 1, 5)
-Skipping (3, 4, 2, 6, 5, 1)
-Skipping (3, 4, 5, 1, 2, 6)
-Skipping (3, 4, 5, 1, 6, 2)
-Skipping (3, 4, 5, 2, 1, 6)
-Skipping (3, 4, 5, 2, 6, 1)
-Skipping (3, 4, 5, 6, 1, 2)
-Skipping (3, 4, 5, 6, 2, 1)
-Skipping (3, 4, 6, 1, 2, 5)
-Skipping (3, 4, 6, 1, 5, 2)
-Skipping (3, 4, 6, 2, 1, 5)
-Skipping (3, 4, 6, 2, 5, 1)
-Skipping (3, 4, 6, 5, 1, 2)
-Skipping (3, 4, 6, 5, 2, 1)
-Skipping (3, 5, 1, 2, 4, 6)
-Skipping (3, 5, 1, 2, 6, 4)
-Skipping (3, 5, 1, 4, 2, 6)
-Skipping (3, 5, 1, 4, 6, 2)
-Skipping (3, 5, 1, 6, 2, 4)
-Skipping (3, 5, 1, 6, 4, 2)
-Skipping (3, 5, 2, 1, 4, 6)
-Skipping (3, 5, 2, 1, 6, 4)
-Skipping (3, 5, 2, 4, 1, 6)
-Skipping (3, 5, 2, 4, 6, 1)
-Skipping (3, 5, 2, 6, 1, 4)
-Skipping (3, 5, 2, 6, 4, 1)
-Skipping (3, 5, 4, 1, 2, 6)
-Skipping (3, 5, 4, 1, 6, 2)
-Skipping (3, 5, 4, 2, 1, 6)
-Skipping (3, 5, 4, 2, 6, 1)
-Skipping (3, 5, 4, 6, 1, 2)
-Skipping (3, 5, 4, 6, 2, 1)
-Skipping (3, 5, 6, 1, 2, 4)
-Skipping (3, 5, 6, 1, 4, 2)
-Skipping (3, 5, 6, 2, 1, 4)
-Skipping (3, 5, 6, 2, 4, 1)
-Skipping (3, 5, 6, 4, 1, 2)
-Skipping (3, 5, 6, 4, 2, 1)
-Skipping (3, 6, 1, 2, 4, 5)
-Skipping (3, 6, 1, 2, 5, 4)
-Skipping (3, 6, 1, 4, 2, 5)
-Skipping (3, 6, 1, 4, 5, 2)
-Skipping (3, 6, 1, 5, 2, 4)
-Skipping (3, 6, 1, 5, 4, 2)
-Skipping (3, 6, 2, 1, 4, 5)
-Skipping (3, 6, 2, 1, 5, 4)
-Skipping (3, 6, 2, 4, 1, 5)
-Skipping (3, 6, 2, 4, 5, 1)
-Skipping (3, 6, 2, 5, 1, 4)
-Skipping (3, 6, 2, 5, 4, 1)
-Skipping (3, 6, 4, 1, 2, 5)
-Skipping (3, 6, 4, 1, 5, 2)
-Skipping (3, 6, 4, 2, 1, 5)
-Skipping (3, 6, 4, 2, 5, 1)
-Skipping (3, 6, 4, 5, 1, 2)
-Skipping (3, 6, 4, 5, 2, 1)
-Skipping (3, 6, 5, 1, 2, 4)
-Skipping (3, 6, 5, 1, 4, 2)
-Skipping (3, 6, 5, 2, 1, 4)
-Skipping (3, 6, 5, 2, 4, 1)
-Skipping (3, 6, 5, 4, 1, 2)
-Skipping (3, 6, 5, 4, 2, 1)
-Skipping (4, 1, 2, 3, 5, 6)
-Skipping (4, 1, 2, 3, 6, 5)
-Skipping (4, 1, 2, 5, 3, 6)
-Skipping (4, 1, 2, 5, 6, 3)
-Skipping (4, 1, 2, 6, 3, 5)
-Skipping (4, 1, 2, 6, 5, 3)
-Skipping (4, 1, 3, 2, 5, 6)
-Skipping (4, 1, 3, 2, 6, 5)
-Skipping (4, 1, 3, 5, 2, 6)
-Skipping (4, 1, 3, 5, 6, 2)
-Skipping (4, 1, 3, 6, 2, 5)
-Skipping (4, 1, 3, 6, 5, 2)
-Skipping (4, 1, 5, 2, 3, 6)
-Skipping (4, 1, 5, 2, 6, 3)
-Skipping (4, 1, 5, 3, 2, 6)
-Skipping (4, 1, 5, 3, 6, 2)
-Skipping (4, 1, 5, 6, 2, 3)
-Skipping (4, 1, 5, 6, 3, 2)
-Skipping (4, 1, 6, 2, 3, 5)
-Skipping (4, 1, 6, 2, 5, 3)
-Skipping (4, 1, 6, 3, 2, 5)
-Skipping (4, 1, 6, 3, 5, 2)
-Skipping (4, 1, 6, 5, 2, 3)
-Skipping (4, 1, 6, 5, 3, 2)
-Skipping (4, 2, 1, 3, 5, 6)
-Skipping (4, 2, 1, 3, 6, 5)
-Skipping (4, 2, 1, 5, 3, 6)
-Skipping (4, 2, 1, 5, 6, 3)
-Skipping (4, 2, 1, 6, 3, 5)
-Skipping (4, 2, 1, 6, 5, 3)
-Skipping (4, 2, 3, 1, 5, 6)
-Skipping (4, 2, 3, 1, 6, 5)
-Skipping (4, 2, 3, 5, 1, 6)
-Skipping (4, 2, 3, 5, 6, 1)
-Skipping (4, 2, 3, 6, 1, 5)
-Skipping (4, 2, 3, 6, 5, 1)
-Skipping (4, 2, 5, 1, 3, 6)
-Skipping (4, 2, 5, 1, 6, 3)
-Skipping (4, 2, 5, 3, 1, 6)
-Skipping (4, 2, 5, 3, 6, 1)
-Skipping (4, 2, 5, 6, 1, 3)
-Skipping (4, 2, 5, 6, 3, 1)
-Skipping (4, 2, 6, 1, 3, 5)
-Skipping (4, 2, 6, 1, 5, 3)
-Skipping (4, 2, 6, 3, 1, 5)
-Skipping (4, 2, 6, 3, 5, 1)
-Skipping (4, 2, 6, 5, 1, 3)
-Skipping (4, 2, 6, 5, 3, 1)
-Skipping (4, 3, 1, 2, 5, 6)
-Skipping (4, 3, 1, 2, 6, 5)
-Skipping (4, 3, 1, 5, 2, 6)
-Skipping (4, 3, 1, 5, 6, 2)
-Skipping (4, 3, 1, 6, 2, 5)
-Skipping (4, 3, 1, 6, 5, 2)
-Skipping (4, 3, 2, 1, 5, 6)
-Skipping (4, 3, 2, 1, 6, 5)
-Skipping (4, 3, 2, 5, 1, 6)
-Skipping (4, 3, 2, 5, 6, 1)
-Skipping (4, 3, 2, 6, 1, 5)
-Skipping (4, 3, 2, 6, 5, 1)
-Skipping (4, 3, 5, 1, 2, 6)
-Skipping (4, 3, 5, 1, 6, 2)
-Skipping (4, 3, 5, 2, 1, 6)
-Skipping (4, 3, 5, 2, 6, 1)
-Skipping (4, 3, 5, 6, 1, 2)
-Skipping (4, 3, 5, 6, 2, 1)
-Skipping (4, 3, 6, 1, 2, 5)
-Skipping (4, 3, 6, 1, 5, 2)
-Skipping (4, 3, 6, 2, 1, 5)
-Skipping (4, 3, 6, 2, 5, 1)
-Skipping (4, 3, 6, 5, 1, 2)
-Skipping (4, 3, 6, 5, 2, 1)
-Skipping (4, 5, 1, 2, 3, 6)
-Skipping (4, 5, 1, 2, 6, 3)
-Skipping (4, 5, 1, 3, 2, 6)
-Skipping (4, 5, 1, 3, 6, 2)
-Skipping (4, 5, 1, 6, 2, 3)
-Skipping (4, 5, 1, 6, 3, 2)
-Skipping (4, 5, 2, 1, 3, 6)
-Skipping (4, 5, 2, 1, 6, 3)
-Skipping (4, 5, 2, 3, 1, 6)
-Skipping (4, 5, 2, 3, 6, 1)
-Skipping (4, 5, 2, 6, 1, 3)
-Skipping (4, 5, 2, 6, 3, 1)
-Skipping (4, 5, 3, 1, 2, 6)
-Skipping (4, 5, 3, 1, 6, 2)
-Skipping (4, 5, 3, 2, 1, 6)
-Skipping (4, 5, 3, 2, 6, 1)
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	22
+t12	269
+t13	42
+t21	8
+t22	1078
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 3, 6, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 5, 3, 6, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [4, 5, 6, 1, 2, 3]
-Path	STD	TC
-t11	27	27
-t12	50	50
-t13	153	153
-t21	3	3
-t22	12	12
-t23	17	17
+Path	TC
+t11	27
+t12	50
+t13	153
+t21	3
+t22	12
+t23	17
 
 Results for priority assignment: [4, 5, 6, 1, 3, 2]
-Path	STD	TC
-t11	27	27
-t12	50	50
-t13	153	153
-t21	3	3
-t22	17	17
-t23	8	8
+Path	TC
+t11	27
+t12	50
+t13	153
+t21	3
+t22	17
+t23	8
 
 Results for priority assignment: [4, 5, 6, 2, 1, 3]
-Path	STD	TC
-t11	27	27
-t12	50	50
-t13	167	167
-t21	12	12
-t22	9	9
-t23	17	17
+Path	TC
+t11	27
+t12	50
+t13	167
+t21	12
+t22	9
+t23	17
 
 Results for priority assignment: [4, 5, 6, 2, 3, 1]
-Path	STD	TC
-t11	27	27
-t12	50	50
-t13	167	167
-t21	8	8
-t22	17	17
-t23	5	5
+Path	TC
+t11	27
+t12	50
+t13	167
+t21	8
+t22	17
+t23	5
 
 Results for priority assignment: [4, 5, 6, 3, 1, 2]
-Path	STD	TC
-t11	27	27
-t12	50	50
-t13	167	167
-t21	17	17
-t22	9	9
-t23	14	14
+Path	TC
+t11	27
+t12	50
+t13	167
+t21	17
+t22	9
+t23	14
 
 Results for priority assignment: [4, 5, 6, 3, 2, 1]
-Path	STD	TC
-t11	27	27
-t12	50	50
-t13	167	167
-t21	17	17
-t22	14	14
-t23	5	5
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	27
+t12	50
+t13	167
+t21	17
+t22	14
+t23	5
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 1, 2, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 1, 2, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 1, 3, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 1, 3, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 1, 5, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 1, 5, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 2, 1, 3, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 2, 1, 5, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 2, 3, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 2, 3, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 2, 5, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 2, 5, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 3, 1, 2, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 3, 1, 5, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 3, 2, 1, 5]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 3, 2, 5, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 3, 5, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 3, 5, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 5, 1, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 5, 1, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 5, 2, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 5, 2, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 5, 3, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [4, 6, 5, 3, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 1, 2, 3, 4, 6]
-Path	STD	TC
-t11	89	63
-t12	6	5
-t13	27	12
-t21	45	9
-t22	60	18
-t23	626	394
+Path	TC
+t11	63
+t12	5
+t13	12
+t21	9
+t22	18
+t23	394
 
 Results for priority assignment: [5, 1, 2, 3, 6, 4]
-Path	STD	TC
-t11	401	49
-t12	23	4
-t13	104	10
-t21	177	9
-t22	2209	486
-t23	274	19
+Path	TC
+t11	49
+t12	4
+t13	10
+t21	9
+t22	486
+t23	19
 
 Results for priority assignment: [5, 1, 2, 4, 3, 6]
-Path	STD	TC
-t11	89	73
-t12	6	5
-t13	27	14
-t21	69	18
-t22	51	15
-t23	626	476
+Path	TC
+t11	73
+t12	5
+t13	14
+t21	18
+t22	15
+t23	476
 
 Results for priority assignment: [5, 1, 2, 4, 6, 3]
-Path	STD	TC
-t11	983	49
-t12	53	4
-t13	246	10
-t21	929	14
-t22	5781	486
-t23	625	16
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	49
+t12	4
+t13	10
+t21	14
+t22	486
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 1, 2, 6, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 1, 2, 6, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 1, 3, 2, 4, 6]
-Path	STD	TC
-t11	63	63
-t12	5	5
-t13	23	15
-t21	11	5
-t22	48	18
-t23	426	390
+Path	TC
+t11	63
+t12	5
+t13	15
+t21	5
+t22	18
+t23	390
 
 Results for priority assignment: [5, 1, 3, 2, 6, 4]
-Path	STD	TC
-t11	278	49
-t12	16	4
-t13	80	13
-t21	35	5
-t22	1466	486
-t23	191	19
+Path	TC
+t11	49
+t12	4
+t13	13
+t21	5
+t22	486
+t23	19
 
 Results for priority assignment: [5, 1, 3, 4, 2, 6]
-Path	STD	TC
-t11	89	73
-t12	6	5
-t13	47	23
-t21	69	18
-t22	21	11
-t23	615	472
+Path	TC
+t11	73
+t12	5
+t13	23
+t21	18
+t22	11
+t23	472
 
 Results for priority assignment: [5, 1, 3, 4, 6, 2]
-Path	STD	TC
-t11	983	49
-t12	53	4
-t13	624	15
-t21	929	14
-t22	5781	486
-t23	213	12
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	49
+t12	4
+t13	15
+t21	14
+t22	486
+t23	12
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 1, 3, 6, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 1, 3, 6, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 1, 4, 2, 3, 6]
-Path	STD	TC
-t11	63	63
-t12	5	5
-t13	32	24
-t21	11	5
-t22	22	14
-t23	400	386
+Path	TC
+t11	63
+t12	5
+t13	24
+t21	5
+t22	14
+t23	386
 
 Results for priority assignment: [5, 1, 4, 2, 6, 3]
-Path	STD	TC
-t11	278	49
-t12	16	4
-t13	178	18
-t21	35	5
-t22	1466	486
-t23	68	15
+Path	TC
+t11	49
+t12	4
+t13	18
+t21	5
+t22	486
+t23	15
 
 Results for priority assignment: [5, 1, 4, 3, 2, 6]
-Path	STD	TC
-t11	80	73
-t12	6	5
-t13	38	26
-t21	24	14
-t22	19	11
-t23	492	468
+Path	TC
+t11	73
+t12	5
+t13	26
+t21	14
+t22	11
+t23	468
 
 Results for priority assignment: [5, 1, 4, 3, 6, 2]
-Path	STD	TC
-t11	401	49
-t12	23	4
-t13	262	18
-t21	188	10
-t22	2220	486
-t23	86	12
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	49
+t12	4
+t13	18
+t21	10
+t22	486
+t23	12
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 1, 4, 6, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 1, 4, 6, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 1, 6, 2, 3, 4]
-Path	STD	TC
-t11	35	35
-t12	4	4
-t13	130	130
-t21	9	5
-t22	18	14
-t23	25	19
+Path	TC
+t11	35
+t12	4
+t13	130
+t21	5
+t22	14
+t23	19
 
 Results for priority assignment: [5, 1, 6, 2, 4, 3]
-Path	STD	TC
-t11	35	35
-t12	4	4
-t13	130	130
-t21	9	5
-t22	25	19
-t23	14	10
+Path	TC
+t11	35
+t12	4
+t13	130
+t21	5
+t22	19
+t23	10
 
 Results for priority assignment: [5, 1, 6, 3, 2, 4]
-Path	STD	TC
-t11	35	35
-t12	4	4
-t13	134	130
-t21	18	14
-t22	15	11
-t23	25	19
+Path	TC
+t11	35
+t12	4
+t13	130
+t21	14
+t22	11
+t23	19
 
 Results for priority assignment: [5, 1, 6, 3, 4, 2]
-Path	STD	TC
-t11	35	35
-t12	4	4
-t13	134	130
-t21	14	10
-t22	25	19
-t23	11	7
+Path	TC
+t11	35
+t12	4
+t13	130
+t21	10
+t22	19
+t23	7
 
 Results for priority assignment: [5, 1, 6, 4, 2, 3]
-Path	STD	TC
-t11	35	35
-t12	4	4
-t13	134	130
-t21	25	19
-t22	15	11
-t23	20	16
+Path	TC
+t11	35
+t12	4
+t13	130
+t21	19
+t22	11
+t23	16
 
 Results for priority assignment: [5, 1, 6, 4, 3, 2]
-Path	STD	TC
-t11	35	35
-t12	4	4
-t13	134	134
-t21	25	19
-t22	20	16
-t23	11	7
+Path	TC
+t11	35
+t12	4
+t13	134
+t21	19
+t22	16
+t23	7
 
 Results for priority assignment: [5, 2, 1, 3, 4, 6]
-Path	STD	TC
-t11	120	79
-t12	56	10
-t13	22	12
-t21	71	9
-t22	86	18
-t23	871	476
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	79
+t12	10
+t13	12
+t21	9
+t22	18
+t23	476
 
 Results for priority assignment: [5, 2, 1, 3, 6, 4]
-Path	STD	TC
-t11	0	55
-t12	0	9
-t13	0	10
-t21	0	9
-t22	0	492
-t23	0	19
+Path	TC
+t11	55
+t12	9
+t13	10
+t21	9
+t22	492
+t23	19
 
 Results for priority assignment: [5, 2, 1, 4, 3, 6]
-Path	STD	TC
-t11	143	80
-t12	65	10
-t13	25	12
-t21	122	18
-t22	107	15
-t23	1066	482
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	80
+t12	10
+t13	12
+t21	18
+t22	15
+t23	482
 
 Results for priority assignment: [5, 2, 1, 4, 6, 3]
-Path	STD	TC
-t11	0	55
-t12	0	9
-t13	0	10
-t21	0	14
-t22	0	492
-t23	0	16
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	55
+t12	9
+t13	10
+t21	14
+t22	492
+t23	16
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 2, 1, 6, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 2, 1, 6, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 2, 3, 1, 4, 6]
-Path	STD	TC
-t11	69	69
-t12	8	8
-t13	26	16
-t21	3	3
-t22	48	18
-t23	467	467
+Path	TC
+t11	69
+t12	8
+t13	16
+t21	3
+t22	18
+t23	467
 
 Results for priority assignment: [5, 2, 3, 1, 6, 4]
-Path	STD	TC
-t11	267	55
-t12	19	8
-t13	78	15
-t21	3	3
-t22	1395	492
-t23	184	19
+Path	TC
+t11	55
+t12	8
+t13	15
+t21	3
+t22	492
+t23	19
 
 Results for priority assignment: [5, 2, 3, 4, 1, 6]
-Path	STD	TC
-t11	96	93
-t12	16	15
-t13	48	25
-t21	75	18
-t22	9	9
-t23	672	574
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	93
+t12	15
+t13	25
+t21	18
+t22	9
+t23	574
 
 Results for priority assignment: [5, 2, 3, 4, 6, 1]
-Path	STD	TC
-t11	0	55
-t12	0	10
-t13	0	17
-t21	0	14
-t22	0	492
-t23	0	10
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	55
+t12	10
+t13	17
+t21	14
+t22	492
+t23	10
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 2, 3, 6, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 2, 3, 6, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 2, 4, 1, 3, 6]
-Path	STD	TC
-t11	69	69
-t12	8	8
-t13	35	25
-t21	3	3
-t22	22	14
-t23	467	467
+Path	TC
+t11	69
+t12	8
+t13	25
+t21	3
+t22	14
+t23	467
 
 Results for priority assignment: [5, 2, 4, 1, 6, 3]
-Path	STD	TC
-t11	267	55
-t12	19	8
-t13	168	20
-t21	3	3
-t22	1395	492
-t23	65	15
+Path	TC
+t11	55
+t12	8
+t13	20
+t21	3
+t22	492
+t23	15
 
 Results for priority assignment: [5, 2, 4, 3, 1, 6]
-Path	STD	TC
-t11	93	83
-t12	15	15
-t13	42	28
-t21	24	14
-t22	9	9
-t23	580	549
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	83
+t12	15
+t13	28
+t21	14
+t22	9
+t23	549
 
 Results for priority assignment: [5, 2, 4, 3, 6, 1]
-Path	STD	TC
-t11	0	55
-t12	0	10
-t13	0	20
-t21	0	10
-t22	0	492
-t23	0	10
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	55
+t12	10
+t13	20
+t21	10
+t22	492
+t23	10
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 2, 4, 6, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 2, 4, 6, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 2, 6, 1, 3, 4]
-Path	STD	TC
-t11	35	35
-t12	7	7
-t13	132	132
-t21	3	3
-t22	18	14
-t23	25	19
+Path	TC
+t11	35
+t12	7
+t13	132
+t21	3
+t22	14
+t23	19
 
 Results for priority assignment: [5, 2, 6, 1, 4, 3]
-Path	STD	TC
-t11	35	35
-t12	7	7
-t13	132	132
-t21	3	3
-t22	25	19
-t23	14	10
+Path	TC
+t11	35
+t12	7
+t13	132
+t21	3
+t22	19
+t23	10
 
 Results for priority assignment: [5, 2, 6, 3, 1, 4]
-Path	STD	TC
-t11	35	35
-t12	13	13
-t13	139	139
-t21	18	14
-t22	9	9
-t23	25	19
+Path	TC
+t11	35
+t12	13
+t13	139
+t21	14
+t22	9
+t23	19
 
 Results for priority assignment: [5, 2, 6, 3, 4, 1]
-Path	STD	TC
-t11	35	35
-t12	9	9
-t13	139	135
-t21	14	10
-t22	25	19
-t23	5	5
+Path	TC
+t11	35
+t12	9
+t13	135
+t21	10
+t22	19
+t23	5
 
 Results for priority assignment: [5, 2, 6, 4, 1, 3]
-Path	STD	TC
-t11	35	35
-t12	13	13
-t13	143	139
-t21	25	19
-t22	9	9
-t23	20	16
+Path	TC
+t11	35
+t12	13
+t13	139
+t21	19
+t22	9
+t23	16
 
 Results for priority assignment: [5, 2, 6, 4, 3, 1]
-Path	STD	TC
-t11	35	35
-t12	9	9
-t13	139	139
-t21	25	19
-t22	20	16
-t23	5	5
+Path	TC
+t11	35
+t12	9
+t13	139
+t21	19
+t22	16
+t23	5
 
 Results for priority assignment: [5, 3, 1, 2, 4, 6]
-Path	STD	TC
-t11	116	79
-t12	59	13
-t13	22	12
-t21	47	7
-t22	86	18
-t23	843	473
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	79
+t12	13
+t13	12
+t21	7
+t22	18
+t23	473
 
 Results for priority assignment: [5, 3, 1, 2, 6, 4]
-Path	STD	TC
-t11	0	55
-t12	0	12
-t13	0	10
-t21	0	7
-t22	0	492
-t23	0	19
+Path	TC
+t11	55
+t12	12
+t13	10
+t21	7
+t22	492
+t23	19
 
 Results for priority assignment: [5, 3, 1, 4, 2, 6]
-Path	STD	TC
-t11	197	93
-t12	140	19
-t13	38	14
-t21	173	18
-t22	101	13
-t23	1547	578
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	93
+t12	19
+t13	14
+t21	18
+t22	13
+t23	578
 
 Results for priority assignment: [5, 3, 1, 4, 6, 2]
-Path	STD	TC
-t11	0	59
-t12	0	14
-t13	0	11
-t21	0	14
-t22	0	569
-t23	0	15
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	59
+t12	14
+t13	11
+t21	14
+t22	569
+t23	15
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 3, 1, 6, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 3, 1, 6, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 3, 2, 1, 4, 6]
-Path	STD	TC
-t11	109	69
-t12	54	12
-t13	23	15
-t21	3	3
-t22	80	18
-t23	746	471
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	69
+t12	12
+t13	15
+t21	3
+t22	18
+t23	471
 
 Results for priority assignment: [5, 3, 2, 1, 6, 4]
-Path	STD	TC
-t11	0	55
-t12	0	12
-t13	0	13
-t21	0	3
-t22	0	492
-t23	0	19
+Path	TC
+t11	55
+t12	12
+t13	13
+t21	3
+t22	492
+t23	19
 
 Results for priority assignment: [5, 3, 2, 4, 1, 6]
-Path	STD	TC
-t11	197	93
-t12	140	19
-t13	65	23
-t21	173	18
-t22	17	9
-t23	1470	574
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	93
+t12	19
+t13	23
+t21	18
+t22	9
+t23	574
 
 Results for priority assignment: [5, 3, 2, 4, 6, 1]
-Path	STD	TC
-t11	0	59
-t12	0	14
-t13	0	16
-t21	0	14
-t22	0	569
-t23	0	11
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	59
+t12	14
+t13	16
+t21	14
+t22	569
+t23	11
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 3, 2, 6, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 3, 2, 6, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 3, 4, 1, 2, 6]
-Path	STD	TC
-t11	73	73
-t12	17	17
-t13	36	26
-t21	3	3
-t22	12	12
-t23	473	473
+Path	TC
+t11	73
+t12	17
+t13	26
+t21	3
+t22	12
+t23	473
 
 Results for priority assignment: [5, 3, 4, 1, 6, 2]
-Path	STD	TC
-t11	2981	55
-t12	1024	13
-t13	1924	20
-t21	3	3
-t22	15393	492
-t23	192	13
+Path	TC
+t11	55
+t12	13
+t13	20
+t21	3
+t22	492
+t23	13
 
 Results for priority assignment: [5, 3, 4, 2, 1, 6]
-Path	STD	TC
-t11	83	83
-t12	18	18
-t13	40	28
-t21	12	12
-t22	9	9
-t23	553	553
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	83
+t12	18
+t13	28
+t21	12
+t22	9
+t23	553
 
 Results for priority assignment: [5, 3, 4, 2, 6, 1]
-Path	STD	TC
-t11	0	55
-t12	0	13
-t13	0	20
-t21	0	8
-t22	0	492
-t23	0	10
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	55
+t12	13
+t13	20
+t21	8
+t22	492
+t23	10
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 3, 4, 6, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 3, 4, 6, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 3, 6, 1, 2, 4]
-Path	STD	TC
-t11	35	35
-t12	16	16
-t13	141	141
-t21	3	3
-t22	12	12
-t23	25	19
+Path	TC
+t11	35
+t12	16
+t13	141
+t21	3
+t22	12
+t23	19
 
 Results for priority assignment: [5, 3, 6, 1, 4, 2]
-Path	STD	TC
-t11	35	35
-t12	12	12
-t13	137	137
-t21	3	3
-t22	25	19
-t23	8	8
+Path	TC
+t11	35
+t12	12
+t13	137
+t21	3
+t22	19
+t23	8
 
 Results for priority assignment: [5, 3, 6, 2, 1, 4]
-Path	STD	TC
-t11	35	35
-t12	16	16
-t13	142	142
-t21	12	12
-t22	9	9
-t23	25	19
+Path	TC
+t11	35
+t12	16
+t13	142
+t21	12
+t22	9
+t23	19
 
 Results for priority assignment: [5, 3, 6, 2, 4, 1]
-Path	STD	TC
-t11	35	35
-t12	12	12
-t13	138	138
-t21	8	8
-t22	25	19
-t23	5	5
+Path	TC
+t11	35
+t12	12
+t13	138
+t21	8
+t22	19
+t23	5
 
 Results for priority assignment: [5, 3, 6, 4, 1, 2]
-Path	STD	TC
-t11	35	35
-t12	18	18
-t13	148	144
-t21	25	19
-t22	9	9
-t23	14	14
+Path	TC
+t11	35
+t12	18
+t13	144
+t21	19
+t22	9
+t23	14
 
 Results for priority assignment: [5, 3, 6, 4, 2, 1]
-Path	STD	TC
-t11	35	35
-t12	18	18
-t13	148	148
-t21	25	19
-t22	14	14
-t23	5	5
+Path	TC
+t11	35
+t12	18
+t13	148
+t21	19
+t22	14
+t23	5
 
 Results for priority assignment: [5, 4, 1, 2, 3, 6]
-Path	STD	TC
-t11	161	83
-t12	110	22
-t13	32	14
-t21	71	7
-t22	80	16
-t23	1171	493
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	83
+t12	22
+t13	14
+t21	7
+t22	16
+t23	493
 
 Results for priority assignment: [5, 4, 1, 2, 6, 3]
-Path	STD	TC
-t11	0	59
-t12	0	17
-t13	0	12
-t21	0	7
-t22	0	573
-t23	0	17
+Path	TC
+t11	59
+t12	17
+t13	12
+t21	7
+t22	573
+t23	17
 
 Results for priority assignment: [5, 4, 1, 3, 2, 6]
-Path	STD	TC
-t11	166	93
-t12	123	22
-t13	32	16
-t21	93	16
-t22	82	13
-t23	1237	576
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	93
+t12	22
+t13	16
+t21	16
+t22	13
+t23	576
 
 Results for priority assignment: [5, 4, 1, 3, 6, 2]
-Path	STD	TC
-t11	0	59
-t12	0	17
-t13	0	12
-t21	0	12
-t22	0	573
-t23	0	15
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	59
+t12	17
+t13	12
+t21	12
+t22	573
+t23	15
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 4, 1, 6, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 4, 1, 6, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 4, 2, 1, 3, 6]
-Path	STD	TC
-t11	125	83
-t12	76	22
-t13	27	17
-t21	3	3
-t22	64	16
-t23	848	493
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	83
+t12	22
+t13	17
+t21	3
+t22	16
+t23	493
 
 Results for priority assignment: [5, 4, 2, 1, 6, 3]
-Path	STD	TC
-t11	0	59
-t12	0	17
-t13	0	15
-t21	0	3
-t22	0	573
-t23	0	17
+Path	TC
+t11	59
+t12	17
+t13	15
+t21	3
+t22	573
+t23	17
 
 Results for priority assignment: [5, 4, 2, 3, 1, 6]
-Path	STD	TC
-t11	166	93
-t12	123	22
-t13	50	25
-t21	93	16
-t22	10	9
-t23	1171	572
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	93
+t12	22
+t13	25
+t21	16
+t22	9
+t23	572
 
 Results for priority assignment: [5, 4, 2, 3, 6, 1]
-Path	STD	TC
-t11	0	59
-t12	0	17
-t13	0	17
-t21	0	12
-t22	0	573
-t23	0	11
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	59
+t12	17
+t13	17
+t21	12
+t22	573
+t23	11
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 4, 2, 6, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 4, 2, 6, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 4, 3, 1, 2, 6]
-Path	STD	TC
-t11	125	83
-t12	76	22
-t13	36	26
-t21	3	3
-t22	12	12
-t23	796	493
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	83
+t12	22
+t13	26
+t21	3
+t22	12
+t23	493
 
 Results for priority assignment: [5, 4, 3, 1, 6, 2]
-Path	STD	TC
-t11	0	59
-t12	0	17
-t13	0	20
-t21	0	3
-t22	0	573
-t23	0	13
+Path	TC
+t11	59
+t12	17
+t13	20
+t21	3
+t22	573
+t23	13
 
 Results for priority assignment: [5, 4, 3, 2, 1, 6]
-Path	STD	TC
-t11	125	93
-t12	76	22
-t13	36	28
-t21	12	12
-t22	9	9
-t23	855	571
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	93
+t12	22
+t13	28
+t21	12
+t22	9
+t23	571
 
 Results for priority assignment: [5, 4, 3, 2, 6, 1]
-Path	STD	TC
-t11	0	59
-t12	0	17
-t13	0	20
-t21	0	8
-t22	0	573
-t23	0	11
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	59
+t12	17
+t13	20
+t21	8
+t22	573
+t23	11
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 4, 3, 6, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t21 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 4, 3, 6, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [5, 4, 6, 1, 2, 3]
-Path	STD	TC
-t11	35	35
-t12	21	21
-t13	144	144
-t21	3	3
-t22	12	12
-t23	17	17
+Path	TC
+t11	35
+t12	21
+t13	144
+t21	3
+t22	12
+t23	17
 
 Results for priority assignment: [5, 4, 6, 1, 3, 2]
-Path	STD	TC
-t11	35	35
-t12	21	21
-t13	144	144
-t21	3	3
-t22	17	17
-t23	8	8
+Path	TC
+t11	35
+t12	21
+t13	144
+t21	3
+t22	17
+t23	8
 
 Results for priority assignment: [5, 4, 6, 2, 1, 3]
-Path	STD	TC
-t11	35	35
-t12	21	21
-t13	147	147
-t21	12	12
-t22	9	9
-t23	17	17
+Path	TC
+t11	35
+t12	21
+t13	147
+t21	12
+t22	9
+t23	17
 
 Results for priority assignment: [5, 4, 6, 2, 3, 1]
-Path	STD	TC
-t11	35	35
-t12	21	21
-t13	147	147
-t21	8	8
-t22	17	17
-t23	5	5
+Path	TC
+t11	35
+t12	21
+t13	147
+t21	8
+t22	17
+t23	5
 
 Results for priority assignment: [5, 4, 6, 3, 1, 2]
-Path	STD	TC
-t11	35	35
-t12	21	21
-t13	147	147
-t21	17	17
-t22	9	9
-t23	14	14
+Path	TC
+t11	35
+t12	21
+t13	147
+t21	17
+t22	9
+t23	14
 
 Results for priority assignment: [5, 4, 6, 3, 2, 1]
-Path	STD	TC
-t11	35	35
-t12	21	21
-t13	147	147
-t21	17	17
-t22	14	14
-t23	5	5
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	35
+t12	21
+t13	147
+t21	17
+t22	14
+t23	5
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 1, 2, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 1, 2, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 1, 3, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 1, 3, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 1, 4, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 1, 4, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 2, 1, 3, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 2, 1, 4, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 2, 3, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 2, 3, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 2, 4, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 2, 4, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 3, 1, 2, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 3, 1, 4, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 3, 2, 1, 4]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 3, 2, 4, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 3, 4, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 3, 4, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 4, 1, 2, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 4, 1, 3, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 4, 2, 1, 3]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 4, 2, 3, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 4, 3, 1, 2]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
-'max_iterations for t12 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 'max_iterations for t12 reached, tasks (likely) not schedulable!'
 
 Results for priority assignment: [5, 6, 4, 3, 2, 1]
-Path	STD	TC
-t11	0	0
-t12	0	0
-t13	0	0
-t21	0	0
-t22	0	0
-t23	0	0
+Path	TC
+t11	0
+t12	0
+t13	0
+t21	0
+t22	0
+t23	0
 
 Results for priority assignment: [6, 1, 2, 3, 4, 5]
-Path	STD	TC
-t11	171	118
-t12	10	8
-t13	46	18
-t21	81	9
-t22	90	18
-t23	135	23
+Path	TC
+t11	118
+t12	8
+t13	18
+t21	9
+t22	18
+t23	23
 
 Results for priority assignment: [6, 1, 2, 3, 5, 4]
-Path	STD	TC
-t11	181	118
-t12	11	8
-t13	50	18
-t21	87	9
-t22	131	23
-t23	103	14
+Path	TC
+t11	118
+t12	8
+t13	18
+t21	9
+t22	23
+t23	14
 
 Results for priority assignment: [6, 1, 2, 4, 3, 5]
-Path	STD	TC
-t11	201	118
-t12	12	8
-t13	54	18
-t21	132	18
-t22	113	15
-t23	148	23
+Path	TC
+t11	118
+t12	8
+t13	18
+t21	18
+t22	15
+t23	23
 
 Results for priority assignment: [6, 1, 2, 4, 5, 3]
-Path	STD	TC
-t11	201	118
-t12	12	8
-t13	54	18
-t21	119	14
-t22	156	23
-t23	103	11
+Path	TC
+t11	118
+t12	8
+t13	18
+t21	14
+t22	23
+t23	11
 
 Results for priority assignment: [6, 1, 2, 5, 3, 4]
-Path	STD	TC
-t11	261	119
-t12	15	8
-t13	68	18
-t21	228	23
-t22	151	15
-t23	197	20
+Path	TC
+t11	119
+t12	8
+t13	18
+t21	23
+t22	15
+t23	20
 
 Results for priority assignment: [6, 1, 2, 5, 4, 3]
-Path	STD	TC
-t11	282	119
-t12	16	8
-t13	74	18
-t21	239	23
-t22	210	20
-t23	141	11
+Path	TC
+t11	119
+t12	8
+t13	18
+t21	23
+t22	20
+t23	11
 
 Results for priority assignment: [6, 1, 3, 2, 4, 5]
-Path	STD	TC
-t11	122	117
-t12	8	8
-t13	37	21
-t21	17	5
-t22	72	18
-t23	81	23
+Path	TC
+t11	117
+t12	8
+t13	21
+t21	5
+t22	18
+t23	23
 
 Results for priority assignment: [6, 1, 3, 2, 5, 4]
-Path	STD	TC
-t11	133	117
-t12	8	8
-t13	41	21
-t21	19	5
-t22	88	23
-t23	75	14
+Path	TC
+t11	117
+t12	8
+t13	21
+t21	5
+t22	23
+t23	14
 
 Results for priority assignment: [6, 1, 3, 4, 2, 5]
-Path	STD	TC
-t11	180	118
-t12	11	8
-t13	78	27
-t21	120	18
-t22	39	11
-t23	135	23
+Path	TC
+t11	118
+t12	8
+t13	27
+t21	18
+t22	11
+t23	23
 
 Results for priority assignment: [6, 1, 3, 4, 5, 2]
-Path	STD	TC
-t11	201	118
-t12	12	8
-t13	76	23
-t21	119	14
-t22	156	23
-t23	31	7
+Path	TC
+t11	118
+t12	8
+t13	23
+t21	14
+t22	23
+t23	7
 
 Results for priority assignment: [6, 1, 3, 5, 2, 4]
-Path	STD	TC
-t11	212	119
-t12	13	8
-t13	85	27
-t21	179	23
-t22	43	11
-t23	157	20
+Path	TC
+t11	119
+t12	8
+t13	27
+t21	23
+t22	11
+t23	20
 
 Results for priority assignment: [6, 1, 3, 5, 4, 2]
-Path	STD	TC
-t11	282	119
-t12	16	8
-t13	106	23
-t21	239	23
-t22	210	20
-t23	43	7
+Path	TC
+t11	119
+t12	8
+t13	23
+t21	23
+t22	20
+t23	7
 
 Results for priority assignment: [6, 1, 4, 2, 3, 5]
-Path	STD	TC
-t11	118	117
-t12	8	8
-t13	46	30
-t21	17	5
-t22	28	14
-t23	77	23
+Path	TC
+t11	117
+t12	8
+t13	30
+t21	5
+t22	14
+t23	23
 
 Results for priority assignment: [6, 1, 4, 2, 5, 3]
-Path	STD	TC
-t11	133	117
-t12	8	8
-t13	51	26
-t21	19	5
-t22	88	23
-t23	27	10
+Path	TC
+t11	117
+t12	8
+t13	26
+t21	5
+t22	23
+t23	10
 
 Results for priority assignment: [6, 1, 4, 3, 2, 5]
-Path	STD	TC
-t11	119	118
-t12	8	8
-t13	46	30
-t21	28	14
-t22	25	11
-t23	92	23
+Path	TC
+t11	118
+t12	8
+t13	30
+t21	14
+t22	11
+t23	23
 
 Results for priority assignment: [6, 1, 4, 3, 5, 2]
-Path	STD	TC
-t11	140	118
-t12	9	8
-t13	53	26
-t21	31	10
-t22	99	23
-t23	24	7
+Path	TC
+t11	118
+t12	8
+t13	26
+t21	10
+t22	23
+t23	7
 
 Results for priority assignment: [6, 1, 4, 5, 2, 3]
-Path	STD	TC
-t11	212	119
-t12	13	8
-t13	118	32
-t21	179	23
-t22	43	11
-t23	64	16
+Path	TC
+t11	119
+t12	8
+t13	32
+t21	23
+t22	11
+t23	16
 
 Results for priority assignment: [6, 1, 4, 5, 3, 2]
-Path	STD	TC
-t11	229	119
-t12	14	8
-t13	123	32
-t21	196	23
-t22	74	16
-t23	35	7
+Path	TC
+t11	119
+t12	8
+t13	32
+t21	23
+t22	16
+t23	7
 
 Results for priority assignment: [6, 1, 5, 2, 3, 4]
-Path	STD	TC
-t11	118	117
-t12	8	8
-t13	58	35
-t21	17	5
-t22	28	14
-t23	33	19
+Path	TC
+t11	117
+t12	8
+t13	35
+t21	5
+t22	14
+t23	19
 
 Results for priority assignment: [6, 1, 5, 2, 4, 3]
-Path	STD	TC
-t11	118	117
-t12	8	8
-t13	58	35
-t21	17	5
-t22	33	19
-t23	24	10
+Path	TC
+t11	117
+t12	8
+t13	35
+t21	5
+t22	19
+t23	10
 
 Results for priority assignment: [6, 1, 5, 3, 2, 4]
-Path	STD	TC
-t11	119	118
-t12	8	8
-t13	65	35
-t21	28	14
-t22	25	11
-t23	33	19
+Path	TC
+t11	118
+t12	8
+t13	35
+t21	14
+t22	11
+t23	19
 
 Results for priority assignment: [6, 1, 5, 3, 4, 2]
-Path	STD	TC
-t11	119	118
-t12	8	8
-t13	58	35
-t21	24	10
-t22	33	19
-t23	19	7
+Path	TC
+t11	118
+t12	8
+t13	35
+t21	10
+t22	19
+t23	7
 
 Results for priority assignment: [6, 1, 5, 4, 2, 3]
-Path	STD	TC
-t11	123	118
-t12	8	8
-t13	69	35
-t21	33	19
-t22	25	11
-t23	30	16
+Path	TC
+t11	118
+t12	8
+t13	35
+t21	19
+t22	11
+t23	16
 
 Results for priority assignment: [6, 1, 5, 4, 3, 2]
-Path	STD	TC
-t11	123	118
-t12	8	8
-t13	69	35
-t21	33	19
-t22	30	16
-t23	21	7
+Path	TC
+t11	118
+t12	8
+t13	35
+t21	19
+t22	16
+t23	7
 
 Results for priority assignment: [6, 2, 1, 3, 4, 5]
-Path	STD	TC
-t11	402	118
-t12	171	12
-t13	62	16
-t21	217	9
-t22	266	18
-t23	331	23
+Path	TC
+t11	118
+t12	12
+t13	16
+t21	9
+t22	18
+t23	23
 
 Results for priority assignment: [6, 2, 1, 3, 5, 4]
-Path	STD	TC
-t11	431	118
-t12	180	12
-t13	66	16
-t21	235	9
-t22	344	23
-t23	263	14
+Path	TC
+t11	118
+t12	12
+t13	16
+t21	9
+t22	23
+t23	14
 
 Results for priority assignment: [6, 2, 1, 4, 3, 5]
-Path	STD	TC
-t11	609	119
-t12	254	12
-t13	94	16
-t21	442	18
-t22	381	15
-t23	509	23
+Path	TC
+t11	119
+t12	12
+t13	16
+t21	18
+t22	15
+t23	23
 
 Results for priority assignment: [6, 2, 1, 4, 5, 3]
-Path	STD	TC
-t11	739	118
-t12	308	12
-t13	112	16
-t21	509	14
-t22	615	23
-t23	429	11
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	118
+t12	12
+t13	16
+t21	14
+t22	23
+t23	11
 
 Results for priority assignment: [6, 2, 1, 5, 3, 4]
-Path	STD	TC
-t11	0	119
-t12	0	12
-t13	0	16
-t21	0	23
-t22	0	15
-t23	0	20
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	119
+t12	12
+t13	16
+t21	23
+t22	15
+t23	20
 
 Results for priority assignment: [6, 2, 1, 5, 4, 3]
-Path	STD	TC
-t11	0	119
-t12	0	12
-t13	0	16
-t21	0	23
-t22	0	20
-t23	0	11
+Path	TC
+t11	119
+t12	12
+t13	16
+t21	23
+t22	20
+t23	11
 
 Results for priority assignment: [6, 2, 3, 1, 4, 5]
-Path	STD	TC
-t11	128	111
-t12	11	10
-t13	39	21
-t21	3	3
-t22	78	18
-t23	83	23
+Path	TC
+t11	111
+t12	10
+t13	21
+t21	3
+t22	18
+t23	23
 
 Results for priority assignment: [6, 2, 3, 1, 5, 4]
-Path	STD	TC
-t11	135	111
-t12	12	10
-t13	41	21
-t21	3	3
-t22	94	23
-t23	74	14
+Path	TC
+t11	111
+t12	10
+t13	21
+t21	3
+t22	23
+t23	14
 
 Results for priority assignment: [6, 2, 3, 4, 1, 5]
-Path	STD	TC
-t11	200	125
-t12	30	17
-t13	87	29
-t21	136	18
-t22	17	9
-t23	151	23
+Path	TC
+t11	125
+t12	17
+t13	29
+t21	18
+t22	9
+t23	23
 
 Results for priority assignment: [6, 2, 3, 4, 5, 1]
-Path	STD	TC
-t11	233	124
-t12	34	13
-t13	93	25
-t21	146	14
-t22	178	23
-t23	8	5
+Path	TC
+t11	124
+t12	13
+t13	25
+t21	14
+t22	23
+t23	5
 
 Results for priority assignment: [6, 2, 3, 5, 1, 4]
-Path	STD	TC
-t11	269	125
-t12	43	17
-t13	114	29
-t21	231	23
-t22	25	9
-t23	204	20
+Path	TC
+t11	125
+t12	17
+t13	29
+t21	23
+t22	9
+t23	20
 
 Results for priority assignment: [6, 2, 3, 5, 4, 1]
-Path	STD	TC
-t11	402	125
-t12	58	13
-t13	159	25
-t21	363	23
-t22	307	20
-t23	11	5
+Path	TC
+t11	125
+t12	13
+t13	25
+t21	23
+t22	20
+t23	5
 
 Results for priority assignment: [6, 2, 4, 1, 3, 5]
-Path	STD	TC
-t11	111	111
-t12	10	10
-t13	46	30
-t21	3	3
-t22	26	14
-t23	77	23
+Path	TC
+t11	111
+t12	10
+t13	30
+t21	3
+t22	14
+t23	23
 
 Results for priority assignment: [6, 2, 4, 1, 5, 3]
-Path	STD	TC
-t11	135	111
-t12	12	10
-t13	53	26
-t21	3	3
-t22	94	23
-t23	26	10
+Path	TC
+t11	111
+t12	10
+t13	26
+t21	3
+t22	23
+t23	10
 
 Results for priority assignment: [6, 2, 4, 3, 1, 5]
-Path	STD	TC
-t11	125	124
-t12	17	17
-t13	50	32
-t21	28	14
-t22	9	9
-t23	98	23
+Path	TC
+t11	124
+t12	17
+t13	32
+t21	14
+t22	9
+t23	23
 
 Results for priority assignment: [6, 2, 4, 3, 5, 1]
-Path	STD	TC
-t11	156	124
-t12	20	13
-t13	64	28
-t21	33	10
-t22	114	23
-t23	6	5
+Path	TC
+t11	124
+t12	13
+t13	28
+t21	10
+t22	23
+t23	5
 
 Results for priority assignment: [6, 2, 4, 5, 1, 3]
-Path	STD	TC
-t11	269	125
-t12	43	17
-t13	152	34
-t21	231	23
-t22	25	9
-t23	79	16
+Path	TC
+t11	125
+t12	17
+t13	34
+t21	23
+t22	9
+t23	16
 
 Results for priority assignment: [6, 2, 4, 5, 3, 1]
-Path	STD	TC
-t11	260	125
-t12	35	13
-t13	139	34
-t21	221	23
-t22	79	16
-t23	7	5
+Path	TC
+t11	125
+t12	13
+t13	34
+t21	23
+t22	16
+t23	5
 
 Results for priority assignment: [6, 2, 5, 1, 3, 4]
-Path	STD	TC
-t11	111	111
-t12	10	10
-t13	51	35
-t21	3	3
-t22	26	14
-t23	33	19
+Path	TC
+t11	111
+t12	10
+t13	35
+t21	3
+t22	14
+t23	19
 
 Results for priority assignment: [6, 2, 5, 1, 4, 3]
-Path	STD	TC
-t11	111	111
-t12	10	10
-t13	51	35
-t21	3	3
-t22	33	19
-t23	22	10
+Path	TC
+t11	111
+t12	10
+t13	35
+t21	3
+t22	19
+t23	10
 
 Results for priority assignment: [6, 2, 5, 3, 1, 4]
-Path	STD	TC
-t11	125	124
-t12	17	17
-t13	71	37
-t21	28	14
-t22	9	9
-t23	33	19
+Path	TC
+t11	124
+t12	17
+t13	37
+t21	14
+t22	9
+t23	19
 
 Results for priority assignment: [6, 2, 5, 3, 4, 1]
-Path	STD	TC
-t11	125	124
-t12	13	13
-t13	60	37
-t21	24	10
-t22	33	19
-t23	5	5
+Path	TC
+t11	124
+t12	13
+t13	37
+t21	10
+t22	19
+t23	5
 
 Results for priority assignment: [6, 2, 5, 4, 1, 3]
-Path	STD	TC
-t11	133	125
-t12	17	17
-t13	72	37
-t21	35	19
-t22	9	9
-t23	32	16
+Path	TC
+t11	125
+t12	17
+t13	37
+t21	19
+t22	9
+t23	16
 
 Results for priority assignment: [6, 2, 5, 4, 3, 1]
-Path	STD	TC
-t11	129	125
-t12	13	13
-t13	71	37
-t21	35	19
-t22	30	16
-t23	5	5
+Path	TC
+t11	125
+t12	13
+t13	37
+t21	19
+t22	16
+t23	5
 
 Results for priority assignment: [6, 3, 1, 2, 4, 5]
-Path	STD	TC
-t11	320	124
-t12	148	15
-t13	52	18
-t21	115	7
-t22	212	18
-t23	257	23
+Path	TC
+t11	124
+t12	15
+t13	18
+t21	7
+t22	18
+t23	23
 
 Results for priority assignment: [6, 3, 1, 2, 5, 4]
-Path	STD	TC
-t11	321	124
-t12	148	15
-t13	52	18
-t21	115	7
-t22	265	23
-t23	203	14
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	124
+t12	15
+t13	18
+t21	7
+t22	23
+t23	14
 
 Results for priority assignment: [6, 3, 1, 4, 2, 5]
-Path	STD	TC
-t11	0	132
-t12	0	21
-t13	0	20
-t21	0	18
-t22	0	13
-t23	0	23
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	21
+t13	20
+t21	18
+t22	13
+t23	23
 
 Results for priority assignment: [6, 3, 1, 4, 5, 2]
-Path	STD	TC
-t11	0	124
-t12	0	17
-t13	0	18
-t21	0	14
-t22	0	23
-t23	0	9
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	124
+t12	17
+t13	18
+t21	14
+t22	23
+t23	9
 
 Results for priority assignment: [6, 3, 1, 5, 2, 4]
-Path	STD	TC
-t11	0	132
-t12	0	21
-t13	0	20
-t21	0	23
-t22	0	13
-t23	0	20
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	21
+t13	20
+t21	23
+t22	13
+t23	20
 
 Results for priority assignment: [6, 3, 1, 5, 4, 2]
-Path	STD	TC
-t11	0	125
-t12	0	17
-t13	0	18
-t21	0	23
-t22	0	20
-t23	0	9
+Path	TC
+t11	125
+t12	17
+t13	18
+t21	23
+t22	20
+t23	9
 
 Results for priority assignment: [6, 3, 2, 1, 4, 5]
-Path	STD	TC
-t11	193	124
-t12	87	15
-t13	35	21
-t21	3	3
-t22	127	18
-t23	150	23
+Path	TC
+t11	124
+t12	15
+t13	21
+t21	3
+t22	18
+t23	23
 
 Results for priority assignment: [6, 3, 2, 1, 5, 4]
-Path	STD	TC
-t11	193	124
-t12	87	15
-t13	35	21
-t21	3	3
-t22	148	23
-t23	124	14
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	124
+t12	15
+t13	21
+t21	3
+t22	23
+t23	14
 
 Results for priority assignment: [6, 3, 2, 4, 1, 5]
-Path	STD	TC
-t11	0	132
-t12	0	21
-t13	0	29
-t21	0	18
-t22	0	9
-t23	0	23
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	21
+t13	29
+t21	18
+t22	9
+t23	23
 
 Results for priority assignment: [6, 3, 2, 4, 5, 1]
-Path	STD	TC
-t11	0	124
-t12	0	17
-t13	0	23
-t21	0	14
-t22	0	23
-t23	0	5
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	124
+t12	17
+t13	23
+t21	14
+t22	23
+t23	5
 
 Results for priority assignment: [6, 3, 2, 5, 1, 4]
-Path	STD	TC
-t11	0	132
-t12	0	21
-t13	0	29
-t21	0	23
-t22	0	9
-t23	0	20
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	21
+t13	29
+t21	23
+t22	9
+t23	20
 
 Results for priority assignment: [6, 3, 2, 5, 4, 1]
-Path	STD	TC
-t11	0	125
-t12	0	17
-t13	0	23
-t21	0	23
-t22	0	20
-t23	0	5
+Path	TC
+t11	125
+t12	17
+t13	23
+t21	23
+t22	20
+t23	5
 
 Results for priority assignment: [6, 3, 4, 1, 2, 5]
-Path	STD	TC
-t11	124	124
-t12	20	20
-t13	50	32
-t21	3	3
-t22	12	12
-t23	87	23
+Path	TC
+t11	124
+t12	20
+t13	32
+t21	3
+t22	12
+t23	23
 
 Results for priority assignment: [6, 3, 4, 1, 5, 2]
-Path	STD	TC
-t11	139	124
-t12	22	16
-t13	55	28
-t21	3	3
-t22	98	23
-t23	9	8
+Path	TC
+t11	124
+t12	16
+t13	28
+t21	3
+t22	23
+t23	8
 
 Results for priority assignment: [6, 3, 4, 2, 1, 5]
-Path	STD	TC
-t11	124	124
-t12	20	20
-t13	50	32
-t21	12	12
-t22	9	9
-t23	87	23
+Path	TC
+t11	124
+t12	20
+t13	32
+t21	12
+t22	9
+t23	23
 
 Results for priority assignment: [6, 3, 4, 2, 5, 1]
-Path	STD	TC
-t11	153	124
-t12	23	16
-t13	59	28
-t21	13	8
-t22	114	23
-t23	6	5
+Path	TC
+t11	124
+t12	16
+t13	28
+t21	8
+t22	23
+t23	5
 
 Results for priority assignment: [6, 3, 4, 5, 1, 2]
-Path	STD	TC
-t11	280	132
-t12	72	22
-t13	156	36
-t21	237	23
-t22	25	9
-t23	34	14
+Path	TC
+t11	132
+t12	22
+t13	36
+t21	23
+t22	9
+t23	14
 
 Results for priority assignment: [6, 3, 4, 5, 2, 1]
-Path	STD	TC
-t11	338	132
-t12	80	22
-t13	190	36
-t21	296	23
-t22	51	14
-t23	8	5
+Path	TC
+t11	132
+t12	22
+t13	36
+t21	23
+t22	14
+t23	5
 
 Results for priority assignment: [6, 3, 5, 1, 2, 4]
-Path	STD	TC
-t11	124	124
-t12	20	20
-t13	55	37
-t21	3	3
-t22	12	12
-t23	33	19
+Path	TC
+t11	124
+t12	20
+t13	37
+t21	3
+t22	12
+t23	19
 
 Results for priority assignment: [6, 3, 5, 1, 4, 2]
-Path	STD	TC
-t11	124	124
-t12	16	16
-t13	55	37
-t21	3	3
-t22	33	19
-t23	8	8
+Path	TC
+t11	124
+t12	16
+t13	37
+t21	3
+t22	19
+t23	8
 
 Results for priority assignment: [6, 3, 5, 2, 1, 4]
-Path	STD	TC
-t11	124	124
-t12	20	20
-t13	55	37
-t21	12	12
-t22	9	9
-t23	33	19
+Path	TC
+t11	124
+t12	20
+t13	37
+t21	12
+t22	9
+t23	19
 
 Results for priority assignment: [6, 3, 5, 2, 4, 1]
-Path	STD	TC
-t11	124	124
-t12	16	16
-t13	60	37
-t21	8	8
-t22	33	19
-t23	5	5
+Path	TC
+t11	124
+t12	16
+t13	37
+t21	8
+t22	19
+t23	5
 
 Results for priority assignment: [6, 3, 5, 4, 1, 2]
-Path	STD	TC
-t11	133	132
-t12	22	22
-t13	75	39
-t21	35	19
-t22	9	9
-t23	14	14
+Path	TC
+t11	132
+t12	22
+t13	39
+t21	19
+t22	9
+t23	14
 
 Results for priority assignment: [6, 3, 5, 4, 2, 1]
-Path	STD	TC
-t11	133	132
-t12	22	22
-t13	75	39
-t21	35	19
-t22	14	14
-t23	5	5
+Path	TC
+t11	132
+t12	22
+t13	39
+t21	19
+t22	14
+t23	5
 
 Results for priority assignment: [6, 4, 1, 2, 3, 5]
-Path	STD	TC
-t11	422	128
-t12	266	24
-t13	74	20
-t21	167	7
-t22	191	16
-t23	358	23
+Path	TC
+t11	128
+t12	24
+t13	20
+t21	7
+t22	16
+t23	23
 
 Results for priority assignment: [6, 4, 1, 2, 5, 3]
-Path	STD	TC
-t11	583	124
-t12	351	20
-t13	100	18
-t21	223	7
-t22	480	23
-t23	253	12
+Path	TC
+t11	124
+t12	20
+t13	18
+t21	7
+t22	23
+t23	12
 
 Results for priority assignment: [6, 4, 1, 3, 2, 5]
-Path	STD	TC
-t11	650	132
-t12	411	24
-t13	114	20
-t21	334	16
-t22	293	13
-t23	559	23
+Path	TC
+t11	132
+t12	24
+t13	20
+t21	16
+t22	13
+t23	23
 
 Results for priority assignment: [6, 4, 1, 3, 5, 2]
-Path	STD	TC
-t11	1115	124
-t12	682	20
-t13	190	18
-t21	551	12
-t22	933	23
-t23	463	9
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	124
+t12	20
+t13	18
+t21	12
+t22	23
+t23	9
 
 Results for priority assignment: [6, 4, 1, 5, 2, 3]
-Path	STD	TC
-t11	0	132
-t12	0	26
-t13	0	20
-t21	0	23
-t22	0	13
-t23	0	18
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	26
+t13	20
+t21	23
+t22	13
+t23	18
 
 Results for priority assignment: [6, 4, 1, 5, 3, 2]
-Path	STD	TC
-t11	0	133
-t12	0	26
-t13	0	20
-t21	0	23
-t22	0	18
-t23	0	9
+Path	TC
+t11	133
+t12	26
+t13	20
+t21	23
+t22	18
+t23	9
 
 Results for priority assignment: [6, 4, 2, 1, 3, 5]
-Path	STD	TC
-t11	199	128
-t12	120	24
-t13	37	23
-t21	3	3
-t22	88	16
-t23	153	23
+Path	TC
+t11	128
+t12	24
+t13	23
+t21	3
+t22	16
+t23	23
 
 Results for priority assignment: [6, 4, 2, 1, 5, 3]
-Path	STD	TC
-t11	271	124
-t12	158	20
-t13	51	21
-t21	3	3
-t22	221	23
-t23	121	12
+Path	TC
+t11	124
+t12	20
+t13	21
+t21	3
+t22	23
+t23	12
 
 Results for priority assignment: [6, 4, 2, 3, 1, 5]
-Path	STD	TC
-t11	452	132
-t12	295	24
-t13	125	29
-t21	236	16
-t22	25	9
-t23	388	23
+Path	TC
+t11	132
+t12	24
+t13	29
+t21	16
+t22	9
+t23	23
 
 Results for priority assignment: [6, 4, 2, 3, 5, 1]
-Path	STD	TC
-t11	1115	124
-t12	682	20
-t13	285	23
-t21	551	12
-t22	933	23
-t23	19	5
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	124
+t12	20
+t13	23
+t21	12
+t22	23
+t23	5
 
 Results for priority assignment: [6, 4, 2, 5, 1, 3]
-Path	STD	TC
-t11	0	132
-t12	0	26
-t13	0	29
-t21	0	23
-t22	0	9
-t23	0	18
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	26
+t13	29
+t21	23
+t22	9
+t23	18
 
 Results for priority assignment: [6, 4, 2, 5, 3, 1]
-Path	STD	TC
-t11	0	133
-t12	0	26
-t13	0	25
-t21	0	23
-t22	0	18
-t23	0	5
+Path	TC
+t11	133
+t12	26
+t13	25
+t21	23
+t22	18
+t23	5
 
 Results for priority assignment: [6, 4, 3, 1, 2, 5]
-Path	STD	TC
-t11	172	128
-t12	111	24
-t13	43	32
-t21	3	3
-t22	12	12
-t23	141	23
+Path	TC
+t11	128
+t12	24
+t13	32
+t21	3
+t22	12
+t23	23
 
 Results for priority assignment: [6, 4, 3, 1, 5, 2]
-Path	STD	TC
-t11	271	124
-t12	158	20
-t13	74	26
-t21	3	3
-t22	221	23
-t23	10	8
+Path	TC
+t11	124
+t12	20
+t13	26
+t21	3
+t22	23
+t23	8
 
 Results for priority assignment: [6, 4, 3, 2, 1, 5]
-Path	STD	TC
-t11	188	128
-t12	115	24
-t13	46	32
-t21	12	12
-t22	9	9
-t23	147	23
+Path	TC
+t11	128
+t12	24
+t13	32
+t21	12
+t22	9
+t23	23
 
 Results for priority assignment: [6, 4, 3, 2, 5, 1]
-Path	STD	TC
-t11	282	124
-t12	168	20
-t13	76	26
-t21	18	8
-t22	227	23
-t23	7	5
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	124
+t12	20
+t13	26
+t21	8
+t22	23
+t23	5
 
 Results for priority assignment: [6, 4, 3, 5, 1, 2]
-Path	STD	TC
-t11	0	132
-t12	0	26
-t13	0	34
-t21	0	23
-t22	0	9
-t23	0	14
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	26
+t13	34
+t21	23
+t22	9
+t23	14
 
 Results for priority assignment: [6, 4, 3, 5, 2, 1]
-Path	STD	TC
-t11	0	132
-t12	0	26
-t13	0	34
-t21	0	23
-t22	0	14
-t23	0	5
+Path	TC
+t11	132
+t12	26
+t13	34
+t21	23
+t22	14
+t23	5
 
 Results for priority assignment: [6, 4, 5, 1, 2, 3]
-Path	STD	TC
-t11	128	128
-t12	25	25
-t13	59	39
-t21	3	3
-t22	12	12
-t23	17	17
+Path	TC
+t11	128
+t12	25
+t13	39
+t21	3
+t22	12
+t23	17
 
 Results for priority assignment: [6, 4, 5, 1, 3, 2]
-Path	STD	TC
-t11	128	128
-t12	25	25
-t13	59	39
-t21	3	3
-t22	17	17
-t23	8	8
+Path	TC
+t11	128
+t12	25
+t13	39
+t21	3
+t22	17
+t23	8
 
 Results for priority assignment: [6, 4, 5, 2, 1, 3]
-Path	STD	TC
-t11	128	128
-t12	25	25
-t13	59	39
-t21	12	12
-t22	9	9
-t23	17	17
+Path	TC
+t11	128
+t12	25
+t13	39
+t21	12
+t22	9
+t23	17
 
 Results for priority assignment: [6, 4, 5, 2, 3, 1]
-Path	STD	TC
-t11	128	128
-t12	25	25
-t13	59	39
-t21	8	8
-t22	17	17
-t23	5	5
+Path	TC
+t11	128
+t12	25
+t13	39
+t21	8
+t22	17
+t23	5
 
 Results for priority assignment: [6, 4, 5, 3, 1, 2]
-Path	STD	TC
-t11	132	132
-t12	25	25
-t13	59	39
-t21	17	17
-t22	9	9
-t23	14	14
+Path	TC
+t11	132
+t12	25
+t13	39
+t21	17
+t22	9
+t23	14
 
 Results for priority assignment: [6, 4, 5, 3, 2, 1]
-Path	STD	TC
-t11	132	132
-t12	25	25
-t13	64	39
-t21	17	17
-t22	14	14
-t23	5	5
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	25
+t13	39
+t21	17
+t22	14
+t23	5
 
 Results for priority assignment: [6, 5, 1, 2, 3, 4]
-Path	STD	TC
-t11	0	128
-t12	0	29
-t13	0	20
-t21	0	7
-t22	0	16
-t23	0	21
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	128
+t12	29
+t13	20
+t21	7
+t22	16
+t23	21
 
 Results for priority assignment: [6, 5, 1, 2, 4, 3]
-Path	STD	TC
-t11	0	128
-t12	0	29
-t13	0	20
-t21	0	7
-t22	0	21
-t23	0	12
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	128
+t12	29
+t13	20
+t21	7
+t22	21
+t23	12
 
 Results for priority assignment: [6, 5, 1, 3, 2, 4]
-Path	STD	TC
-t11	0	132
-t12	0	29
-t13	0	20
-t21	0	16
-t22	0	13
-t23	0	21
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	29
+t13	20
+t21	16
+t22	13
+t23	21
 
 Results for priority assignment: [6, 5, 1, 3, 4, 2]
-Path	STD	TC
-t11	0	128
-t12	0	29
-t13	0	20
-t21	0	12
-t22	0	21
-t23	0	9
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	128
+t12	29
+t13	20
+t21	12
+t22	21
+t23	9
 
 Results for priority assignment: [6, 5, 1, 4, 2, 3]
-Path	STD	TC
-t11	0	132
-t12	0	29
-t13	0	20
-t21	0	21
-t22	0	13
-t23	0	18
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	29
+t13	20
+t21	21
+t22	13
+t23	18
 
 Results for priority assignment: [6, 5, 1, 4, 3, 2]
-Path	STD	TC
-t11	0	132
-t12	0	29
-t13	0	20
-t21	0	21
-t22	0	18
-t23	0	9
+Path	TC
+t11	132
+t12	29
+t13	20
+t21	21
+t22	18
+t23	9
 
 Results for priority assignment: [6, 5, 2, 1, 3, 4]
-Path	STD	TC
-t11	270	128
-t12	204	29
-t13	54	23
-t21	3	3
-t22	127	16
-t23	146	21
+Path	TC
+t11	128
+t12	29
+t13	23
+t21	3
+t22	16
+t23	21
 
 Results for priority assignment: [6, 5, 2, 1, 4, 3]
-Path	STD	TC
-t11	270	128
-t12	204	29
-t13	58	23
-t21	3	3
-t22	146	21
-t23	128	12
+Path	TC
+t11	128
+t12	29
+t13	23
+t21	3
+t22	21
+t23	12
 
 Results for priority assignment: [6, 5, 2, 3, 1, 4]
-Path	STD	TC
-t11	996	132
-t12	773	29
-t13	276	29
-t21	542	16
-t22	49	9
-t23	591	21
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	29
+t13	29
+t21	16
+t22	9
+t23	21
 
 Results for priority assignment: [6, 5, 2, 3, 4, 1]
-Path	STD	TC
-t11	0	128
-t12	0	29
-t13	0	25
-t21	0	12
-t22	0	21
-t23	0	5
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	128
+t12	29
+t13	25
+t21	12
+t22	21
+t23	5
 
 Results for priority assignment: [6, 5, 2, 4, 1, 3]
-Path	STD	TC
-t11	0	132
-t12	0	29
-t13	0	29
-t21	0	21
-t22	0	9
-t23	0	18
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	29
+t13	29
+t21	21
+t22	9
+t23	18
 
 Results for priority assignment: [6, 5, 2, 4, 3, 1]
-Path	STD	TC
-t11	0	132
-t12	0	29
-t13	0	25
-t21	0	21
-t22	0	18
-t23	0	5
+Path	TC
+t11	132
+t12	29
+t13	25
+t21	21
+t22	18
+t23	5
 
 Results for priority assignment: [6, 5, 3, 1, 2, 4]
-Path	STD	TC
-t11	229	128
-t12	156	29
-t13	61	32
-t21	3	3
-t22	12	12
-t23	129	21
+Path	TC
+t11	128
+t12	29
+t13	32
+t21	3
+t22	12
+t23	21
 
 Results for priority assignment: [6, 5, 3, 1, 4, 2]
-Path	STD	TC
-t11	270	128
-t12	204	29
-t13	73	28
-t21	3	3
-t22	146	21
-t23	9	8
+Path	TC
+t11	128
+t12	29
+t13	28
+t21	3
+t22	21
+t23	8
 
 Results for priority assignment: [6, 5, 3, 2, 1, 4]
-Path	STD	TC
-t11	233	128
-t12	156	29
-t13	68	32
-t21	12	12
-t22	9	9
-t23	129	21
+Path	TC
+t11	128
+t12	29
+t13	32
+t21	12
+t22	9
+t23	21
 
 Results for priority assignment: [6, 5, 3, 2, 4, 1]
-Path	STD	TC
-t11	301	128
-t12	222	29
-t13	77	28
-t21	13	8
-t22	163	21
-t23	6	5
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	128
+t12	29
+t13	28
+t21	8
+t22	21
+t23	5
 
 Results for priority assignment: [6, 5, 3, 4, 1, 2]
-Path	STD	TC
-t11	0	132
-t12	0	29
-t13	0	34
-t21	0	21
-t22	0	9
-t23	0	14
-'max_iterations for t11 reached, tasks (likely) not schedulable!'
+Path	TC
+t11	132
+t12	29
+t13	34
+t21	21
+t22	9
+t23	14
 
 Results for priority assignment: [6, 5, 3, 4, 2, 1]
-Path	STD	TC
-t11	0	132
-t12	0	29
-t13	0	34
-t21	0	21
-t22	0	14
-t23	0	5
+Path	TC
+t11	132
+t12	29
+t13	34
+t21	21
+t22	14
+t23	5
 
 Results for priority assignment: [6, 5, 4, 1, 2, 3]
-Path	STD	TC
-t11	229	128
-t12	156	29
-t13	78	37
-t21	3	3
-t22	12	12
-t23	17	17
+Path	TC
+t11	128
+t12	29
+t13	37
+t21	3
+t22	12
+t23	17
 
 Results for priority assignment: [6, 5, 4, 1, 3, 2]
-Path	STD	TC
-t11	229	128
-t12	156	29
-t13	78	37
-t21	3	3
-t22	17	17
-t23	8	8
+Path	TC
+t11	128
+t12	29
+t13	37
+t21	3
+t22	17
+t23	8
 
 Results for priority assignment: [6, 5, 4, 2, 1, 3]
-Path	STD	TC
-t11	233	128
-t12	156	29
-t13	78	37
-t21	12	12
-t22	9	9
-t23	17	17
+Path	TC
+t11	128
+t12	29
+t13	37
+t21	12
+t22	9
+t23	17
 
 Results for priority assignment: [6, 5, 4, 2, 3, 1]
-Path	STD	TC
-t11	233	128
-t12	156	29
-t13	78	37
-t21	8	8
-t22	17	17
-t23	5	5
+Path	TC
+t11	128
+t12	29
+t13	37
+t21	8
+t22	17
+t23	5
 
 Results for priority assignment: [6, 5, 4, 3, 1, 2]
-Path	STD	TC
-t11	233	132
-t12	156	29
-t13	78	37
-t21	17	17
-t22	9	9
-t23	14	14
+Path	TC
+t11	132
+t12	29
+t13	37
+t21	17
+t22	9
+t23	14
 
 Results for priority assignment: [6, 5, 4, 3, 2, 1]
-Path	STD	TC
-t11	233	132
-t12	156	29
-t13	78	37
-t21	17	17
-t22	14	14
-t23	5	5
+Path	TC
+t11	132
+t12	29
+t13	37
+t21	17
+t22	14
+t23	5

@@ -21,18 +21,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-invoked via: run_analyses.py --input models/chains_async_3_3.graphml --print --run_new --candidate_search --output results/chain_async_3_3.csv --build_chains
+invoked via: run_analyses.py --input models/chains_async_3_3.graphml --print --run_new --output results/chain_async_3_3.csv --build_chains --max_iterations 200
 
 add_mutex_blocking   :                           False 
 all_priorities       :                           False 
 build_chains         :                            True 
 calculate_difference :                           False 
-candidate_search     :                            True 
+candidate_search     :                           False 
 check_violations     :                           False 
 debug                :                           False 
 e2e_improved         :                           False 
 input                : models/chains_async_3_3.graphml 
-max_iterations       :                            1000 
+max_iterations       :                             200 
 max_wcrt             :                             inf 
 nocaching            :                           False 
 output               :     results/chain_async_3_3.csv 
