@@ -25,7 +25,7 @@ python run_analyses.py --input models/chains_3_3.graphml --print $RUN_CPA $RUN_S
 python run_analyses.py --input models/chains_async_3_3.graphml --print $RUN_CPA --run_new $CANDIDATE_SEARCH --output $RESULT_DIR/chain_async_3_3-single.csv --max_iterations 200 > $RESULT_DIR/chain_async_3_3-single.log
 
 # asynchronous scenario (as chains)
-python run_analyses.py --input models/chains_async_3_3.graphml --print $RUN_CPA $RUN_ASYNC --run_new $CANDIDATE_SEARCH --output $RESULT_DIR/chain_async_3_3.csv --build_chains --max_iterations 200> $RESULT_DIR/chain_async_3_3.log
+python run_analyses.py --input models/chains_async_3_3.graphml --print $RUN_CPA $RUN_ASYNC --run_new $CANDIDATE_SEARCH --output $RESULT_DIR/chain_async_3_3.csv --build_chains --max_iterations 200 > $RESULT_DIR/chain_async_3_3.log
 
 # run RTAS use case (no inheritance)
 python run_analyses.py --input models/park_assist.graphml --print $RUN_CPA $RUN_SYNC $RUN_SYNCREF --run_new $CANDIDATE_SEARCH --output $RESULT_DIR/park_assist.csv --build_chains --max_iterations 200 > $RESULT_DIR/park_assist.log
