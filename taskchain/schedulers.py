@@ -819,7 +819,6 @@ class SPPScheduler(analysis.Scheduler):
                         task_ec_bounds[succ], if_zero=TaskChainBusyWindow.StaticEventCountBound(1), recursive_refresh=False))
 
 
-
         # build prio->task map
         prio_map = dict()
         for t in resource.model.tasks:
@@ -833,14 +832,63 @@ class SPPScheduler(analysis.Scheduler):
         for t in taskchain.tasks:
             tc_contexts.update(resource.model.allocations[t].keys())
 
-        # extend to set of potentially blocked execution contexts
-        cur_len = len(tc_contexts)
-        while cur_len < len(tc_contexts):
-            for t in resource.model.tasks:
+        # build set of higher priority tasks
+        hp_tasks = set()
+        for t in resource.model.tasks - set(taskchain.tasks):
+            for t2 in taskchain.tasks:
+                if self.priority_cmp(t.scheduling_parameter, t2.scheduling_parameter):
+                    hp_tasks.add(t)
+                    break
+
+        # build set of lp tasks
+        lp_tasks = set()
+        reverse = self.priority_cmp(1, 2)
+        for p in sorted(prio_map.keys(), reverse=reverse):
+            # can priority interfere?
+            interferes = False
+            for t in taskchain.tasks:
+                if self.priority_cmp(p, t.scheduling_parameter):
+                    interferes = True
+                    break
+
+            if interferes:
+                break
+
+            lp_tasks.update(prio_map[p])
+
+        # build set of possible blockers
+        # and extend to set of potentially blocked execution contexts to account for indirect blocking
+        possible_lp_blockers = set()
+        cur_len = -1
+        while cur_len < len(possible_lp_blockers):
+            cur_len = len(possible_lp_blockers)
+
+            for t in lp_tasks - possible_lp_blockers:
                 if t not in taskchain.tasks:
-                    for ctx in resource.model.allocations[t]:
-                        if ctx in tc_contexts:
-                            tc_contexts.update(resource.model.allocations[t].keys())
+
+                    blocking = False
+                    for e in tc_contexts:
+                        if e in resource.model.allocations[t]:
+                            blocking = True
+                            break
+
+                    if not blocking:
+                        for hp in hp_tasks:
+                            if t not in resource.model.predecessors(hp, recursive=True) and t not in resource.model.successors(hp, recursive=True):
+                                if len(resource.model.allocations[t].keys() & resource.model.allocations[hp].keys()) > 0:
+                                    blocking = True
+                                    break
+
+                    if not blocking:
+                        for lp in possible_lp_blockers:
+                            if t not in resource.model.predecessors(lp, recursive=True) and t not in resource.model.successors(lp, recursive=True):
+                                if len(resource.model.allocations[t].keys() & resource.model.allocations[lp].keys()) > 0:
+                                    blocking = True
+                                    break
+
+                    if blocking:
+                        # add blocker
+                        possible_lp_blockers.add(t)
 
         # exclude lower priority tasks if they cannot block
         # (a scheduling context cannot execute if its on a lower priority and not blocking)
@@ -848,7 +896,6 @@ class SPPScheduler(analysis.Scheduler):
         #       otherwise its scheduling context will never be scheduled
 
         lp_bounds = set()
-        possible_lp_blockers = set()
         reverse = self.priority_cmp(1, 2)
         for p in sorted(prio_map.keys(), reverse=reverse):
             # can priority interfere?
@@ -862,47 +909,24 @@ class SPPScheduler(analysis.Scheduler):
                 break
 
             for t in prio_map[p]:
-                assert(t not in taskchain.tasks) # t should never be in the task chain
-                if t not in taskchain.tasks:
-                    # does t share an execution context with our taskchain?
-                    blocking = False
-                    for e in tc_contexts:
-                        if e in resource.model.allocations[t]:
-                            blocking = True
-
-                    if not blocking:
-                        if len(lp_bounds) == 0:
-                            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(0))
-                        else:
-                            # if sum of lower priority activations is zero, this is also zero
-                            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.BinaryEventCountBound(\
-                                    TaskChainBusyWindow.CombinedEventCountBound(\
-                                        bounds=lp_bounds.copy(), func=sum, recursive_refresh=False),
-                                    if_zero=TaskChainBusyWindow.StaticEventCountBound(0)))
+                if t not in possible_lp_blockers:
+                    if len(lp_bounds) == 0:
+                        task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(0))
                     else:
-                        # remember blockers for later use
-                        possible_lp_blockers.add(t)
+                        # if sum of lower priority activations is zero, this is also zero
+                        task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.BinaryEventCountBound(\
+                                TaskChainBusyWindow.CombinedEventCountBound(\
+                                    bounds=lp_bounds.copy(), func=sum, recursive_refresh=False),
+                                if_zero=TaskChainBusyWindow.StaticEventCountBound(0)))
 
             # we assume same priority tasks can interfere with each other
             # but only lower priority tasks are relevant for the BinaryEventCountBound used above
             lp_bounds.update([task_ec_bounds[t] for t in prio_map[p]])
 
-#        # we limit ec for possible_lp_blockers to 1
-#        for t in possible_lp_blockers:
-#            task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(1))
-
-        # FIXME what if we have a higher-priority interferer that allocates one of our contexts multiple times so that
-        #       the lower-priority predecessors must execute multiple times as well
-        # idea:
-        #   - define blocking segment and its priority
-        #   - if segment is lower-priority, bound = 1
-        #   - if segment is higher-priority
-        #      - bounded by number of releases of this context within our chain
-
-        # find blockers and restrict blocking to one execution (of a blocking segment)
-        #   requires candidate search (blockers are mutually exclusive)
+        # FIXME candidate search between mutual exclusive blockers
         #   TODO consider mutual exclusive (circular) segments
         if self.candidates is not None:
+            raise Exception("not imlemented")
             for ctx in tc_contexts:
                 # for each execution context, we only need to account for one blocker
                 alternatives = CandidateSearch.AlternativeBounds()
