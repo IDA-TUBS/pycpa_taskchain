@@ -51,33 +51,33 @@ verbose              :                                 False
 
 
 
+Warning: no task_results for task P::1
+Warning: no task_results for task P-TC::1
+Warning: no task_results for task P-O1OR::1
+Warning: no task_results for task P-TC::2
 Warning: no task_results for task LA::1
 Warning: no task_results for task LA-O1OR::1
 Warning: no task_results for task LA::2
 Warning: no task_results for task LA-OM::1
 Warning: no task_results for task LA::3
 Warning: no task_results for task LA-S::1
-Warning: no task_results for task P::1
-Warning: no task_results for task P-TC::1
-Warning: no task_results for task P-O1OR::1
-Warning: no task_results for task P-TC::2
 
 Results for priority assignment: [1, 2]
 Path	TC
-LA::4	76
 P::2	36
+LA::4	76
+Warning: no task_results for task P::1
+Warning: no task_results for task P-TC::1
+Warning: no task_results for task P-O1OR::1
+Warning: no task_results for task P-TC::2
 Warning: no task_results for task LA::1
 Warning: no task_results for task LA-O1OR::1
 Warning: no task_results for task LA::2
 Warning: no task_results for task LA-OM::1
 Warning: no task_results for task LA::3
 Warning: no task_results for task LA-S::1
-Warning: no task_results for task P::1
-Warning: no task_results for task P-TC::1
-Warning: no task_results for task P-O1OR::1
-Warning: no task_results for task P-TC::2
 
 Results for priority assignment: [2, 1]
 Path	TC
-LA::4	60
 P::2	76
+LA::4	60

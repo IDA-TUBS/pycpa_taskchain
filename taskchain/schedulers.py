@@ -857,7 +857,6 @@ class SPPScheduler(analysis.Scheduler):
             lp_tasks.update(prio_map[p])
 
         # build set of possible blockers
-        # and extend to set of potentially blocked execution contexts to account for indirect blocking
         possible_lp_blockers = set()
         cur_len = -1
         while cur_len < len(possible_lp_blockers):
@@ -881,7 +880,7 @@ class SPPScheduler(analysis.Scheduler):
 
                     if not blocking:
                         for lp in possible_lp_blockers:
-                            if t not in resource.model.predecessors(lp, recursive=True) and t not in resource.model.successors(lp, recursive=True):
+                            if t not in resource.model.predecessors(lp, only_strong=True, recursive=True) and t not in resource.model.successors(lp, only_strong=True, recursive=True):
                                 if len(resource.model.allocations[t].keys() & resource.model.allocations[lp].keys()) > 0:
                                     blocking = True
                                     break

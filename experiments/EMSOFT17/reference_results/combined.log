@@ -76,7 +76,7 @@ Task t13:
 
 Task t23:
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t13:eta*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1*10=10, t23:1(eta)*10=10, t31:0*10=0, t32:1*10=10, t33:0*10=0
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1*10=10, t23:1*10=10, t31:0*10=0, t32:1*10=10, t33:0*10=0
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t21
@@ -98,11 +98,11 @@ The following WCRT results are differing:
 
 Task t13:
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10
-[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
 
 Task t33:
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t13:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1*10=10, t32:1(eta)*10=10, t33:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1*10=10, t32:1*10=10, t33:1*10=10
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t21
@@ -124,11 +124,11 @@ The following WCRT results are differing:
 
 Task t13:
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10, t23:eta*WCET:1*10=10
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:0*10=0, t32:1(eta)*10=10, t33:0*10=0
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:0*10=0, t32:1*10=10, t33:0*10=0
 
 Task t23:
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1*10=10, t31:0*10=0, t32:1(eta)*10=10, t33:0*10=0
+[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1*10=10, t31:0*10=0, t32:1(eta)*10=10, t33:0*10=0
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t21
@@ -150,11 +150,11 @@ The following WCRT results are differing:
 
 Task t13:
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t11:eta*WCET:1*10=10, t12:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10, t33:eta*WCET:1*10=10
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
+[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
 
 Task t33:
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
-[TC]	wcrt=70	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1(eta)*10=10, t32:1*10=10, t33:1*10=10
+[TC]	wcrt=70	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:0*10=0, t22:1*10=10, t23:0*10=0, t31:1*10=10, t32:1(eta)*10=10, t33:1*10=10
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t21
@@ -176,11 +176,11 @@ The following WCRT results are differing:
 
 Task t23:
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10
-[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1(eta)*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
+[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1*10=10, t23:1*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
 
 Task t33:
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10, t23:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
-[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
+[TC]	wcrt=90	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1*10=10, t32:1*10=10, t33:1*10=10
 Warning: no task_results for task t11
 Warning: no task_results for task t12
 Warning: no task_results for task t21
@@ -202,8 +202,8 @@ The following WCRT results are differing:
 
 Task t23:
 [STD]	wcrt=60	b_wcrt=q*WCET:1*10=10, t21:eta*WCET:1*10=10, t22:eta*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10, t33:eta*WCET:1*10=10
-[TC]	wcrt=90	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
+[TC]	wcrt=90	b_wcrt=t11:1(eta)*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1*10=10, t22:1*10=10, t23:1*10=10, t31:1(eta)*10=10, t32:1(eta)*10=10, t33:1(eta)*10=10
 
 Task t33:
 [STD]	wcrt=30	b_wcrt=q*WCET:1*10=10, t31:eta*WCET:1*10=10, t32:eta*WCET:1*10=10
-[TC]	wcrt=90	b_wcrt=t11:1*10=10, t12:1(eta)*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1*10=10, t32:1*10=10, t33:1*10=10
+[TC]	wcrt=90	b_wcrt=t11:1*10=10, t12:1*10=10, t13:1(eta)*10=10, t21:1(eta)*10=10, t22:1(eta)*10=10, t23:1(eta)*10=10, t31:1*10=10, t32:1*10=10, t33:1*10=10

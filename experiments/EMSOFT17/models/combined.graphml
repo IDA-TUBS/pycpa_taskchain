@@ -29,7 +29,7 @@
 </key>
 <graph edgedefault="directed">
 	<node id="t11">
-		<data key="period">100000</data>
+		<data key="period">1000</data>
 		<data key="jitter">0</data>
 		<data key="wcet">10</data>
 		<data key="bcet">5</data>
