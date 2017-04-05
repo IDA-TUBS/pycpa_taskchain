@@ -123,9 +123,11 @@ class Generator (object):
 
                 for segment in segments:
                     # TODO split segments into subsegments of length nesting_depth*2+1
-                    assert(len(segment) > (self.nesting_depth*2+1) and len(segment) % 2 == 1)
+                    assert(len(segment) >= (self.nesting_depth*2+1) and len(segment) % 2 == 1)
 
                     nested_contexts = list()
+                    free_next = None
+                    second = False
 
                     remaining = len(segment)
                     for t in segment:
@@ -134,10 +136,15 @@ class Generator (object):
                         if remaining <= len(nested_contexts):
                             # release previously allocated context
                             release = True
-                        elif len(nested_contexts) > 0:
+                        elif len(nested_contexts) > 0 and remaining % 2 == 1 and not second:
                             release = (random.random_integers(0, 1) == 1)
                         else:
                             release = False
+
+                        if second:
+                            second = False
+
+                        free_this = free_next
 
                         if release:
                             ctx = nested_contexts.pop()
@@ -147,7 +154,7 @@ class Generator (object):
                                 free_contexts.append(ctx)
                         else:
 
-                            if len(free_contexts) == 0:
+                            if len(free_contexts) <= 1:
                                 choose_free = False
                             elif len(free_contexts) < len(paths):
                                 # randomly choose new context or existing one
@@ -163,22 +170,24 @@ class Generator (object):
                                 ctx = m.add_execution_context(tc_model.ExecutionContext("E"+str(ei)))
                                 ei += 1
                         
-                            if len(nested_contexts) < self.nesting_depth:
+                            if remaining > 2 and len(nested_contexts) < self.nesting_depth:
                                 nested_contexts.append(ctx)
                                 nested = True
+                                second = True
                             else:
                                 nested = False
 
                             m.assign_execution_context(t, ctx, blocking=nested)
                             if not nested and len(m.allocating_tasks(ctx, only_released=True)) <= self.sharing_level:
-                                free_contexts.append(ctx)
+                                free_next = ctx
+
+                        if free_this is not None:
+                            free_contexts.append(free_this)
 
                         for ctx in nested_contexts:
                             m.assign_execution_context(t, ctx, blocking=True)
 
-        for t in m.tasks:
-            if t not in m.allocations:
-                print(t)
+                        remaining -= 1
 
         # now we need to add scheduling contexts
         if self.inherit:
@@ -186,7 +195,7 @@ class Generator (object):
             for t in m.tasks:
                 if t not in m.mappings:
                     # create new scheduling context and map all strong successors/predecessors
-                    ctx = tc_model.SchedulingContext("S"+str(si))
+                    ctx = m.add_scheduling_context(tc_model.SchedulingContext("S"+str(si)))
                     si += 1
                     m.assign_scheduling_context(t, ctx)
                     for pred in m.predecessors(t, only_strong=True, recursive=True):
@@ -208,23 +217,25 @@ class Generator (object):
                             if len(preds) == 0:
                                 create_new = True
                                 break
-                            if e not in m.allocations[pred] or not m.allocations[pred]:
-                                # we are the only task in the segment -> create new context
-                                create_new = True
-                                break
                             else:
-                                # find predecessor with the same execution contexts
-                                for pred in m.predecessors(t, recursive=True, only_strong=True):
-                                    e1 = m.allocations[pred].keys()
-                                    e2 = m.allocations[t].keys()
-                                    if len(e1 & e2) == len(e1):
-                                        if pred in m.mappings:
-                                            ctx = m.mappings[pred]
-                                        else:
-                                            assign_to.add(pred)
-
-                                if ctx is None:
+                                pred = preds.pop()
+                                if e not in m.allocations[pred] or not m.allocations[pred]:
+                                    # we are the only task in the segment -> create new context
                                     create_new = True
+                                    break
+                                else:
+                                    # find predecessor with the same execution contexts
+                                    for pred in m.predecessors(t, recursive=True, only_strong=True):
+                                        e1 = m.allocations[pred].keys()
+                                        e2 = m.allocations[t].keys()
+                                        if len(e1 & e2) == len(e1):
+                                            if pred in m.mappings:
+                                                ctx = m.mappings[pred]
+                                            else:
+                                                assign_to.add(pred)
+
+                                    if ctx is None:
+                                        create_new = True
 
                     if create_new:
                         ctx = m.add_scheduling_context(tc_model.SchedulingContext("S"+str(si)))
