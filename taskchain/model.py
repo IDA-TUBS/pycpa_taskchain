@@ -137,11 +137,14 @@ class ResourceModel (object):
 
         return tasks
 
-    def allocating_tasks(self, e):
+    def allocating_tasks(self, e, only_released=False):
         tasks = set()
         for t in self.tasks:
-            if e in self.allocations[t]:
-                tasks.add(t)
+            if t in self.allocations and e in self.allocations[t]:
+                if not only_released:
+                    tasks.add(t)
+                elif self.allocations[t][e] is False:
+                    tasks.add(t)
 
         return tasks
 
