@@ -22,6 +22,8 @@ import logging
 import copy
 import warnings
 
+import csv
+
 from numpy import random
 
 from pycpa import options
@@ -256,20 +258,20 @@ class Generator (object):
 
     def random_wcet(self, m, load, rel_jitter):
         # split load equally to chains
-        paths = list()
+        trees = list()
         for t in m.tasks:
             if len(m.predecessors(t)) == 0:
-                paths.extend(m.paths(t))
+                trees.append([t] + list(m.successors(t, recursive=True)))
 
-        path_load = load / len(paths)
-        for path in paths:
-            period = path[0].in_event_model.P
+        path_load = float(load) / float(len(trees))
+        for path in trees:
+            period = float(path[0].in_event_model.delta_min(1000)) / float(1000)
             time = period * path_load
             actual_time = 0
             # equally distribute wcets
             for t in path:
                 t.wcet = math.floor(time/len(path))
-                t.bcet = math.floor(t.wcet*rel_jitter)
+                t.bcet = max(1, math.floor(t.wcet*rel_jitter))
                 actual_time += t.wcet
 
             path[0].wcet = math.floor(path[0].wcet + time - actual_time)
@@ -277,9 +279,61 @@ class Generator (object):
     def random_priorities(self, m):
         # just throw in priorities uniformly at random
         prios = random.permutation(len(m.sched_ctxs))
-        for i in range(m.sched_ctxs):
+        for i in range(len(m.sched_ctxs)):
             m.sched_ctxs[i].priority = prios[i]
             m.update_scheduling_parameters(m.sched_ctxs[i])
+
+    def calculate_load(self, m):
+        trees = list()
+        for t in m.tasks:
+            if len(m.predecessors(t)) == 0:
+                trees.append([t] + list(m.successors(t, recursive=True)))
+
+        load = 0.0
+        for tree in trees:
+            em = tree[0].in_event_model
+            cet = 0.0
+            for t in tree:
+                cet += float(t.wcet)
+
+            load += em.load(1000) * cet
+
+        return math.ceil(load * 100)
+
+    def write_header(self, filename, resume=False):
+        self.output = filename
+
+        header = ["Length", "Number", "Nesting", "Sharing", "Branching", "Load", "Inherit", "Schedulable", "MaxRecur"]
+
+        if resume:
+            # read file header
+            with open(filename, 'r') as csvfile:
+                reader = csv.DictReader(csvfile, delimiter='\t')
+
+                # assert that headers are present and in correct order
+                assert(len(reader.fieldnames) == len(header))
+                for i in range(len(reader.fieldnames)):
+                    assert(reader.fieldnames[i] == header[i])
+        else:
+            with open(filename, "w") as csvfile:
+                writer = csv.writer(csvfile, delimiter='\t')
+                writer.writerow(header)
+
+    def write_result(self, m, result, max_recur):
+        with open(self.output, "a") as csvfile:
+            writer = csv.writer(csvfile, delimiter='\t')
+
+            row = [self.length,
+                    self.number,
+                    self.nesting_depth,
+                    self.sharing_level,
+                    self.branching_level,
+                    self.calculate_load(m),
+                    self.inherit,
+                    result,
+                    max_recur]
+
+            writer.writerow(row)
 
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
