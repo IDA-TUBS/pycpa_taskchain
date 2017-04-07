@@ -734,13 +734,14 @@ class SPPScheduler(analysis.Scheduler):
     Computes busy window of an entire task chain.
     """
 
-    def __init__(self, priority_cmp=prio_low_wins_equal_fifo, candidate_search=False):
+    def __init__(self, priority_cmp=prio_low_wins_equal_fifo, candidate_search=False, helping=False):
         analysis.Scheduler.__init__(self)
 
         # # priority ordering
         self.priority_cmp = priority_cmp
 
         self.perform_candidate_search = candidate_search
+        self.helping = helping
         self.candidates = None
 
     def _create_busywindow(self, taskchain, q):
@@ -909,7 +910,8 @@ class SPPScheduler(analysis.Scheduler):
 
             for t in prio_map[p]:
                 if t not in possible_lp_blockers:
-                    if len(lp_bounds) == 0:
+                    # TODO if we apply helping/donation, we can always allpy the StaticEventCount(0)
+                    if len(lp_bounds) == 0 or self.helping:
                         task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(0))
                     else:
                         # if sum of lower priority activations is zero, this is also zero
