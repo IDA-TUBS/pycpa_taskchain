@@ -875,14 +875,14 @@ class SPPScheduler(analysis.Scheduler):
                     if not blocking:
                         for hp in hp_tasks:
                             if t not in resource.model.predecessors(hp, recursive=True) and t not in resource.model.successors(hp, recursive=True):
-                                if len(resource.model.allocations[t].keys() & resource.model.allocations[hp].keys()) > 0:
+                                if len(set(resource.model.allocations[t].keys()) & set(resource.model.allocations[hp].keys())) > 0:
                                     blocking = True
                                     break
 
                     if not blocking:
                         for lp in possible_lp_blockers:
                             if t not in resource.model.predecessors(lp, only_strong=True, recursive=True) and t not in resource.model.successors(lp, only_strong=True, recursive=True):
-                                if len(resource.model.allocations[t].keys() & resource.model.allocations[lp].keys()) > 0:
+                                if len(set(resource.model.allocations[t].keys()) & set(resource.model.allocations[lp].keys())) > 0:
                                     blocking = True
                                     break
 

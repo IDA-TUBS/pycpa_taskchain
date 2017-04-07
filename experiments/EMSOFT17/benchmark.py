@@ -27,6 +27,7 @@ options.parser.add_argument('--output', type=str, required=True,
         help="output file.")
 options.parser.add_argument('--nassign', type=int, default=100,
         help="number of random priority assignment per setup")
+options.parser.add_argument('--inherit', action='store_true')
 
 class Experiment(object):
     def __init__(self, name, resource_model, scheduler):
@@ -55,7 +56,7 @@ class Experiment(object):
             return (False, True)
 
 def analyze_with_increasing_load(g, m):
-    for load in [0.6, 0.8, 0.9, 0.95, 0.98, 0.99, 1.0]:
+    for load in [0.8, 0.9, 0.95, 0.98, 0.99, 1.0]:
         print(load)
         # set WCETs randomly such that they generate the desired load
         g.random_wcet(m, load=load, rel_jitter=0.1)
@@ -75,12 +76,12 @@ if __name__ == "__main__":
     sys.setrecursionlimit(150)
 
     resume = False
-    for number in range(2, 21):
-        for length in range(3, 19, 2):
-            for nesting_depth in range(0, math.floor(length/2)):
+    for length in [13, 11, 9, 7, 5, 3]:
+        for number in [2, 3, 5, 10, 20]:
+            for nesting_depth in range(0, min(3, 1+int(math.floor(length/2)))):
                 for sharing_level in range(0, 4):
                     g = benchmark.Generator(length=length, number=number, nesting_depth=nesting_depth,
-                            sharing_level=sharing_level, branching_level=1)
+                            sharing_level=sharing_level, branching_level=1, inherit=options.get_opt('inherit'))
                     m = g.random_model()
                     g.random_activation(m, min_period=1000, max_period=10000, rel_jitter=0.1)
                     assert(m.check())

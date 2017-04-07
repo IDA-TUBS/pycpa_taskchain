@@ -14,7 +14,7 @@ Description
 
 from __future__ import absolute_import
 from __future__ import print_function
-from __future__ import unicode_literals
+#from __future__ import unicode_literals
 from __future__ import division
 
 import math
@@ -228,8 +228,8 @@ class Generator (object):
                                 else:
                                     # find predecessor with the same execution contexts
                                     for pred in m.predecessors(t, recursive=True, only_strong=True):
-                                        e1 = m.allocations[pred].keys()
-                                        e2 = m.allocations[t].keys()
+                                        e1 = set(m.allocations[pred].keys())
+                                        e2 = set(m.allocations[t].keys())
                                         if len(e1 & e2) == len(e1):
                                             if pred in m.mappings:
                                                 ctx = m.mappings[pred]
@@ -253,8 +253,8 @@ class Generator (object):
     def random_activation(self, m, min_period, max_period, rel_jitter, period_quantum=10):
         for t in m.tasks:
             if len(m.predecessors(t)) == 0:
-                P = math.floor(random.random_integers(min_period/period_quantum, max_period/period_quantum) * period_quantum)
-                t.in_event_model = model.PJdEventModel(P=P, J=math.floor(P*rel_jitter))
+                P = int(math.floor(random.random_integers(min_period/period_quantum, max_period/period_quantum) * period_quantum))
+                t.in_event_model = model.PJdEventModel(P=P, J=int(math.floor(P*rel_jitter)))
 
     def random_wcet(self, m, load, rel_jitter):
         # split load equally to chains
@@ -298,7 +298,7 @@ class Generator (object):
 
             load += em.load(1000) * cet
 
-        return math.ceil(load * 100)
+        return int(math.ceil(load * 100))
 
     def write_header(self, filename, resume=False):
         self.output = filename

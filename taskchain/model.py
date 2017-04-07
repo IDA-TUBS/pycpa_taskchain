@@ -234,7 +234,7 @@ class ResourceModel (object):
         else:
             for t in successors:
                 for sub_path in self.paths(t):
-                    path = cur_path.copy()
+                    path = copy.copy(cur_path)
                     path += sub_path
                     paths.append(path)
 
