@@ -253,8 +253,8 @@ class Generator (object):
     def random_activation(self, m, min_period, max_period, rel_jitter, period_quantum=10):
         for t in m.tasks:
             if len(m.predecessors(t)) == 0:
-                P = math.floor(random.random_integers(min_period/period_quantum, max_period/period_quantum) * period_quantum)
-                t.in_event_model = model.PJdEventModel(P=P, J=math.floor(P*rel_jitter))
+                P = int(math.floor(random.random_integers(min_period/period_quantum, max_period/period_quantum) * period_quantum))
+                t.in_event_model = model.PJdEventModel(P=P, J=int(math.floor(P*rel_jitter)))
 
     def random_wcet(self, m, load, rel_jitter):
         # split load equally to chains
