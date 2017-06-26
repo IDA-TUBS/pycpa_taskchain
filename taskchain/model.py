@@ -282,7 +282,7 @@ class ResourceModel (object):
                    "task %s has strong and weak predecessors" % t.name
 
             # if task has no predecessor it must have an input event model
-            if strong_pred + weak_pred == 0:
+            if strong_pred + weak_pred == 0 and t.prev_task is None:
                 assert(t.in_event_model is not None)
 
         ###########################
@@ -316,7 +316,28 @@ class ResourceModel (object):
 
         return True
 
-    def write_dot(self, filename):
+    @staticmethod
+    def write_dot(models, filename):
+        convert_label = lambda label: label.replace('-', '_').replace(':', '')
+
+        with open(filename, 'w+') as dotfile:
+            dotfile.write("digraph g {\n")
+
+            i = 0
+            for m in models:
+                m._write_dot(dotfile, "cluster%d" % i)
+                i += 1
+
+            # add inter-resource task links
+            for m in models:
+                for t in m.tasks:
+                    if t.prev_task is not None:
+                        if t.prev_task.resname != t.resname:
+                            dotfile.write("  %s -> %s" % (convert_label(t.prev_task.name), convert_label(t.name)))
+
+            dotfile.write("}")
+
+    def _write_dot(self, dotfile, name="cluster0"):
 
         convert_label = lambda label: label.replace('-', '_').replace(':', '')
 
@@ -331,55 +352,55 @@ class ResourceModel (object):
         task_edge_styles = { "strong" : "",
                              "weak"   : "style=dashed, arrowhead=open" }
     
-        with open(filename, 'w+') as dotfile:
-            dotfile.write("digraph %s {\n" % convert_label(self.name))
+        dotfile.write("subgraph %s {\n" % name)
+        dotfile.write("  label=\"%s\";" % convert_label(self.name))
 
-            # add task nodes
-            for t in self.tasks:
-                dotfile.write("  %s [%s];\n" % (convert_label(t.name), styles['task']))
+        # add task nodes
+        for t in self.tasks:
+            dotfile.write("  %s [%s];\n" % (convert_label(t.name), styles['task']))
 
-            # add exec context nodes
-            for e in self.exec_ctxs:
-                dotfile.write("  %s [%s];\n" % (convert_label(e.name), styles['exec']))
+        # add exec context nodes
+        for e in self.exec_ctxs:
+            dotfile.write("  %s [%s];\n" % (convert_label(e.name), styles['exec']))
 
-            # add sched context nodes
-            for s in self.sched_ctxs:
-                dotfile.write("  %s [%s];\n" % (convert_label(s.name), styles['sched']))
+        # add sched context nodes
+        for s in self.sched_ctxs:
+            dotfile.write("  %s [%s];\n" % (convert_label(s.name), styles['sched']))
 
-            # add task links
-            for src in self.tasklinks.keys():
-                for dst in self.tasklinks[src]:
-                    if self.is_strong_precedence(src, dst):
-                        style = task_edge_styles["strong"]
-                    else:
-                        style = task_edge_styles["weak"]
+        # add task links
+        for src in self.tasklinks.keys():
+            for dst in self.tasklinks[src]:
+                if self.is_strong_precedence(src, dst):
+                    style = task_edge_styles["strong"]
+                else:
+                    style = task_edge_styles["weak"]
 
-                    dotfile.write("  %s -> %s [%s];\n" % (convert_label(src.name),
-                        convert_label(dst.name),
-                        style))
+                dotfile.write("  %s -> %s [%s];\n" % (convert_label(src.name),
+                    convert_label(dst.name),
+                    style))
 
-            # add exec context allocations
-            for t in self.allocations.keys():
-                for ctx, blocking in self.allocations[t].items():
+        # add exec context allocations
+        for t in self.allocations.keys():
+            for ctx, blocking in self.allocations[t].items():
+                target = convert_label(ctx.name)
+                if blocking:
+                    source = convert_label(t.name)
                     target = convert_label(ctx.name)
-                    if blocking:
-                        source = convert_label(t.name)
-                        target = convert_label(ctx.name)
-                    else:
-                        target = convert_label(t.name)
-                        source = convert_label(ctx.name)
+                else:
+                    target = convert_label(t.name)
+                    source = convert_label(ctx.name)
 
-                    dotfile.write("  %s -> %s [%s];\n" % (source,
-                        target,
-                        edge_styles["exec"]))
+                dotfile.write("  %s -> %s [%s];\n" % (source,
+                    target,
+                    edge_styles["exec"]))
 
-            # add sched context mappings
-            for t in self.mappings.keys():
-                dotfile.write("  %s -> %s [%s];\n" % (convert_label(t.name),
-                    convert_label(self.mappings[t].name),
-                    edge_styles["sched"]))
+        # add sched context mappings
+        for t in self.mappings.keys():
+            dotfile.write("  %s -> %s [%s];\n" % (convert_label(t.name),
+                convert_label(self.mappings[t].name),
+                edge_styles["sched"]))
 
-            dotfile.write("}")
+        dotfile.write("}")
 
 class TaskchainResource (model.Resource):
     """ A Resource provides service to tasks. This Resource can contain task chains """
