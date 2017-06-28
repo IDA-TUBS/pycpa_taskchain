@@ -743,6 +743,7 @@ class SPPScheduler(analysis.Scheduler):
         self.perform_candidate_search = candidate_search
         self.helping = helping
         self.candidates = None
+        self.independent_tasks = set()
 
     def _create_busywindow(self, taskchain, q):
         bw = TaskChainBusyWindow(taskchain, q)
@@ -778,7 +779,7 @@ class SPPScheduler(analysis.Scheduler):
             for t in c.tasks:
                 task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.ArrivalEventCountBound(c.tasks[0].in_event_model))
 
-        # a task can only interfere as once if there is a lower-priority or strong predecessor that cannot execute at all
+        # a task can only interfere once if there is a lower-priority or strong predecessor that cannot execute at all
         for t in resource.model.tasks:
             predecessors = resource.model.predecessors(t, only_strong=True, recursive=True)
             for pred in predecessors:
@@ -895,6 +896,8 @@ class SPPScheduler(analysis.Scheduler):
         # idea: a lower prio task can only interfere if an even lower prio task can interfere
         #       otherwise its scheduling context will never be scheduled
 
+        self.independent_tasks = lp_tasks - possible_lp_blockers
+
         lp_bounds = set()
         reverse = self.priority_cmp(1, 2)
         for p in sorted(prio_map.keys(), reverse=reverse):
@@ -910,10 +913,12 @@ class SPPScheduler(analysis.Scheduler):
 
             for t in prio_map[p]:
                 if t not in possible_lp_blockers:
-                    # TODO if we apply helping/donation, we can always allpy the StaticEventCount(0)
+                    # TODO if we apply helping/donation, we can always apply the StaticEventCount(0)
                     if len(lp_bounds) == 0 or self.helping:
+                        self.independent_tasks.add(t)
                         task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(0))
                     else:
+                        # TODO we might also add t to self.independent_tasks (are there corner cases)
                         # if sum of lower priority activations is zero, this is also zero
                         task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.BinaryEventCountBound(\
                                 TaskChainBusyWindow.CombinedEventCountBound(\
@@ -996,6 +1001,8 @@ class SPPScheduler(analysis.Scheduler):
         if details is not None:
             for t, wlb in self.task_wl_bounds.items():
                 details[str(t)] = str(wlb)
+
+            details['dependencies'] = "[%s]" % ','.join([t.name for t in taskchain.resource().model.tasks - self.independent_tasks])
 
         return w
 
