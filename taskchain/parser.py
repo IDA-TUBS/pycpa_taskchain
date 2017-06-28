@@ -79,6 +79,10 @@ class Graphml(GraphMLParser):
 
             elif n['type'] == 'sched':
                 objects[n] = models[res].add_scheduling_context(model.SchedulingContext(n['id']))
+
+                if 'scheduling_parameter' in n.attributes():
+                    objects[n].priority = n['scheduling_parameter']
+
             elif n['type'] == 'exec':
                 objects[n] = models[res].add_execution_context(model.ExecutionContext(n['id']))
             
