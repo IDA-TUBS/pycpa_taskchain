@@ -23,6 +23,7 @@ import copy
 import warnings
 
 from pycpa import model as pycpa_model
+from pycpa import util
 from . import model
 
 from pygraphml import Graph
@@ -32,8 +33,8 @@ logger = logging.getLogger(__name__)
 
 class Graphml(GraphMLParser):
 
-    def model_from_file(self, filename, resname=None):
-        models = self.models_from_file(filename)
+    def model_from_file(self, filename, resname=None, from_time_base=util.us, to_time_base=util.us):
+        models = self.models_from_file(filename, from_time_base, to_time_base)
 
         if resname is not None:
             return models[resname]
@@ -42,7 +43,7 @@ class Graphml(GraphMLParser):
         else:
             raise Exception("error")
 
-    def models_from_file(self, filename):
+    def models_from_file(self, filename, from_time_base=util.us, to_time_base=util.us):
         g = self.parse(filename)
 
         models = dict()
@@ -64,13 +65,15 @@ class Graphml(GraphMLParser):
 
                 objects[n] = models[res].add_task(pycpa_model.Task(n['id']))
                 if n['period'] != 0:
-                    objects[n].in_event_model = pycpa_model.PJdEventModel(P=n['period'], J=n['jitter'])
+                    objects[n].in_event_model = pycpa_model.PJdEventModel(
+                            P=util.time_to_time(n['period'], from_time_base, to_time_base),
+                            J=util.time_to_time(n['jitter'], from_time_base, to_time_base))
 
                 if n['wcet'] != 0:
-                    objects[n].wcet = n['wcet']
+                    objects[n].wcet = util.time_to_time(n['wcet'], from_time_base, to_time_base)
 
                 if n['bcet'] != 0:
-                    objects[n].bcet = n['bcet']
+                    objects[n].bcet = util.time_to_time(n['bcet'], from_time_base, to_time_base)
 
                 if 'scheduling_parameter' in n.attributes():
                     objects[n].scheduling_parameter = n['scheduling_parameter']
