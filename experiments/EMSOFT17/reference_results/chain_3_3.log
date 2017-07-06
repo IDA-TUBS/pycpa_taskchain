@@ -1,0 +1,6533 @@
+pyCPA - Compositional Performance Analysis in Python.
+
+Version devel
+Copyright (C) 2010-2017, TU Braunschweig, Germany. All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+invoked via: run_analyses.py --input models/chains_3_3.graphml --print --run_new --output results/chain_3_3.csv --max_iterations 200 --build_chains
+
+add_mutex_blocking   :                     False 
+all_priorities       :                     False 
+build_chains         :                      True 
+calculate_difference :                     False 
+candidate_search     :                     False 
+check_violations     :                     False 
+debug                :                     False 
+e2e_improved         :                     False 
+input                : models/chains_3_3.graphml 
+max_iterations       :                       200 
+max_wcrt             :                       inf 
+nocaching            :                     False 
+output               :     results/chain_3_3.csv 
+print                :                      True 
+print_differing      :                     False 
+priorities           :                        [] 
+propagation          :               busy_window 
+resume               :                     False 
+run_async            :                     False 
+run_cpa              :                     False 
+run_new              :                      True 
+run_sync             :                     False 
+run_sync_refined     :                     False 
+show                 :                     False 
+verbose              :                     False 
+
+
+
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 3, 4, 5, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 3, 4, 6, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 3, 5, 4, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 3, 5, 6, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 3, 6, 4, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 3, 6, 5, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 4, 3, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 4, 3, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 4, 5, 3, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 4, 5, 6, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 4, 6, 3, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 4, 6, 5, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 5, 3, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 5, 3, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 5, 4, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 5, 4, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 5, 6, 3, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 5, 6, 4, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 6, 3, 4, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 6, 3, 5, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 6, 4, 3, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 6, 4, 5, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 6, 5, 3, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 2, 6, 5, 4, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 2, 4, 5, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 2, 4, 6, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 2, 5, 4, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 2, 5, 6, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 2, 6, 4, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 2, 6, 5, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 4, 2, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 4, 2, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 4, 5, 2, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 4, 5, 6, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 4, 6, 2, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 4, 6, 5, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 5, 2, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 5, 2, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 5, 4, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 5, 4, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 5, 6, 2, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 5, 6, 4, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 6, 2, 4, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 6, 2, 5, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 6, 4, 2, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 6, 4, 5, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 6, 5, 2, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 3, 6, 5, 4, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 2, 3, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 2, 3, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 2, 5, 3, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 2, 5, 6, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 2, 6, 3, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 2, 6, 5, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 3, 2, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 3, 2, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 3, 5, 2, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 3, 5, 6, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 3, 6, 2, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 3, 6, 5, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 5, 2, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 5, 2, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 5, 3, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 5, 3, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 5, 6, 2, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 5, 6, 3, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 6, 2, 3, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 6, 2, 5, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 6, 3, 2, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 6, 3, 5, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 6, 5, 2, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 4, 6, 5, 3, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 2, 3, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 2, 3, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 2, 4, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 2, 4, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 2, 6, 3, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 2, 6, 4, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 3, 2, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 3, 2, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 3, 4, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 3, 4, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 3, 6, 2, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 3, 6, 4, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 4, 2, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 4, 2, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 4, 3, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 4, 3, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 4, 6, 2, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 4, 6, 3, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 6, 2, 3, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 6, 2, 4, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 6, 3, 2, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 6, 3, 4, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 6, 4, 2, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 5, 6, 4, 3, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 2, 3, 4, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 2, 3, 5, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 2, 4, 3, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 2, 4, 5, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 2, 5, 3, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 2, 5, 4, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 3, 2, 4, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 3, 2, 5, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 3, 4, 2, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 3, 4, 5, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 3, 5, 2, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 3, 5, 4, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 4, 2, 3, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 4, 2, 5, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 4, 3, 2, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 4, 3, 5, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 4, 5, 2, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 4, 5, 3, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 5, 2, 3, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 5, 2, 4, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 5, 3, 2, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 5, 3, 4, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 5, 4, 2, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [1, 6, 5, 4, 3, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 3, 4, 5, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 3, 4, 6, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 3, 5, 4, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 3, 5, 6, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 3, 6, 4, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 3, 6, 5, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 4, 3, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 4, 3, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 4, 5, 3, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 4, 5, 6, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 4, 6, 3, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 4, 6, 5, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 5, 3, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 5, 3, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 5, 4, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 5, 4, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 5, 6, 3, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 5, 6, 4, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 6, 3, 4, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 6, 3, 5, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 6, 4, 3, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 6, 4, 5, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 6, 5, 3, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 1, 6, 5, 4, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 1, 4, 5, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 1, 4, 6, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 1, 5, 4, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 1, 5, 6, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 1, 6, 4, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 1, 6, 5, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 4, 1, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 4, 1, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 4, 5, 1, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 4, 5, 6, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 4, 6, 1, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 4, 6, 5, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 5, 1, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 5, 1, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 5, 4, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 5, 4, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 5, 6, 1, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 5, 6, 4, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 6, 1, 4, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 6, 1, 5, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 6, 4, 1, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 6, 4, 5, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 6, 5, 1, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 3, 6, 5, 4, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 1, 3, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 1, 3, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 1, 5, 3, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 1, 5, 6, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 1, 6, 3, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 1, 6, 5, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 3, 1, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 3, 1, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 3, 5, 1, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 3, 5, 6, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 3, 6, 1, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 3, 6, 5, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 5, 1, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 5, 1, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 5, 3, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 5, 3, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 5, 6, 1, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 5, 6, 3, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 6, 1, 3, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 6, 1, 5, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 6, 3, 1, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 6, 3, 5, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 6, 5, 1, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 4, 6, 5, 3, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 1, 3, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 1, 3, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 1, 4, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 1, 4, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 1, 6, 3, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 1, 6, 4, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 3, 1, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 3, 1, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 3, 4, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 3, 4, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 3, 6, 1, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 3, 6, 4, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 4, 1, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 4, 1, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 4, 3, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 4, 3, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 4, 6, 1, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 4, 6, 3, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 6, 1, 3, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 6, 1, 4, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 6, 3, 1, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 6, 3, 4, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 6, 4, 1, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 5, 6, 4, 3, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 1, 3, 4, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 1, 3, 5, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 1, 4, 3, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 1, 4, 5, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 1, 5, 3, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 1, 5, 4, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 3, 1, 4, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 3, 1, 5, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 3, 4, 1, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 3, 4, 5, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 3, 5, 1, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 3, 5, 4, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 4, 1, 3, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 4, 1, 5, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 4, 3, 1, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 4, 3, 5, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 4, 5, 1, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 4, 5, 3, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 5, 1, 3, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 5, 1, 4, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 5, 3, 1, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 5, 3, 4, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 5, 4, 1, 3]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [2, 6, 5, 4, 3, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 2, 4, 5, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 2, 4, 6, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 2, 5, 4, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 2, 5, 6, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 2, 6, 4, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 2, 6, 5, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 4, 2, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 4, 2, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 4, 5, 2, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 4, 5, 6, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 4, 6, 2, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 4, 6, 5, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 5, 2, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 5, 2, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 5, 4, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 5, 4, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 5, 6, 2, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 5, 6, 4, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 6, 2, 4, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 6, 2, 5, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 6, 4, 2, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 6, 4, 5, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 6, 5, 2, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 1, 6, 5, 4, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 1, 4, 5, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 1, 4, 6, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 1, 5, 4, 6]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 1, 5, 6, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 1, 6, 4, 5]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 1, 6, 5, 4]
+Path	TC
+t23	113
+t13	17
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 4, 1, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 4, 1, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 4, 5, 1, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 4, 5, 6, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 4, 6, 1, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 4, 6, 5, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 5, 1, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 5, 1, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 5, 4, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 5, 4, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 5, 6, 1, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 5, 6, 4, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 6, 1, 4, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 6, 1, 5, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 6, 4, 1, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 6, 4, 5, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 6, 5, 1, 4]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 2, 6, 5, 4, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 1, 2, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 1, 2, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 1, 5, 2, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 1, 5, 6, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 1, 6, 2, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 1, 6, 5, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 2, 1, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 2, 1, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 2, 5, 1, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 2, 5, 6, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 2, 6, 1, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 2, 6, 5, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 5, 1, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 5, 1, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 5, 2, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 5, 2, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 5, 6, 1, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 5, 6, 2, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 6, 1, 2, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 6, 1, 5, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 6, 2, 1, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 6, 2, 5, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 6, 5, 1, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 4, 6, 5, 2, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 1, 2, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 1, 2, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 1, 4, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 1, 4, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 1, 6, 2, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 1, 6, 4, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 2, 1, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 2, 1, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 2, 4, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 2, 4, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 2, 6, 1, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 2, 6, 4, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 4, 1, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 4, 1, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 4, 2, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 4, 2, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 4, 6, 1, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 4, 6, 2, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 6, 1, 2, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 6, 1, 4, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 6, 2, 1, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 6, 2, 4, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 6, 4, 1, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 5, 6, 4, 2, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 1, 2, 4, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 1, 2, 5, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 1, 4, 2, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 1, 4, 5, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 1, 5, 2, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 1, 5, 4, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 2, 1, 4, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 2, 1, 5, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 2, 4, 1, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 2, 4, 5, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 2, 5, 1, 4]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 2, 5, 4, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 4, 1, 2, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 4, 1, 5, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 4, 2, 1, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 4, 2, 5, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 4, 5, 1, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 4, 5, 2, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 5, 1, 2, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 5, 1, 4, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 5, 2, 1, 4]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 5, 2, 4, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 5, 4, 1, 2]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [3, 6, 5, 4, 2, 1]
+Path	TC
+t23	27
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 2, 3, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 2, 3, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 2, 5, 3, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 2, 5, 6, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 2, 6, 3, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 2, 6, 5, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 3, 2, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 3, 2, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 3, 5, 2, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 3, 5, 6, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 3, 6, 2, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 3, 6, 5, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 5, 2, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 5, 2, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 5, 3, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 5, 3, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 5, 6, 2, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 5, 6, 3, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 6, 2, 3, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 6, 2, 5, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 6, 3, 2, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 6, 3, 5, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 6, 5, 2, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 1, 6, 5, 3, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 1, 3, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 1, 3, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 1, 5, 3, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 1, 5, 6, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 1, 6, 3, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 1, 6, 5, 3]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 3, 1, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 3, 1, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 3, 5, 1, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 3, 5, 6, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 3, 6, 1, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 3, 6, 5, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 5, 1, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 5, 1, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 5, 3, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 5, 3, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 5, 6, 1, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 5, 6, 3, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 6, 1, 3, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 6, 1, 5, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 6, 3, 1, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 6, 3, 5, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 6, 5, 1, 3]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 2, 6, 5, 3, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 1, 2, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 1, 2, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 1, 5, 2, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 1, 5, 6, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 1, 6, 2, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 1, 6, 5, 2]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 2, 1, 5, 6]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 2, 1, 6, 5]
+Path	TC
+t23	113
+t13	20
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 2, 5, 1, 6]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 2, 5, 6, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 2, 6, 1, 5]
+Path	TC
+t23	113
+t13	26
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 2, 6, 5, 1]
+Path	TC
+t23	113
+t13	22
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 5, 1, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 5, 1, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 5, 2, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 5, 2, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 5, 6, 1, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 5, 6, 2, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 6, 1, 2, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 6, 1, 5, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 6, 2, 1, 5]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 6, 2, 5, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 6, 5, 1, 2]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 3, 6, 5, 2, 1]
+Path	TC
+t23	29
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 1, 2, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 1, 2, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 1, 3, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 1, 3, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 1, 6, 2, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 1, 6, 3, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 2, 1, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 2, 1, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 2, 3, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 2, 3, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 2, 6, 1, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 2, 6, 3, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 3, 1, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 3, 1, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 3, 2, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 3, 2, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 3, 6, 1, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 3, 6, 2, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 6, 1, 2, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 6, 1, 3, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 6, 2, 1, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 6, 2, 3, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 6, 3, 1, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 5, 6, 3, 2, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 1, 2, 3, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 1, 2, 5, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 1, 3, 2, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 1, 3, 5, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 1, 5, 2, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 1, 5, 3, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 2, 1, 3, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 2, 1, 5, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 2, 3, 1, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 2, 3, 5, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 2, 5, 1, 3]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 2, 5, 3, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 3, 1, 2, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 3, 1, 5, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 3, 2, 1, 5]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 3, 2, 5, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 3, 5, 1, 2]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 3, 5, 2, 1]
+Path	TC
+t23	31
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 5, 1, 2, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 5, 1, 3, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 5, 2, 1, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 5, 2, 3, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 5, 3, 1, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [4, 6, 5, 3, 2, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 2, 3, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 2, 3, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 2, 4, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 2, 4, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 2, 6, 3, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 2, 6, 4, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 3, 2, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 3, 2, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 3, 4, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 3, 4, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 3, 6, 2, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 3, 6, 4, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 4, 2, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 4, 2, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 4, 3, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 4, 3, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 4, 6, 2, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 4, 6, 3, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 6, 2, 3, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 6, 2, 4, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 6, 3, 2, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 6, 3, 4, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 6, 4, 2, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 1, 6, 4, 3, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 1, 3, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 1, 3, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 1, 4, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 1, 4, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 1, 6, 3, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 1, 6, 4, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 3, 1, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 3, 1, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 3, 4, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 3, 4, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 3, 6, 1, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 3, 6, 4, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 4, 1, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 4, 1, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 4, 3, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 4, 3, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 4, 6, 1, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 4, 6, 3, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 6, 1, 3, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 6, 1, 4, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 6, 3, 1, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 6, 3, 4, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 6, 4, 1, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 2, 6, 4, 3, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 1, 2, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 1, 2, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 1, 4, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 1, 4, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 1, 6, 2, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 1, 6, 4, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 2, 1, 4, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 2, 1, 6, 4]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 2, 4, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 2, 4, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 2, 6, 1, 4]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 2, 6, 4, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 4, 1, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 4, 1, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 4, 2, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 4, 2, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 4, 6, 1, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 4, 6, 2, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 6, 1, 2, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 6, 1, 4, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 6, 2, 1, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 6, 2, 4, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 6, 4, 1, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 3, 6, 4, 2, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 1, 2, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 1, 2, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 1, 3, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 1, 3, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 1, 6, 2, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 1, 6, 3, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 2, 1, 3, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 2, 1, 6, 3]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 2, 3, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 2, 3, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 2, 6, 1, 3]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 2, 6, 3, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 3, 1, 2, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 3, 1, 6, 2]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 3, 2, 1, 6]
+Path	TC
+t23	113
+t13	29
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 3, 2, 6, 1]
+Path	TC
+t23	113
+t13	25
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 3, 6, 1, 2]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 3, 6, 2, 1]
+Path	TC
+t23	113
+t13	31
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 6, 1, 2, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 6, 1, 3, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 6, 2, 1, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 6, 2, 3, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 6, 3, 1, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 4, 6, 3, 2, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 1, 2, 3, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 1, 2, 4, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 1, 3, 2, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 1, 3, 4, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 1, 4, 2, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 1, 4, 3, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 2, 1, 3, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 2, 1, 4, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 2, 3, 1, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 2, 3, 4, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 2, 4, 1, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 2, 4, 3, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 3, 1, 2, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 3, 1, 4, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 3, 2, 1, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 3, 2, 4, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 3, 4, 1, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 3, 4, 2, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 4, 1, 2, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 4, 1, 3, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 4, 2, 1, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 4, 2, 3, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 4, 3, 1, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [5, 6, 4, 3, 2, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 2, 3, 4, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 2, 3, 5, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 2, 4, 3, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 2, 4, 5, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 2, 5, 3, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 2, 5, 4, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 3, 2, 4, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 3, 2, 5, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 3, 4, 2, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 3, 4, 5, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 3, 5, 2, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 3, 5, 4, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 4, 2, 3, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 4, 2, 5, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 4, 3, 2, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 4, 3, 5, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 4, 5, 2, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 4, 5, 3, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 5, 2, 3, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 5, 2, 4, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 5, 3, 2, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 5, 3, 4, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 5, 4, 2, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 1, 5, 4, 3, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 1, 3, 4, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 1, 3, 5, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 1, 4, 3, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 1, 4, 5, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 1, 5, 3, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 1, 5, 4, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 3, 1, 4, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 3, 1, 5, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 3, 4, 1, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 3, 4, 5, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 3, 5, 1, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 3, 5, 4, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 4, 1, 3, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 4, 1, 5, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 4, 3, 1, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 4, 3, 5, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 4, 5, 1, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 4, 5, 3, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 5, 1, 3, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 5, 1, 4, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 5, 3, 1, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 5, 3, 4, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 5, 4, 1, 3]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 2, 5, 4, 3, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 1, 2, 4, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 1, 2, 5, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 1, 4, 2, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 1, 4, 5, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 1, 5, 2, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 1, 5, 4, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 2, 1, 4, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 2, 1, 5, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 2, 4, 1, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 2, 4, 5, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 2, 5, 1, 4]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 2, 5, 4, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 4, 1, 2, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 4, 1, 5, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 4, 2, 1, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 4, 2, 5, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 4, 5, 1, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 4, 5, 2, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 5, 1, 2, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 5, 1, 4, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 5, 2, 1, 4]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 5, 2, 4, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 5, 4, 1, 2]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 3, 5, 4, 2, 1]
+Path	TC
+t23	19
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 1, 2, 3, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 1, 2, 5, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 1, 3, 2, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 1, 3, 5, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 1, 5, 2, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 1, 5, 3, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 2, 1, 3, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 2, 1, 5, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 2, 3, 1, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 2, 3, 5, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 2, 5, 1, 3]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 2, 5, 3, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 3, 1, 2, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 3, 1, 5, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 3, 2, 1, 5]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 3, 2, 5, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 3, 5, 1, 2]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 3, 5, 2, 1]
+Path	TC
+t23	23
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 5, 1, 2, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 5, 1, 3, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 5, 2, 1, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 5, 2, 3, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 5, 3, 1, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 4, 5, 3, 2, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 1, 2, 3, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 1, 2, 4, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 1, 3, 2, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 1, 3, 4, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 1, 4, 2, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 1, 4, 3, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 2, 1, 3, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 2, 1, 4, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 2, 3, 1, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 2, 3, 4, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 2, 4, 1, 3]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 2, 4, 3, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 3, 1, 2, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 3, 1, 4, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 3, 2, 1, 4]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 3, 2, 4, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 3, 4, 1, 2]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 3, 4, 2, 1]
+Path	TC
+t23	21
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 4, 1, 2, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 4, 1, 3, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 4, 2, 1, 3]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 4, 2, 3, 1]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 4, 3, 1, 2]
+Path	TC
+t23	17
+t13	35
+Warning: no task_results for task t21
+Warning: no task_results for task t22
+Warning: no task_results for task t11
+Warning: no task_results for task t12
+
+Results for priority assignment: [6, 5, 4, 3, 2, 1]
+Path	TC
+t23	17
+t13	35

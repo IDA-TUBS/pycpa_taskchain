@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key id="wcet" for="node" attr.name="wcet" attr.type="int">
+	<default>1</default>
+</key>
+<key id="type" for="node" attr.name="node type" attr.type="string">
+	<default>task</default>
+</key>
+<key id="period" for="node" attr.name="activation period" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="jitter" for="node" attr.name="activation jitter" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="wcet" for="node" attr.name="worst case execution time" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="bcet" for="node" attr.name="best case execution time" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="scheduling_parameter" for="node" attr.name="scheduling priority" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="acttype" for="edge" attr.name="activation type" attr.type="string">
+	<default>call</default>
+</key>
+<key id="label" for="edge" attr.name="activation label" attr.type="string">
+    <default></default>
+</key>
+<graph edgedefault="directed">
+	<node id="t11">
+		<data key="period">1000</data>
+		<data key="jitter">0</data>
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t12">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t13">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+
+	<node id="t21">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t22">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t23">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+
+	<node id="t31">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t32">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+	<node id="t33">
+		<data key="wcet">10</data>
+		<data key="bcet">5</data>
+	</node>
+
+	<node id="ctx-a">
+		<data key="type">sched</data>
+	</node>
+	<node id="ctx-b">
+		<data key="type">sched</data>
+	</node>
+	<node id="ctx-c">
+		<data key="type">sched</data>
+	</node>
+	<node id="C">
+		<data key="type">exec</data>
+	</node>
+	<node id="P">
+		<data key="type">exec</data>
+	</node>
+	<node id="S1">
+		<data key="type">exec</data>
+	</node>
+	<node id="S2">
+		<data key="type">exec</data>
+	</node>
+
+	<edge id="e11" source="t11" target="t12">
+		<data key="acttype">call</data>
+		<data key="label">rpc()</data>
+	</edge>
+	<edge id="e12" source="t12" target="t13">
+		<data key="acttype">return</data>
+		<data key="label">return</data>
+	</edge>
+	<edge id="e13" source="t12" target="t21">
+		<data key="acttype">signal</data>
+		<data key="label">notify</data>
+	</edge>
+	<edge id="e14" source="t12" target="t31">
+		<data key="acttype">signal</data>
+		<data key="label">notify</data>
+	</edge>
+
+	<edge id="e21" source="t21" target="t22">
+		<data key="acttype">call</data>
+		<data key="label">data()</data>
+	</edge>
+	<edge id="e22" source="t22" target="t23">
+		<data key="acttype">return</data>
+		<data key="label">return data</data>
+	</edge>
+
+	<edge id="e31" source="t31" target="t32">
+		<data key="acttype">call</data>
+		<data key="label">data()</data>
+	</edge>
+	<edge id="e32" source="t32" target="t33">
+		<data key="acttype">return</data>
+		<data key="label">return data</data>
+	</edge>
+
+	<edge id="e11a" source="t11" target="ctx-a" />
+	<edge id="e12a" source="t12" target="ctx-a" />
+	<edge id="e13a" source="t13" target="ctx-a" />
+
+	<edge id="e21a" source="t21" target="ctx-b" />
+	<edge id="e22a" source="t22" target="ctx-b" />
+	<edge id="e23a" source="t23" target="ctx-b" />
+
+	<edge id="e31a" source="t31" target="ctx-c" />
+	<edge id="e32a" source="t32" target="ctx-c" />
+	<edge id="e33a" source="t33" target="ctx-c" />
+
+	<edge id="e11cb" source="t11" target="C" />
+	<edge id="e12pr" target="t12" source="P" />
+	<edge id="e12cb" source="t12" target="C" />
+	<edge id="e13cr" target="t13" source="C" />
+
+	<edge id="e21sb" source="t21" target="S1" />
+	<edge id="e22pr" target="t22" source="P" />
+	<edge id="e22sb" source="t22" target="S1" />
+	<edge id="e23sr" target="t23" source="S1" />
+
+	<edge id="e31sb" source="t31" target="S2" />
+	<edge id="e32pr" target="t32" source="P" />
+	<edge id="e32sb" source="t32" target="S2" />
+	<edge id="e33sr" target="t33" source="S2" />
+
+</graph>
+</graphml>

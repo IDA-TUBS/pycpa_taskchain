@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key id="wcet" for="node" attr.name="wcet" attr.type="int">
+	<default>1</default>
+</key>
+<key id="bcet" for="node" attr.name="bcet" attr.type="int">
+	<default>1</default>
+</key>
+<key id="period" for="node" attr.name="period" attr.type="int">
+	<default>0</default>
+</key>
+<key id="jitter" for="node" attr.name="jitter" attr.type="int">
+	<default>0</default>
+</key>
+<key id="type" for="node" attr.name="node type" attr.type="string">
+	<default>task</default>
+</key>
+<key id="acttype" for="edge" attr.name="activation type" attr.type="string">
+	<default>call</default>
+</key>
+<key id="label" for="edge" attr.name="activation label" attr.type="string">
+    <default></default>
+</key>
+<graph edgedefault="directed">
+	<node id="t11">
+		<data key="wcet">10</data>
+		<data key="bcet">1</data>
+		<data key="period">20</data>
+		<data key="jitter">5</data>
+	</node>
+	<node id="t12">
+		<data key="wcet">2</data>
+		<data key="bcet">2</data>
+	</node>
+	<node id="t13">
+		<data key="wcet">4</data>
+		<data key="bcet">2</data>
+	</node>
+
+	<node id="t21">
+		<data key="wcet">3</data>
+		<data key="bcet">1</data>
+		<data key="period">100</data>
+		<data key="jitter">0</data>
+	</node>
+	<node id="t22">
+		<data key="wcet">9</data>
+		<data key="bcet">4</data>
+	</node>
+	<node id="t23">
+		<data key="wcet">5</data>
+		<data key="bcet">3</data>
+	</node>
+
+	<node id="ctx11">
+		<data key="type">sched</data>
+	</node>
+	<node id="ctx12">
+		<data key="type">sched</data>
+	</node>
+	<node id="ctx13">
+		<data key="type">sched</data>
+	</node>
+	<node id="ctx21">
+		<data key="type">sched</data>
+	</node>
+	<node id="ctx22">
+		<data key="type">sched</data>
+	</node>
+	<node id="ctx23">
+		<data key="type">sched</data>
+	</node>
+
+	<node id="th-1">
+		<data key="type">exec</data>
+	</node>
+	<node id="th-2">
+		<data key="type">exec</data>
+	</node>
+
+	<edge id="e11" source="t11" target="t12">
+		<data key="acttype">call</data>
+	</edge>
+	<edge id="e12" source="t12" target="t13">
+		<data key="acttype">return</data>
+	</edge>
+	<edge id="e21" source="t21" target="t22">
+		<data key="acttype">call</data>
+	</edge>
+	<edge id="e22" source="t22" target="t23">
+		<data key="acttype">return</data>
+	</edge>
+
+	<edge id="e11s" source="t11" target="ctx11" />
+	<edge id="e12s" source="t12" target="ctx12" />
+	<edge id="e13s" source="t13" target="ctx13" />
+	<edge id="e21s" source="t21" target="ctx21" />
+	<edge id="e22s" source="t22" target="ctx22" />
+	<edge id="e23s" source="t23" target="ctx23" />
+
+	<edge id="e11t" source="t11" target="th-1" />
+	<edge id="e12t" source="t12" target="th-1" />
+	<edge id="e13t" target="t13" source="th-1" />
+
+	<edge id="e21t" source="t21" target="th-2" />
+	<edge id="e22t" source="t22" target="th-2" />
+	<edge id="e23t" target="t23" source="th-2" />
+
+</graph>
+</graphml>
