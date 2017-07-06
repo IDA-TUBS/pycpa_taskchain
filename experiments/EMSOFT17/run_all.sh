@@ -1,15 +1,10 @@
 RESULT_DIR=results
 mkdir $RESULT_DIR
 
-#RUN_CPA='--run_cpa'
-#RUN_SYNC='--run_sync'
-#RUN_SYNCREF='--run_sync_refined'
-#RUN_ASYNC='--run_async'
-#CANDIDATE_SEARCH="--candidate_search"
-RUN_CPA=""
-RUN_SYNC=""
-RUN_SYNCREF=""
-RUN_ASYNC=""
+RUN_CPA='--run_cpa'
+RUN_SYNC='--run_sync'
+RUN_SYNCREF='--run_sync_refined'
+RUN_ASYNC='--run_async'
 CANDIDATE_SEARCH=""
 
 ########################
