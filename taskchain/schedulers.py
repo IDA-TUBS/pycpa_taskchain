@@ -132,11 +132,11 @@ class SPPSchedulerSimple(analysis.Scheduler):
                     for t in I:
                         details[str(t)+":eta*WCET"]    = str(taskchain.tasks[0].in_event_model.eta_plus(w)) \
                                                           + "*" + str(t.wcet) + "=" \
-                                                          + str(t.in_event_model.eta_plus(w) * t.wcet)
+                                                          + str(taskchain.tasks[0].in_event_model.eta_plus(w) * t.wcet)
                     for t in H:
                         details[str(t)+":eta*WCET"]    = str(max(taskchain.tasks[0].in_event_model.eta_plus(w)-q,0)) \
                                                           + "*" + str(t.wcet) + "=" \
-                                                          + str(t.in_event_model.eta_plus(w) * t.wcet)
+                                                          + str(max(taskchain.tasks[0].in_event_model.eta_plus(w)-q,0) * t.wcet)
 
                     for t in D:
                         details[str(t)+":WCET"]        = str(t.wcet)
