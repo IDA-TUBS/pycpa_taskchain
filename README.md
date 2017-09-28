@@ -14,7 +14,8 @@ Please refer to the scripts in the `examples` folder for usage examples.
 
 The following publications have used and modified the analysis implemented here:
 
-* \[RTAS16\]: J. Schlatow and R. Ernst, "Response-Time Analysis for Task Chains in Communicating Threads" in Real-Time and Embedded Technology  and Applications Symposium 2016
+* \[EMSOFT17\]: J. Schlatow and R. Ernst, "Response-Time Analysis for Task Chains with Complex Precedence and Blocking Relations" in International Conference on Embedded Software, 2017
+* \[RTAS16\]: J. Schlatow and R. Ernst, "Response-Time Analysis for Task Chains in Communicating Threads" in Real-Time and Embedded Technology  and Applications Symposium, 2016
 
 For better documentation and reproducability, we also keep track of the experiments/benchmarks used in these publications by pursuing the following policy:
 
