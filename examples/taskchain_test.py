@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-| Copyright (C) 2015 Johannes Schlatow
+| Copyright (C) 2015-2017 Johannes Schlatow
 | TU Braunschweig, Germany
 | All rights reserved.
 | See LICENSE file for copyright and license details.
@@ -32,19 +32,13 @@ def taskchain_test(scheduler, priorities):
     r1 = s.bind_resource(tc_model.TaskchainResource("R1", scheduler()))
 
     # create and bind tasks to r1
-    t11 = r1.bind_task(model.Task("T11", wcet=10, bcet=1, scheduling_parameter=priorities[0],
-        synchronous_call=False))
-    t12 = r1.bind_task(model.Task("T12", wcet=2, bcet=2, scheduling_parameter=priorities[1],
-        synchronous_call=True))
-    t13 = r1.bind_task(model.Task("T13", wcet=4, bcet=2, scheduling_parameter=priorities[2],
-        synchronous_call=True))
-    t14 = r1.bind_task(model.Task("T14", wcet=5, bcet=3, scheduling_parameter=priorities[3],
-        synchronous_call=True))
+    t11 = r1.bind_task(model.Task("T11", wcet=10, bcet=1, scheduling_parameter=priorities[0]))
+    t12 = r1.bind_task(model.Task("T12", wcet=2, bcet=2, scheduling_parameter=priorities[1]))
+    t13 = r1.bind_task(model.Task("T13", wcet=4, bcet=2, scheduling_parameter=priorities[2]))
+    t14 = r1.bind_task(model.Task("T14", wcet=5, bcet=3, scheduling_parameter=priorities[3]))
 
-    t21 = r1.bind_task(model.Task("T21", wcet=3, bcet=1, scheduling_parameter=priorities[4],
-        synchronous_call=False))
-    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[5],
-        synchronous_call=True))
+    t21 = r1.bind_task(model.Task("T21", wcet=3, bcet=1, scheduling_parameter=priorities[4]))
+    t22 = r1.bind_task(model.Task("T22", wcet=9, bcet=4, scheduling_parameter=priorities[5]))
 
     # specify precedence constraints
     t11.link_dependent_task(t12).link_dependent_task(t13).link_dependent_task(t14)
