@@ -29,4 +29,4 @@ if __name__ == "__main__":
     p = parser.Graphml()
     m = p.model_from_file(options.get_opt('input'))
     assert(m.check())
-    m.write_dot(options.get_opt('output'))
+    tc_model.ResourceModel.write_dot([m], options.get_opt('output'))

@@ -50,7 +50,7 @@ if __name__ == "__main__":
     p = parser.Graphml()
     m = p.model_from_file("models/test.graphml")
     assert(m.check())
-    m.write_dot('test.dot')
+    tc_model.ResourceModel.write_dot([m], 'test.dot')
 
     priorities = options.get_opt('priorities')
     if len(priorities) > 0:

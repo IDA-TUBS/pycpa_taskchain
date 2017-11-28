@@ -220,7 +220,7 @@ if __name__ == "__main__":
     p = parser.Graphml()
     m = p.model_from_file(options.get_opt('input'))
     assert(m.check())
-    m.write_dot('system.dot')
+    tc_model.ResourceModel.write_dot([m], 'system.dot')
 
     if options.get_opt('build_chains'):
         # create paths
