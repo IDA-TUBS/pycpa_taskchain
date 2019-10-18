@@ -82,7 +82,10 @@ class ResourceModel (object):
     def __init__(self, name):
         self.name = name
 
-        self.tasks            = set()  # set of tasks 
+        self.tasks            = set()  # set of tasks
+        self.junctions        = set()  # set of junctions
+        self.juncinputs       = dict()  # set of input sources for junctions
+        self.junclinks        = dict()  # links from junctions to tasks
         self.exec_ctxs        = list()  # set of execution contexts
         self.sched_ctxs       = list()  # set of scheduling contexts
 #        self.tasklinks_strong = dict() # set of strong precedence relations (arcs in task graph)
@@ -94,7 +97,27 @@ class ResourceModel (object):
         assert(isinstance(t, model.Task))
         self.tasks.add(t)
         self.tasklinks[t] = set()
+        self.junclinks[t] = None
         return t
+
+    def add_junction(self, j):
+        assert(isinstance(j, model.Junction))
+        self.junctions.add(j)
+        self.juncinputs[j] = set()
+        return j
+
+    def connect_junction(self, t, j):
+        assert(isinstance(t, model.Task))
+        assert(isinstance(j, model.Junction))
+
+        self.juncinputs[j].add(t)
+
+    def link_junction(self, j, t):
+        assert(isinstance(t, model.Task))
+        assert(isinstance(j, model.Junction))
+        assert not self.junclinks[t]
+
+        self.junclinks[t] = j
 
     def add_scheduling_context(self, s):
         assert(isinstance(s, SchedulingContext))
@@ -109,7 +132,6 @@ class ResourceModel (object):
     def link_tasks(self, src, dst):
         assert(src in self.tasks)
         assert(dst in self.tasks)
-
         self.tasklinks[src].add(dst)
 
     def assign_execution_context(self, t, e, blocking=False):
@@ -255,6 +277,7 @@ class ResourceModel (object):
         # if a task blocks an execution context:
         #  - it must have exactly one successor that also blocks/releases the same execution context
         for t in self.tasks:
+            assert t in self.allocations, 'no allocation for task %s' % t
             for e, blocking in self.allocations[t].items():
                 if blocking:
                     strong_succ = 0
@@ -262,8 +285,11 @@ class ResourceModel (object):
                         if e in self.allocations[succ]:
                             strong_succ += 1
 
-                    assert strong_succ == 1, \
+                    assert strong_succ <= 1, \
                             "task %s has more than one strong successors" % t.name
+
+                    assert strong_succ > 0, \
+                            "task %s has does not release its execution context" % t.name
 
 
         # there is at most one strong predecessor (and only if there is no weak predecessor)
@@ -281,9 +307,9 @@ class ResourceModel (object):
             assert weak_pred == 0 or strong_pred == 0, \
                    "task %s has strong and weak predecessors" % t.name
 
-            # if task has no predecessor it must have an input event model
-            if strong_pred + weak_pred == 0 and t.prev_task is None:
-                assert(t.in_event_model is not None)
+#            # if task has no predecessor it must have an input event model
+#            if strong_pred + weak_pred == 0 and t.prev_task is None and self.junclinks[t] is None:
+#                assert t.in_event_model is not None, "%s has not input event model" % t
 
         ###########################
         # allocation graph checks #
@@ -343,7 +369,8 @@ class ResourceModel (object):
 
         styles = { "sched" : "shape=note, colorscheme=set36, fillcolor=5, style=filled",
                    "exec"  : "shape=component, colorscheme=set36, fillcolor=4, style=filled",
-                   "task"  : "style=filled, colorscheme=greys9, fillcolor=\"4:2\", gradientangle=90" }
+                   "task"  : "style=filled, colorscheme=greys9, fillcolor=4",
+                   "junction" : "style=filled,shape=diamond" }
         
         edge_styles = { "sched" : "arrowhead=dot, colorscheme=set36, color=5",
                         "exec"  : "arrowhead=halfopen, colorscheme=set36, color=4",
@@ -357,7 +384,12 @@ class ResourceModel (object):
 
         # add task nodes
         for t in self.tasks:
-            dotfile.write("  %s [%s];\n" % (convert_label(t.name), styles['task']))
+            uda = ',wcet=%d,bcet=%d' % (t.wcet, t.bcet)
+            dotfile.write("  %s [%s%s];\n" % (convert_label(t.name), styles['task'], uda))
+
+        # add junction nodes
+        for j in self.junctions:
+            dotfile.write("  %s [%s];\n" % (convert_label(j.name), styles['junction']))
 
         # add exec context nodes
         for e in self.exec_ctxs:
@@ -365,7 +397,8 @@ class ResourceModel (object):
 
         # add sched context nodes
         for s in self.sched_ctxs:
-            dotfile.write("  %s [%s];\n" % (convert_label(s.name), styles['sched']))
+            uda = ',priority=%d' % s.priority
+            dotfile.write("  %s [%s%s];\n" % (convert_label(s.name), styles['sched'], uda))
 
         # add task links
         for src in self.tasklinks.keys():
@@ -377,6 +410,22 @@ class ResourceModel (object):
 
                 dotfile.write("  %s -> %s [%s];\n" % (convert_label(src.name),
                     convert_label(dst.name),
+                    style))
+
+        # add junction links
+        for t, j in self.junclinks.items():
+            if j:
+                style = task_edge_styles['weak']
+                dotfile.write("  %s -> %s [%s];\n" % (convert_label(j.name),
+                    convert_label(t.name),
+                    style))
+
+        # add junction inputs
+        for j, ts in self.juncinputs.items():
+            for t in ts:
+                style = task_edge_styles['weak']
+                dotfile.write("  %s -> %s [%s];\n" % (convert_label(t.name),
+                    convert_label(j.name),
                     style))
 
         # add exec context allocations
