@@ -357,8 +357,8 @@ class ResourceModel (object):
             # add inter-resource task links
             for m in models:
                 for t in m.tasks:
-                    if t.prev_task is not None:
-                        if t.prev_task.resname != t.resname:
+                    if t.prev_task and isinstance(t, model.Task) and isinstance(t.prev_task, model.Task):
+                        if t.prev_task.resource != t.resource:
                             dotfile.write("  %s -> %s" % (convert_label(t.prev_task.name), convert_label(t.name)))
 
             dotfile.write("}")
@@ -472,6 +472,15 @@ class TaskchainResource (model.Resource):
             if t in self.model.tasklinks:
                 for ti in self.model.tasklinks[t]:
                     t.link_dependent_task(ti)
+
+        # add junctions
+        for j in self.model.junctions:
+            for t in self.model.juncinputs[j]:
+                t.link_dependent_task(j)
+
+        for t, j in self.model.junclinks.items():
+            if j is not None:
+                j.link_dependent_task(t)
 
     def bind_taskchain(self, chain):
         for t in chain.tasks:
