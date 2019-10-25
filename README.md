@@ -1,8 +1,8 @@
-#Welcome
+# Welcome
 
 This is an extension for [pyCPA](https://bitbucket.org/pycpa/pycpa).
 
-#Installation and Usage
+# Installation and Usage
 
 First, make sure you have [pyCPA](https://bitbucket.org/pycpa/pycpa) installed.
 
@@ -10,7 +10,7 @@ Second, you must either install this extension via `python setup.py install` or 
 
 Please refer to the scripts in the `examples` folder for usage examples.
 
-#Publications and Benchmarks
+# Publications and Benchmarks
 
 The following publications have used and modified the analysis implemented here:
 
