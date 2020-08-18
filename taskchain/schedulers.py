@@ -43,7 +43,7 @@ class SPPSchedulerSimple(analysis.Scheduler):
     Policy for equal priority is FCFS (i.e. max. interference).
 
     Computes busy window of an entire task chain.
-    Implements Eq. 7 resp. Eq. 12 of Schlatow/RTAS16 paper 
+    Builds the basis for Eq. 7, Eq. 10 and Eq. 12 of [RTAS16] 
     """
 
     def __init__(self, priority_cmp=prio_low_wins_equal_fifo, build_sets=None):
@@ -104,7 +104,6 @@ class SPPSchedulerSimple(analysis.Scheduler):
 
 
     def b_plus(self, task, q, details=None, **kwargs):
-        """ This corresponds to Equation ... TODO """
         assert(task.scheduling_parameter != None)
         assert(task.wcet >= 0)
 
@@ -151,6 +150,7 @@ class SPPSchedulerSync(SPPSchedulerSimple):
         SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
     def _build_sets(self, taskchain):
+        """ This implements Eq. 7 from [RTAS16]"""
 
         # compute minimum priority of the chain
         min_prio = self._get_min_chain_prio(taskchain)
@@ -183,6 +183,7 @@ class SPPSchedulerAsync(SPPSchedulerSimple):
         SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
     def _build_sets(self, taskchain):
+        """ This implements Eq. 12 from [RTAS16]"""
 
         # compute minimum priority of the chain
         min_prio = self._get_min_chain_prio(taskchain)
@@ -219,6 +220,7 @@ class SPPSchedulerSyncRefined(SPPSchedulerSimple):
         SPPSchedulerSimple.__init__(self, build_sets=self._build_sets)
 
     def _build_sets(self, taskchain):
+        """ This implements Eq. 10 from [RTAS16]"""
 
         # compute minimum priority of the chain
         min_prio = self._get_min_chain_prio(taskchain)
@@ -270,7 +272,7 @@ class SPPSchedulerSyncRefined(SPPSchedulerSimple):
         return [I,D,set()]
 
 class TaskChainBusyWindow(object):
-    """ Computes a task chain busy window computation (scheduler-independent).
+    """ Computes a task chain busy window computation (scheduler-independent) as presented in [EMSOFT17].
     """
 
     class Bound(object):
@@ -731,7 +733,7 @@ class SPPScheduler(analysis.Scheduler):
 
     Policy for equal priority is FCFS (i.e. max. interference).
 
-    Computes busy window of an entire task chain.
+    Computes busy window of an entire task chain as presented in [EMSOFT17].
     """
 
     def __init__(self, priority_cmp=prio_low_wins_equal_fifo, candidate_search=False, helping=False):
@@ -766,20 +768,24 @@ class SPPScheduler(analysis.Scheduler):
         task_wl_bounds = self.task_wl_bounds
 
         # lets be conservative and add an infinite upper bound
+        # refers to Eq. 9 in [EMSOFT17]
         inf = TaskChainBusyWindow.StaticEventCountBound(float('inf'))
         for t in resource.model.tasks:
             # build the minimum of any bound added later
             task_ec_bounds[t] = TaskChainBusyWindow.MinMaxEventCountBound(upper_bounds=set([inf]))
             if t in bw.lower_ec_bounds:
                 # if there is a lower bound (i.e. q-events for the chain's tasks), add min/max bound
+                # refers to Eq. 8 in [EMSOFT17]
                 task_ec_bounds[t].add_lower_bound(bw.lower_ec_bounds[t])
 
         # add event count bounds based on input event models of chains
+        # refers to Eq. 10 in [EMSOFT17]
         for c in resource.chains:
             for t in c.tasks:
                 task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.ArrivalEventCountBound(c.tasks[0].in_event_model))
 
         # a task can only interfere once if there is a lower-priority or strong predecessor that cannot execute at all
+        # part of Eq. 13 in [EMSOFT17]
         for t in resource.model.tasks:
             predecessors = resource.model.predecessors(t, only_strong=True, recursive=True)
             for pred in predecessors:
@@ -793,9 +799,11 @@ class SPPScheduler(analysis.Scheduler):
                             task_ec_bounds[pred], if_zero=TaskChainBusyWindow.StaticEventCountBound(1)))
 
         # for the chain under analysis, we can add q as an upper bound for the last chain task (FIFO assumption) and any strong predecessor
+        # Eq. 11  in [EMSOFT17]
         last_chain_task = bw.taskchain.tasks[-1]
         task_ec_bounds[last_chain_task].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(q))
 
+        # Eq. 12 in [EMSOFT17]
         for t in resource.model.predecessors(last_chain_task, recursive=True, only_strong=True):
             if t in bw.taskchain.tasks:
                 task_ec_bounds[t].add_upper_bound(TaskChainBusyWindow.StaticEventCountBound(q))
@@ -814,6 +822,7 @@ class SPPScheduler(analysis.Scheduler):
 
         # for strong precedence: a task can only interfere once if there is any successor that cannot execute at all
         # can be applied recursively to all strong successors
+        # part of Eq. 13 in [EMSOFT17]
         for t in resource.model.tasks:
             successors = resource.model.successors(t, recursive=True, only_strong=True)
             for succ in successors:
@@ -859,6 +868,7 @@ class SPPScheduler(analysis.Scheduler):
             lp_tasks.update(prio_map[p])
 
         # build set of possible blockers
+        # Eq. 12 in [EMSOFT17]
         possible_lp_blockers = set()
         cur_len = -1
         while cur_len < len(possible_lp_blockers):
@@ -895,6 +905,7 @@ class SPPScheduler(analysis.Scheduler):
         # (a scheduling context cannot execute if its on a lower priority and not blocking)
         # idea: a lower prio task can only interfere if an even lower prio task can interfere
         #       otherwise its scheduling context will never be scheduled
+        # Eq. 15 in [EMSOFT17]
 
         self.independent_tasks = lp_tasks - possible_lp_blockers
 
