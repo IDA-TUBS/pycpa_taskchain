@@ -528,6 +528,11 @@ class TaskchainResource (model.Resource):
             for p in paths:
                 self.bind_taskchain(Taskchain(p[0].name + "-" + p[-1].name, p))
 
+        if not hasattr(self.scheduler, 'accept_model'):
+            logger.warning("Scheduler %s has no method accept_model()." % type(self.scheduler))
+        elif not self.scheduler.accept_model(self.chains, self.model):
+            raise NotImplementedError("Scheduler %s has rejected taskchain model." % type(self.scheduler))
+
         return self.chains
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4

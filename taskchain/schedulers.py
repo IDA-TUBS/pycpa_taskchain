@@ -1,5 +1,5 @@
 """
-| Copyright (C) 2015-2017 Johannes Schlatow
+| Copyright (C) 2015-2020 Johannes Schlatow
 | TU Braunschweig, Germany
 | All rights reserved.
 | See LICENSE file for copyright and license details.
@@ -23,6 +23,7 @@ import logging
 
 from pycpa import analysis
 from pycpa import options
+from pycpa import model
 
 logger = logging.getLogger("pycpa")
 
@@ -43,7 +44,7 @@ class SPPSchedulerSimple(analysis.Scheduler):
     Policy for equal priority is FCFS (i.e. max. interference).
 
     Computes busy window of an entire task chain.
-    Builds the basis for Eq. 7, Eq. 10 and Eq. 12 of [RTAS16] 
+    Builds the basis for Eq. 7, Eq. 10 and Eq. 12 of [RTAS16].
     """
 
     def __init__(self, priority_cmp=prio_low_wins_equal_fifo, build_sets=None):
@@ -114,8 +115,6 @@ class SPPSchedulerSimple(analysis.Scheduler):
         w = self._compute_cet(taskchain, q)
 
         while True:
-            s = 0
-
             [I,D,H] = self._build_sets(taskchain)
             w_new = self._compute_cet(taskchain, q) + \
                     self._compute_interference(taskchain, I, w) + \
@@ -989,7 +988,6 @@ class SPPScheduler(analysis.Scheduler):
         return q * bcet
 
     def b_plus(self, task, q, details=None, **kwargs):
-        """ This corresponds to Equation ... TODO """
         assert(task.scheduling_parameter != None)
         assert(task.wcet >= 0)
 
@@ -1017,5 +1015,665 @@ class SPPScheduler(analysis.Scheduler):
 
         return w
 
+
+class SPPSchedulerSegmentsBase(analysis.Scheduler):
+    """ Static-Priority-Preemptive Scheduler for task chains with segment logic.
+
+    Priority is stored in task.scheduling_parameter,
+    by default numerically lower numbers have a higher priority
+
+    Policy for equal priority is FCFS (i.e. max. interference).
+
+    Computes busy window of an entire task chain as presented in TODO.
+    Builds the basis for SPPSchedulerSegmentsUniform, SPPSchedulerSegments and SPPSchedulerSegmentsInheritance.
+    """
+
+    def __init__(self, build_sets, priority_cmp=prio_low_wins_equal_fifo):
+        analysis.Scheduler.__init__(self)
+
+        # # priority ordering
+        self.priority_cmp = priority_cmp
+        self._build_sets = build_sets
+
+    @staticmethod
+    def accept_model(chains, m):
+        for c in chains:
+            # only the first task may have multiple predecessors
+            for t in c.tasks[1:]:
+                if isinstance(t, model.Junction):
+                    logger.error("Task %s must not have multiple predecessors." % (t))
+                    return False
+
+            # there is no task that has a strict predecessor in another chain
+            if m.predecessors(c.tasks[0], only_strong=True):
+                logger.error("Task %s must not have a strict predecessor that is not in the same chain." % (c.tasks[0]))
+                return False
+
+        return True
+
+    def _get_min_chain_prio(self, taskchain):
+        """ returns the minimum priority within the given taskchain and the last task with this priority """
+        min_prio = taskchain.tasks[0].scheduling_parameter
+        min_prio_task = taskchain.tasks[0]
+        for t in taskchain.tasks:
+            if min_prio == t.scheduling_parameter or self.priority_cmp(min_prio, t.scheduling_parameter):
+                min_prio = t.scheduling_parameter
+                min_prio_task = t
+
+        return min_prio, min_prio_task
+
+    def _potential_blockers(self, A, B, model):
+        """ implements Def. 4.3.41 """
+
+        blockers = set()
+        cur_len = -1
+        while cur_len < len(blockers):
+            cur_len = len(blockers)
+
+            for tj in model.tasks - A:
+                for ti in (B | blockers) - model.predecessors(tj, recursive=True, only_strong=True) \
+                                           - model.successors(tj, recursive=True, only_strong=True):
+                    if ti is not tj and model.allocations[ti].keys() & model.allocations[tj].keys():
+                        blockers.add(tj)
+
+        return blockers
+
+    def _prio_sets(self, taskchain, min_prio):
+        higher = set()
+        for t in taskchain.resource().tasks - set(taskchain.tasks):
+            if self.priority_cmp(t.scheduling_parameter, min_prio):
+                higher.add(t)
+
+        blockers = self._potential_blockers(higher | set(taskchain.tasks),
+                                            higher | set(taskchain.tasks),
+                                            taskchain.resource().model)
+
+        medium = set()
+        for tj in taskchain.resource().tasks - set(taskchain.tasks):
+            for ti in blockers:
+                if self.priority_cmp(tj.scheduling_parameter, ti.scheduling_parameter):
+                    medium.add(tj)
+
+        lower = taskchain.resource().tasks - medium - blockers - higher
+
+        return higher, medium, blockers, lower
+
+    def _chain_sets(self, chains, model):
+        strict_chains = set()
+        other_chains  = set()
+
+        for c in chains:
+            strict = True
+            if len(c.tasks) > 1:
+                for src, dst in zip(c.tasks[:-1], c.tasks[1:]):
+                    if not model.is_strong_precedence(src, dst):
+                        strict = False
+                        break
+            else:
+                strict = False
+
+            if strict:
+                strict_chains.add(c)
+            else:
+                other_chains.add(c)
+
+        return strict_chains, other_chains
+
+    def _last_strict(self, taskchain):
+        tS = taskchain.tasks[-1]
+        last_strict = {tS}
+        for src, dst in zip(reversed(taskchain.tasks[:-1]), reversed(taskchain.tasks[1:])):
+            if taskchain.resource().model.is_strong_precedence(src, dst):
+                last_strict.add(src)
+                tS = src
+            else:
+                break
+
+        return last_strict, tS
+
+    def _crit_segment(self, segments):
+        """ find the critical segment in other segments (Theorem 4.3.31) """
+        crit_seg = None
+        max_cet = 0
+        for c, segs in segments.items():
+            for s in segs:
+                cet = sum([t.wcet for t in s])
+                if cet > max_cet:
+                    crit_seg = s
+                    max_cet = cet
+
+        return crit_seg
+
+    def _get_segments(self, taskchain, lower):
+        # split interference into head and deferred segments
+
+        head_segments = dict()
+        deferred_segments = dict()
+
+        for tc in taskchain.resource().chains - {taskchain}:
+            head_segments[tc] = set()
+            deferred_segments[tc] = list()
+            deferred_segments[tc].append(set())
+            head = True
+            for t in tc.tasks:
+                if t in lower:
+                    head = False
+                    if deferred_segments[tc][-1]:
+                        deferred_segments[tc].append(set())
+                    continue
+
+                if head:
+                    # add task to head segment
+                    head_segments[tc].add(t)
+                else:
+                    # add task to to a deferred segment
+                    deferred_segments[tc][-1].add(t)
+
+            if head:
+                del deferred_segments[tc][-1]
+
+        return head_segments, deferred_segments
+
+    def _compute_cet(self, taskchain, q):
+        """ computes lower bound on b_plus """
+        wcet = 0
+        for t in taskchain.tasks:
+            wcet += t.wcet
+
+        return q * wcet
+
+    def _compute_interference(self, taskset, w):
+        """ computes independent-interference part in Def. 4.3.17 """
+        s = 0
+        for t in taskset:
+            # tasks can be in multiple chains but the decomposition enforces that
+            #   there is only a single input event model for every task
+            #   the unmodified input event models are propagated across the chain (cf. bind_taskchain())
+            s += t.wcet * t.in_event_model.eta_plus(w)
+
+        return s
+
+    def _compute_self_interference(self, taskset, q, w):
+        """ computes self-interference part in Def. 4.3.17 """
+        s = 0
+        for t, f in taskset.items():
+            s += t.wcet * f(q, t.in_event_model.eta_plus(w))
+
+        return s
+
+    def _compute_deferred_interference(self, taskset):
+        """ computes deferred-interference part in Def. 4.3.17 """
+        s = 0
+        for t, n in taskset.items():
+            s += t.wcet * n
+
+        return s
+
+    def b_min(self, task, q):
+        bcet = 0
+        for t in task.chain.tasks:
+            bcet += t.bcet
+
+        return q * bcet
+
+    def stopping_condition(self, task, q, w):
+        """ uses scheduling horizon to decide on stopping condition """
+
+        # if there are no new activations when the current scheduling horizon has been completed, we terminate
+        if task.in_event_model.delta_min(q + 1) >= self.scheduling_horizon(task, q, w):
+            return True
+        return False
+
+    def scheduling_horizon(self, task, q, w, details=None, compute_b_plus=False):
+        """ calculates scheduling horizon to implement the stopping condition, or b_plus if compute_b_plus=True """
+        assert hasattr(task, 'chain'), "scheduling_horizon called on the wrong task"
+
+        taskchain = task.chain
+
+        while True:
+            w_new = self._compute_self_interference(taskchain._T, q, w) + \
+                    self._compute_deferred_interference(taskchain._D)
+
+            tail_wcet = 0
+            if compute_b_plus and hasattr(taskchain, '_B'):
+                # omit non-preemptible tails
+                w_new += self._compute_interference(taskchain._I-taskchain._B, w)
+
+                last_strict, tmp = self._last_strict(taskchain)
+                tail_wcet = sum([t.wcet for t in last_strict])
+                w_new += self._compute_interference(taskchain._B, w-tail_wcet)
+            else:
+                w_new += self._compute_interference(taskchain._I, w)
+
+            if w == w_new:
+                if details is not None:
+                    for t, f in taskchain._T.items():
+                        arg = t.in_event_model.eta_plus(w)
+                        details[str(t)+':f(q)*WCET'] = str(f(q,arg)) + '*' + str(t.wcet) + '=' + str(f(q,arg) * t.wcet)
+
+                    for t in taskchain._I:
+                        assert(t.in_event_model.eta_plus(w) > 0)
+                        details[str(t)+":eta(w)*WCET"]  = str(t.in_event_model.eta_plus(w)) \
+                                                        + "*" + str(t.wcet) + "=" \
+                                                        + str(t.in_event_model.eta_plus(w) * t.wcet)
+
+                    for t, n in taskchain._D.items():
+                        if n > 0:
+                            details[str(t)+":n*WCET"]       = str(n) + "*" + str(t.wcet) + "=" + str(n * t.wcet)
+
+                    # details argument is only provided when called with compute_b_plus=True
+                    if hasattr(taskchain, '_B'):
+                        for t in taskchain._B:
+                            assert t not in taskchain._T
+                            details[str(t)+":eta(w)*WCET"]  = str(t.in_event_model.eta_plus(w-tail_wcet)) \
+                                                            + "*" + str(t.wcet) + "=" \
+                                                            + str(t.in_event_model.eta_plus(w-tail_wcet) * t.wcet)
+
+                return w
+
+            w = w_new
+
+    def b_plus(self, task, q, details=None, **kwargs):
+        assert(task.scheduling_parameter != None)
+        assert(task.wcet >= 0)
+        assert hasattr(task, 'chain'), "b_plus called on the wrong task"
+
+        taskchain = task.chain
+
+        w = self._compute_cet(taskchain, q)
+
+        # only build the sets once, assuming that the resource's task set never changes
+        #    FIXME if the analysis should ever be re-started after changing the task set,
+        #          the sets must be recomputed
+        if not hasattr(taskchain, '_D'):
+            self._build_sets(taskchain)
+
+        w = self.scheduling_horizon(task, q, w=w, details=details, compute_b_plus=True)
+
+        return w
+
+class SPPSchedulerSegmentsUniform(SPPSchedulerSegmentsBase):
+    """ Implements Theorem 4.3.37 from TODO """
+
+    def __init__(self):
+        SPPSchedulerSegmentsBase.__init__(self, build_sets=self._build_sets)
+
+    def accept_model(self, chains, model):
+        if not SPPSchedulerSegmentsBase.accept_model(chains, model):
+            return False
+
+        used_execs = set()
+        tasks = set()
+        for c in chains:
+            # check precedence relations
+            if len(c.tasks) > 2:
+                ptype = model.is_strong_precedence(c.tasks[0], c.tasks[1])
+                for src, dst in zip(c.tasks[1:-1], c.tasks[2:]):
+                    if model.is_strong_precedence(src,dst) != ptype:
+                        logger.error("Chain %s switches precedence type between task %s and %s." % (c, src, dst))
+                        return False
+
+            # there are no strict precedence relations between different chains
+            for t in c.tasks:
+                for d in t.next_tasks - set(c.tasks):
+                    if model.is_strong_precedence(t, d):
+                        logger.error("Strict precedence relation between tasks of different chains(%s and %s)." % (t, d))
+                        return False
+
+
+            # only the last task may have multiple successors
+            for t in c.tasks[:-1]:
+                if len(t.next_tasks) > 1:
+                    logger.error("Task %s must not have multiple successors." % (t))
+                    return False
+
+            # execution contexts must not be used by tasks of different chains
+            my_execs = set()
+            for t in c.tasks:
+                my_execs.update(model.allocations[t].keys())
+            for e in my_execs:
+                if e in used_execs:
+                    logger.error("Execution context %s is used by multiple chains." % e)
+                    return False
+            used_execs.update(my_execs)
+
+            # tasks must be present in exactly one task chain
+            for t in c.tasks:
+                if t in tasks:
+                    logger.error("Task %s is in multiple chains." % t)
+                    return False
+                tasks.add(t)
+
+        return True
+
+    def _build_sets(self, taskchain):
+        taskchain._I = set()
+        taskchain._D = dict()
+        taskchain._T = dict()
+
+        model = taskchain.resource().model
+
+        # compute minimum priority of the chain
+        min_prio, min_prio_task = self._get_min_chain_prio(taskchain)
+
+        ####################
+        # self-interference
+        if len(taskchain.tasks) == 1:
+            # take a shortcut for single-task chains
+            for t in taskchain.tasks:
+                taskchain._T[t] = lambda q, eta: q
+        elif model.is_strong_precedence(taskchain.tasks[0], taskchain.tasks[1]):
+            # set self-interference according to Theorem 4.3.23
+            for t in taskchain.tasks:
+                taskchain._T[t] = lambda q, x: q
+        else:
+            head = set()
+            tail = set()
+            # split chain into head and tail according to Def. 4.3.20
+            for t in taskchain.tasks:
+                if len(tail) == 0:
+                    if t is not min_prio_task:
+                        head.add(t)
+                    else:
+                        tail.add(t)
+                else:
+                    tail.add(t)
+
+            # set self-interference according to Theorem 4.3.23
+            for t in head:
+                taskchain._T[t] = lambda q,eta: max(eta, q)
+            for t in tail:
+                taskchain._T[t] = lambda q,eta: q
+
+        ########################
+        # deferred interference
+        lower = set()
+        for t in taskchain.resource().tasks:
+            if not self.priority_cmp(t.scheduling_parameter, min_prio):
+                lower.add(t)
+        head_segs, other_segs = self._get_segments(taskchain, lower)
+
+        # process head segments
+        for c, head in head_segs.items():
+            if len(c.tasks) > 1 and other_segs[c] and model.is_strong_precedence(c.tasks[0], c.tasks[1]):
+                # Corollary 4.3.36
+                for t in head:
+                    taskchain._D[t] = 1
+            else:
+                # head segments of weak precedence chains and high-priority chains are normal interferers
+                for t in head:
+                    taskchain._I.add(t)
+
+        crit_seg = self._crit_segment(other_segs)
+
+        # Corollary 4.3.33
+        for c, segs in other_segs.items():
+            for s in segs:
+                if s is crit_seg:
+                    for t in s:
+                        taskchain._D[t] = 1
+                else:
+                    for t in s:
+                        taskchain._D[t] = 0
+
+        # sanity check (all high priority tasks occur in _I or _D
+        for t in taskchain.resource().tasks - set(taskchain.tasks) - lower:
+            if self.priority_cmp(t.scheduling_parameter, min_prio):
+                assert t in taskchain._I or t in taskchain._D, "Task %s not in D or I." % t
+
+class SPPSchedulerSegments(SPPSchedulerSegmentsBase):
+    """ Implements Corollary 4.3.58 for priority-inversion case. """
+
+    def __init__(self):
+        SPPSchedulerSegmentsBase.__init__(self, build_sets=self._build_sets)
+
+    def accept_model(self, chains, model):
+        return SPPSchedulerSegmentsBase.accept_model(chains, model)
+
+    def _build_sets(self, taskchain):
+        taskchain._I = set()
+        taskchain._B = set()
+        taskchain._D = dict()
+        taskchain._T = dict()
+
+        model = taskchain.resource().model
+
+        # compute minimum priority of the chain
+        min_prio, min_prio_task = self._get_min_chain_prio(taskchain)
+
+        # build priority sets
+        higher, medium, blocker, lower = self._prio_sets(taskchain, min_prio)
+
+        # separate purely strict from other chains
+        strict_chains, other_chains = self._chain_sets(taskchain.resource().chains, model)
+
+        ####################
+        # self-interference
+        if len(taskchain.tasks) == 1:
+            # shortcut for single-task chains
+            taskchain._T[t] = lambda q, eta: q
+        elif taskchain in strict_chains:
+            # shortcut for purely strict chains
+            for t in taskchain.tasks:
+                taskchain._T[t] = lambda q, x: q
+        else:
+            # first, determine whether a t_L exists according to Lemma 4.3.36
+            tL = None
+            non_strict_succ = (model.successors(min_prio_task, recursive=True)
+                             - model.successors(min_prio_task, only_strong=True, recursive=True)) & set(taskchain.tasks)
+            if not (self._potential_blockers(non_strict_succ, non_strict_succ, model) & \
+                    model.predecessors(min_prio_task, only_strong=True, recursive=True)):
+                tL = min_prio_task
+
+            # second, determine whether the chain ends with a strict precedence segment
+            last_strict, tS = self._last_strict(taskchain)
+
+            # Def. 4.3.48
+            head = set()
+            tail = set()
+            if last_strict and tL not in last_strict:
+                head = model.predecessors(tS, recursive=True) & set(taskchain.tasks)
+            elif tL:
+                head = model.predecessors(tL, recursive=True) & set(taskchain.tasks)
+            else:
+                head = set(taskchain.tasks)
+
+            tail = set(taskchain.tasks) - head
+
+            # set self-interference
+            for t in head:
+                taskchain._T[t] = lambda q,eta: max(eta, q)
+            for t in tail:
+                taskchain._T[t] = lambda q,eta: q
+
+        ########################
+        # deferred interference
+        head_segs, other_segs = self._get_segments(taskchain, lower)
+        crit_seg = self._crit_segment(other_segs)
+
+        # Corollary 4.3.33
+        for c, segs in other_segs.items():
+            for s in segs:
+                if s is crit_seg:
+                    for t in s - set(taskchain.tasks):
+                        taskchain._D[t] = 1
+                else:
+                    for t in s - set(taskchain.tasks):
+                        taskchain._D[t] = 0
+
+        # process head segments of purely strict chains
+        for c, head in head_segs.items():
+            if other_segs[c] and c in strict_chains:
+                # Corollary 4.3.36
+                for t in head - set(taskchain.tasks):
+                    taskchain._D[t] = 1
+
+        # process tasks in head segments that are not already in _D
+        for c, head in head_segs.items():
+            for t in head - set(taskchain.tasks):
+                if t not in taskchain._D:
+                    taskchain._I.add(t)
+
+        # sanity check: _I and _D are disjoint
+        assert not (taskchain._I & taskchain._D.keys()), \
+                   "D and I are not disjoint: %s" % taskchain._I&taskchain._D.keys()
+
+        # sanity check: _T and _I |_D are disjoint
+        assert not (taskchain._T.keys() & (taskchain._I | taskchain._D.keys())), \
+                   "T and D&I are not disjoint: %s" % (taskchain._T.keys()&(taskchain._I|taskchain._D.keys()))
+
+        # sanity check (all high priority tasks occur in _I or _D
+        for t in taskchain.resource().tasks - set(taskchain.tasks) - lower:
+            if self.priority_cmp(t.scheduling_parameter, min_prio):
+                assert t in taskchain._I or t in taskchain._D, "Task %s not in D or I." % t
+
+        # determine tasks that cannot preempt the last strict segment
+        last_strict, first = self._last_strict(taskchain)
+        assert len(model.allocations[first].keys()) == 1
+        last_ectx = list(model.allocations[first].keys())[0]
+        affected = set()
+        for t in taskchain._I:
+            if last_ectx in model.allocations[t]:
+                affected.add(t)
+                affected.update(model.successors(t, recursive=True))
+
+        for t in taskchain._I & affected:
+            taskchain._B.add(t)
+
+
+class SPPSchedulerSegmentsInheritance(SPPSchedulerSegmentsBase):
+    """ Implements Corollary 4.3.58 for perfect priority inheritance """
+
+    def __init__(self):
+        SPPSchedulerSegmentsBase.__init__(self, build_sets=self._build_sets)
+
+    def accept_model(self, chains, model):
+        if not SPPSchedulerSegmentsBase.accept_model(chains, model):
+            return False
+
+        # check that strict predecessors are mapped to the same scheduling context
+        for c in chains:
+            if len(c.tasks) > 1:
+                for src, dst in zip(c.tasks[:-1], c.tasks[1:]):
+                    if model.is_strong_precedence(src, dst):
+                        if model.mappings[src] != model.mappings[dst]:
+                            logger.error("Strict predecessors %s and %s have different scheduling contexts and thus" \
+                                          " violate priority inheritance." % (src, dst))
+                            return False
+
+        return True
+
+    def _build_sets(self, taskchain):
+        taskchain._I = set()
+        taskchain._D = dict()
+        taskchain._T = dict()
+        taskchain._B = set()
+
+        model = taskchain.resource().model
+
+        # compute minimum priority of the chain
+        min_prio, min_prio_task = self._get_min_chain_prio(taskchain)
+
+        # build priority sets
+        higher, medium, blocker, lower = self._prio_sets(taskchain, min_prio)
+        # due to helping, there are no medium priority tasks
+        lower.update(medium-blocker)
+
+        # separate purely strict from other chains
+        strict_chains, other_chains = self._chain_sets(taskchain.resource().chains, model)
+
+        ####################
+        # self-interference
+        if len(taskchain.tasks) == 1:
+            # shortcut for single-task chains
+            for t in taskchain.tasks:
+                taskchain._T[t] = lambda q, eta: q
+        elif taskchain in strict_chains:
+            # shortcut for purely strict chains
+            for t in taskchain.tasks:
+                taskchain._T[t] = lambda q, x: q
+        else:
+            # first, determine t_L according to Lemma 4.3.55
+            tL = None
+            spreds = model.predecessors(min_prio_task, only_strong=True, recursive=True) & set(taskchain.tasks)
+            if not spreds:
+                tL = min_prio_task
+            elif len(spreds) == 1:
+                tL = list(spreds)[0]
+            else:
+                for t in taskchain.tasks:
+                    if t in spreds:
+                        tL = t
+                        break
+
+            # Def. 4.3.57
+            head = model.predecessors(tL, recursive=True) & set(taskchain.tasks)
+            tail = set(taskchain.tasks) - head
+
+            # set self-interference
+            for t in head:
+                taskchain._T[t] = lambda q,eta: max(eta, q)
+            for t in tail:
+                taskchain._T[t] = lambda q,eta: q
+
+        ########################
+        # deferred interference
+        head_segs, other_segs = self._get_segments(taskchain, lower)
+        crit_seg = self._crit_segment(other_segs)
+
+        # Corollary 4.3.33
+        for c, segs in other_segs.items():
+            for s in segs:
+                if s is crit_seg:
+                    for t in s - set(taskchain.tasks):
+                        taskchain._D[t] = 1
+                else:
+                    for t in s - set(taskchain.tasks):
+                        taskchain._D[t] = 0
+
+        # process head segments of purely strict chains and tasks after the first B segment
+        for c, head in head_segs.items():
+            if other_segs[c] and c in strict_chains:
+                # Corollary 4.3.36
+                for t in head - set(taskchain.tasks):
+                    taskchain._D[t] = 1
+            else:
+                after_B = False
+                for t in head - set(taskchain.tasks):
+                    if after_B or t in blocker:
+                        after_B = True
+                        taskchain._D[t] = 1
+
+        # process tasks in head segments that are not already in _D
+        for c, head in head_segs.items():
+            for t in head - set(taskchain.tasks):
+                if t not in taskchain._D:
+                    taskchain._I.add(t)
+
+        # sanity check: _I and _D are disjoint
+        assert not (taskchain._I & taskchain._D.keys()), \
+                   "D and I are not disjoint: %s" % taskchain._I&taskchain._D.keys()
+
+        # sanity check: _T and _I |_D are disjoint
+        assert not (taskchain._T.keys() & (taskchain._I | taskchain._D.keys())), \
+                   "T and D&I are not disjoint: %s" % (taskchain._T.keys()&(taskchain._I|taskchain._D.keys()))
+
+        # sanity check (all high priority tasks occur in _I or _D
+        for t in taskchain.resource().tasks - set(taskchain.tasks) - lower:
+            if self.priority_cmp(t.scheduling_parameter, min_prio):
+                assert t in taskchain._I or t in taskchain._D, "Task %s not in D or I." % t
+
+        # determine tasks that cannot preempt the last strict segment
+        last_strict, first = self._last_strict(taskchain)
+        assert len(model.allocations[first].keys()) == 1
+        last_ectx = list(model.allocations[first].keys())[0]
+        affected = set()
+        for t in taskchain._I:
+            if last_ectx in model.allocations[t]:
+                affected.add(t)
+                affected.update(model.successors(t, recursive=True))
+
+        for t in taskchain._I & affected:
+            taskchain._B.add(t)
 
 # vim: tabstop=4 expandtab shiftwidth=4 softtabstop=4
