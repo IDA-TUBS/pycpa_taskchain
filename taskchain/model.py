@@ -1,5 +1,5 @@
 """
-| Copyright (C) 2017 Johannes Schlatow
+| Copyright (C) 2017-2020 Johannes Schlatow
 | TU Braunschweig, Germany
 | All rights reserved.
 | See LICENSE file for copyright and license details.
@@ -24,8 +24,10 @@ import warnings
 
 from pycpa import options
 from pycpa import util
-from pycpa import model
+from pycpa import model as cpamodel
 from pycpa import propagation
+
+from .schedulers import SPPSchedulerSegmentsUniform, SPPSchedulerSimple
 
 logger = logging.getLogger(__name__)
 
@@ -72,10 +74,16 @@ class SchedulingContext (object):
     def get_scheduling_parameter(self, task):
         return self.priority
 
+    def __repr__(self):
+        return self.name
+
 class ExecutionContext (object):
     def __init__(self, name):
         # identifier
         self.name = name
+
+    def __repr__(self):
+        return self.name
 
 class ResourceModel (object):
     """ Stores model (extended task graph) for a single resource. """
@@ -88,33 +96,32 @@ class ResourceModel (object):
         self.junclinks        = dict()  # links from junctions to tasks
         self.exec_ctxs        = list()  # set of execution contexts
         self.sched_ctxs       = list()  # set of scheduling contexts
-#        self.tasklinks_strong = dict() # set of strong precedence relations (arcs in task graph)
         self.tasklinks        = dict() # set of precedence relations (arcs in task graph)
         self.allocations      = dict() # arcs between tasks and execution context
         self.mappings         = dict() # edges between tasks and scheduling contexts
 
     def add_task(self, t):
-        assert(isinstance(t, model.Task))
+        assert(isinstance(t, cpamodel.Task))
         self.tasks.add(t)
         self.tasklinks[t] = set()
         self.junclinks[t] = None
         return t
 
     def add_junction(self, j):
-        assert(isinstance(j, model.Junction))
+        assert(isinstance(j, cpamodel.Junction))
         self.junctions.add(j)
         self.juncinputs[j] = set()
         return j
 
     def connect_junction(self, t, j):
-        assert(isinstance(t, model.Task))
-        assert(isinstance(j, model.Junction))
+        assert(isinstance(t, cpamodel.Task))
+        assert(isinstance(j, cpamodel.Junction))
 
         self.juncinputs[j].add(t)
 
     def link_junction(self, j, t):
-        assert(isinstance(t, model.Task))
-        assert(isinstance(j, model.Junction))
+        assert(isinstance(t, cpamodel.Task))
+        assert(isinstance(j, cpamodel.Junction))
         assert not self.junclinks[t]
 
         self.junclinks[t] = j
@@ -133,6 +140,12 @@ class ResourceModel (object):
         assert(src in self.tasks)
         assert(dst in self.tasks)
         self.tasklinks[src].add(dst)
+
+    def unlink_tasks(self, src, dst):
+        assert src in self.tasks
+        assert dst in self.tasks
+        assert dst in self.tasklinks[src]
+        self.tasklinks[src].remove(dst)
 
     def assign_execution_context(self, t, e, blocking=False):
         assert(t in self.tasks)
@@ -204,8 +217,19 @@ class ResourceModel (object):
 
         return result
 
+    def strong_chain(self, task):
+        """ assuming there is no task with multiple strict successors, returns strict chain starting from given task """
+        chain = []
+        succ = {task}
+        while succ:
+            t = list(succ)[0]
+            chain.append(t)
+            succ = self.successors(t, only_strong=True)
+
+        return chain
+
     def is_strong_precedence(self, src, dst):
-        assert(dst in self.tasklinks[src])
+        assert dst in self.tasklinks[src], "No tasklink for %s in %s." % (dst, self.tasklinks[src])
         for ctx, blocking in self.allocations[src].items():
             if blocking and ctx in self.allocations[dst]:
                 return True
@@ -246,19 +270,108 @@ class ResourceModel (object):
         segment.reverse()
         return segment
 
+    def move_forks_to_chainend(self):
+        # for analyses that assume disjoint chains, we must assure that forks do only occur at chain ends
+        #  Thus, if there is a fork with one strict successors and other weak successors,
+        #  we can move the weak successors to the end of the strict chain.
+        #  The rationale for this is that it will only worsen the input event model (additional jitter).
+        #  The path latency analysis, will also be more pessimistic for the worst case.
+        #  However, the best case will be optimistic (i.e. bigger than the actual best case). We add a
+        #  warning to point this out. Alternatively, we could modify the path analysis to work on the
+        #  original model.
+        for t in self.tasks:
+            if len(self.successors(t, only_strong=True)) and len(self.successors(t)) > 1:
+                strict_chain = self.strong_chain(t)
+                for s in self.successors(t) - {strict_chain[1]}:
+                    logger.warning("Moving task %s to end of strict chain(%s). Be aware that this renders the path" \
+                                    " analysis non-conservative for the best case." % (s, strict_chain[-1]))
+                    self.unlink_tasks(t, s)
+                    self.link_tasks(strict_chain[-1], s)
+
+    def split_at_forks(self, paths):
+        new_paths = dict()
+        cur_path = list()
+        for p in paths:
+            if len(p) == 1:
+                new_paths[(p[0],p[0])] = p
+                continue
+
+            ptype = self.is_strong_precedence(p[0], p[1])
+            for src, dst in zip(p[:-1], p[1:]):
+                cur_path.append(src)
+                if len(self.successors(src)) > 1:
+                    assert not self.is_strong_precedence(src, dst)
+                    new_paths[(cur_path[0], cur_path[-1])] = tuple(cur_path)
+                    cur_path = []
+
+            cur_path.append(p[-1])
+            new_paths[(cur_path[0], cur_path[-1])] = tuple(cur_path)
+            cur_path = []
+
+        return set(new_paths.values())
+
+    def remove_subchains(self, paths):
+        # eliminate paths that are subpaths of other paths so that tasks are only present within a single chain
+        new_paths = set()
+        visited = set()
+        subpaths = set()
+        for p1 in paths:
+            if p1 in subpaths:
+                continue
+            visited.add(p1)
+            for p2 in paths - visited - subpaths:
+                if set(p1) & set(p2):
+                    if len(p1) < len(p2):
+                        subpaths.add(p1)
+                    else:
+                        subpaths.add(p2)
+
+            if p1 not in subpaths:
+                new_paths.add(p1)
+
+        return new_paths
+
+    def split_precedence(self, paths):
+        new_paths = set()
+        cur_path = list()
+        for p in paths:
+            if len(p) <= 2:
+                new_paths.add(p)
+            else:
+                for src, dst in zip(p[:-1], p[1:]):
+                    if not cur_path or ptype == self.is_strong_precedence(src, dst):
+                        ptype = self.is_strong_precedence(src, dst)
+                        cur_path.append(src)
+                    elif ptype:
+                        # was strict precedence before src -> also take src into path and start new path at dst
+                        cur_path.append(src)
+                        new_paths.add(tuple(cur_path))
+                        cur_path = []
+                    else:
+                        # was weak precedence before src -> start new chain at src
+                        ptype = True
+                        new_paths.add(tuple(cur_path))
+                        cur_path = [src]
+
+                cur_path.append(p[-1])
+                new_paths.add(tuple(cur_path))
+                cur_path = []
+
+        return new_paths
+
     def paths(self, root):
-        paths = list()
+        paths = set()
         cur_path = [root]
 
         successors = self.successors(root)
         if len(successors) == 0:
-            paths.append(cur_path)
+            paths.add(tuple(cur_path))
         else:
             for t in successors:
                 for sub_path in self.paths(t):
                     path = copy.copy(cur_path)
                     path += sub_path
-                    paths.append(path)
+                    paths.add(tuple(path))
 
         return paths
 
@@ -357,7 +470,7 @@ class ResourceModel (object):
             # add inter-resource task links
             for m in models:
                 for t in m.tasks:
-                    if t.prev_task and isinstance(t, model.Task) and isinstance(t.prev_task, model.Task):
+                    if t.prev_task and isinstance(t, cpamodel.Task) and isinstance(t.prev_task, cpamodel.Task):
                         if t.prev_task.resource != t.resource:
                             dotfile.write("  %s -> %s" % (convert_label(t.prev_task.name), convert_label(t.name)))
 
@@ -451,12 +564,12 @@ class ResourceModel (object):
 
         dotfile.write("}")
 
-class TaskchainResource (model.Resource):
+class TaskchainResource (cpamodel.Resource):
     """ A Resource provides service to tasks. This Resource can contain task chains """
 
-    def __init__(self, name=None, scheduler=None, **kwargs):
+    def __init__(self, name, scheduler=None, **kwargs):
         """ CTOR """
-        model.Resource.__init__(self, name, scheduler, **kwargs)
+        cpamodel.Resource.__init__(self, name, scheduler, **kwargs)
 
         self.model = None
 
@@ -464,6 +577,10 @@ class TaskchainResource (model.Resource):
 
     def build_from_model(self, model):
         self.model = model
+
+        if isinstance(self.scheduler, (SPPSchedulerSegmentsUniform, SPPSchedulerSimple)):
+            self.model.move_forks_to_chainend()
+
         for t in self.model.tasks:
             t.chain = None
             assert t.bcet > 0
@@ -520,10 +637,18 @@ class TaskchainResource (model.Resource):
                 if len(self.model.predecessors(t)) == 0:
                     roots.add(t)
 
-            # perform a DFS
+            # perform a DFS to identify all paths
             paths = list()
             for r in roots - chained_tasks:
                 paths += self.model.paths(r)
+
+            if isinstance(self.scheduler, (SPPSchedulerSegmentsUniform, SPPSchedulerSimple)):
+                # split at forks, remove subpaths, and whenever precedence type changes
+                paths = self.model.split_at_forks(paths)
+                paths = self.model.remove_subchains(paths)
+                paths = self.model.split_precedence(paths)
+
+                assert not self.model.tasks.symmetric_difference(set([t for p in paths for t in p])), "Not all tasks in paths."
 
             for p in paths:
                 self.bind_taskchain(Taskchain(p[0].name + "-" + p[-1].name, p))
