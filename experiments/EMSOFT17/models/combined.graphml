@@ -3,28 +3,28 @@
 <key id="wcet" for="node" attr.name="wcet" attr.type="int">
 	<default>1</default>
 </key>
-<key id="type" for="node" attr.name="node type" attr.type="string">
+<key id="type" for="node" attr.name="type" attr.type="string">
 	<default>task</default>
 </key>
-<key id="period" for="node" attr.name="activation period" attr.type="integer">
+<key id="period" for="node" attr.name="period" attr.type="integer">
 	<default>0</default>
 </key>
-<key id="jitter" for="node" attr.name="activation jitter" attr.type="integer">
+<key id="jitter" for="node" attr.name="jitter" attr.type="integer">
 	<default>0</default>
 </key>
-<key id="wcet" for="node" attr.name="worst case execution time" attr.type="integer">
+<key id="wcet" for="node" attr.name="wcet" attr.type="integer">
 	<default>0</default>
 </key>
-<key id="bcet" for="node" attr.name="best case execution time" attr.type="integer">
+<key id="bcet" for="node" attr.name="bcet" attr.type="integer">
 	<default>0</default>
 </key>
-<key id="scheduling_parameter" for="node" attr.name="scheduling priority" attr.type="integer">
+<key id="scheduling_parameter" for="node" attr.name="scheduling_parameter" attr.type="integer">
 	<default>0</default>
 </key>
-<key id="acttype" for="edge" attr.name="activation type" attr.type="string">
+<key id="acttype" for="edge" attr.name="acttype" attr.type="string">
 	<default>call</default>
 </key>
-<key id="label" for="edge" attr.name="activation label" attr.type="string">
+<key id="label" for="edge" attr.name="label" attr.type="string">
     <default></default>
 </key>
 <graph edgedefault="directed">

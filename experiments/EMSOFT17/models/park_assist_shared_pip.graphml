@@ -1,22 +1,22 @@
 <?xml version="1.0" ?>
 <graphml>
-    <key attr.name="type" attr.type="str" for="node" id="type">
+    <key attr.name="type" attr.type="string" for="node" id="type">
         <default>task</default>
     </key>
-    <key id="period" for="node" attr.name="activation period" attr.type="integer">
+    <key id="period" for="node" attr.name="period" attr.type="integer">
         <default>0</default>
     </key>
-    <key id="jitter" for="node" attr.name="activation jitter" attr.type="integer">
+    <key id="jitter" for="node" attr.name="jitter" attr.type="integer">
         <default>0</default>
     </key>
-	 <key attr.name="wcet" attr.type="int" for="node" id="wcet">
+	 <key attr.name="wcet" attr.type="integer" for="node" id="wcet">
         <default>0</default>
 	  </key>
-	  <key attr.name="bcet" attr.type="int" for="node" id="bcet">
+	  <key attr.name="bcet" attr.type="integer" for="node" id="bcet">
         <default>0</default>
 	  </key>
-    <key attr.name="acttype" attr.type="str" for="edge" id="acttype"/>
-    <key attr.name="label" attr.type="str" for="edge" id="label">
+    <key attr.name="acttype" attr.type="string" for="edge" id="acttype"/>
+    <key attr.name="label" attr.type="string" for="edge" id="label">
         <default></default>
     </key>
     <graph edgedefault="directed" id="">
@@ -97,16 +97,16 @@
             <data key="bcet">1</data>
         </node>
         <edge source="P::1" target="P"/>
-        <edge directed="false" source="P::1" target="S_P"/>
+        <edge source="P::1" target="S_P"/>
         <edge source="P-TC::1" target="TC"/>
-        <edge directed="false" source="P-TC::1" target="S_P"/>
+        <edge source="P-TC::1" target="S_P"/>
         <edge source="P-TC::1" target="P"/>
         <edge source="P::1" target="P-TC::1">
             <data key="acttype">call</data>
             <data key="label">call()</data>
         </edge>
         <edge source="O1OR" target="P-O1OR::1"/>
-        <edge directed="false" source="P-O1OR::1" target="S_P"/>
+        <edge source="P-O1OR::1" target="S_P"/>
         <edge source="P-O1OR::1" target="P"/>
         <edge source="P-O1OR::1" target="TC"/>
         <edge source="P-TC::1" target="P-O1OR::1">
@@ -114,55 +114,55 @@
             <data key="label">call()</data>
         </edge>
         <edge source="TC" target="P-TC::2"/>
-        <edge directed="false" source="P-TC::2" target="S_P"/>
+        <edge source="P-TC::2" target="S_P"/>
         <edge source="P-TC::2" target="P"/>
         <edge source="P-O1OR::1" target="P-TC::2">
             <data key="acttype">return</data>
             <data key="label">return</data>
         </edge>
         <edge source="P" target="P::2"/>
-        <edge directed="false" source="P::2" target="S_P"/>
+        <edge source="P::2" target="S_P"/>
         <edge source="P-TC::2" target="P::2">
             <data key="acttype">return</data>
             <data key="label">return</data>
         </edge>
         <edge source="LA::1" target="LA"/>
-        <edge directed="false" source="LA::1" target="S_LA"/>
+        <edge source="LA::1" target="S_LA"/>
         <edge source="O1OR" target="LA-O1OR::1"/>
-        <edge directed="false" source="LA-O1OR::1" target="S_LA"/>
+        <edge source="LA-O1OR::1" target="S_LA"/>
         <edge source="LA-O1OR::1" target="LA"/>
         <edge source="LA::1" target="LA-O1OR::1">
             <data key="acttype">call</data>
             <data key="label">call()</data>
         </edge>
         <edge source="LA::2" target="LA"/>
-        <edge directed="false" source="LA::2" target="S_LA"/>
+        <edge source="LA::2" target="S_LA"/>
         <edge source="LA-O1OR::1" target="LA::2">
             <data key="acttype">return</data>
             <data key="label">return</data>
         </edge>
         <edge source="OM" target="LA-OM::1"/>
-        <edge directed="false" source="LA-OM::1" target="S_LA"/>
+        <edge source="LA-OM::1" target="S_LA"/>
         <edge source="LA-OM::1" target="LA"/>
         <edge source="LA::2" target="LA-OM::1">
             <data key="acttype">call</data>
             <data key="label">call()</data>
         </edge>
         <edge source="LA::3" target="LA"/>
-        <edge directed="false" source="LA::3" target="S_LA"/>
+        <edge source="LA::3" target="S_LA"/>
         <edge source="LA-OM::1" target="LA::3">
             <data key="acttype">return</data>
             <data key="label">return</data>
         </edge>
         <edge source="S" target="LA-S::1"/>
-        <edge directed="false" source="LA-S::1" target="S_LA"/>
+        <edge source="LA-S::1" target="S_LA"/>
         <edge source="LA-S::1" target="LA"/>
         <edge source="LA::3" target="LA-S::1">
             <data key="acttype">call</data>
             <data key="label">call()</data>
         </edge>
         <edge source="LA" target="LA::4"/>
-        <edge directed="false" source="LA::4" target="S_LA"/>
+        <edge source="LA::4" target="S_LA"/>
         <edge source="LA-S::1" target="LA::4">
             <data key="acttype">return</data>
             <data key="label">return</data>

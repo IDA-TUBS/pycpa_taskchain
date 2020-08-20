@@ -11,5 +11,5 @@ setup(
     url='https://bitbucket.org/pycpa/pycpa_taskchain',
     license='MIT',
     packages= ['taskchain'],
-    install_requires=['pycpa']
+    install_requires=['pycpa', 'networkx']
 )
