@@ -44,7 +44,7 @@ class Generator (object):
         self.sharing_level = sharing_level
         self.inherit = inherit
 
-        assert(self.number % self.branching_level == 0)
+        assert self.number >= self.branching_level
 
     def random_model(self, name='random'):
         m = tc_model.ResourceModel(name)
@@ -56,8 +56,9 @@ class Generator (object):
         # running sched. context index
         si = 0
 
+        n = 0
         # create self.number chains
-        for n in range(int(self.number / self.branching_level)):
+        while n < self.number:
             # randomly select the fork point
             l_fork = random.random_integers(1, self.length-1)
             # create tasks up to fork
@@ -72,10 +73,12 @@ class Generator (object):
 
             # create branches
             for b in range(self.branching_level):
+                n += 1
+                bpred = pred
                 for l in range(self.length-l_fork):
                     task = m.add_task(model.Task("T"+str(ti)))
-                    m.link_tasks(pred, task)
-                    pred = task
+                    m.link_tasks(bpred, task)
+                    bpred = task
                     ti += 1
 
         # now we create the allocation graph
@@ -101,95 +104,105 @@ class Generator (object):
             paths = list()
             for t in m.tasks:
                 if len(m.predecessors(t)) == 0:
-                    paths.extend(m.paths(t))
+                    paths += m.paths(t)
 
             random.shuffle(paths)
 
             free_contexts = list()
+            segments = dict()
             while len(paths) > 0:
                 path = paths.pop()
 
-                segments = list()
                 segment = list()
                 for t in path:
                     segment.append(t)
                     successors = m.successors(t)
                     if len(successors) > 1:
-                        for succ in successors:
-                            if m.is_strong_precedence(t, succ):
-                                segments.append(segment)
-                                segment = list()
-                                break
+                        segments[segment[0],segment[-1]] = segment
+                        segment = list()
 
-                segments.append(segment)
+                segments[segment[0],segment[-1]] = segment
 
-                for segment in segments:
-                    # TODO split segments into subsegments of length nesting_depth*2+1
-                    assert(len(segment) >= (self.nesting_depth*2+1) and len(segment) % 2 == 1)
+            for segment in segments.values():
+                if len(segment) % 2 != 1:
+                    # insert a single weak precedence
+                    ctx = m.add_execution_context(tc_model.ExecutionContext("E"+str(ei)))
+                    ei += 1
+                    #free_contexts.append(ctx)
+                    if random.choice([True,False]):
+                        # insert at the start of the segment
+                        m.assign_execution_context(segment[0], ctx, blocking=False)
+                        segment = segment[1:]
+                    else:
+                        # insert at the end of the segment
+                        m.assign_execution_context(segment[-1], ctx, blocking=False)
+                        segment = segment[:-1]
 
-                    nested_contexts = list()
-                    free_next = None
-                    second = False
+                max_nesting = min(self.nesting_depth, (len(segment)-1)/2)
+                assert len(segment) >= (max_nesting*2+1)
+                assert len(segment) % 2 == 1
 
-                    remaining = len(segment)
-                    for t in segment:
-                        # TODO skip if we already processed this segment
+                nested_contexts = list()
+                free_next = None
+                second = False
 
-                        if remaining <= len(nested_contexts):
-                            # release previously allocated context
-                            release = True
-                        elif len(nested_contexts) > 0 and remaining % 2 == 1 and not second:
-                            release = (random.random_integers(0, 1) == 1)
+                remaining = len(segment)
+                for t in segment:
+                    if remaining <= len(nested_contexts):
+                        # release previously allocated context
+                        release = True
+                    elif len(nested_contexts) > 0 and remaining % 2 == 1 and not second:
+                        release = (random.random_integers(0, 1) == 1)
+                    else:
+                        release = False
+
+                    if second:
+                        second = False
+
+                    free_this = free_next
+
+                    if release:
+                        ctx = nested_contexts.pop()
+                        m.assign_execution_context(t, ctx, blocking=False)
+
+                        if len(m.allocating_tasks(ctx, only_released=True)) <= self.sharing_level:
+                            free_contexts.append(ctx)
+                    else:
+
+                        if len(free_contexts) <= 1:
+                            choose_free = False
+                        elif len(free_contexts) < len(paths):
+                            # randomly choose new context or existing one
+                            choose_free = (random.random_integers(0, 1) == 1)
                         else:
-                            release = False
+                            # always choose existing context
+                            choose_free = True
 
-                        if second:
-                            second = False
-
-                        free_this = free_next
-
-                        if release:
-                            ctx = nested_contexts.pop()
-                            m.assign_execution_context(t, ctx, blocking=False)
-
-                            if len(m.allocating_tasks(ctx, only_released=True)) <= self.sharing_level:
-                                free_contexts.append(ctx)
+                        if choose_free:
+                            idx = random.random_integers(0, len(free_contexts)-1)
+                            ctx = free_contexts.pop(idx)
                         else:
+                            ctx = m.add_execution_context(tc_model.ExecutionContext("E"+str(ei)))
+                            ei += 1
+                    
+                        if remaining > 2 and len(nested_contexts) < max_nesting:
+                            nested_contexts.append(ctx)
+                            nested = True
+                            second = True
+                        else:
+                            nested = False
 
-                            if len(free_contexts) <= 1:
-                                choose_free = False
-                            elif len(free_contexts) < len(paths):
-                                # randomly choose new context or existing one
-                                choose_free = (random.random_integers(0, 1) == 1)
-                            else:
-                                # always choose existing context
-                                choose_free = True
+                        m.assign_execution_context(t, ctx, blocking=nested)
+                        if not nested and len(m.allocating_tasks(ctx, only_released=True)) <= self.sharing_level:
+                            free_next = ctx
 
-                            if choose_free:
-                                idx = random.random_integers(0, len(free_contexts)-1)
-                                ctx = free_contexts.pop(idx)
-                            else:
-                                ctx = m.add_execution_context(tc_model.ExecutionContext("E"+str(ei)))
-                                ei += 1
-                        
-                            if remaining > 2 and len(nested_contexts) < self.nesting_depth:
-                                nested_contexts.append(ctx)
-                                nested = True
-                                second = True
-                            else:
-                                nested = False
+                    if free_this is not None:
+                        free_contexts.append(free_this)
 
-                            m.assign_execution_context(t, ctx, blocking=nested)
-                            if not nested and len(m.allocating_tasks(ctx, only_released=True)) <= self.sharing_level:
-                                free_next = ctx
+                    for ctx in nested_contexts:
+                        m.assign_execution_context(t, ctx, blocking=True)
 
-                        if free_this is not None:
-                            free_contexts.append(free_this)
-
-                        for ctx in nested_contexts:
-                            m.assign_execution_context(t, ctx, blocking=True)
-
-                        remaining -= 1
+                    remaining -= 1
 
         # now we need to add scheduling contexts
         if self.inherit:
