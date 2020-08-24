@@ -29,9 +29,49 @@ from . import model
 from networkx.readwrite import graphml
 import networkx as nx
 
+import typing
+
 logger = logging.getLogger(__name__)
 
 class Graphml:
+
+    @staticmethod
+    def model_to_file(m: model.ResourceModel, filename, from_time_base=util.us, to_time_base=util.us):
+        # first, put model into a networkx graph
+        g = nx.DiGraph(name=m.name)
+
+        for t in m.tasks:
+            g.add_node(t.name, type='task',
+                               wcet=util.time_to_time(t.wcet, from_time_base, to_time_base),
+                               bcet=util.time_to_time(t.bcet, from_time_base, to_time_base))
+
+            if isinstance(t.in_event_model, pycpa_model.PJdEventModel):
+                g.nodes[t.name]['period'] = util.time_to_time(t.in_event_model.P, from_time_base, to_time_base)
+                g.nodes[t.name]['jitter'] = util.time_to_time(t.in_event_model.J, from_time_base, to_time_base)
+
+        for e in [e.name for e in m.exec_ctxs]:
+            g.add_node(e, type='exec')
+
+        for s in m.sched_ctxs:
+            g.add_node(s.name, type='sched',
+                               scheduling_parameter=s.priority)
+
+        for src, dsts in m.tasklinks.items():
+            for dst in dsts:
+                g.add_edge(src.name, dst.name)
+
+        for t, data in m.allocations.items():
+            for e, blocking in data.items():
+                if blocking:
+                    g.add_edge(t.name, e.name)
+                else:
+                    g.add_edge(e.name, t.name)
+
+        for t, s in m.mappings.items():
+            g.add_edge(t.name, s.name)
+
+        # second, write GraphML
+        nx.write_graphml(g, filename, prettyprint=True)
 
     def model_from_file(self, filename, resname=None, from_time_base=util.us, to_time_base=util.us):
         models = self.models_from_file(filename, from_time_base, to_time_base)
@@ -76,7 +116,7 @@ class Graphml:
             if data['type'] == 'task':
 
                 objects[n] = models[res].add_task(pycpa_model.Task(n))
-                if data['period'] != 0:
+                if 'period' in data and data['period'] != 0:
                     objects[n].in_event_model = pycpa_model.PJdEventModel(
                             P=util.time_to_time(data['period'], from_time_base, to_time_base),
                             J=util.time_to_time(data['jitter'], from_time_base, to_time_base))
