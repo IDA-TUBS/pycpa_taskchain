@@ -382,6 +382,41 @@ class ResourceModel (object):
 
         return tasks
 
+    def relax_model(self):
+        """ Modify model so that it does not contain blocking. Replaces shared execution contexts with new ones."""
+
+        inserted = 0
+
+        # find shared execution contexts
+        for e in self.exec_ctxs:
+            release = self.allocating_tasks(e, only_released=True)
+            # execution context is shared if released by multiple tasks
+            if len(release) == 1:
+                continue
+
+            # replace execution context for all but one segment
+            allocs = self.allocating_tasks(e)
+            ei = 1
+            for t in list(release)[1:]:
+                ctx = self.add_execution_context(ExecutionContext('%s-%d' % (e.name, ei)))
+                ei += 1
+                inserted += 1
+                # change for strict predecessors of t that alloc e
+                del self.allocations[t][e]
+                self.assign_execution_context(t, ctx, blocking=False)
+                tt = t
+                while len(self.predecessors(tt)):
+                    pred = list(self.predecessors(tt))[0]
+                    if not e in self.allocations[pred] or not self.allocations[pred][e]:
+                        # pred must be allocating and blocking e
+                        break
+
+                    tt = pred
+                    del self.allocations[tt][e]
+                    self.assign_execution_context(tt, ctx, blocking=True)
+
+        return inserted
+
     def check(self):
         #####################
         # task graph checks #
