@@ -212,7 +212,7 @@ class ResourceModel (object):
             result = set(successors)
 
         if recursive:
-            for t in successors:
+            for t in copy.copy(result):
                 result.update(self.successors(t, only_strong=only_strong, recursive=recursive))
 
         return result
