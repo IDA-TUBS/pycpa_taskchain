@@ -38,3 +38,14 @@ if __name__ == "__main__":
     print(df.describe())
 
 
+    # Schedulability results
+    print('\n')
+    data = generated.SchedulabilityData(folder=args.folder)
+    df = data.data_frame()
+    print(df.head())
+
+    print("\nAnalysis time statistics:")
+    print(data.timedata().describe())
+
+    print("\nSchedulability statistics:")
+    print(data.crosscatlong())

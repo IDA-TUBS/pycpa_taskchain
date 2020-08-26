@@ -25,6 +25,8 @@ options.parser.add_argument('outpath', type=str,
         help="output path")
 options.parser.add_argument('--nassign', type=int, default=10,
         help="number of random priority assignment per setup")
+options.parser.add_argument('--offset', type=int, default=0,
+        help="start at id")
 options.parser.add_argument('--inherit', action='store_true',
         help="use priority inheritance")
 
@@ -57,7 +59,7 @@ if __name__ == "__main__":
     outfile = "%s/settings.csv" % options.get_opt("outpath")
     write_header(outfile)
 
-    index = 1
+    index = 1 + options.get_opt('offset')
     for length in [13, 9, 5]:
         for number in [2, 4, 8]:
             for nesting_depth in range(0, min(3, 1+int(math.floor(length/2)))):
