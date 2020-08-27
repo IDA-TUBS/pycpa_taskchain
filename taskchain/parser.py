@@ -107,6 +107,8 @@ class Graphml:
         for n, data in g.nodes(data=True):
             if 'resource' in data:
                 res = data['resource']
+            elif 'name' in g.graph:
+                res = g.graph['name']
             else:
                 res = 'unknown'
 
