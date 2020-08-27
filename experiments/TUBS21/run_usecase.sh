@@ -22,7 +22,7 @@ for MODEL in "${MODELS[@]}"; do
 
 	OUT=results/${MODEL}/EMSOFT17
 	mkdir -p ${OUT}
-./run.py --name EMSOFT17 --outfile ${OUT}/results.csv ./models/${MODEL}.graphml --scheduler SPPScheduler > ${OUT}/output.log
+./run.py --name EMSOFT17 --outfile ${OUT}/results.csv ./models/${MODEL}.graphml --scheduler SPPSchedulerInheritance > ${OUT}/output.log
 done
 
 MODELS=(usecase usecase_block)

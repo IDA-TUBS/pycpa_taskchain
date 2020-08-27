@@ -41,7 +41,7 @@
 	<node id="t25"/>
 
 	<node id="t31">
-		<data key="period">3000</data>
+		<data key="period">1000</data>
 		<data key="jitter">0</data>
 	</node>
 	<node id="t32"/>

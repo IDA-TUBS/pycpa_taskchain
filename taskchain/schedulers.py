@@ -1015,6 +1015,9 @@ class SPPScheduler(analysis.Scheduler):
 
         return w
 
+class SPPSchedulerInheritance(SPPScheduler):
+    def __init__(self, priority_cmp=prio_low_wins_equal_fifo, candidate_search=False):
+        SPPScheduler.__init__(self, priority_cmp, candidate_search=candidate_search, helping=True)
 
 class SPPSchedulerSegmentsBase(analysis.Scheduler):
     """ Static-Priority-Preemptive Scheduler for task chains with segment logic.
