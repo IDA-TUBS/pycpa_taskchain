@@ -1416,6 +1416,10 @@ class SPPSchedulerSegmentsUniform(SPPSchedulerSegmentsBase):
                     for t in s:
                         taskchain._D[t] = 0
 
+        # chain tasks do not occur in _I or _D
+        for t in set(taskchain.tasks):
+                assert t not in taskchain._I and t not in taskchain._D, "Taskchain task %s in D or I." % t
+
         # sanity check (all high priority tasks occur in _I or _D
         for t in taskchain.resource().tasks - set(taskchain.tasks) - lower:
             if self.priority_cmp(t.scheduling_parameter, min_prio):

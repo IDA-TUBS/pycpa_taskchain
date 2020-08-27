@@ -101,22 +101,22 @@ class Experiment(object):
             i += 1
 
         sys = model.System("System")
-        r = sys.bind_resource(tc_model.TaskchainResource("R1", scheduler=self.scheduler))
-        r.build_from_model(self.resource_model)
-        r.create_taskchains(single=not self.build_chains)
+        res = sys.bind_resource(tc_model.TaskchainResource("R1", scheduler=self.scheduler))
 
+        endpoints = set()
         if not self.paths:
-            roots = set()
             for t in self.resource_model.tasks:
-                if len(self.resource_model.predecessors(t)) == 0:
-                    roots.add(t)
+                if len(self.resource_model.successors(t)) == 0:
+                    endpoints.add(t)
 
-            # perform a DFS
-            for r in roots:
-                for p in self.resource_model.paths(r):
-                    self.paths.append(model.Path(p[-1].name, p))
+        # then, bind model and create taskschains because it might change the taskmodel (in case of SPPSchedulerSegmentsUniform)
+        res.build_from_model(self.resource_model)
+        res.create_taskchains(single=not self.build_chains)
 
-        # TODO do we need to check that chains reflect paths?
+        # then, find how the previously identified endpoints map to the taskgraph now
+        for ep in endpoints:
+            p = self.resource_model.root_path(ep)
+            self.paths.append(model.Path(p[-1].name, p))
 
         self.task_results = analysis.analyze_system(sys)
 

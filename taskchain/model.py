@@ -229,7 +229,7 @@ class ResourceModel (object):
         return chain
 
     def is_strong_precedence(self, src, dst):
-        assert dst in self.tasklinks[src], "No tasklink for %s in %s." % (dst, self.tasklinks[src])
+        assert dst in self.tasklinks[src], "No tasklink for %s to %s in %s." % (src, dst, self.tasklinks[src])
         for ctx, blocking in self.allocations[src].items():
             if blocking and ctx in self.allocations[dst]:
                 return True
@@ -280,6 +280,9 @@ class ResourceModel (object):
         #  warning to point this out. Alternatively, we could modify the path analysis to work on the
         #  original model.
         for t in self.tasks:
+            if t.next_tasks:
+                t.next_tasks = set()
+                t.prev_task = None
             if len(self.successors(t, only_strong=True)) and len(self.successors(t)) > 1:
                 strict_chain = self.strong_chain(t)
                 for s in self.successors(t) - {strict_chain[1]}:
@@ -374,6 +377,15 @@ class ResourceModel (object):
                     paths.add(tuple(path))
 
         return paths
+
+    def root_path(self, endpoint):
+        path = [endpoint]
+        while self.predecessors(path[-1]):
+            preds = self.predecessors(path[-1])
+            assert len(preds) == 1
+            path.append(list(preds)[0])
+
+        return list(reversed(path))
 
     def dfs(self, root):
         tasks = [root]
