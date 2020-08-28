@@ -229,6 +229,9 @@ class ResourceModel (object):
         return chain
 
     def is_strong_precedence(self, src, dst):
+        if dst in self.junctions:
+            return False
+
         assert dst in self.tasklinks[src], "No tasklink for %s to %s in %s." % (src, dst, self.tasklinks[src])
         for ctx, blocking in self.allocations[src].items():
             if blocking and ctx in self.allocations[dst]:
