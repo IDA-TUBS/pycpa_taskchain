@@ -20,6 +20,7 @@ from __future__ import division
 import itertools
 import math
 import logging
+import time
 
 from pycpa import analysis
 from pycpa import options
@@ -586,6 +587,7 @@ class TaskChainBusyWindow(object):
 
     def _refresh(self, window):
         modified = False
+        start = time.process_time()
         while True:
             modified = False
             for b in self.upper_bounds.values():
@@ -595,12 +597,17 @@ class TaskChainBusyWindow(object):
             if not modified:
                 break
 
+            elapsed = time.process_time() - start
+            if elapsed > options.get_opt('timeout'):
+                raise analysis.TimeoutException("Timed out in TaskChainBusyWindow._refresh()")
+
     def calculate(self):
         w = 0
         for b in self.lower_bounds.values():
             assert(b.workload() != float('inf'))
             w += b.workload()
 
+        start = time.process_time()
         while True:
             self._refresh(w)
 
@@ -619,6 +626,10 @@ class TaskChainBusyWindow(object):
                 print("%d <= %d" % (w_new, w))
             assert(w_new > w)
             w = w_new
+
+            elapsed = time.process_time() - start
+            if elapsed > options.get_opt('timeout'):
+                raise analysis.TimeoutException("Timed out in TaskChainBusyWindow.calculate()")
 
 class CandidateSearch(object):
 
