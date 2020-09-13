@@ -48,9 +48,11 @@ There are two evaluation criteria: accuracy and scalability.
 * We generate two different sets of models (with and without priority inheritance).
 * A particular analysis can be run for a set of models using [run_multiple.py].
 * Note, when applying standard CPA or `SPPSchedulerSegmentsUniform` to models with blocking on account of shared execution contexts, the model is relaxed so that blocking is eliminated.
+* All analyses of the generated models can be run sequentially by executing [analyze_generated.sh].
 
 [generate_models.py]: generate_models.py
 [run_multiple.py]: run_multiple.py
+[analyze_generated.sh]: analyze_generated.sh
 
 ### Evaluation
 
