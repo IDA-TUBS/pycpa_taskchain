@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<key id="wcet" for="node" attr.name="wcet" attr.type="int">
+	<default>1</default>
+</key>
+<key id="type" for="node" attr.name="type" attr.type="string">
+	<default>task</default>
+</key>
+<key id="period" for="node" attr.name="period" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="jitter" for="node" attr.name="jitter" attr.type="integer">
+	<default>0</default>
+</key>
+<key id="wcet" for="node" attr.name="wcet" attr.type="integer">
+</key>
+<key id="bcet" for="node" attr.name="bcet" attr.type="integer">
+	<default>1</default>
+</key>
+<key id="scheduling_parameter" for="node" attr.name="scheduling_parameter" attr.type="integer">
+</key>
+<key id="name" for="graph" attr.name="name" attr.type="string"/>
+<graph edgedefault="directed"><data key="name">usecase</data>
+	<node id="t11">
+		<data key="period">40</data>
+		<data key="wcet">1</data>
+	</node>
+	<node id="t12">
+		<data key="wcet">5</data>
+	</node>
+
+	<node id="t21">
+		<data key="period">100</data>
+		<data key="wcet">10</data>
+	</node>
+	<node id="t22">
+		<data key="wcet">5</data>
+	</node>
+	<node id="t23">
+		<data key="wcet">5</data>
+	</node>
+
+	<node id="t31">
+		<data key="period">50</data>
+		<data key="wcet">8</data>
+	</node>
+	<node id="t32">
+		<data key="wcet">12</data>
+	</node>
+
+	<node id="t41">
+		<data key="period">200</data>
+		<data key="wcet">10</data>
+	</node>
+	<node id="t42">
+		<data key="wcet">20</data>
+	</node>
+	<node id="t43">
+		<data key="wcet">3</data>
+	</node>
+
+	<node id="t51">
+		<data key="period">400</data>
+		<data key="wcet">2</data>
+	</node>
+	<node id="t52">
+		<data key="wcet">12</data>
+	</node>
+	<node id="t53">
+		<data key="wcet">10</data>
+	</node>
+
+
+	<node id="ctx-10">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">1</data>
+	</node>
+	<node id="ctx-9">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">2</data>
+	</node>
+	<node id="ctx-8">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">3</data>
+	</node>
+	<node id="ctx-7">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">4</data>
+	</node>
+	<node id="ctx-6">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">5</data>
+	</node>
+	<node id="ctx-5">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">6</data>
+	</node>
+	<node id="ctx-4">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">7</data>
+	</node>
+	<node id="ctx-3">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">8</data>
+	</node>
+	<node id="ctx-2">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">9</data>
+	</node>
+	<node id="ctx-1">
+		<data key="type">sched</data>
+		<data key="scheduling_parameter">10</data>
+	</node>
+
+	<node id="t1">
+		<data key="type">exec</data>
+	</node>
+	<node id="t2">
+		<data key="type">exec</data>
+	</node>
+	<node id="t3">
+		<data key="type">exec</data>
+	</node>
+	<node id="t4">
+		<data key="type">exec</data>
+	</node>
+	<node id="t5">
+		<data key="type">exec</data>
+	</node>
+
+	<edge source="t11" target="t12"/>
+
+	<edge source="t21" target="t22"/>
+	<edge source="t22" target="t23"/>
+
+	<edge source="t31" target="t32"/>
+
+	<edge source="t41" target="t42"/>
+	<edge source="t42" target="t43"/>
+
+	<edge source="t51" target="t52"/>
+	<edge source="t52" target="t53"/>
+
+	<!-- assign scheduling contxts -->
+	<edge source="t11" target="ctx-10" />
+	<edge source="t12" target="ctx-7" />
+
+	<edge source="t21" target="ctx-4" />
+	<edge source="t22" target="ctx-8" />
+	<edge source="t23" target="ctx-4" />
+
+	<edge source="t31" target="ctx-5" />
+	<edge source="t32" target="ctx-8" />
+
+	<edge source="t41" target="ctx-9" />
+	<edge source="t42" target="ctx-2" />
+	<edge source="t43" target="ctx-3" />
+
+	<edge source="t51" target="ctx-3" />
+	<edge source="t52" target="ctx-1" />
+	<edge source="t53" target="ctx-6" />
+
+	<!-- assign execution contexts -->
+	<edge source="t11" target="t1" />
+	<edge target="t12" source="t1" />
+
+	<edge source="t21" target="t2" />
+	<edge source="t22" target="t2" />
+	<edge target="t23" source="t2" />
+
+	<edge source="t31" target="t3" />
+	<edge target="t32" source="t3" />
+
+	<edge source="t41" target="t4" />
+	<edge source="t42" target="t4" />
+	<edge target="t43" source="t4" />
+
+	<edge source="t51" target="t5" />
+	<edge source="t52" target="t5" />
+	<edge target="t53" source="t5" />
+
+</graph>
+</graphml>
