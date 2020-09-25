@@ -42,6 +42,7 @@ if __name__ == "__main__":
     df = []
     for folder in args.folders:
         data = generated.SchedulabilityData(folder=folder)
+        data.filter_out(column='Branching', value=3)
         df.append(data.crosscatlong())
         df[-1]['Result'] = df[-1]['Result'].astype(cattype)
         if args.order:

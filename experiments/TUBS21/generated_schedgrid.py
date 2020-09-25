@@ -37,6 +37,7 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     data = generated.SchedulabilityData(folder=args.folder)
+    data.filter_out(column='Branching', value=3)
     if args.row:
         df = data.scheddata([args.row, args.col])
     else:

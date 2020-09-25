@@ -109,6 +109,11 @@ class LatencyData(object):
     def data_frame(self):
         return self.dataframe
 
+    def filter_out(self, column, value):
+        df = self.dataframe
+        filt = df[column].map(lambda x: x != value)
+        self.dataframe = df[filt]
+
 
 class SchedulabilityData(object):
     def __init__(self, csvfiles=None, folder=None):
@@ -162,7 +167,7 @@ class SchedulabilityData(object):
                 self.dataframe = self.dataframe.merge(df, on=list(on), how='outer', validate='one_to_one')
 
         if self.dataframe is not None:
-            cattype = CategoricalDtype(categories=['SCHED', 'UNSCHED', 'TIMEOUT'])
+            cattype = CategoricalDtype(categories=['SCHED', 'UNSCHED', 'TIMEOUT'], ordered=True)
             for c in self.catcols:
                 self.dataframe[c] = self.dataframe[c].astype(cattype)
 
@@ -224,3 +229,8 @@ class SchedulabilityData(object):
 
     def data_frame(self):
         return self.dataframe
+
+    def filter_out(self, column, value):
+        df = self.dataframe
+        filt = df[column].map(lambda x: x != value)
+        self.dataframe = df[filt]

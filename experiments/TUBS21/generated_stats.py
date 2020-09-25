@@ -24,6 +24,7 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     data = generated.LatencyData(folder=args.folder)
+    data.filter_out(column='Branching', value=3)
 
     data.process()
 
@@ -41,6 +42,7 @@ if __name__ == "__main__":
     # Schedulability results
     print('\n')
     data = generated.SchedulabilityData(folder=args.folder)
+    data.filter_out(column='Branching', value=3)
     df = data.data_frame()
     print(df.head())
 
