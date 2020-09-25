@@ -74,6 +74,8 @@ class Generator (object):
             # create branches
             for b in range(self.branching_level):
                 n += 1
+                if n > self.number:
+                    break
                 bpred = pred
                 for l in range(self.length-l_fork):
                     task = m.add_task(model.Task("T"+str(ti)))
