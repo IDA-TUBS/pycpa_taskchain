@@ -8,7 +8,7 @@ setup(
     description='pyCPA task-chain analysis extension',
     author='Johannes Schlatow',
     author_email='schlatow@ida.ing.tu-bs.de',
-    url='https://bitbucket.org/pycpa/pycpa_taskchain',
+    url='https://github.com/IDA-TUBS/pycpa_taskchain',
     license='MIT',
     packages= ['taskchain'],
     install_requires=['pycpa', 'networkx']

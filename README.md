@@ -1,10 +1,10 @@
 # Welcome
 
-This is an extension for [pyCPA](https://bitbucket.org/pycpa/pycpa).
+This is an extension for [pyCPA](https://github.com/IDA-TUBS/pycpa).
 
 # Installation and Usage
 
-First, make sure you have [pyCPA](https://bitbucket.org/pycpa/pycpa) installed.
+First, make sure you have [pyCPA](https://github.com/IDA-TUBS/pycpa) installed.
 
 Second, you must either install this extension via `python setup.py install` or set you `PYTHONPATH` correctly (for experts).
 
