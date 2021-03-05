@@ -16,6 +16,7 @@ The following publications have used and modified the analysis implemented here:
 
 * \[EMSOFT17\]: J. Schlatow and R. Ernst, "Response-Time Analysis for Task Chains with Complex Precedence and Blocking Relations" in International Conference on Embedded Software, 2017
 * \[RTAS16\]: J. Schlatow and R. Ernst, "Response-Time Analysis for Task Chains in Communicating Threads" in Real-Time and Embedded Technology  and Applications Symposium, 2016
+* \[TUBS21\]: J. Schlatow, "Enabling in-field integration in critical embedded systems", Phd Thesis, TU Braunschweig, 2021
 
 For better documentation and reproducability, we also keep track of the experiments/benchmarks used in these publications by pursuing the following policy:
 
